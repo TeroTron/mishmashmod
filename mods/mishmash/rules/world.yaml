@@ -216,10 +216,22 @@
 		Side: Tiberian Sun
 		Description: faction-gdi.description
 		Selectable: true
+	Faction@atreides:
+		Name: Atreides
+		InternalName: atreides
+		Description: faction-atreides.description
+		Side: Dune
+		Selectable: true
 	Faction@harkonnen:
 		Name: Harkonnen
 		InternalName: harkonnen
 		Description: faction-harkonnen.description
+		Side: Dune
+		Selectable: true
+	Faction@ordos:
+		Name: Ordos
+		InternalName: ordos
+		Description: faction-ordos.description
 		Side: Dune
 		Selectable: true
 	ResourceRenderer:
@@ -335,6 +347,18 @@ World:
 		ClassName: options-starting-units.mcv-only
 		Factions: soviets
 		BaseActor: smcv
+		BaseActorFacing: 640
+	StartingUnits@atreides:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: atreides
+		BaseActor: atreidesmcv
+		BaseActorFacing: 640
+	StartingUnits@ordos:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: ordos
+		BaseActor: ordosmcv
 		BaseActorFacing: 640
 	StartingUnits@harkonnen:
 		Class: none

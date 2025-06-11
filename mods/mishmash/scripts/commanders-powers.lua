@@ -70,6 +70,8 @@ Ranks =
 	tuva = { "Leytenant", "Kapitan", "Mayor", "Polkovnik", "General" },
 	russianfed = { "Leytenant", "Kapitan", "Mayor", "Polkovnik", "General" },
 	gdi = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
+	atreides = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
+	ordos = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
 	harkonnen = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
 	serbia = { "Leytenant", "Kapitan", "Mayor", "Polkovnik", "General" }
 }

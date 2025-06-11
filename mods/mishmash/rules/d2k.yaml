@@ -1,6 +1,5 @@
-
 #######################################
-# D2K Harkonnen MCV
+# D2K harkonnen MCV
 #######################################
 
 harkonnencnst:
@@ -57,10 +56,10 @@ harkonnenmcv:
 	-WithVoxelBody@Water:
 
 #######################################
-# D2K Harkonnen Buildings
+# D2K harkonnen Buildings
 #######################################
 	
-d2kpowr:
+d2kpowrharkonnen:
 	Inherits: ^PowerPlant
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
@@ -93,7 +92,7 @@ harkonnenbarracks:
 	Buildable:
 		Queue: Building.Shared, Building.harkonnen
 		Description: actor-nahand.description
-		Prerequisites: ~harkonnencnst, d2kpowr, ~techlevel.1
+		Prerequisites: ~harkonnencnst, d2kpowrharkonnen, ~techlevel.1
 		IconPalette: chromedune
 	Building:
 		Footprint: xx xx
@@ -232,7 +231,7 @@ harkonnenrefinery:
 	Inherits: ^Refinery
 	Buildable:
 		Queue: Building.Shared, Building.harkonnen
-		Prerequisites: ~harkonnencnst, d2kpowr, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+		Prerequisites: ~harkonnencnst, d2kpowrharkonnen, ~!global-megawealth, ~techlevel.1, ~AIantiRush
 		IconPalette: chromedune
 	Building:
 		Footprint: xxx xxx
@@ -1029,9 +1028,9 @@ d2kharkonnencombattank:
 		Payload: 500
 		Voice: Move
 	Tooltip:
-		Name: Harkonnen Combat Tank
+		Name: Combat Tank
 	Tooltip@NoRow:
-		Name: Harkonnen Combat Tank
+		Name: Combat Tank
 	Selectable:
 		Class: combattank
 		Bounds: 1206, 1930, 0, -289
@@ -1554,6 +1553,3272 @@ d2kharkonnengrenadier:
 		Queue: Infantry.Shared, Infantry.harkonnen
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Disc Thrower
+	Tooltip@NoRow:
+		Name: Disc Thrower
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: Disc
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: DiscE
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: Disc
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: DiscE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: Disc
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: DiscE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2kgrenadier
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K ordos MCV
+#######################################
+
+ordoscnst:
+	Inherits: ^ConstructionYard
+	Buildable:
+		BuildPaletteOrder: 89
+		IconPalette: chromedune
+	ProvidesPrerequisite@building.ordos:
+		Prerequisite: Building.ordos
+		Factions: ordos
+	Production:
+		Produces: Building.ordos, Support.ordos
+	ProductionQueue@Building:
+		Type: Building.ordos
+		DisplayOrder: 2
+		Factions: ordos
+	ProductionQueue@Support:
+		Type: Support.ordos
+		DisplayOrder: 6
+		Factions: ordos
+	ProductionBar@Building:
+		ProductionType: Building.ordos
+	ProductionBar@Support:
+		ProductionType: Support.ordos
+	Transforms:
+		IntoActor: ordosmcv
+	GrantConditionOnFaction@ordos:
+		Condition: ordos
+		Factions: ordos
+	IsometricSelectable:
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: SovietConstructionYardVoice
+	RenderSprites:
+		Image: conyard.ordos
+		PlayerPalette: d2kpal2
+
+ordosmcv:
+	Inherits: ^ConstructionVehicle
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		Prerequisites: ~ordosrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+		IconPalette: chromedune
+	Transforms:
+		IntoActor: ordoscnst
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: d2kmcv
+		PlayerPalette: d2kpal2
+	WithFacingSpriteBody:
+	-RenderVoxels:
+	-WithVoxelBody:
+	-WithVoxelBody@Water:
+
+#######################################
+# D2K ordos Buildings
+#######################################
+	
+d2kpowrordos:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Description: actor-napowr.description
+		Prerequisites: ~ordoscnst, ~techlevel.1
+		LocalCenterOffset: 0,-512,0
+		IconPalette: chromedune
+	Tooltip:
+		Name: actor-napowr.name
+	Tooltip@NoRow:
+		Name: actor-napowr.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	IsometricSelectable:
+		Class: napowr
+		DecorationHeight: 45
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: power.ordos
+		PlayerPalette: d2kpal2
+
+ordosbarracks:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Description: actor-nahand.description
+		Prerequisites: ~ordoscnst, d2kpowrordos, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Exit@1Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.ordos
+	ProductionQueue:
+		Type: Infantry.ordos
+		DisplayOrder: 14
+		Factions: ordos
+	ProductionBar:
+		ProductionType: Infantry.ordos
+	RallyPoint:
+		Path: 3,3
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: ordosbarracks
+	IsometricSelectable:
+		DecorationHeight: 30
+	RenderSprites:
+		Image: barracks.ordos
+		PlayerPalette: d2kpal2
+
+ordosrefinery:
+	Inherits: ^Refinery
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, d2kpowrordos, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+		LocalCenterOffset: 0,0,0
+	FreeActor:
+		Actor: d2kordosharv
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -1024,-512,3456
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: -64,-1280,3456
+	DockHost:
+		Type: Unload
+		DockAngle: 640
+		DockOffset: 2c0,1400,0
+	-WithDockedOverlay:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	IsometricSelectable:
+		Class: narefn
+		DecorationHeight: 90
+	RenderSprites:
+		Image: refinery.ordos
+		PlayerPalette: d2kpal2
+
+ordoslightweap:
+	Inherits: ^WarFactory
+	Tooltip:
+		Name: Light Factory
+	Tooltip@NoRow:
+		Name: Light Factory
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Description: actor-naweap.description
+		Prerequisites: ~ordoscnst, ordosrefinery, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xx= ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	ProvidesPrerequisite@default:
+	Production:
+		Produces: Vehicle.ordos
+	ProductionQueue:
+		Type: Vehicle.ordos
+		DisplayOrder: 18
+		Factions: ordos
+	ProductionBar:
+		ProductionType: Vehicle.ordos
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithProductionOverlay@WELDING:
+		RequiresCondition: !build-incomplete
+		Queues: Vehicle
+		Sequence: production-welding
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: light.ordos
+		PlayerPalette: d2kpal2
+
+ordosheavyweap:
+	Inherits: ^WarFactory
+	Tooltip:
+		Name: Heavy Factory
+	Tooltip@NoRow:
+		Name: Heavy Factory
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Description: actor-naweap.description
+		Prerequisites: ~ordoscnst, ordosrefinery, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: _x_ xxx =xX ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	ProvidesPrerequisite@default:
+	Production:
+		Produces: Vehicle.ordos
+	ProductionQueue:
+		Type: Vehicle.ordos
+		DisplayOrder: 18
+		Factions: ordos
+	ProductionBar:
+		ProductionType: Vehicle.ordos
+	HitShape:
+		TargetableOffsets: -1155,-704,0, -1365,832,0
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 1536
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, -512
+	Exit@1:
+		SpawnOffset: 256,192,0
+		ExitCell: 0,4
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithProductionOverlay@WELDING:
+		RequiresCondition: !build-incomplete
+		Queues: Armor
+		Sequence: production-welding
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: heavy.ordos
+		PlayerPalette: d2kpal2
+
+ordosoutpost:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, ordosbarracks, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Outpost
+	Tooltip@NoRow:
+		Name: Outpost
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	WithIdleOverlay@DISH:
+		RequiresCondition: !build-incomplete && !severe-damaged
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: outpost.ordos
+		PlayerPalette: d2kpal2
+
+ordosstarport:
+	Inherits: ^Helipad
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Description: actor-naheli.description
+		Prerequisites: ~ordoscnst, ordosheavyweap, ordosoutpost, ~techlevel.1
+		IconPalette: chromedune
+	Tooltip:
+		Name: Starport
+	Tooltip@NoRow:
+		Name: Starport
+	Exit@1:
+		SpawnOffset: -384,128,0
+	Production:
+		Produces: Aircraft.ordos
+	ProductionQueue:
+		Type: Aircraft.Soviets
+		Factions: ordos
+	ProductionQueue@ordos:
+		Type: Aircraft.ordos
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: ordos
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.ordos
+	ProvidesPrerequisite@aircraft.ordos:
+		Prerequisite: aircraft.ordos
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	IsometricSelectable:
+		DecorationHeight: 60
+	RenderSprites:
+		Image: starport.ordos
+		PlayerPalette: d2kpal2
+
+ordosrepair_pad:
+	Inherits: ^Radar
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, ordosheavyweap, ~techlevel.1
+		Description: actor-gaairc.description
+		IconPalette: chromedune
+	Tooltip:
+		Name: actor-gaairc.name
+	Tooltip@NoRow:
+		Name: actor-gaairc.name
+	HitShape:
+		TargetableOffsets: 1024,0,0, 0,-1024,0, 0,1024,0, -1024,0,0
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+	HitShape@TOPANDBOTTOM:
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+	ProvidesPrerequisite@default:
+		Prerequisite: gaairc
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || infiltrated
+	Reservable:
+	ExitsDebugOverlay:
+	Exit@1:
+		Facing: 896
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+	Exit@2:
+		Facing: 896
+		SpawnOffset: -362,-1086,0
+		ExitCell: 1,-1
+	Exit@3:
+		Facing: 896
+		SpawnOffset: -384,512,0
+		ExitCell: 1,2
+	Exit@4:
+		Facing: 896
+		SpawnOffset: 384,768,0
+		ExitCell: 3,2
+	GrantExternalConditionToOwner:
+		Condition: airdock
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Aircraft.Shared
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Aircraft.Allies, Aircraft.ordos
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Aircraft.ordos
+		Group: Aircraft
+		DisplayOrder: 25
+		LowPowerModifier: 200
+		Factions: ordos
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Aircraft.Shared
+	RallyPoint:
+		Path: 1,2
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 1,0, 1,1, 2,1
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -362,-1086,0, -384,512,0, 384,768,0
+		GatherCell: 1,0, 1,1, 2,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	PlaceBuildingVariants:
+		Actors: gaairb
+	IsometricSelectable:
+		Class: gaairc
+		DecorationHeight: 40
+	Voiced:
+		VoiceSet: AirfieldVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+	RenderSprites:
+		Image: repair_pad.ordos
+		PlayerPalette: d2kpal2
+
+ordoshigh_tech_factory:
+	Inherits: ^BaseBuilding
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, ordosoutpost, ~techlevel.1
+		IconPalette: chromedune
+	ProvidesPrerequisite@default:
+		Prerequisite: ordostech
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.ordostech
+	Tooltip:
+		Name: High Tech Factory
+	Tooltip@NoRow:
+		Name: High Tech Factory
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	Building:
+		Footprint: xxx xx= ===
+		Dimensions: 3,3
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	PlaceBuildingVariants:
+		Actors: gatecb
+	IsometricSelectable:
+		Class: ordostech
+		DecorationHeight: 50
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: hightech.ordos
+		PlayerPalette: d2kpal2
+
+ordosresearch_centre:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, ordosoutpost, ordosheavyweap, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Research Centre
+	Tooltip@NoRow:
+		Name: Research Centre
+	ProvidesPrerequisite:
+	Building:
+		Footprint: _X_ xxx XXX ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: research.ordos
+		PlayerPalette: d2kpal2
+
+ordospalace:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.ordos
+		Prerequisites: ~ordoscnst, ordosresearch_centre, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Palace
+	Tooltip@NoRow:
+		Name: Palace
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xx= xxx =xx
+		Dimensions: 3,3
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: palace.ordos
+		PlayerPalette: d2kpal2
+
+d2kordosgunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.ordos
+		Prerequisites: ~ordoscnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: para
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: medium_gun_turret
+		PlayerPalette: d2kpal2
+
+d2kordosrocketturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.ordos
+		Prerequisites: ~ordoscnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Rocket Turret
+	Tooltip@NoRow:
+		Name: Rocket Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament@portable:
+		Weapon: D2kMissileTurret
+		Damage: 90
+		LocalOffset: 256,384,768, 256,-384,768
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+	Armament@portable-aa:
+		Weapon: D2kMissileTurretAA
+		Damage: 90
+		LocalOffset: 256,384,768, 256,-384,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 30
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: large_gun_turret
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K Vehicles
+#######################################
+	
+d2kordosharv:
+	Inherits: ^Miner
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		BuildPaletteOrder: 90
+		Description: actor-cmin.description
+		Prerequisites: ~ordoslightweap
+		IconPalette: chromedune
+	Tooltip:
+		Name: Ore Harvester
+	Tooltip@NoRow:
+		Name: Ore Harvester
+	Harvester:
+		BaleUnloadDelay: 2
+		EmptyCondition: harvester-empty
+	StoresResources:
+		Capacity: 20
+	DockClientManager:
+		Voice: Deliver
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: d2kharv
+		PlayerPalette: d2kpal2
+	WithFacingSpriteBody:
+	WithHarvestOverlay:
+	RenderVoxels:
+		Image: blanktemplate
+		
+d2kordostrike:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Trike
+	Tooltip@NoRow:
+		Name: Trike
+	Selectable:
+		Class: Trike
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		Prerequisites: ~ordoslightweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: para
+		Damage: 25
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+	Armament@primary-elite:
+		Weapon: paraE
+		Damage: 50
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2ktrike
+		PlayerPalette: d2kpal2
+
+d2kordosquad:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Quad
+	Tooltip@NoRow:
+		Name: Quad
+	Selectable:
+		Class: Quad
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		Prerequisites: ~ordoslightweap
+		BuildPaletteOrder: 30
+		Description: actor-d2kquad.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 80
+		Speed: 99
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primary-elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		RequiresCondition: rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primaryAA-elite:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		RequiresCondition: rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2kquad
+		PlayerPalette: d2kpal2
+
+d2kordoscombattank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Combat Tank
+	Tooltip@NoRow:
+		Name: Combat Tank
+	Selectable:
+		Class: combattank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		Prerequisites: ~ordosheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2kcombattank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 20
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: 120mm
+		Damage: 90
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: 120mmE
+		Damage: 180
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,-32
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	AttackTurreted:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: combat_tank_h
+		PlayerPalette: d2kpal2
+
+d2kordossiegetank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Siege Tank
+	Tooltip@NoRow:
+		Name: Siege Tank
+	Selectable:
+		Class: siegetank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.ordos
+		Prerequisites: ~ordosheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ksiegetank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 43
+		TurnSpeed: 12
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: d2ksiegemm
+		Damage: 100
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: d2ksiegemmE
+		Damage: 150
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,-32
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2ksiege_tank
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K Infantry
+#######################################
+
+d2kordose1:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.ordos
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ordosbarracks
+		BuildPaletteOrder: 10
+		Description: actor-d2ke1.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Light Infantry
+	Tooltip@NoRow:
+		Name: Light Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: M1Carbine
+		Damage: 15
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: M1CarbineE
+		Damage: 20
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: M1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: M1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCM1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCM1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2klight_inf
+		PlayerPalette: d2kpal2
+		
+d2kordosengineer:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Infantry.Shared, Infantry.ordos
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ordosbarracks
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: actor-engineer.name
+	Tooltip@NoRow:
+		Name: actor-engineer.name
+	Selectable:
+		Priority: 4
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: foot
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	InstantlyRepairs:
+		Types: building
+		RepairSound: urepair.wav
+	InstantlyRepairs@CIV:
+		Types: civilian
+		RepairSound: urepair.wav
+		ValidRelationships: Ally, Neutral
+	RepairsBridges:
+		RepairNotification: BridgeRepaired
+	Captures@INSTANT:
+		CaptureTypes: building, tech, husk
+		RequiresCondition: instantcapture
+	Captures@TIMED:
+		CaptureDelay: 75
+		CaptureTypes: building, husk
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	Captures@TECH:
+		CaptureTypes: tech
+		CaptureDelay: 250
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	Armament:
+		Weapon: DefuseKit
+		Cursor: remove-bomb
+		OutsideRangeCursor: remove-bomb
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: D2kEngineerVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	CaptureManager:
+	RenderSprites:
+		Image: d2kengineer
+		PlayerPalette: d2kpal2
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+d2kordostrooper:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.ordos
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ordosbarracks
+		BuildPaletteOrder: 10
+		Description: Trooper
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Trooper
+	Tooltip@NoRow:
+		Name: Trooper
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@eliteAA:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
+	RenderSprites:
+		Image: d2ktrooper
+		PlayerPalette: d2kpal2
+		
+d2kordosgrenadier:
+	Inherits: ^Infantry
+	Inherits@APBULLETS: ^AffectedByAPBullets
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@MOLOTOV: ^AffectedByMolotovCocktails
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@SMOKEGREN: ^AffectedBySmokeGrenades
+	Buildable:
+		Queue: Infantry.Shared, Infantry.ordos
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ordosbarracks
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Disc Thrower
+	Tooltip@NoRow:
+		Name: Disc Thrower
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: Disc
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: DiscE
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: Disc
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: DiscE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: Disc
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: DiscE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2kgrenadier
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K atreides MCV
+#######################################
+
+atreidescnst:
+	Inherits: ^ConstructionYard
+	Buildable:
+		BuildPaletteOrder: 89
+		IconPalette: chromedune
+	ProvidesPrerequisite@building.atreides:
+		Prerequisite: Building.atreides
+		Factions: atreides
+	Production:
+		Produces: Building.atreides, Support.atreides
+	ProductionQueue@Building:
+		Type: Building.atreides
+		DisplayOrder: 2
+		Factions: atreides
+	ProductionQueue@Support:
+		Type: Support.atreides
+		DisplayOrder: 6
+		Factions: atreides
+	ProductionBar@Building:
+		ProductionType: Building.atreides
+	ProductionBar@Support:
+		ProductionType: Support.atreides
+	Transforms:
+		IntoActor: atreidesmcv
+	GrantConditionOnFaction@atreides:
+		Condition: atreides
+		Factions: atreides
+	IsometricSelectable:
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: SovietConstructionYardVoice
+	RenderSprites:
+		Image: conyard.atreides
+		PlayerPalette: d2kpal2
+
+atreidesmcv:
+	Inherits: ^ConstructionVehicle
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		Prerequisites: ~atreidesrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+		IconPalette: chromedune
+	Transforms:
+		IntoActor: atreidescnst
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: d2kmcv
+		PlayerPalette: d2kpal2
+	WithFacingSpriteBody:
+	-RenderVoxels:
+	-WithVoxelBody:
+	-WithVoxelBody@Water:
+
+#######################################
+# D2K atreides Buildings
+#######################################
+	
+d2kpowratreides:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Description: actor-napowr.description
+		Prerequisites: ~atreidescnst, ~techlevel.1
+		LocalCenterOffset: 0,-512,0
+		IconPalette: chromedune
+	Tooltip:
+		Name: actor-napowr.name
+	Tooltip@NoRow:
+		Name: actor-napowr.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	IsometricSelectable:
+		Class: napowr
+		DecorationHeight: 45
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: power.atreides
+		PlayerPalette: d2kpal2
+
+atreidesbarracks:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Description: actor-nahand.description
+		Prerequisites: ~atreidescnst, d2kpowratreides, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Exit@1Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.atreides
+	ProductionQueue:
+		Type: Infantry.atreides
+		DisplayOrder: 14
+		Factions: atreides
+	ProductionBar:
+		ProductionType: Infantry.atreides
+	RallyPoint:
+		Path: 3,3
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: atreidesbarracks
+	IsometricSelectable:
+		DecorationHeight: 30
+	RenderSprites:
+		Image: barracks.atreides
+		PlayerPalette: d2kpal2
+
+atreidesrefinery:
+	Inherits: ^Refinery
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, d2kpowratreides, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+		LocalCenterOffset: 0,0,0
+	FreeActor:
+		Actor: d2katreidesharv
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -1024,-512,3456
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: -64,-1280,3456
+	DockHost:
+		Type: Unload
+		DockAngle: 640
+		DockOffset: 2c0,1400,0
+	-WithDockedOverlay:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	IsometricSelectable:
+		Class: narefn
+		DecorationHeight: 90
+	RenderSprites:
+		Image: refinery.atreides
+		PlayerPalette: d2kpal2
+
+atreideslightweap:
+	Inherits: ^WarFactory
+	Tooltip:
+		Name: Light Factory
+	Tooltip@NoRow:
+		Name: Light Factory
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Description: actor-naweap.description
+		Prerequisites: ~atreidescnst, atreidesrefinery, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xx= ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	ProvidesPrerequisite@default:
+	Production:
+		Produces: Vehicle.atreides
+	ProductionQueue:
+		Type: Vehicle.atreides
+		DisplayOrder: 18
+		Factions: atreides
+	ProductionBar:
+		ProductionType: Vehicle.atreides
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithProductionOverlay@WELDING:
+		RequiresCondition: !build-incomplete
+		Queues: Vehicle
+		Sequence: production-welding
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: light.atreides
+		PlayerPalette: d2kpal2
+
+atreidesheavyweap:
+	Inherits: ^WarFactory
+	Tooltip:
+		Name: Heavy Factory
+	Tooltip@NoRow:
+		Name: Heavy Factory
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Description: actor-naweap.description
+		Prerequisites: ~atreidescnst, atreidesrefinery, ~techlevel.1
+		IconPalette: chromedune
+	Building:
+		Footprint: _x_ xxx =xX ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	ProvidesPrerequisite@default:
+	Production:
+		Produces: Vehicle.atreides
+	ProductionQueue:
+		Type: Vehicle.atreides
+		DisplayOrder: 18
+		Factions: atreides
+	ProductionBar:
+		ProductionType: Vehicle.atreides
+	HitShape:
+		TargetableOffsets: -1155,-704,0, -1365,832,0
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 1536
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, -512
+	Exit@1:
+		SpawnOffset: 256,192,0
+		ExitCell: 0,4
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithProductionOverlay@WELDING:
+		RequiresCondition: !build-incomplete
+		Queues: Armor
+		Sequence: production-welding
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: heavy.atreides
+		PlayerPalette: d2kpal2
+
+atreidesoutpost:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, atreidesbarracks, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Outpost
+	Tooltip@NoRow:
+		Name: Outpost
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	WithIdleOverlay@DISH:
+		RequiresCondition: !build-incomplete && !severe-damaged
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: outpost.atreides
+		PlayerPalette: d2kpal2
+
+atreidesstarport:
+	Inherits: ^Helipad
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Description: actor-naheli.description
+		Prerequisites: ~atreidescnst, atreidesheavyweap, atreidesoutpost, ~techlevel.1
+		IconPalette: chromedune
+	Tooltip:
+		Name: Starport
+	Tooltip@NoRow:
+		Name: Starport
+	Exit@1:
+		SpawnOffset: -384,128,0
+	Production:
+		Produces: Aircraft.atreides
+	ProductionQueue:
+		Type: Aircraft.Soviets
+		Factions: atreides
+	ProductionQueue@atreides:
+		Type: Aircraft.atreides
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: atreides
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.atreides
+	ProvidesPrerequisite@aircraft.atreides:
+		Prerequisite: aircraft.atreides
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	IsometricSelectable:
+		DecorationHeight: 60
+	RenderSprites:
+		Image: starport.atreides
+		PlayerPalette: d2kpal2
+
+atreidesrepair_pad:
+	Inherits: ^Radar
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, atreidesheavyweap, ~techlevel.1
+		Description: actor-gaairc.description
+		IconPalette: chromedune
+	Tooltip:
+		Name: actor-gaairc.name
+	Tooltip@NoRow:
+		Name: actor-gaairc.name
+	HitShape:
+		TargetableOffsets: 1024,0,0, 0,-1024,0, 0,1024,0, -1024,0,0
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+	HitShape@TOPANDBOTTOM:
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+	ProvidesPrerequisite@default:
+		Prerequisite: gaairc
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || infiltrated
+	Reservable:
+	ExitsDebugOverlay:
+	Exit@1:
+		Facing: 896
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+	Exit@2:
+		Facing: 896
+		SpawnOffset: -362,-1086,0
+		ExitCell: 1,-1
+	Exit@3:
+		Facing: 896
+		SpawnOffset: -384,512,0
+		ExitCell: 1,2
+	Exit@4:
+		Facing: 896
+		SpawnOffset: 384,768,0
+		ExitCell: 3,2
+	GrantExternalConditionToOwner:
+		Condition: airdock
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Aircraft.Shared
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Aircraft.Allies, Aircraft.atreides
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Aircraft.atreides
+		Group: Aircraft
+		DisplayOrder: 25
+		LowPowerModifier: 200
+		Factions: atreides
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Aircraft.Shared
+	RallyPoint:
+		Path: 1,2
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 1,0, 1,1, 2,1
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -362,-1086,0, -384,512,0, 384,768,0
+		GatherCell: 1,0, 1,1, 2,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	PlaceBuildingVariants:
+		Actors: gaairb
+	IsometricSelectable:
+		Class: gaairc
+		DecorationHeight: 40
+	Voiced:
+		VoiceSet: AirfieldVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+	RenderSprites:
+		Image: repair_pad.atreides
+		PlayerPalette: d2kpal2
+
+atreideshigh_tech_factory:
+	Inherits: ^BaseBuilding
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, atreidesoutpost, ~techlevel.1
+		IconPalette: chromedune
+	ProvidesPrerequisite@default:
+		Prerequisite: atreidestech
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.atreidestech
+	Tooltip:
+		Name: High Tech Factory
+	Tooltip@NoRow:
+		Name: High Tech Factory
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	Building:
+		Footprint: xxx xx= ===
+		Dimensions: 3,3
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	PlaceBuildingVariants:
+		Actors: gatecb
+	IsometricSelectable:
+		Class: atreidestech
+		DecorationHeight: 50
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: hightech.atreides
+		PlayerPalette: d2kpal2
+
+atreidesresearch_centre:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, atreidesoutpost, atreidesheavyweap, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Research Centre
+	Tooltip@NoRow:
+		Name: Research Centre
+	ProvidesPrerequisite:
+	Building:
+		Footprint: _X_ xxx XXX ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: research.atreides
+		PlayerPalette: d2kpal2
+
+atreidespalace:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.atreides
+		Prerequisites: ~atreidescnst, atreidesresearch_centre, ~techlevel.1
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Palace
+	Tooltip@NoRow:
+		Name: Palace
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xx= xxx =xx
+		Dimensions: 3,3
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: palace.atreides
+		PlayerPalette: d2kpal2
+
+d2katreidesgunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.atreides
+		Prerequisites: ~atreidescnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: para
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: medium_gun_turret
+		PlayerPalette: d2kpal2
+
+d2katreidesrocketturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.atreides
+		Prerequisites: ~atreidescnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Rocket Turret
+	Tooltip@NoRow:
+		Name: Rocket Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament@portable:
+		Weapon: D2kMissileTurret
+		Damage: 90
+		LocalOffset: 256,384,768, 256,-384,768
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+	Armament@portable-aa:
+		Weapon: D2kMissileTurretAA
+		Damage: 90
+		LocalOffset: 256,384,768, 256,-384,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 30
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: large_gun_turret
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K Vehicles
+#######################################
+	
+d2katreidesharv:
+	Inherits: ^Miner
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		BuildPaletteOrder: 90
+		Description: actor-cmin.description
+		Prerequisites: ~atreideslightweap
+		IconPalette: chromedune
+	Tooltip:
+		Name: Ore Harvester
+	Tooltip@NoRow:
+		Name: Ore Harvester
+	Harvester:
+		BaleUnloadDelay: 2
+		EmptyCondition: harvester-empty
+	StoresResources:
+		Capacity: 20
+	DockClientManager:
+		Voice: Deliver
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: d2kharv
+		PlayerPalette: d2kpal2
+	WithFacingSpriteBody:
+	WithHarvestOverlay:
+	RenderVoxels:
+		Image: blanktemplate
+		
+d2katreidestrike:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Trike
+	Tooltip@NoRow:
+		Name: Trike
+	Selectable:
+		Class: Trike
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		Prerequisites: ~atreideslightweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: para
+		Damage: 25
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+	Armament@primary-elite:
+		Weapon: paraE
+		Damage: 50
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2ktrike
+		PlayerPalette: d2kpal2
+
+d2katreidesquad:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Quad
+	Tooltip@NoRow:
+		Name: Quad
+	Selectable:
+		Class: Quad
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		Prerequisites: ~atreideslightweap
+		BuildPaletteOrder: 30
+		Description: actor-d2kquad.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 80
+		Speed: 99
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primary-elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		RequiresCondition: rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Armament@primaryAA-elite:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		RequiresCondition: rank-elite
+		LocalOffset: 128,64,64, 128,-64,64
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2kquad
+		PlayerPalette: d2kpal2
+
+d2katreidescombattank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Combat Tank
+	Tooltip@NoRow:
+		Name: Combat Tank
+	Selectable:
+		Class: combattank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		Prerequisites: ~atreidesheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2kcombattank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 20
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: 120mm
+		Damage: 90
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: 120mmE
+		Damage: 180
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,-32
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	AttackTurreted:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: combat_tank_h
+		PlayerPalette: d2kpal2
+
+d2katreidessiegetank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Siege Tank
+	Tooltip@NoRow:
+		Name: Siege Tank
+	Selectable:
+		Class: siegetank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.atreides
+		Prerequisites: ~atreidesheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ksiegetank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 43
+		TurnSpeed: 12
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: d2ksiegemm
+		Damage: 100
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: d2ksiegemmE
+		Damage: 150
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,-32
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2ksiege_tank
+		PlayerPalette: d2kpal2
+
+#######################################
+# D2K Infantry
+#######################################
+
+d2katreidese1:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.atreides
+		BuildAtProductionType: Soldier
+		Prerequisites: ~atreidesbarracks
+		BuildPaletteOrder: 10
+		Description: actor-d2ke1.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Light Infantry
+	Tooltip@NoRow:
+		Name: Light Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: M1Carbine
+		Damage: 15
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: M1CarbineE
+		Damage: 20
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: M1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: M1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCM1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCM1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2klight_inf
+		PlayerPalette: d2kpal2
+		
+d2katreidesengineer:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Infantry.Shared, Infantry.atreides
+		BuildAtProductionType: Soldier
+		Prerequisites: ~atreidesbarracks
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: actor-engineer.name
+	Tooltip@NoRow:
+		Name: actor-engineer.name
+	Selectable:
+		Priority: 4
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: foot
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	InstantlyRepairs:
+		Types: building
+		RepairSound: urepair.wav
+	InstantlyRepairs@CIV:
+		Types: civilian
+		RepairSound: urepair.wav
+		ValidRelationships: Ally, Neutral
+	RepairsBridges:
+		RepairNotification: BridgeRepaired
+	Captures@INSTANT:
+		CaptureTypes: building, tech, husk
+		RequiresCondition: instantcapture
+	Captures@TIMED:
+		CaptureDelay: 75
+		CaptureTypes: building, husk
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	Captures@TECH:
+		CaptureTypes: tech
+		CaptureDelay: 250
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	Armament:
+		Weapon: DefuseKit
+		Cursor: remove-bomb
+		OutsideRangeCursor: remove-bomb
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: D2kEngineerVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	CaptureManager:
+	RenderSprites:
+		Image: d2kengineer
+		PlayerPalette: d2kpal2
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+d2katreidestrooper:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.atreides
+		BuildAtProductionType: Soldier
+		Prerequisites: ~atreidesbarracks
+		BuildPaletteOrder: 10
+		Description: Trooper
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Trooper
+	Tooltip@NoRow:
+		Name: Trooper
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@eliteAA:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
+	RenderSprites:
+		Image: d2ktrooper
+		PlayerPalette: d2kpal2
+		
+d2katreidesgrenadier:
+	Inherits: ^Infantry
+	Inherits@APBULLETS: ^AffectedByAPBullets
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@MOLOTOV: ^AffectedByMolotovCocktails
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@SMOKEGREN: ^AffectedBySmokeGrenades
+	Buildable:
+		Queue: Infantry.Shared, Infantry.atreides
+		BuildAtProductionType: Soldier
+		Prerequisites: ~atreidesbarracks
 		BuildPaletteOrder: 10
 		Description: actor-e2.description
 		BuildDuration: 50

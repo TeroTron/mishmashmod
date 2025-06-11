@@ -46,6 +46,8 @@ LeaderTypes =
 	soviets = "myak.regicide",
 	yuri = "yuripr.regicide",
 	harkonnen = "myak.regicide",
+	atreides = "myak.regicide",
+	ordos = "myak.regicide",
 	gdi = "pres.regicide"
 }
 
