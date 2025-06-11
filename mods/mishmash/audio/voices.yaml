@@ -1403,6 +1403,7 @@ D2kVehicleVoice:
 		Guard: I_GUARD
 
 D2kInfantryVoice:
+	Inherits: ^InfantryDeath
 	DefaultVariant: .AUD
 	Variants:
 		atreides: .WAV
@@ -1427,6 +1428,7 @@ D2kInfantryVoice:
 	DisableVariants: Select, Action, Guard
 
 D2kEngineerVoice:
+	Inherits: ^InfantryDeath
 	DefaultVariant: .AUD
 	Variants:
 		atreides: .WAV
@@ -1451,6 +1453,7 @@ D2kEngineerVoice:
 	DisableVariants: Select, Action, Guard
 
 D2kFremenVoice:
+	Inherits: ^InfantryDeath
 	DefaultVariant: .AUD
 	Variants:
 		atreides: .WAV
@@ -1475,6 +1478,7 @@ D2kFremenVoice:
 	DisableVariants: Select, Action, Guard
 
 D2kSaboteurVoice:
+	Inherits: ^InfantryDeath
 	DefaultVariant: .AUD
 	Variants:
 		atreides: .WAV
