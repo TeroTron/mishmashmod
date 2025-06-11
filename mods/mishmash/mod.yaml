@@ -1,12 +1,12 @@
 Metadata:
 	Title: Mishmash
-	Version: git-ead0b44e
-	Website: https://github.com/MustaphaTR/Romanovs-Vengeance
-	WebIcon32: https://raw.githubusercontent.com/MustaphaTR/Romanovs-Vengeance/master/packaging/artwork/icon_32x32.png
+	Version: 20250611
+	Website: https://github.com/TeroTron/mishmashmod
+	WebIcon32: https://raw.githubusercontent.com/TeroTron/mishmashmod/refs/heads/master/packaging/artwork/icon_32x32.png
 	WindowTitle: mod-windowtitle
 
 ModCredits:
-	ModTabTitle: Romanov's Vengeance
+	ModTabTitle: Mishmash Mod
 	ModCreditsFile: mishmash|AUTHORS.RV
 
 PackageFormats: Mix, AudioBag

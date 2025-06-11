@@ -656,8 +656,6 @@ nadept:
 		Sequence: idle-normal
 		PauseOnCondition: chronodisable
 		RequiresCondition: !build-incomplete
-	PlaceBuildingVariants:
-		Actors: nadepb
 	IsometricSelectable:
 		Class: nadept
 		DecorationHeight: 90
@@ -740,8 +738,6 @@ nanrct:
 	IsometricSelectable:
 		Class: nanrct
 		DecorationHeight: 60
-	PlaceBuildingVariants:
-		Actors: nanrcb
 	Voiced:
 		VoiceSet: NuclearReactorVoice
 		Volume: 0.8
@@ -1539,7 +1535,6 @@ nagatea:
 		Type: nawall
 	Replacement:
 		ReplaceableTypes: SovietGate
-	PlaceBuildingVariants:
 		Actors: nagateb
 	IsometricSelectable:
 		Class: nagate
