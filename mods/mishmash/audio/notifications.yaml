@@ -1,37 +1,9 @@
 Speech:
 	DefaultVariant: .wav
 	Prefixes:
-		america: ceva
-		korea: ceva
-		france: ceva
-		germany: ceva
-		england: ceva
-		japan: ceva
-		belarus: ceva
-		poland: ceva
-		ukraine: ceva
-		aussie: ceva
-		china: ceva
-		turkey: ceva
-		canada: ceva
-		libya: csof
-		cuba: csof
-		iraq: csof
-		russia: csof
-		vietnam: csof
-		chile: csof
-		mexico: csof
-		mongolia: csof
-		psicorps: cyur
-		psinepal: cyur
-		psitrans: cyur
-		psisouth: cyur
-		psimoon: cyur
-		transcaucus: csof
-		serbia: csof
-		turkmen: csof
-		tuva: csof
-		russianfed: csof
+		allies: ceva
+		soviets: csof
+		yuri: cyur
 	Notifications:
 		AllianceBroken: 044
 		AllianceFormed: 043

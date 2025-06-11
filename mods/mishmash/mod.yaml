@@ -99,6 +99,7 @@ FileSystem: ContentInstallerFileSystem
 		# Mishmash
 		mishmash|bits/ts
 		mishmash|bits/d2k
+		mishmash|bits/GAMESFX
 	ContentInstallerMod: rv-content
 
 MapFolders:
@@ -369,7 +370,7 @@ DefaultOrderGenerator: UnitOrderGenerator
 # Our maps may not work on RA2 mod, but RA2's maps would work here.
 SupportsMapsFrom: rv, ra2
 
-SoundFormats: Aud, Wav
+SoundFormats: Aud, Wav, Mp3
 
 SpriteFormats: ShpTS, TmpTS, ShpTD, PngSheet, R8
 

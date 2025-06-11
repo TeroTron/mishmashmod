@@ -52,7 +52,7 @@ napowr:
 	Inherits: ^PowerPlant
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
-		Queue: Building.Shared, Building.Soviets
+		Queue: Building.Soviets
 		Description: actor-napowr.description
 		Prerequisites: ~building.soviets, ~techlevel.1
 	Tooltip:
@@ -79,7 +79,7 @@ nahand:
 	Inherits: ^Barracks
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Building.Shared, Building.Soviets
+		Queue: Building.Soviets
 		Description: actor-nahand.description
 		Prerequisites: ~building.soviets, power, ~techlevel.1
 	Building:
@@ -89,63 +89,63 @@ nahand:
 		SpawnOffset: -512,768,0
 		ExitCell: 1,2
 		Priority: 2
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@2Shared:
 		SpawnOffset: -512,768,0
 		ExitCell: 0,2
 		Priority: 2
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback1Shared:
 		SpawnOffset: 0,724,0
 		ExitCell: 2,2
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback2Shared:
 		SpawnOffset: 0,724,0
 		ExitCell: 2,1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback3Shared:
 		SpawnOffset: 724,0,0
 		ExitCell: 2,0
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback4Shared:
 		SpawnOffset: 724,0,0
 		ExitCell: 2,-1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback5Shared:
 		SpawnOffset: 724,0,0
 		ExitCell: 1,-1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback6Shared:
 		SpawnOffset: 0,-724,0
 		ExitCell: 0,-1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback7Shared:
 		SpawnOffset: 0,-724,0
 		ExitCell: -1,-1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback8Shared:
 		SpawnOffset: 0,-724,0
 		ExitCell: -1,0
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback9Shared:
 		SpawnOffset: -724,0,0
 		ExitCell: -1,1
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@fallback10Shared:
 		SpawnOffset: -724,0,0
 		ExitCell: -1,2
-		ProductionTypes: Infantry.Shared, Infantry.Soviets, Soldier
+		ProductionTypes: Infantry.Soviets, Soldier
 		RequiresCondition: !multiqueue
 	Exit@1:
 		SpawnOffset: -512,768,0
@@ -219,7 +219,7 @@ nahand:
 narefn:
 	Inherits: ^Refinery
 	Buildable:
-		Queue: Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Soviets, Building.Baku
 		Prerequisites: ~building.soviets, power, ~!global-megawealth, ~techlevel.1, ~AIantiRush
 	FreeActor:
 		Actor: harv
@@ -246,7 +246,7 @@ naradr:
 	Inherits@SHAPE: ^2x2Shape
 	Inherits@AI: ^AIControl
 	Buildable:
-		Queue: Building.Shared, Building.Soviets
+		Queue: Building.Soviets
 		Prerequisites: ~building.soviets, power, narefn, ~techlevel.2, ~!ai.naradr
 		Description: actor-naradr.description
 	ProvidesPrerequisite@AIbuildinglimit:
@@ -537,7 +537,7 @@ mine:
 naweap:
 	Inherits: ^WarFactory
 	Buildable:
-		Queue: Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Soviets, Building.Baku
 		Description: actor-naweap.description
 		Prerequisites: ~building.soviets, refinery, ~techlevel.1
 	ProvidesPrerequisite@default:
@@ -564,7 +564,7 @@ naweap:
 nayard:
 	Inherits: ^Shipyard
 	Buildable:
-		Queue: Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Soviets, Building.Baku
 		Prerequisites: ~building.soviets, refinery, ~techlevel.1
 		Description: actor-nayard.description
 	ProvidesPrerequisite@ship.soviets:
@@ -645,7 +645,7 @@ nadept:
 	HitShape:
 		TargetableOffsets: 0,0,0, -360,360,0, 360,-360,0, -1080,1080,0, -360,1800,0, -1800,360,0, 360,1080,0, -360,-1080,0, 1080,360,0, -1080,-360,0
 	Buildable:
-		Queue: Building.Unused # Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Unused # Building.Soviets, Building.Baku
 		Prerequisites: ~building.soviets, naweap, ~techlevel.1
 		Description: actor-nadept.description
 	ProvidesPrerequisite@default:
@@ -665,7 +665,7 @@ nadept:
 naheli:
 	Inherits: ^Helipad
 	Buildable:
-		Queue: Building.Shared, Building.Soviets
+		Queue: Building.Soviets
 		Description: actor-naheli.description
 		Prerequisites: ~building.soviets, naradr, ~techlevel.2
 	Tooltip:
@@ -699,7 +699,7 @@ nanrct:
 	Inherits@ADVIRRAD: ^AffectedByAdvancedIrradiators
 	Inherits@SHAPE: ^4x4Shape
 	Buildable:
-		Queue: Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Soviets, Building.Baku
 		BuildPaletteOrder: 110
 		Prerequisites: ~building.soviets, natech, ~techlevel.3
 		Description: actor-nanrct.description
@@ -756,7 +756,7 @@ natech:
 	Inherits: ^BattleLab
 	Inherits@SHAPE: ^3x3Shape
 	Buildable:
-		Queue: Building.Shared, Building.Soviets, Building.Baku
+		Queue: Building.Soviets, Building.Baku
 		Prerequisites: ~building.soviets, production, naradr, ~techlevel.3, ~!ai.natech
 		Description: actor-natech.description
 	ProvidesPrerequisite@batech:
@@ -883,7 +883,7 @@ napsis:
 	Inherits@MC: ^MindControllableBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Support.Unused # Support.Soviets, Support.Baku
+		Queue: Support.Unused # Support.Soviets
 		BuildPaletteOrder: 80
 		Prerequisites: natech, ~techlevel.4
 		Description: actor-napsis.description
@@ -939,7 +939,7 @@ napsis:
 nairon:
 	Inherits: ^SecondarySuperWeapon
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		Prerequisites: ~building.soviets, natech, !enoughiron, ~techlevel.5
 		Description: actor-nairon.description
 	Tooltip:
@@ -1001,7 +1001,7 @@ nairon:
 namisl:
 	Inherits: ^PrimarySuperWeapon
 	Buildable:
-		Queue: Support.Shared, Support.Soviets
+		Queue: Support.Soviets
 		Prerequisites: ~building.soviets, natech, !enoughnuke, ~techlevel.5
 		Description: actor-namisl.description
 	Tooltip:
@@ -1082,7 +1082,7 @@ namisl:
 nawall:
 	Inherits: ^Wall
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		Prerequisites: ~building.soviets, ~techlevel.1
 		BuildPaletteOrder: 10
 		Description: actor-nawall.description
@@ -1107,7 +1107,7 @@ naflak:
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@MC: ^MindControllableBuilding
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		BuildPaletteOrder: 50
 		Prerequisites: ~building.soviets, naradr, ~techlevel.2
 		Description: actor-naflak.description
@@ -1183,7 +1183,7 @@ tesla:
 	Inherits@EMPULSE: ^DisabledByEMP
 	Inherits@MC: ^MindControllableBuilding
 	Buildable:
-		Queue: Support.Shared, Support.Soviets
+		Queue: Support.Soviets
 		BuildPaletteOrder: 60
 		Prerequisites: ~building.soviets, naradr, ~techlevel.3
 		Description: actor-tesla.description
@@ -1309,7 +1309,7 @@ nalasr:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		BuildPaletteOrder: 40
 		Prerequisites: ~building.soviets, nahand, ~techlevel.1
 		Description: actor-nalasr.description
@@ -1377,7 +1377,7 @@ nabnkr:
 	Inherits@MC: ^MindControllableBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Support.Unused # Support.Soviets, Support.Baku
+		Queue: Support.Unused # Support.Soviets
 		BuildPaletteOrder: 40
 		Prerequisites: nahand, ~techlevel.1
 		Description: actor-nabnkr.description
@@ -1468,7 +1468,7 @@ naindp:
 	Inherits@MC: ^MindControllableBuilding
 	Inherits@SHAPE: ^3x3Shape
 	Buildable:
-		Queue: Building.Shared, Building.Soviets
+		Queue: Building.Soviets
 		BuildPaletteOrder: 120
 		Prerequisites: ~building.soviets, natech, ~techlevel.4
 		Description: actor-naindp.description
@@ -1524,7 +1524,7 @@ naindp:
 nagatea:
 	Inherits: ^Gate_A
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		Prerequisites: ~building.soviets, ~techlevel.1
 		BuildPaletteOrder: 20
 		BuildDuration: 125
@@ -1567,7 +1567,7 @@ napost:
 	Inherits@EMPULSE: ^DisabledByEMP
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		BuildPaletteOrder: 70
 		Prerequisites: ~unbuildable
 		Description: actor-napost.description
@@ -1746,7 +1746,7 @@ nafnce:
 nasilo:
 	Inherits: ^Silo
 	Buildable:
-		Queue: Support.Shared, Support.Soviets, Support.Baku
+		Queue: Support.Soviets
 		Prerequisites: ~unbuildable
 	GrantConditionOnFaction@Soviets:
 		Condition: soviets
@@ -1770,7 +1770,7 @@ naprop:
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@MC: ^MindControllableBuilding
 	Buildable:
-		Queue: Support.Shared, Support.Soviets
+		Queue: Support.Soviets
 		BuildPaletteOrder: 80
 		Prerequisites: ~unbuildable
 		Description: actor-naprop.description

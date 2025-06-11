@@ -1164,3 +1164,31 @@ large_gun_turret:
 		Filename: DATA.R8
 		Start: 4339
 		Offset: -30,-24
+
+devastator:
+	idle:
+		Filename: DATA.R8
+		Start: 2083
+		Facings: -32
+	muzzle:
+		Filename: DATA.R8
+		Start: 4060
+		Tick: 80
+		Facings: -32
+		BlendMode: Additive
+	active:
+		Filename: DATA.R8
+		Start: 3839
+		Length: 14
+		Tick: 130
+		BlendMode: Additive
+	active-2:
+		Filename: DATA.R8
+		Start: 4152
+		Length: 12
+		Tick: 110
+		BlendMode: Additive
+	icon:
+		Filename: DATA.R8
+		Start: 4289
+		Offset: -30,-24

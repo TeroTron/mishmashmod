@@ -1231,7 +1231,6 @@ tshmec:
 	ActorStatValues:
 		Damage: 200
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
-		Upgrades: upgrade.advanced_irradiators, upgrade.nuclear_engines, upgrade.uranium_shells
 
 #######################################
 # TS Infantry
@@ -1295,16 +1294,6 @@ tse1:
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
-	Armament@primary-line:
-		Weapon: M1CarbineLine
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && !rank-elite
-	Armament@elite-line:
-		Weapon: M1CarbineLineE
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && rank-elite
 	Armament@opentopped:
 		Name: opentopped
 		Weapon: M1Carbine
@@ -1315,16 +1304,6 @@ tse1:
 		Weapon: M1CarbineE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
-	Armament@opentopped-line:
-		Name: opentopped
-		Weapon: M1CarbineLine
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && !rank-elite
-	Armament@elite-opentopped-line:
-		Name: opentopped
-		Weapon: M1CarbineLineE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
 		Weapon: UCM1Carbine
@@ -1335,16 +1314,6 @@ tse1:
 		Weapon: UCM1CarbineE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
-	Armament@garrisoned-line:
-		Name: garrisoned
-		Weapon: UCM1CarbineLine
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && !rank-elite
-	Armament@elite-garrisoned-line:
-		Name: garrisoned
-		Weapon: UCM1CarbineLineE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: apbullets && rank-elite
 	WithInfantryBody:
 		RequiresCondition: !parachute
 	WithDeathAnimation@normal:
@@ -1364,7 +1333,6 @@ tse1:
 		Sequence: stand
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
 	RenderSprites:
 		Image: tse1.gdi
 		
@@ -1465,8 +1433,6 @@ tse2:
 		Sequence: stand
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
-		RequiresCondition: baku
 	RenderSprites:
 		Image: tse2
 
