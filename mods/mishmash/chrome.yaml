@@ -6436,9 +6436,9 @@ flags:
 		Random: 45, 84, 45, 21
 		spectator: 45, 84, 45, 21
 		gdi: 90, 126, 45, 21
-		atreides: 90, 190, 45, 21
+		atreides: 90, 189, 45, 21
 		harkonnen: 90, 168, 45, 21
-		ordos: 90, 211, 45, 20
+		ordos: 90, 210, 45, 20
 		allies: 0, 0, 45, 21
 		soviets: 0, 21, 45, 21
 		yuri: 90, 21, 45, 21
