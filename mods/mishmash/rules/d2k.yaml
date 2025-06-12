@@ -660,7 +660,7 @@ harkonnenpalace:
 		Image: palace.harkonnen
 		PlayerPalette: d2kpal2
 
-d2kharkonnengunturret:
+harkonnenmachineguntower:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
@@ -696,6 +696,69 @@ d2kharkonnengunturret:
 		PauseOnCondition: build-incomplete || chronodisable
 	Armament:
 		Weapon: para
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: machine_gun_tower
+		PlayerPalette: d2kpal2
+
+d2kharkonnengunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.harkonnen
+		Prerequisites: ~harkonnencnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: 120mm
 		LocalOffset: 512,0,432
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -1417,16 +1480,16 @@ d2kharkonnentrooper:
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks
 		BuildPaletteOrder: 10
-		Description: Trooper
+		Description: actor-d2ktrooper.description
 		BuildDuration: 50
 		BuildDurationModifier: 100
 		IconPalette: chromedune
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Valued:
-		Cost: 100
+		Cost: 300
 	DeliversCash:
-		Payload: 50
+		Payload: 150
 		Voice: Move
 	Tooltip:
 		Name: Trooper
@@ -1437,7 +1500,7 @@ d2kharkonnentrooper:
 	Health:
 		HP: 12500
 	Mobile:
-		Speed: 60
+		Speed: 300
 	Garrisoner:
 		Voice: Move
 		GarrisonType: Garrisoner
@@ -1534,103 +1597,10 @@ d2kharkonnentrooper:
 		Sequence: stand
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
 	RenderSprites:
 		Image: d2ktrooper
 		PlayerPalette: d2kpal2
 		
-d2kharkonnengrenadier:
-	Inherits: ^Infantry
-	Inherits@APBULLETS: ^AffectedByAPBullets
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@CHAOS: ^BerserkableArmed
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@MC: ^MindControllable
-	Inherits@MOLOTOV: ^AffectedByMolotovCocktails
-	Inherits@PARACHUTE: ^Parachutable
-	Inherits@SMOKEGREN: ^AffectedBySmokeGrenades
-	Buildable:
-		Queue: Infantry.Shared, Infantry.harkonnen
-		BuildAtProductionType: Soldier
-		Prerequisites: ~harkonnenbarracks
-		BuildPaletteOrder: 10
-		Description: actor-e2.description
-		BuildDuration: 50
-		BuildDurationModifier: 100
-		IconPalette: chromedune
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Valued:
-		Cost: 100
-	DeliversCash:
-		Payload: 50
-		Voice: Move
-	Tooltip:
-		Name: Disc Thrower
-	Tooltip@NoRow:
-		Name: Disc Thrower
-	Selectable:
-		Bounds: 482, 1448, 0, -530
-	Health:
-		HP: 12500
-	Mobile:
-		Speed: 60
-	Garrisoner:
-		Voice: Move
-		GarrisonType: Garrisoner
-	Passenger:
-	RevealsShroud:
-		Range: 6c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Range: 6c0
-	RevealOnDeath:
-		Radius: 6c0
-	AttackFrontal:
-		Voice: Attack
-		FacingTolerance: 2
-	Armament@primary:
-		Weapon: Disc
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite:
-		Weapon: DiscE
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	Armament@opentopped:
-		Name: opentopped
-		Weapon: Disc
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite-opentopped:
-		Name: opentopped
-		Weapon: DiscE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	Armament@garrisoned:
-		Name: garrisoned
-		Weapon: Disc
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite-garrisoned:
-		Name: garrisoned
-		Weapon: DiscE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	WithInfantryBody:
-		RequiresCondition: !parachute
-	WithDeathAnimation@normal:
-	Voiced:
-		VoiceSet: D2kInfantryVoice
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-	RenderSprites:
-		Image: d2kgrenadier
-		PlayerPalette: d2kpal2
-
 #######################################
 # D2K ordos MCV
 #######################################
@@ -2293,7 +2263,7 @@ ordospalace:
 		Image: palace.ordos
 		PlayerPalette: d2kpal2
 
-d2kordosgunturret:
+ordosmachineguntower:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
@@ -2329,6 +2299,69 @@ d2kordosgunturret:
 		PauseOnCondition: build-incomplete || chronodisable
 	Armament:
 		Weapon: para
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: machine_gun_tower
+		PlayerPalette: d2kpal2
+
+d2kordosgunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.ordos
+		Prerequisites: ~ordoscnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: 120mm
 		LocalOffset: 512,0,432
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -3050,16 +3083,16 @@ d2kordostrooper:
 		BuildAtProductionType: Soldier
 		Prerequisites: ~ordosbarracks
 		BuildPaletteOrder: 10
-		Description: Trooper
+		Description: actor-d2ktrooper.description
 		BuildDuration: 50
 		BuildDurationModifier: 100
 		IconPalette: chromedune
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Valued:
-		Cost: 100
+		Cost: 300
 	DeliversCash:
-		Payload: 50
+		Payload: 150
 		Voice: Move
 	Tooltip:
 		Name: Trooper
@@ -3167,101 +3200,8 @@ d2kordostrooper:
 		Sequence: stand
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
 	RenderSprites:
 		Image: d2ktrooper
-		PlayerPalette: d2kpal2
-		
-d2kordosgrenadier:
-	Inherits: ^Infantry
-	Inherits@APBULLETS: ^AffectedByAPBullets
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@CHAOS: ^BerserkableArmed
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@MC: ^MindControllable
-	Inherits@MOLOTOV: ^AffectedByMolotovCocktails
-	Inherits@PARACHUTE: ^Parachutable
-	Inherits@SMOKEGREN: ^AffectedBySmokeGrenades
-	Buildable:
-		Queue: Infantry.Shared, Infantry.ordos
-		BuildAtProductionType: Soldier
-		Prerequisites: ~ordosbarracks
-		BuildPaletteOrder: 10
-		Description: actor-e2.description
-		BuildDuration: 50
-		BuildDurationModifier: 100
-		IconPalette: chromedune
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Valued:
-		Cost: 100
-	DeliversCash:
-		Payload: 50
-		Voice: Move
-	Tooltip:
-		Name: Disc Thrower
-	Tooltip@NoRow:
-		Name: Disc Thrower
-	Selectable:
-		Bounds: 482, 1448, 0, -530
-	Health:
-		HP: 12500
-	Mobile:
-		Speed: 60
-	Garrisoner:
-		Voice: Move
-		GarrisonType: Garrisoner
-	Passenger:
-	RevealsShroud:
-		Range: 6c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Range: 6c0
-	RevealOnDeath:
-		Radius: 6c0
-	AttackFrontal:
-		Voice: Attack
-		FacingTolerance: 2
-	Armament@primary:
-		Weapon: Disc
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite:
-		Weapon: DiscE
-		LocalOffset: 256,0,768
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	Armament@opentopped:
-		Name: opentopped
-		Weapon: Disc
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite-opentopped:
-		Name: opentopped
-		Weapon: DiscE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	Armament@garrisoned:
-		Name: garrisoned
-		Weapon: Disc
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: !rank-elite
-	Armament@elite-garrisoned:
-		Name: garrisoned
-		Weapon: DiscE
-		PauseOnCondition: chronodisable || webdisable || dogstun
-		RequiresCondition: rank-elite
-	WithInfantryBody:
-		RequiresCondition: !parachute
-	WithDeathAnimation@normal:
-	Voiced:
-		VoiceSet: D2kInfantryVoice
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-	RenderSprites:
-		Image: d2kgrenadier
 		PlayerPalette: d2kpal2
 
 #######################################
@@ -3920,7 +3860,7 @@ atreidespalace:
 		Image: palace.atreides
 		PlayerPalette: d2kpal2
 
-d2katreidesgunturret:
+atreidesmachineguntower:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
@@ -3956,6 +3896,69 @@ d2katreidesgunturret:
 		PauseOnCondition: build-incomplete || chronodisable
 	Armament:
 		Weapon: para
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: machine_gun_tower
+		PlayerPalette: d2kpal2
+
+d2katreidesgunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.atreides
+		Prerequisites: ~atreidescnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: 120mm
 		LocalOffset: 512,0,432
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -4677,16 +4680,16 @@ d2katreidestrooper:
 		BuildAtProductionType: Soldier
 		Prerequisites: ~atreidesbarracks
 		BuildPaletteOrder: 10
-		Description: Trooper
+		Description: actor-d2ktrooper.description
 		BuildDuration: 50
 		BuildDurationModifier: 100
 		IconPalette: chromedune
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Valued:
-		Cost: 100
+		Cost: 300
 	DeliversCash:
-		Payload: 50
+		Payload: 150
 		Voice: Move
 	Tooltip:
 		Name: Trooper
@@ -4794,25 +4797,21 @@ d2katreidestrooper:
 		Sequence: stand
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Upgrades: upgrade.bullet_proof_coats, upgrade.molotov_cocktails, upgrade.ap_bullets
 	RenderSprites:
 		Image: d2ktrooper
 		PlayerPalette: d2kpal2
 		
 d2katreidesgrenadier:
 	Inherits: ^Infantry
-	Inherits@APBULLETS: ^AffectedByAPBullets
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CHAOS: ^BerserkableArmed
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
-	Inherits@MOLOTOV: ^AffectedByMolotovCocktails
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@SMOKEGREN: ^AffectedBySmokeGrenades
 	Buildable:
 		Queue: Infantry.Shared, Infantry.atreides
 		BuildAtProductionType: Soldier
-		Prerequisites: ~atreidesbarracks
+		Prerequisites: ~atreidesbarracks, atreideshigh_tech_factory
 		BuildPaletteOrder: 10
 		Description: actor-e2.description
 		BuildDuration: 50
@@ -4821,20 +4820,22 @@ d2katreidesgrenadier:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Valued:
-		Cost: 100
+		Cost: 250
 	DeliversCash:
-		Payload: 50
+		Payload: 125
 		Voice: Move
 	Tooltip:
-		Name: Disc Thrower
+		Name: Grenadier
 	Tooltip@NoRow:
-		Name: Disc Thrower
+		Name: Grenadier
 	Selectable:
 		Bounds: 482, 1448, 0, -530
 	Health:
 		HP: 12500
 	Mobile:
 		Speed: 60
+	Armor:
+		Type: Flak
 	Garrisoner:
 		Voice: Move
 		GarrisonType: Garrisoner
@@ -4849,33 +4850,33 @@ d2katreidesgrenadier:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: Disc
+		Weapon: Grenade
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: DiscE
+		Weapon: GrenadeE
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: Disc
+		Weapon: Grenade
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: DiscE
+		Weapon: GrenadeE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: Disc
+		Weapon: Grenade
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: DiscE
+		Weapon: GrenadeE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	WithInfantryBody:
@@ -4958,13 +4959,26 @@ d2kharkonnendevastator:
 	AttackFrontal:
 		FacingTolerance: 0
 	AutoTarget:
-	Armament@primary:
+	Armament@primary1:
 		Weapon: 120mmx
 		Damage: 90
 		LocalOffset: 640,0,32
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
-	Armament@elite:
+	Armament@primary2:
+		Weapon: 120mmx
+		Damage: 90
+		LocalOffset: 640,0,32
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite1:
+		Name: elite
+		Weapon: 120mmxE
+		Damage: 180
+		LocalOffset: 640,0,32
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Armament@elite2:
 		Name: elite
 		Weapon: 120mmxE
 		Damage: 180
@@ -5014,9 +5028,9 @@ ornithopter:
 		PlayerExperience: 88
 		Voice: Move
 	Tooltip:
-		Name: actor-ornithopter.name
+		Name: Ornithopter
 	Tooltip@NoRow:
-		Name: actor-ornithopter.name
+		Name: Ornithopter
 	Buildable:
 		Queue: Aircraft.Shared, Aircraft.atreides
 		BuildPaletteOrder: 40
@@ -5034,7 +5048,7 @@ ornithopter:
 		CrushDamageTypes: NonTemporal
 		Speed: 224
 		TurnSpeed: 40
-		CruiseAltitude: 1920
+		AltitudeVelocity: 200
 		CruisingCondition: cruising
 	Selectable:
 		Bounds: 1882, 2075, 0, -724
@@ -5067,6 +5081,7 @@ ornithopter:
 		Damage: 150
 		RequiresCondition: rank-elite
 	AttackAircraft:
+		FacingTolerance: 0
 		Voice: Attack
 	Voiced:
 		VoiceSet: D2kVehicleVoice
@@ -5116,9 +5131,8 @@ ornithopterhusk:
 	RevealOnDeath:
 		Radius: 10c0
 		Duration: 125
-	RenderVoxels:
-		Image: disk
 	-WithVoxelBody:
+	WithFacingSpriteBody:
 	BodyOrientation:
 		UseClassicPerspectiveFudge: false
 	RenderSprites:

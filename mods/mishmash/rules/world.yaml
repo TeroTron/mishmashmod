@@ -444,6 +444,8 @@ World:
 		PresetColors: DEE308, FF1818, 2973E7, 39D629, FFA518, 31D6E7, 9429BD, FF9CEF, 6F7104, 7F0C0C, 143973, 1C6B14, 7F520C, 186B73, 4A145E, 7F484E
 		FactionPreviewActors:
 			harkonnen: d2k.colorpicker
+			atreides: d2k.colorpicker
+			ordos: d2k.colorpicker
 			gdi: gdi.colorpicker
 			soviets: smcv.colorpicker
 			yuri: pcv.colorpicker

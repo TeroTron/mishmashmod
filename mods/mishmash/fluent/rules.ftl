@@ -98,296 +98,87 @@ resource-minerals = Valuable Minerals
 faction-random =
     .name = Random
     .description = Random Country
-     A random country will be chosen when the game starts.
+     A random faction will be chosen when the game starts.
 
-faction-random-allies =
-    .name = Allies
-    .description = Random Allied Country
-     A random Allied country will be chosen when the game starts.
-
-faction-random-soviets =
-    .name = Soviets
-    .description = Random Soviet Country
-     A random Soviet country will be chosen when the game starts.
-
-faction-random-psicorps =
-    .name = Psi-Corps
-    .description = Random Psi-Corps Faction
-     A random Psi-Corps faction will be chosen when the game starts.
-
-faction-random-bakupact =
-    .name = Baku Pact
-    .description = Random Baku Pact Country
-     A random Baku Pact country will be chosen when the game starts.
-
-faction-america =
-    .name = United States
-    .description = United States of America
+faction-allied =
+    .name = Allied Nations
+    .description = United Allied Nations
      
-     Capital: Washington D.C. (1776-1973)
-                  Seattle (1973-)
+     Coalition of Allied Nations utilizing advanced technology, precision tactics, and air superiority.
       
-     Special Infantry: Navy SEAL
-     Special Ability: Airborne
-     Special Upgrade: Boost-Gliding Systems
+     Tech Superiority
+     Air and Naval Dominance
+     Defensive Playstyle
 
-faction-england =
-    .name = United Kingdom
-    .description = United Kingdom of Great Britain and Northern Ireland
+faction-soviet =
+    .name = Soviet Warpact
+    .description = Soviet Warpact
      
-     Capital: London
+     Brutal, industrial superpower focused on overwhelming strength.
       
-      
-     Special Infantry: Sniper
-     Special Ability: Carpet Bombing
-     Special Upgrade: Portable Weaponry
+     Brute Force Units
+     Overwhelming Force
+     Aggresive Playstyle
 
-faction-france =
-    .name = France
-    .description = French Fourth Republic
+faction-yuri =
+    .name = Yuri
+    .description = Yuri
      
-     Capital: Paris
+     Highly tactical, sneaky, and unit-efficient, excelling at controlling the battlefield.
       
-      
-     Special Building: Mirage Turret
-     Special Ability: Force Shield
-     Special Upgrade: Grand Cannon Protocols
+     Mind Control Domination
+     Unconventional Warfare
+     Defensive Playstyle
 
-faction-germany =
-    .name = Germany
-    .description = German Republic
+faction-gdi =
+    .name = GDI
+    .description = Global Defense Initiative
      
-     Capital: Berlin
+    Traditional but Advanced militarized force.
       
-      
-     Special Vehicle: Tank Destroyer
-     Special Ability: Chrono Grizzly
-     Special Upgrade: Advanced Gun Systems
+     Superior Firepower and Armor
+     Air Superiority
+     Aggresive Playstyle
 
-faction-korea =
-    .name = Korea
-    .description = Republic of Korea
+faction-nod =
+    .name = NOD
+    .description = Brotherhood of NOD
      
-     Capital: Seoul
+    Nod favors speed, stealth, sabotage, and asymmetric warfare.
       
+     Stealth and Guerilla Warfare
+     Tiberium and Elemental Arsenals
+     Hit and Run Playstyle
+
+faction-atreides =
+    .name = Atreides
+    .description = House Atreides
+     
+    House Atreides favors precision, support, and tactical flexibility. Utilizing combined arms tactics.
       
-     Special Aircraft: Black Eagle
-     Special Ability: Chronobomb
-     Special Upgrade: EMP Munitions
+     Versatile Units
+     Air Superiority
+     Flexible Playstyle
 
-faction-russia =
-    .name = Soviet Union
-    .description = Union of Soviet Socialist Republics
+faction-harkonnen =
+    .name = Harkonnen
+    .description = House Harkonnen
      
-     Capital: Moscow
+    Harkonnen embraces a brute-force approach, focusing on raw damage.
       
+     Superior Firepower and Armor
+     Ground Superiority
+     Aggresive Playstyle
+
+faction-ordos =
+    .name = Ordos
+    .description = House Ordos
+     
+    Ordos rewards guerrilla tactics, misdirection, and mobility.
       
-     Special Vehicle: Tesla Tank
-     Special Ability: Tesla Drop
-     Special Upgrade: Overcharge
-
-faction-iraq =
-    .name = Iraq
-    .description = Iraqi Republic
-     
-     Capital: Baghdad
-      
-      
-     Special Infantry: Desolator
-     Special Ability: Radiation Missile
-     Special Upgrade: Advanced Irradiators
-
-faction-vietnam =
-    .name = Vietnam
-    .description = Socialist Republic of Vietnam
-     
-     Capital: Hanoi
-      
-      
-     Special Aircraft: Black Kite
-     Special Ability: Instant Bunker
-     Special Upgrade: Aerial Propaganda
-
-faction-cuba =
-    .name = Cuba
-    .description = Republic of Cuba
-     
-     Capital: Havana
-      
-      
-     Special Infantry: Terrorist
-     Special Ability: Death Bombs
-     Special Upgrade: Targeted Explosives
-
-faction-libya =
-    .name = Libya
-    .description = Libyan Arab Jamahiriya
-     
-     Capital: Tripoli
-      
-      
-     Special Vehicle: Demolition Truck
-     Special Ability: Ambush
-     Special Upgrade: High Explosive Bombs
-
-faction-psicorps =
-    .name = Yurigrad
-    .description = Yurigrad
-     
-     Center of Operations: Kuban Region
-      
-      
-     Special Vehicle: Slave Miner
-     Special Ability: Psi-Ops Drop
-     Special Upgrade: Chaos Tank Compensators
-
-faction-psinepal =
-    .name = Lazarus Corps
-    .description = Lazarus Corps
-     
-     Center of Operations: Himalayas
-      
-      
-     Special Aircraft: Mosquito Disc
-     Special Ability: Hologram Army
-     Special Upgrade: Laser Capacitors
-
-faction-psisouth =
-    .name = Antarctica
-    .description = Antarctica
-     
-     Center of Operations: Antarctic Peninsula
-      
-      
-     Special Building: Yuri Statue
-     Special Ability: Point Defense Drones
-     Special Upgrade: Mastery of Mind
-
-faction-psitrans =
-    .name = Fort. Transylvania
-    .description = Fortress of Transylvania
-     
-     Center of Operations: Transylvania
-      
-      
-     Special Vehicle: Giant Tarantula
-     Special Ability: Lethocerus Swarm
-     Special Upgrade: DNA Boosters
-
-faction-psimoon =
-    .name = Lunar Eclipse
-    .description = Lunar Eclipse
-     
-     Center of Operations: The Moon
-      
-      
-     Special Infantry: Cosmonaut
-     Special Ability: Ion Cannon
-     Special Upgrade: Disc Armor
-
-faction-japan =
-    .name = Japan
-    .description = State of Japan
-     
-     Capital: Tokyo
-
-faction-belarus =
-    .name = Belarus
-    .description = Republic of Belarus
-     
-     Capital: Minsk
-
-faction-poland =
-    .name = Poland
-    .description = Republic of Poland
-     
-     Capital: Warsaw
-
-faction-ukraine =
-    .name = Ukraine
-    .description = Ukrainian Republic
-     
-     Capital: Kyiv
-
-faction-aussie =
-    .name = Australia
-    .description = Commonwealth of Australia
-     
-     Capital: Canberra
-
-faction-china =
-    .name = China
-    .description = Republic of China
-     
-     Capital: Beijing
-
-faction-turkey =
-    .name = Turkey
-    .description = Republic of Turkey
-     
-     Capital: Ankara
-
-faction-canada =
-    .name = Canada
-    .description = Canada
-     
-     Capital: Ottawa
-
-faction-chile =
-    .name = Chile
-    .description = Republic of Chile
-     
-     Capital: Santiago
-
-faction-mexico =
-    .name = Mexico
-    .description = United Mexican States
-     
-     Capital: Mexico City
-
-faction-mongolia =
-    .name = Mongolia
-    .description = Mongolian People's Republic
-     
-     Capital: Ulaanbataar
-
-faction-transcaucus =
-    .name = Transcaucasia
-    .description = Transcaucasian Socialist Federative Republic
-     
-     Capital: Baku (de facto)
-
-faction-turkmen =
-    .name = Turkmenistan
-    .description = Republic of Turkmenistan
-     
-     Capital: Ashgabat
-      
-      
-     Special Infantry: Angry Mob
-     Special Upgrade: Arm the Mob
-
-faction-tuva =
-    .name = Tuva
-    .description = Second Tuvan Republic
-     
-     Capital: Kyzyl
-      
-      
-     Special Infantry: Motorised Engineer
-
-faction-russianfed =
-    .name = Russia
-    .description = Russian Federation
-     
-     Capital: Vladivostok (1973-1975)
-                  Moscow (1975-)
-
-faction-serbia =
-    .name = Serbia & Montenegro
-    .description = Socialist Union of Serbia and Montenegro
-     
-     Capital: Belgrade
+     Hit and Run Tactics
+     Cheap yet effective Arsenal
+     Aggresive Playstyle
 
 ## Defaults
 notification-unit-lost = Unit lost.

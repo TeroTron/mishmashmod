@@ -2426,3 +2426,36 @@ ornithopter:
 		Filename: DATA.R8
 		Start: 4292
 		Offset: -30,-24
+
+machine_gun_tower:
+	invisible:
+		Filename: DATA.R8
+		Start: 38
+	idle:
+		Filename: machine_gun_tower.shp
+		Frames: 0
+		Length: 1
+		Remap: 54F94B
+	damaged-idle:
+		Filename: machine_gun_tower.shp
+		Frames: 0
+		Length: 1
+		Remap: 54F94B
+	make:
+		Filename: DATA.R16
+		Start: 4577
+		Length: 8
+		Offset: -16,16
+	crumble-overlay:
+		Filename: DATA.R16
+		Start: 4585
+		Length: 7
+		Offset: -16,16
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+		BlendMode: Additive
+	icon:
+		Filename: machine_gun_towericon.shp
+		Offset: 0,-1
