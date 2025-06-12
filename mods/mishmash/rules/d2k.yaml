@@ -641,69 +641,6 @@ harkonnenpalace:
 		Image: palace.harkonnen
 		PlayerPalette: d2kpal2
 
-harkonnenmachineguntower:
-	Inherits: ^SupportBuilding
-	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits@MC: ^MindControllableBuilding
-	Buildable:
-		Queue: Support.Shared, Support.harkonnen
-		Prerequisites: ~harkonnencnst, ~techlevel.1
-		BuildPaletteOrder: 40
-		Description: actor-nalasr.description
-		BuildDuration: 250
-		BuildDurationModifier: 100
-		IconPalette: chromedune
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Gun Turret
-	Tooltip@NoRow:
-		Name: Gun Turret
-	Health:
-		HP: 40000
-	Armor:
-		Type: Steel
-	RevealsShroud:
-		Range: 7c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Types: SatelliteScan
-	#	Range: 7c0
-	Turreted:
-		TurnSpeed: 40
-		InitialFacing: 896
-		Offset: 0,0,0
-		RealignDelay: -1
-	AttackTurreted:
-		PauseOnCondition: build-incomplete || chronodisable
-	Armament:
-		Weapon: para
-		LocalOffset: 512,0,432
-		MuzzleSequence: muzzle
-	WithMuzzleOverlay:
-	DetectCloaked:
-		Range: 5c0
-	RenderDetectionCircle:
-	BodyOrientation:
-		QuantizedFacings: 16
-	WithRangeCircle:
-		Range: 6c0
-		Type: pillbox
-	AutoTarget:
-	RequiresBuildableArea:
-		Adjacent: 4
-	IsometricSelectable:
-		Class: gdivulcan
-		DecorationHeight: 32
-	Voiced:
-		VoiceSet: SentryGunVoice
-		Volume: 0.8
-	ActorStatValues:
-		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
-		Damage: 65
-	RenderSprites:
-		Image: machine_gun_tower
-		PlayerPalette: d2kpal2
-
 d2kharkonnenflametower:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -765,6 +702,71 @@ d2kharkonnenflametower:
 		Damage: 65
 	RenderSprites:
 		Image: d2kflame_tower
+		PlayerPalette: d2kpal2
+
+d2kharkonnengunturret:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.harkonnen
+		Prerequisites: ~harkonnencnst, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gun Turret
+	Tooltip@NoRow:
+		Name: Gun Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: 120mm
+		LocalOffset: 512,0,432
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 32
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: medium_gun_turret
 		PlayerPalette: d2kpal2
 
 d2kharkonnenrocketturret:

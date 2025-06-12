@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch (Romanov's Vengeance)",
+			"name": "Launch (Mishmash Mod)",
 			"type": "coreclr",
 			"request": "launch",
 			"program": "${workspaceRoot}/engine/bin/OpenRA.dll",
