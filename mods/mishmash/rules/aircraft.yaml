@@ -479,16 +479,6 @@ orca:
 		Position: BottomLeft
 		RequiresSelection: true
 	WithVoxelBody:
-		RequiresCondition: !a2amissiles && !predator_missiles
-	WithVoxelBody@A2A:
-		Sequence: idle-a2a
-		RequiresCondition: a2amissiles && !predator_missiles
-	WithVoxelBody@PREDATOR:
-		Sequence: idle-predator
-		RequiresCondition: !a2amissiles && predator_missiles
-	WithVoxelBody@A2A_PREDATOR:
-		Sequence: idle-a2a-predator
-		RequiresCondition: a2amissiles && predator_missiles
 	Voiced:
 		VoiceSet: HarrierVoice
 	Repairable:
@@ -1984,7 +1974,6 @@ bpln:
 	-DeliversCash:
 	VoiceAnnouncement@PRODUCED:
 		Voice: Attack
-		-RequiresCondition:
 	RejectsOrders:
 	Interactable:
 	Aircraft:
@@ -2009,7 +1998,6 @@ bpln:
 	AmmoPool:
 		Ammo: 2
 	WithVoxelBody:
-		-RequiresCondition:
 	AttackAircraft:
 		RequiresCondition: ammo
 	Health:
@@ -2053,9 +2041,9 @@ bpln.buildable:
 	Tooltip@NoRow:
 		Name: actor-bpln.name
 	Buildable:
-		Queue: Aircraft.Shared, Aircraft.Baku
+		Queue: Aircraft.Shared, Aircraft.Soviets
 		Description: actor-bpln.description
-		Prerequisites: ~aircraft.baku, !prerequisite.enoughair, ~techlevel.3
+		Prerequisites: ~unbuildable
 	VoiceAnnouncement@PRODUCED:
 		Voice: Attack
 	Aircraft:
@@ -2071,39 +2059,20 @@ bpln.buildable:
 	Armament:
 		Weapon: Maverick2
 		Damage: 225
-		RequiresCondition: !rank-elite && !cryowarheads
+		RequiresCondition: !rank-elite
 	Armament@Elite:
 		Weapon: Maverick2E
 		Damage: 350
-		RequiresCondition: rank-elite && !cryowarheads
+		RequiresCondition: rank-elite
 	Armament@AA:
 		Weapon: Maverick2AA
-		RequiresCondition: !rank-elite && !cryowarheads
+		RequiresCondition: !rank-elite
 	Armament@EliteAA:
 		Weapon: Maverick2AAE
-		RequiresCondition: rank-elite && !cryowarheads
-	Armament@Cryo:
-		Weapon: Maverick2Cryo
-		Damage: 225
-		PauseOnCondition: !ammo
-		RequiresCondition: !rank-elite && cryowarheads
-	Armament@CryoE:
-		Weapon: Maverick2CryoE
-		Damage: 350
-		PauseOnCondition: !ammo
-		RequiresCondition: rank-elite && cryowarheads
-	Armament@CryoAA:
-		Weapon: Maverick2AACryo
-		PauseOnCondition: !ammo
-		RequiresCondition: !rank-elite && cryowarheads
-	Armament@CryoAAE:
-		Weapon: Maverick2AACryoE
-		PauseOnCondition: !ammo
-		RequiresCondition: rank-elite && cryowarheads
+		RequiresCondition: rank-elite
 	AmmoPool:
 		Ammo: 2
 	WithVoxelBody:
-		-RequiresCondition:
 	Health:
 		HP: 10000
 	Voiced:

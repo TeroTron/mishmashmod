@@ -31,16 +31,10 @@ nacnst:
 		RequiresCondition: !build-incomplete
 	WithBuildingPlacedAnimation:
 		RequiresCondition: !build-incomplete
-		Sequence: idle-hns
-		PauseOnCondition: chronodisable
 	WithIdleOverlay@HNS:
 		Sequence: idle-hns
 		PauseOnCondition: chronodisable
-		RequiresCondition: !build-incomplete && (russia || iraq || vietnam || cuba || libya || chile || mexico || mongolia)
-	WithIdleOverlay@Star:
-		Sequence: idle-star
-		PauseOnCondition: chronodisable
-		RequiresCondition: !build-incomplete && (transcaucus || turkmen || tuva || russianfed || serbia)
+		RequiresCondition: !build-incomplete
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:

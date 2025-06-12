@@ -10,37 +10,9 @@
 EngineerVoice:
 	Inherits: ^InfantryDeath
 	Prefixes:
-		america: iena
-		germany: iena
-		england: iena
-		france: iena
-		korea: iena
-		japan: iena
-		belarus: iena
-		poland: iena
-		ukraine: iena
-		aussie: iena
-		china: iena
-		turkey: iena
-		canada: iena
-		cuba: iens
-		libya: iens
-		iraq: iens
-		russia: iens
-		vietnam: iens
-		chile: iens
-		mexico: iens
-		mongolia: iens
-		psicorps: ieny
-		psinepal: ieny
-		psitrans: ieny
-		psisouth: ieny
-		psimoon: ieny
-		transcaucus: iens
-		serbia: iens
-		turkmen: iens
-		tuva: iens
-		russianfed: iens
+		allies: iena
+		soviets: iens
+		yuri: ieny
 	Voices:
 		#TODO: Split this off to separate voiceovers.
 		Select: sea, seb, sec, sed
@@ -1401,6 +1373,7 @@ D2kVehicleVoice:
 		Attack: _VCONF1,_VCONF2,_VCONF3
 		Move: _VCONF1,_VCONF2,_VCONF3
 		Guard: I_GUARD
+		Die: vbledia, vbledib, vbledic, vbledid, vbledie
 
 D2kInfantryVoice:
 	Inherits: ^InfantryDeath

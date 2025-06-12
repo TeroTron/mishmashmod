@@ -282,6 +282,8 @@ harkonnenlightweap:
 		Factions: harkonnen
 	ProductionBar:
 		ProductionType: Vehicle.harkonnen
+	Exit@1:
+		ExitCell: 1,1
 	-WithIdleOverlay@bib:
 	-WithExitOverlay@front:
 	-WithExitOverlay@top:
@@ -396,32 +398,6 @@ harkonnenstarport:
 		Name: Starport
 	Tooltip@NoRow:
 		Name: Starport
-	Exit@1:
-		SpawnOffset: -384,128,0
-	Production:
-		Produces: Aircraft.harkonnen
-	ProductionQueue:
-		Type: Aircraft.Soviets
-		Factions: harkonnen
-	ProductionQueue@harkonnen:
-		Type: Aircraft.harkonnen
-		Group: Aircraft
-		DisplayOrder: 26
-		LowPowerModifier: 200
-		Factions: harkonnen
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar:
-		ProductionType: Aircraft.harkonnen
-	ProvidesPrerequisite@aircraft.harkonnen:
-		Prerequisite: aircraft.harkonnen
 	Exit@1:
 		SpawnOffset: 0,-480,0
 		ExitCell: 2,2
@@ -562,7 +538,7 @@ harkonnenrepair_pad:
 		PlayerPalette: d2kpal2
 
 harkonnenhigh_tech_factory:
-	Inherits: ^BaseBuilding
+	Inherits: ^Helipad
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Building.Shared, Building.harkonnen
@@ -579,6 +555,30 @@ harkonnenhigh_tech_factory:
 		Name: High Tech Factory
 	Health:
 		HP: 75000
+	Production:
+		Produces: Aircraft.harkonnen
+	ProductionQueue:
+		Type: Aircraft.harkonnen
+		Factions: harkonnen
+	ProductionQueue@harkonnen:
+		Type: Aircraft.harkonnen
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: harkonnen
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.harkonnen
+	ProvidesPrerequisite@aircraft.harkonnen:
+		Prerequisite: aircraft.harkonnen
 	Armor:
 		Type: Wood
 	Building:
@@ -1915,6 +1915,8 @@ ordoslightweap:
 		Factions: ordos
 	ProductionBar:
 		ProductionType: Vehicle.ordos
+	Exit@1:
+		ExitCell: 1,1
 	-WithIdleOverlay@bib:
 	-WithExitOverlay@front:
 	-WithExitOverlay@top:
@@ -2029,32 +2031,6 @@ ordosstarport:
 		Name: Starport
 	Tooltip@NoRow:
 		Name: Starport
-	Exit@1:
-		SpawnOffset: -384,128,0
-	Production:
-		Produces: Aircraft.ordos
-	ProductionQueue:
-		Type: Aircraft.Soviets
-		Factions: ordos
-	ProductionQueue@ordos:
-		Type: Aircraft.ordos
-		Group: Aircraft
-		DisplayOrder: 26
-		LowPowerModifier: 200
-		Factions: ordos
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar:
-		ProductionType: Aircraft.ordos
-	ProvidesPrerequisite@aircraft.ordos:
-		Prerequisite: aircraft.ordos
 	Exit@1:
 		SpawnOffset: 0,-480,0
 		ExitCell: 2,2
@@ -2195,7 +2171,7 @@ ordosrepair_pad:
 		PlayerPalette: d2kpal2
 
 ordoshigh_tech_factory:
-	Inherits: ^BaseBuilding
+	Inherits: ^Helipad
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Building.Shared, Building.ordos
@@ -2210,6 +2186,30 @@ ordoshigh_tech_factory:
 		Name: High Tech Factory
 	Tooltip@NoRow:
 		Name: High Tech Factory
+	Production:
+		Produces: Aircraft.ordos
+	ProductionQueue:
+		Type: Aircraft.ordos
+		Factions: ordos
+	ProductionQueue@ordos:
+		Type: Aircraft.ordos
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: ordos
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.ordos
+	ProvidesPrerequisite@aircraft.ordos:
+		Prerequisite: aircraft.ordos
 	Health:
 		HP: 75000
 	Armor:
@@ -3548,6 +3548,8 @@ atreideslightweap:
 		Factions: atreides
 	ProductionBar:
 		ProductionType: Vehicle.atreides
+	Exit@1:
+		ExitCell: 1,1
 	-WithIdleOverlay@bib:
 	-WithExitOverlay@front:
 	-WithExitOverlay@top:
@@ -3662,32 +3664,6 @@ atreidesstarport:
 		Name: Starport
 	Tooltip@NoRow:
 		Name: Starport
-	Exit@1:
-		SpawnOffset: -384,128,0
-	Production:
-		Produces: Aircraft.atreides
-	ProductionQueue:
-		Type: Aircraft.Soviets
-		Factions: atreides
-	ProductionQueue@atreides:
-		Type: Aircraft.atreides
-		Group: Aircraft
-		DisplayOrder: 26
-		LowPowerModifier: 200
-		Factions: atreides
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar:
-		ProductionType: Aircraft.atreides
-	ProvidesPrerequisite@aircraft.atreides:
-		Prerequisite: aircraft.atreides
 	Exit@1:
 		SpawnOffset: 0,-480,0
 		ExitCell: 2,2
@@ -3828,17 +3804,12 @@ atreidesrepair_pad:
 		PlayerPalette: d2kpal2
 
 atreideshigh_tech_factory:
-	Inherits: ^BaseBuilding
+	Inherits: ^Helipad
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Building.Shared, Building.atreides
 		Prerequisites: ~atreidescnst, atreidesoutpost, ~techlevel.1
 		IconPalette: chromedune
-	ProvidesPrerequisite@default:
-		Prerequisite: atreidestech
-	ProvidesPrerequisite@AIbuildinglimit:
-		RequiresCondition: ai-control
-		Prerequisite: ai.atreidestech
 	Tooltip:
 		Name: High Tech Factory
 	Tooltip@NoRow:
@@ -3847,6 +3818,29 @@ atreideshigh_tech_factory:
 		HP: 75000
 	Armor:
 		Type: Wood
+	Production:
+		Produces: Aircraft.atreides
+	ProductionQueue:
+		Type: Aircraft.atreides
+		Factions: atreides
+	ProductionQueue@atreides:
+		Type: Aircraft.atreides
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: atreides
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.atreides
+	ProvidesPrerequisite@default:
 	Building:
 		Footprint: xxx xx= ===
 		Dimensions: 3,3
@@ -5002,4 +4996,131 @@ d2kharkonnendevastator:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: devastator
+		PlayerPalette: d2kpal2
+
+ornithopter:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableAircraftArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	BodyOrientation:
+		QuantizedFacings: 1
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1750
+		PlayerExperience: 88
+		Voice: Move
+	Tooltip:
+		Name: actor-ornithopter.name
+	Tooltip@NoRow:
+		Name: actor-ornithopter.name
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.atreides
+		BuildPaletteOrder: 40
+		Prerequisites: ~atreideshigh_tech_factory
+		Description: actor-ornithopter.description
+		BuildDuration: 875
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Aircraft:
+		CanForceLand: true
+		LandableTerrainTypes: Clear, Sand, Rough, Road, DirtRoad, Ore, Gems
+		Crushes: crate
+		CrushDamageTypes: NonTemporal
+		Speed: 224
+		TurnSpeed: 40
+		CruiseAltitude: 1920
+		CruisingCondition: cruising
+	Selectable:
+		Bounds: 1882, 2075, 0, -724
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Armament@standard:
+		Weapon: TSHMLRS
+		Damage: 100
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSHMLRSE
+		Damage: 150
+		RequiresCondition: rank-elite
+	Armament@AA:
+		Weapon: TSHMLRSAA
+		Damage: 100
+		RequiresCondition: !rank-elite
+	Armament@AAE:
+		Weapon: TSHMLRSAAE
+		Damage: 150
+		RequiresCondition: rank-elite
+	AttackAircraft:
+		Voice: Attack
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	WithMuzzleOverlay:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	HitShape:
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: ornithopterhusk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: ornithopter
+		PlayerPalette: d2kpal2
+
+ornithopterhusk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: actor-disk.name
+	Tooltip@NoRow:
+		Name: actor-disk.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 180
+	FallsToEarth:
+		Explosion: PlaneExplode
+	RevealsShroud:
+		Range: 10c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 10c0
+		Duration: 125
+	RenderVoxels:
+		Image: disk
+	-WithVoxelBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+	RenderSprites:
+		Image: ornithopter
 		PlayerPalette: d2kpal2
