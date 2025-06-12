@@ -411,10 +411,17 @@ harkonnenstarport:
 		PlayerPalette: d2kpal2
 
 harkonnenrepair_pad:
-	Inherits: ^Radar
+	Inherits: ^ServiceDepot
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@SPY: ^DisabledByInfiltration
 	Inherits@SHAPE: ^2x2Shape
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	-WithIdleOverlay@bib:
 	Buildable:
 		Queue: Building.Shared, Building.harkonnen
 		Prerequisites: ~harkonnencnst, harkonnenheavyweap, ~techlevel.1
@@ -444,34 +451,10 @@ harkonnenrepair_pad:
 		RequiresCondition: lowpower || powerdown || emp || infiltrated
 	Reservable:
 	ExitsDebugOverlay:
-	Exit@1:
-		Facing: 896
-		SpawnOffset: 1086,362,0
-		ExitCell: 3,-1
-	Exit@2:
-		Facing: 896
-		SpawnOffset: -362,-1086,0
-		ExitCell: 1,-1
-	Exit@3:
-		Facing: 896
-		SpawnOffset: -384,512,0
-		ExitCell: 1,2
-	Exit@4:
-		Facing: 896
-		SpawnOffset: 384,768,0
-		ExitCell: 3,2
 	GrantExternalConditionToOwner:
 		Condition: airdock
 	GrantExternalConditionToProduced:
 		Condition: produced
-	Production@Shared:
-		Produces: Aircraft.Shared
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: !multiqueue
-	Production:
-		Produces: Aircraft.Allies, Aircraft.harkonnen
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: multiqueue
 	ProductionQueue:
 		Type: Aircraft.harkonnen
 		Group: Aircraft
@@ -487,8 +470,6 @@ harkonnenrepair_pad:
 		QueuedAudio: Training
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
-	ProductionBar@Shared:
-		ProductionType: Aircraft.Shared
 	RallyPoint:
 		Path: 1,2
 		Palette: mouse
@@ -2147,10 +2128,17 @@ ordosstarport:
 		PlayerPalette: d2kpal2
 
 ordosrepair_pad:
-	Inherits: ^Radar
+	Inherits: ^ServiceDepot
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@SPY: ^DisabledByInfiltration
 	Inherits@SHAPE: ^2x2Shape
+	-WithIdleOverlay@bib:
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
 	Buildable:
 		Queue: Building.Shared, Building.ordos
 		Prerequisites: ~ordoscnst, ordosheavyweap, ~techlevel.1
@@ -2180,51 +2168,10 @@ ordosrepair_pad:
 		RequiresCondition: lowpower || powerdown || emp || infiltrated
 	Reservable:
 	ExitsDebugOverlay:
-	Exit@1:
-		Facing: 896
-		SpawnOffset: 1086,362,0
-		ExitCell: 3,-1
-	Exit@2:
-		Facing: 896
-		SpawnOffset: -362,-1086,0
-		ExitCell: 1,-1
-	Exit@3:
-		Facing: 896
-		SpawnOffset: -384,512,0
-		ExitCell: 1,2
-	Exit@4:
-		Facing: 896
-		SpawnOffset: 384,768,0
-		ExitCell: 3,2
 	GrantExternalConditionToOwner:
 		Condition: airdock
 	GrantExternalConditionToProduced:
 		Condition: produced
-	Production@Shared:
-		Produces: Aircraft.Shared
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: !multiqueue
-	Production:
-		Produces: Aircraft.Allies, Aircraft.ordos
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: multiqueue
-	ProductionQueue:
-		Type: Aircraft.ordos
-		Group: Aircraft
-		DisplayOrder: 25
-		LowPowerModifier: 200
-		Factions: ordos
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar@Shared:
-		ProductionType: Aircraft.Shared
 	RallyPoint:
 		Path: 1,2
 		Palette: mouse
@@ -3778,10 +3725,17 @@ atreidesstarport:
 		PlayerPalette: d2kpal2
 
 atreidesrepair_pad:
-	Inherits: ^Radar
+	Inherits: ^ServiceDepot
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@SPY: ^DisabledByInfiltration
 	Inherits@SHAPE: ^2x2Shape
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	-WithIdleOverlay@bib:
 	Buildable:
 		Queue: Building.Shared, Building.atreides
 		Prerequisites: ~atreidescnst, atreidesheavyweap, ~techlevel.1
@@ -3811,51 +3765,10 @@ atreidesrepair_pad:
 		RequiresCondition: lowpower || powerdown || emp || infiltrated
 	Reservable:
 	ExitsDebugOverlay:
-	Exit@1:
-		Facing: 896
-		SpawnOffset: 1086,362,0
-		ExitCell: 3,-1
-	Exit@2:
-		Facing: 896
-		SpawnOffset: -362,-1086,0
-		ExitCell: 1,-1
-	Exit@3:
-		Facing: 896
-		SpawnOffset: -384,512,0
-		ExitCell: 1,2
-	Exit@4:
-		Facing: 896
-		SpawnOffset: 384,768,0
-		ExitCell: 3,2
 	GrantExternalConditionToOwner:
 		Condition: airdock
 	GrantExternalConditionToProduced:
 		Condition: produced
-	Production@Shared:
-		Produces: Aircraft.Shared
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: !multiqueue
-	Production:
-		Produces: Aircraft.Allies, Aircraft.atreides
-		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
-		RequiresCondition: multiqueue
-	ProductionQueue:
-		Type: Aircraft.atreides
-		Group: Aircraft
-		DisplayOrder: 25
-		LowPowerModifier: 200
-		Factions: atreides
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar@Shared:
-		ProductionType: Aircraft.Shared
 	RallyPoint:
 		Path: 1,2
 		Palette: mouse
