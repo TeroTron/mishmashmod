@@ -2413,6 +2413,204 @@ heavy.ordos:
 		Start: 4353
 		Offset: -30,-24
 
+d2kflamethrower:
+	Inherits@default: ^d2kinfantrydeath
+	paradrop:
+		Filename: flamethrower.shp
+		Facings: 1
+	stand:
+		Filename: flamethrower.shp
+		Facings: 8
+	Defaults:
+		Remap: 54F94B
+		Scale: 1.3
+	stand:
+		Filename: flamethrower.shp
+		Facings: 8
+	stand2:
+		Filename: flamethrower.shp
+		Start: 8
+		Facings: 8
+	run:
+		Filename: flamethrower.shp
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot:
+		Filename: flamethrower.shp
+		Start: 64
+		Length: 16
+		Facings: 8
+	idle1:
+		Filename: flamethrower.shp
+		Start: 384
+		Length: 14
+		Tick: 120
+	idle2:
+		Filename: flamethrower.shp
+		Start: 399
+		Length: 16
+		Tick: 120
+	die1:
+		Filename: flamethrower.shp
+		Start: 416
+		Length: 8
+	die2:
+		Filename: flamethrower.shp
+		Start: 424
+		Length: 8
+	die3:
+		Filename: flamethrower.shp
+		Start: 432
+		Length: 8
+	prone-stand:
+		Filename: flamethrower.shp
+		Start: 208
+		Stride: 4
+		Facings: 8
+	prone-stand2:
+		Filename: flamethrower.shp
+		Start: 208
+		Stride: 4
+		Facings: 8
+	prone-run:
+		Filename: flamethrower.shp
+		Start: 208
+		Length: 4
+		Facings: 8
+		Tick: 120
+	prone-shoot:
+		Filename: flamethrower.shp
+		Start: 256
+		Length: 16
+		Facings: 8
+	icon:
+		Filename: flamethrowericon.shp
+		Offset: 0,-1
+		Remap: 00000000
+
+d2kflame_tower:
+	invisible:
+		Filename: DATA.R8
+		Start: 38
+	idle:
+		Filename: flame_tower.shp
+		Frames: 0
+		Length: 1
+		Remap: 54F94B
+	damaged-idle:
+		Filename: flame_tower.shp
+		Frames: 0
+		Length: 1
+		Remap: 54F94B
+	make:
+		Filename: DATA.R8
+		Start: 4577
+		Length: 8
+		Offset: -16,16
+	crumble-overlay:
+		Filename: DATA.R8
+		Start: 4585
+		Length: 7
+		Offset: -16,16
+	muzzle:
+		Filename: DATA.R8
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+	icon:
+		Filename: flame_towericon.shp
+		Offset: 0,-1
+
+fremen:
+	Defaults:
+		Remap: 54F94B
+		Scale: 1.3
+	stand:
+		Filename: DATA.R8
+		Start: 694
+		Facings: -8
+		Transpose: true
+	idle1:
+		Filename: DATA.R8
+		Frames: 875, 882, 889, 896, 903, 910, 917, 924
+		Length: 8
+		Tick: 80
+	idle2:
+		Filename: DATA.R8
+		Frames: 876, 883, 890, 897, 904, 911, 918, 925
+		Length: 8
+		Tick: 80
+	run:
+		Filename: DATA.R8
+		Start: 702
+		Length: 6
+		Facings: -8
+		Transpose: true
+		Tick: 120
+	shoot:
+		Filename: DATA.R8
+		Start: 742
+		Length: 6
+		Facings: -8
+		Transpose: true
+	prone-stand:
+		Filename: DATA.R8
+		Start: 798
+		Facings: -8
+		Transpose: true
+	prone-run:
+		Filename: DATA.R8
+		Start: 806
+		Length: 3
+		Facings: -8
+		Transpose: true
+		Tick: 120
+	standup:
+		Filename: DATA.R8
+		Start: 790
+		Facings: -8
+		Transpose: true
+		Tick: 120
+	prone-shoot:
+		Filename: DATA.R8
+		Start: 822
+		Length: 6
+		Facings: -8
+		Transpose: true
+	die1:
+		Filename: DATA.R8
+		Frames: 870, 877, 884, 891, 898, 905, 912, 919, 926, 927, 928, 929
+		Length: 12
+		Tick: 80
+	die2:
+		Filename: DATA.R8
+		Frames: 871, 878, 885, 892, 899, 906, 913, 920
+		Length: 8
+		Tick: 80
+	die3:
+		Filename: DATA.R8
+		Frames: 872, 879, 886, 893, 900, 907, 914, 921
+		Length: 8
+		Tick: 80
+	die4:
+		Filename: DATA.R8
+		Frames: 873, 880, 887, 894, 901, 908, 915, 922
+		Length: 8
+		Tick: 80
+	die-crushed:
+		Filename: DATA.R8
+		Frames: 874, 881, 888, 895, 902, 909, 916, 923
+		Length: 8
+		Tick: 800
+		ZOffset: -511
+	icon:
+		Filename: DATA.R8
+		Start: 4293
+		Offset: -30,-24
+		Remap: 00000000
+
 ornithopter:
 	idle:
 		Filename: DATA.R8
@@ -2442,12 +2640,12 @@ machine_gun_tower:
 		Length: 1
 		Remap: 54F94B
 	make:
-		Filename: DATA.R16
+		Filename: DATA.R8
 		Start: 4577
 		Length: 8
 		Offset: -16,16
 	crumble-overlay:
-		Filename: DATA.R16
+		Filename: DATA.R8
 		Start: 4585
 		Length: 7
 		Offset: -16,16

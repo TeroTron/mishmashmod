@@ -723,7 +723,7 @@ harkonnenmachineguntower:
 		Image: machine_gun_tower
 		PlayerPalette: d2kpal2
 
-d2kharkonnengunturret:
+d2kharkonnenflametower:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
@@ -738,9 +738,9 @@ d2kharkonnengunturret:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Gun Turret
+		Name: Flame Tower
 	Tooltip@NoRow:
-		Name: Gun Turret
+		Name: Flame Tower
 	Health:
 		HP: 40000
 	Armor:
@@ -758,7 +758,7 @@ d2kharkonnengunturret:
 	AttackTurreted:
 		PauseOnCondition: build-incomplete || chronodisable
 	Armament:
-		Weapon: 120mm
+		Weapon: TankFlamer
 		LocalOffset: 512,0,432
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -767,8 +767,6 @@ d2kharkonnengunturret:
 	RenderDetectionCircle:
 	BodyOrientation:
 		QuantizedFacings: 16
-	WithSpriteTurret:
-		RequiresCondition: !build-incomplete
 	WithRangeCircle:
 		Range: 6c0
 		Type: pillbox
@@ -785,7 +783,7 @@ d2kharkonnengunturret:
 		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 		Damage: 65
 	RenderSprites:
-		Image: medium_gun_turret
+		Image: d2kflame_tower
 		PlayerPalette: d2kpal2
 
 d2kharkonnenrocketturret:
@@ -905,6 +903,34 @@ d2kharkonnentrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -1500,7 +1526,7 @@ d2kharkonnentrooper:
 	Health:
 		HP: 12500
 	Mobile:
-		Speed: 300
+		Speed: 60
 	Garrisoner:
 		Voice: Move
 		GarrisonType: Garrisoner
@@ -1600,6 +1626,113 @@ d2kharkonnentrooper:
 	RenderSprites:
 		Image: d2ktrooper
 		PlayerPalette: d2kpal2
+		
+d2kharkonnenflametrooper:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.harkonnen
+		BuildAtProductionType: Soldier
+		Prerequisites: ~harkonnenbarracks, harkonnenoutpost
+		BuildPaletteOrder: 10
+		Description: actor-d2kflametrooper.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Flame Trooper
+	Tooltip@NoRow:
+		Name: Flame Trooper
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 13000
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Armor:
+		Type: Plate
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TankFlamer
+		Damage: 100
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TankFlamerE
+		Damage: 280
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TankFlamer
+		Damage: 100
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TankFlamerE
+		Damage: 280
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TankFlamer
+		Damage: 100
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TankFlamerE
+		Damage: 280
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2kflamethrower
+		PlayerPalette: raplayer
 		
 #######################################
 # D2K ordos MCV
@@ -2508,6 +2641,34 @@ d2kordostrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -4105,6 +4266,34 @@ d2katreidestrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -4891,6 +5080,121 @@ d2katreidesgrenadier:
 	RenderSprites:
 		Image: d2kgrenadier
 		PlayerPalette: d2kpal2
+
+d2katreidesfremen:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.atreides
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~atreidesbarracks, atreidespalace
+		Description: actor-ghost.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 400
+		Voice: Move
+	Tooltip:
+		Name: Fremen
+	Tooltip@NoRow:
+		Name: Fremen
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 25000
+	Garrisoner:
+		Voice: Move
+		CustomPipType: gray
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: gray
+	Mobile:
+		Speed: 75
+		Locomotor: foot
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Armor:
+		Type: Flak
+	Armament@primary:
+		Weapon: MP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: MP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: MP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: MP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@sapper:
+		Weapon: SealC4Attacher
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@sapper-elite:
+		Weapon: SealC4AttacherE
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCMP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCMP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	RenderSprites:
+		Image: fremen
+		PlayerPalette: d2kpal2
+	Voiced:
+		VoiceSet: D2kFremenVoice
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Armaments: primary
+		Damage: 70
 
 #######################################
 # D2K Special Faction Vehicles
