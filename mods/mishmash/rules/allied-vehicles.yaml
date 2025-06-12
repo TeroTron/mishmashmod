@@ -1996,7 +1996,6 @@ hwtz:
 ctnk:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@BOOSTGLIDING: ^AffectedByBoostGlidingSystems
 	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@CHAOS: ^BerserkableVoxelArmed
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2005,7 +2004,7 @@ ctnk:
 	Inherits@PORTCHRONO: ^WithPortableChrono
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Allies, Vehicle.USA, Vehicle.UK, Vehicle.Germany
+		Queue: Vehicle.Shared, Vehicle.Allies
 		BuildPaletteOrder: 990
 		Prerequisites: ~vehicle.allies, gatech, ~caslab, ~techlevel.4
 		Description: actor-ctnk.description

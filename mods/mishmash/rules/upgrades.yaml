@@ -25,7 +25,7 @@ upgrade.gi_fortifications:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 10
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-gi-fortifications.description
 	Valued:
 		Cost: 1500
@@ -42,7 +42,7 @@ upgrade.a2a_missiles:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 20
 		BuildDuration: 750
-		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-a2a-missiles.description
 	Valued:
 		Cost: 1000
@@ -57,7 +57,7 @@ upgrade.advanced_coolants:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 30
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-advanced-coolants.description
 	Valued:
 		Cost: 1500
@@ -72,7 +72,7 @@ upgrade.advanced_training:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 40
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-advanced-training.description
 	Valued:
 		Cost: 1500
@@ -87,7 +87,7 @@ upgrade.predator_missiles:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 50
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-predator-missiles.description
 	Valued:
 		Cost: 1500
@@ -102,7 +102,7 @@ upgrade.composite_armor:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 60
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-composite-armor.description
 	Valued:
 		Cost: 2000
@@ -117,7 +117,7 @@ upgrade.boost_gliding_systems:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 70
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.america, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-boost-gliding-systems.description
 	Valued:
 		Cost: 2000
@@ -132,7 +132,7 @@ upgrade.portable_weaponry:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 80
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.england, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-portable-weaponry.description
 	Valued:
 		Cost: 2500
@@ -147,7 +147,7 @@ upgrade.grand_cannon_protocols:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 90
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.france, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-grand-cannon-protocols.description
 	Valued:
 		Cost: 1500
@@ -162,7 +162,7 @@ upgrade.advanced_gun_systems:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 100
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.germany, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-advanced-gun-systems.description
 	Valued:
 		Cost: 1500
@@ -177,7 +177,7 @@ upgrade.emp_munitions:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 110
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.korea, gatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-emp-munitions.description
 	Valued:
 		Cost: 2000
@@ -192,7 +192,7 @@ upgrade.increased_payload:
 		Queue: Upgrade.Shared, Upgrade.Allies
 		BuildPaletteOrder: 120
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.allies, gaweat, ~techlevel.4
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-increased-payload.description
 	Valued:
 		Cost: 2500
@@ -208,23 +208,7 @@ upgrade.ap_bullets:
 		Queue: Upgrade.Soviets
 		BuildPaletteOrder: 10
 		BuildDuration: 2250
-		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
-		Description: actor-upgrade-ap-bullets.description
-	Buildable@Baku:
-		Queue: Upgrade.Baku
-		BuildPaletteOrder: 10
-		BuildDuration: 2250
-		BuildDurationModifier: 100
-		BuildLimit: 1
-		Prerequisites: ~upgrade.baku, basops, ~techlevel.2
-		Description: actor-upgrade-ap-bullets.description-baku
-	Buildable@Shared:
-		Queue: Upgrade.Shared
-		BuildPaletteOrder: 10
-		BuildDuration: 1500
-		BuildDurationModifier: 100
-		BuildLimit: 1
-		Prerequisites: ~upgrade.sovietsorbaku, naradr, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-ap-bullets.description
 	Valued:
 		Cost: 2000
@@ -239,7 +223,7 @@ upgrade.bullet_proof_coats:
 		Queue: Upgrade.Soviets
 		BuildPaletteOrder: 20
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-bullet-proof-coats.description
 	Buildable@Baku:
 		Queue: Upgrade.Baku
@@ -270,7 +254,7 @@ upgrade.molotov_cocktails:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 30
 		BuildDuration: 750
-		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-molotov-cocktails.description
 	Valued:
 		Cost: 1000
@@ -285,7 +269,7 @@ upgrade.nuclear_engines:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 40
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.soviets, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-nuclear-engines.description
 	Valued:
 		Cost: 2000
@@ -300,7 +284,7 @@ upgrade.uranium_shells:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 50
 		BuildDuration: 2250
-		Prerequisites: ~upgrade.soviets, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-uranium-shells.description # \nShells of both units leave radiation at the target location.
 	Valued:
 		Cost: 2500
@@ -315,7 +299,7 @@ upgrade.overcharge:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 70
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.russia, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-overcharge.description
 	Valued:
 		Cost: 2000
@@ -330,7 +314,7 @@ upgrade.advanced_irradiators:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 80
 		BuildDuration: 750
-		Prerequisites: ~upgrade.iraq, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-advanced-irradiators.description
 	Valued:
 		Cost: 1000
@@ -345,7 +329,7 @@ upgrade.black_napalm:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 90
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.vietnam, naradr, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-black-napalm.description
 	Valued:
 		Cost: 2000
@@ -360,7 +344,7 @@ upgrade.targeted_explosives:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 100
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.cuba, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-targeted-explosives.description
 	Valued:
 		Cost: 1500
@@ -375,7 +359,7 @@ upgrade.high_explosive_bombs:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 110
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.libya, natech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-high-explosive-bombs.description
 	Valued:
 		Cost: 2000
@@ -390,7 +374,7 @@ upgrade.radioactive_bombs:
 		Queue: Upgrade.Shared, Upgrade.Soviets
 		BuildPaletteOrder: 120
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.soviets, namisl, ~techlevel.5
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-radioactive-bombs.description
 	Valued:
 		Cost: 2500
@@ -406,7 +390,7 @@ upgrade.camouflage:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 120
 		BuildDuration: 750
-		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-camouflage.description
 	Valued:
 		Cost: 1000
@@ -421,7 +405,7 @@ upgrade.grinder_treads:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 20
 		BuildDuration: 750
-		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-grinder-treads.description
 	Valued:
 		Cost: 1000
@@ -436,7 +420,7 @@ upgrade.toxin_sprayer:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 30
 		BuildDuration: 750
-		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-toxin-sprayer.description
 	Valued:
 		Cost: 1000
@@ -453,7 +437,7 @@ upgrade.lazarus_prime:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 40
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-lazarus-prime.description
 	Valued:
 		Cost: 1000
@@ -468,7 +452,7 @@ upgrade.autoloaders:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 50
 		BuildDuration: 2250
-		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-autoloaders.description
 	Valued:
 		Cost: 2500
@@ -483,7 +467,7 @@ upgrade.rocket_barrage:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 60
 		BuildDuration: 1000
-		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-rocket-barrage.description
 	Valued:
 		Cost: 1500
@@ -498,7 +482,7 @@ upgrade.chaos_tank_compensators:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 70
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.psicorps, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-chaos-tank-compensators.description
 	Valued:
 		Cost: 1500
@@ -513,7 +497,7 @@ upgrade.laser_capacitors:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 80
 		BuildDuration: 2250
-		Prerequisites: ~upgrade.psinepal, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-laser-capacitors.description
 	Valued:
 		Cost: 2500
@@ -528,7 +512,7 @@ upgrade.mastery_of_mind:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 90
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.psisouth, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-mastery-of-mind.description # \nYuri Clone and Yuri Prime can control 2 assets at the same time.
 	Valued:
 		Cost: 1500
@@ -543,7 +527,7 @@ upgrade.dna_boosters:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 100
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.psitrans, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-dna-boosters.description
 	Valued:
 		Cost: 2000
@@ -558,7 +542,7 @@ upgrade.disc_armor:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 110
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.psimoon, yatech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-disc-armor.description
 	Valued:
 		Cost: 2000
@@ -573,7 +557,7 @@ upgrade.chainguns:
 		Queue: Upgrade.Shared, Upgrade.Yuri
 		BuildPaletteOrder: 10
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-chainguns.description
 	Valued:
 		Cost: 2000
@@ -589,7 +573,7 @@ upgrade.smoke_grenades:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 30
 		BuildDuration: 750
-		Prerequisites: ~upgrade.baku, basops, ~techlevel.2
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-smoke-grenades.description
 	Valued:
 		Cost: 1000
@@ -604,7 +588,7 @@ upgrade.heavy_mortars:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 40
 		BuildDuration: 1875
-		Prerequisites: ~upgrade.baku, batech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-heavy-mortars.description
 	Valued:
 		Cost: 2000
@@ -619,7 +603,7 @@ upgrade.mounted_mg:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 50
 		BuildDuration: 2250
-		Prerequisites: ~upgrade.baku, batech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-mounted-mg.description
 	Valued:
 		Cost: 2000
@@ -634,7 +618,7 @@ upgrade.propaganda_effort:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 60
 		BuildDuration: 750
-		Prerequisites: ~upgrade.baku, batech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-propaganda-effort.description
 	Valued:
 		Cost: 1500
@@ -649,7 +633,7 @@ upgrade.arm_the_mob:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 80
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.turkmen, batech, ~techlevel.3
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-arm-the-mob.description
 	Valued:
 		Cost: 1500
@@ -664,7 +648,7 @@ upgrade.cryo_warheads:
 		Queue: Upgrade.Shared, Upgrade.Baku
 		BuildPaletteOrder: 120
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.baku, batech, ~techlevel.4
+		Prerequisites: ~upgrade.unbuildable
 		Description: actor-upgrade-cryo-warheads.description
 	Valued:
 		Cost: 2000

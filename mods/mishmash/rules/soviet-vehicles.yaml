@@ -1091,7 +1091,6 @@ tric:
 
 deva:
 	Inherits: ^Vehicle
-	Inherits@ADVIRRAD: ^AffectedByAdvancedIrradiators
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@CHAOS: ^BerserkableVoxelArmed
@@ -1108,7 +1107,7 @@ deva:
 	Tooltip@NoRow:
 		Name: actor-deva.name
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Soviets, Vehicle.USSR, Vehicle.Iraq, Vehicle.Cuba, Vehicle.Libya
+		Queue: Vehicle.Shared, Vehicle.Soviets
 		BuildPaletteOrder: 990
 		Prerequisites: ~vehicle.soviets, natech, ~caslab, ~techlevel.4
 		Description: actor-deva.description
