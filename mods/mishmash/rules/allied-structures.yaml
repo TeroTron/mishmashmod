@@ -1122,8 +1122,6 @@ gaweat:
 		Name: actor-gaweat.name
 	Tooltip@NoRow:
 		Name: actor-gaweat.name
-	WithIdleOverlay@waves:
-		RequiresCondition: !build-incomplete && in_water
 	DetonateWeaponPower@WeatherStorm:
 		OrderName: WeatherStormInfoOrder
 		Prerequisites:
