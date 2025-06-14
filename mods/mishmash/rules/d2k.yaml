@@ -886,34 +886,11 @@ d2kharkonnentrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	WithCargoPipsDecoration:
-		Margin: 4, 3
-		Palette: ra
-		Position: BottomLeft
-		RequiresSelection: true
-		CustomPipSequences:
-			gray: pip-gray
-			yellow: pip-yellow
-			blue: pip-blue
-			red: pip-red
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
-	Cargo:
-		Types: Infantry, Garrisoner, SmallVehicle
-		MaxWeight: 5
-		AfterLoadDelay: 0
-		BeforeUnloadDelay: 0
-		AfterUnloadDelay: 0
-		PassengerFacing: 0
-		UnloadVoice: Move
-		LoadingCondition: notmobile
-		LoadedCondition: loaded
-	WithCargoSounds:
-		EnterSounds: genter1a.wav
-		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -2591,34 +2568,11 @@ d2kordostrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	WithCargoPipsDecoration:
-		Margin: 4, 3
-		Palette: ra
-		Position: BottomLeft
-		RequiresSelection: true
-		CustomPipSequences:
-			gray: pip-gray
-			yellow: pip-yellow
-			blue: pip-blue
-			red: pip-red
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
-	Cargo:
-		Types: Infantry, Garrisoner, SmallVehicle
-		MaxWeight: 5
-		AfterLoadDelay: 0
-		BeforeUnloadDelay: 0
-		AfterUnloadDelay: 0
-		PassengerFacing: 0
-		UnloadVoice: Move
-		LoadingCondition: notmobile
-		LoadedCondition: loaded
-	WithCargoSounds:
-		EnterSounds: genter1a.wav
-		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -4183,34 +4137,11 @@ d2katreidestrike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	WithCargoPipsDecoration:
-		Margin: 4, 3
-		Palette: ra
-		Position: BottomLeft
-		RequiresSelection: true
-		CustomPipSequences:
-			gray: pip-gray
-			yellow: pip-yellow
-			blue: pip-blue
-			red: pip-red
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
-	Cargo:
-		Types: Infantry, Garrisoner, SmallVehicle
-		MaxWeight: 5
-		AfterLoadDelay: 0
-		BeforeUnloadDelay: 0
-		AfterUnloadDelay: 0
-		PassengerFacing: 0
-		UnloadVoice: Move
-		LoadingCondition: notmobile
-		LoadedCondition: loaded
-	WithCargoSounds:
-		EnterSounds: genter1a.wav
-		ExitSounds: gexit1a.wav
 	Valued:
 		Cost: 500
 	DeliversCash:
