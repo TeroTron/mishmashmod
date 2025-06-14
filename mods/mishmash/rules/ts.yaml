@@ -891,13 +891,12 @@ tsmmch:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: 120mmE
 		Damage: 180
 		Recoil: 87
 		RecoilRecovery: 12
 		LocalOffset: 896,0,640
-		MuzzleSequence: muzzle-2
+		MuzzleSequence: muzzle
 		RequiresCondition: rank-elite
 	AttackTurreted:
 	WithMuzzleOverlay:

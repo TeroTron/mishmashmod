@@ -1125,7 +1125,6 @@ d2kharkonnencombattank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: 120mmE
 		Damage: 180
 		Recoil: 87
@@ -1223,7 +1222,6 @@ d2kharkonnensiegetank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: d2ksiegemmE
 		Damage: 150
 		Recoil: 87
@@ -2807,7 +2805,6 @@ d2kordoscombattank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: 120mmE
 		Damage: 180
 		Recoil: 87
@@ -2905,7 +2902,6 @@ d2kordossiegetank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: d2ksiegemmE
 		Damage: 150
 		Recoil: 87
@@ -4376,7 +4372,6 @@ d2katreidescombattank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: 120mmE
 		Damage: 180
 		Recoil: 87
@@ -4474,7 +4469,6 @@ d2katreidessiegetank:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
 		Weapon: d2ksiegemmE
 		Damage: 150
 		Recoil: 87
@@ -5125,14 +5119,14 @@ d2kharkonnendevastator:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite1:
-		Name: elite
+		Name: elite1
 		Weapon: 120mmxE
 		Damage: 180
 		LocalOffset: 640,0,32
 		MuzzleSequence: muzzle
 		RequiresCondition: rank-elite
 	Armament@elite2:
-		Name: elite
+		Name: elite2
 		Weapon: 120mmxE
 		Damage: 180
 		LocalOffset: 640,0,32
@@ -5345,20 +5339,25 @@ d2kharkonnenrockettank:
 	AttackFrontal:
 		FacingTolerance: 0
 	AutoTarget:
-	Armament@primary:
-		Weapon: d2ksiegemm
+	Armament@standard:
+		Weapon: TSHMLRS
 		Damage: 100
-		Recoil: 87
-		RecoilRecovery: 12
-		LocalOffset: 896,0,640
+		LocalOffset: 640,0,640
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Name: elite
-		Weapon: d2ksiegemmE
+		Weapon: TSHMLRSE
 		Damage: 150
-		Recoil: 87
-		RecoilRecovery: 12
-		LocalOffset: 896,0,640
+		LocalOffset: 640,0,640
+		RequiresCondition: rank-elite
+	Armament@AA:
+		Weapon: TSHMLRSAA
+		Damage: 100
+		LocalOffset: 640,0,640
+		RequiresCondition: !rank-elite
+	Armament@AAE:
+		Weapon: TSHMLRSAAE
+		Damage: 150
+		LocalOffset: 640,0,640
 		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0

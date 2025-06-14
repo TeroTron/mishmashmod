@@ -424,7 +424,7 @@ htnk:
 	#	Volume: 0.3
 	#	RequiresCondition: moving
 	ActorStatValues:
-		Upgrades:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, MaxRange
 
 apoc:
 	Inherits: ^Vehicle
