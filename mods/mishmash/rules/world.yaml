@@ -199,7 +199,7 @@
 		Description: faction-allied.description
 		Selectable: true
 	Faction@unifiedsoviet:
-		Name: Soviet Warpact
+		Name: Warsaw Pact
 		InternalName: soviets
 		Side: Red Alert 2
 		Description: faction-soviet.description
