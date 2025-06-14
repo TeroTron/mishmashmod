@@ -71,6 +71,21 @@ falc:
 	idle-predator: bits/vehicles/upgrades/falcu2
 	idle-a2a-predator: bits/vehicles/upgrades/falcu3
 
+tsorca:
+	idle: tsorca
+	idle-a2a: tsorca
+	idle-predator: tsorca
+	idle-a2a-predator: tsorca
+
+tsorcabomber:
+	idle: tsorcab
+	idle-a2a: tsorcab
+	idle-predator: tsorcab
+	idle-a2a-predator: tsorcab
+
+tsorcacarryall:
+	idle: trnsport
+
 naflak:
 	turret: local|flaktur
 

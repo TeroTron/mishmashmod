@@ -142,7 +142,7 @@ tsgtcnst:
 		Filename: tsgtcnst_b.shp
 		Length: 10
 	icon:
-		Filename: tsfacticon.shp
+		Filename: tsfacticon.png
 		Offset: 0,0
 
 gdimcv:
@@ -606,6 +606,27 @@ tsmmch:
 		Facings: -32
 		Offset: 0, 0, 12
 
+tshvr:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: tshvricon.png
+		AddExtension: False
+
+tsorca:
+	icon:
+		Filename: tsorcafighter.png
+		AddExtension: False
+
+tsorcabomber:
+	icon:
+		Filename: tsorcabomber.png
+		AddExtension: False
+
+tsorcacarryall:
+	icon:
+		Filename: tsorcatransport.png
+		AddExtension: False
+
 tssmech:
 	idle:
 		Filename: invisibleitem.shp
@@ -1023,7 +1044,7 @@ tsgtctwrmg:
 	dead:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: tsvulkturicon.shp
+		Filename: tsvulkturicon.png
 		Offset: 0,0
 
 tsgtctwrrpg:
@@ -1050,7 +1071,7 @@ tsgtctwrrpg:
 	dead:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: tsrpgturreticon.shp
+		Filename: tsrpgturreticon.png
 		Offset: 0,0
 
 tsgtctwrsam:

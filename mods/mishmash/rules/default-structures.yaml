@@ -447,7 +447,7 @@
 	SpawnActorsOnSell@psicorps:
 		ActorTypes: init
 	StoresPlayerResources:
-		Capacity: 9999999
+		Capacity: 1000000
 	FireWarheadsOnDeath:
 		RequiresCondition: !spawn-ore
 	FireWarheadsOnDeath@Ore:

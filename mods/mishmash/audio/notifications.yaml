@@ -4,6 +4,7 @@ Speech:
 		allies: ceva
 		soviets: csof
 		yuri: cyur
+		gdi: gdi
 	Notifications:
 		AllianceBroken: 044
 		AllianceFormed: 043
