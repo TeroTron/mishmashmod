@@ -1,5 +1,4 @@
 user.config
-bin
 obj
 mods/*/*.dll
 mods/*/*.mdb
