@@ -5291,3 +5291,94 @@ ornithopterhusk:
 	RenderSprites:
 		Image: ornithopter
 		PlayerPalette: d2kpal2
+
+d2kharkonnenrockettank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Rocket Tank
+	Tooltip@NoRow:
+		Name: Rocket Tank
+	Selectable:
+		Class: siegetank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Prerequisites: ~harkonnenheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ksiegetank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 43
+		TurnSpeed: 12
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: d2ksiegemm
+		Damage: 100
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: d2ksiegemmE
+		Damage: 150
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: d2krockettank
+		PlayerPalette: player_rgba
