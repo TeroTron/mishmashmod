@@ -489,7 +489,7 @@ orca:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	RenderSprites:
@@ -733,7 +733,7 @@ beag:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@V:

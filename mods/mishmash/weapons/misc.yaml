@@ -1506,12 +1506,13 @@ d2kchemicaltrooperprojectile:
 	SoundVolume: 0.2
 	Projectile: BulletAS
 		Speed: 250
-		Image: txgasg
-		TrailImage: txgasg
+		Image: d2ktxgasg
+		TrailImage: d2ktxgasg
 		TrailSequences: trailer
 		TrailInterval: 1
 		LaunchAngle: 62
 		Inaccuracy: 0c512
+		Scale: 0.2
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
 		Damage: 1000
@@ -1523,13 +1524,51 @@ d2kchemicaltrooperprojectile:
 		Damage: 1000
 		Amount: 3
 		DamageTypes: VirusDeath, NonTemporal
-	Warhead@2Eff: CreateEffect
-		Explosions: piff
 	-Warhead@3Eff: CreateEffect
 
 d2kchemicaltrooperprojectileE:
 	Inherits: Flamer
 	Burst: 2
+	SoundVolume: 0.1
+	Warhead@1Dam: SpreadDamage
+		Damage: 1400
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 1400
+
+d2kFlamer:
+	Inherits: ^FireWeapon
+	ReloadDelay: 50
+	Range: 5c0
+	Burst: 5
+	BurstDelays: 0
+	Report: flamtnk1.aud
+	SoundVolume: 0.2
+	Projectile: BulletAS
+		Speed: 250
+		Image: fireball
+		TrailImage: fireball
+		TrailSequences: trailer
+		TrailInterval: 1
+		LaunchAngle: 62
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 1000
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: GarrisonedStructure
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 341
+		Damage: 1000
+		Amount: 3
+		DamageTypes: FlameDeath, NonTemporal
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: firebl3.aud
+
+d2kFlamerE:
+	Inherits: Flamer
+	Burst: 10
 	SoundVolume: 0.1
 	Warhead@1Dam: SpreadDamage
 		Damage: 1400

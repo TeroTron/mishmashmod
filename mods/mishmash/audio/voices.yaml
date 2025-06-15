@@ -1491,6 +1491,7 @@ D2kSaboteurVoice:
 		Zapped: electro1
 		Explode: expnew10
 		Poisoned: tsdedman3, tsdedman5
+	DisableVariants: PsyCrush, Explosion, Virus
 
 TSInfantry:
 	Inherits: ^TSDeath
@@ -1653,6 +1654,7 @@ TSHeli:
 		Move: 30-i014, 30-i016, 30-i018, 30-i022
 		Attack: 30-i022, 30-i030, 30-i034, 30-i036
 		Action: 30-i014, 30-i016, 30-i018, 30-i022
+		Die: vintdia, vintdib, vintdic
 
 TSCivilian:
 	Inherits: ^TSDeath
