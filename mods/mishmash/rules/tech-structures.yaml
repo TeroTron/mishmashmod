@@ -136,19 +136,19 @@ caairp:
 	Health:
 		HP: 75000
 	Building:
+		Footprint: xxx === ===
 		Dimensions: 3,3
-		Footprint: xxx xxx xxx
 	ProvidesPrerequisite@Allies:
 		Prerequisite: techparadrops.allies
-		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+		Factions: allies
 		ResetOnOwnerChange: true
 	ProvidesPrerequisite@Soviets:
 		Prerequisite: techparadrops.soviets
-		Factions: cuba, libya, iraq, russia, vietnam, chile, mexico, mongolia, transcaucus, turkmen, tuva, russianfed, serbia
+		Factions: soviets
 		ResetOnOwnerChange: true
 	ProvidesPrerequisite@PsiCorps:
 		Prerequisite: techparadrops.psicorps
-		Factions: psicorps, psinepal, psisouth, psitrans, psimoon
+		Factions: yuri
 		ResetOnOwnerChange: true
 	ParatroopersPower@Allies:
 		RequiresCondition: enabled
@@ -258,6 +258,17 @@ caairp:
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: swdirection
 		DirectionArrowPalette: mouse
+	Exit@1:
+		Facing: 896
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+	Exit@2:
+		Facing: 896
+		SpawnOffset: -362,-1086,0
+		ExitCell: 2,-1
+	Reservable:
+	GrantExternalConditionToOwner:
+		Condition: airdock
 	SupportPowerChargeBar:
 	WithIdleOverlay@decoration:
 		PauseOnCondition: chronodisable
@@ -266,6 +277,9 @@ caairp:
 		PauseOnCondition: chronodisable
 	RangedGpsDot:
 		Sequence: Paradrop
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 2,2
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:

@@ -1089,6 +1089,17 @@ txgasg:
 		Filename: conqmd|txgasg.shp
 		Length: *
 
+d2ktxgasg:
+	idle:
+		Filename: conqmd|txgasg.shp
+		Length: *
+		ZOffset: 4096
+		Scale: 0.5
+	trailer:
+		Filename: conqmd|txgasg.shp
+		Length: *
+		Scale: 0.5
+
 txgasp:
 	Defaults:
 		Filename: bits/projectiles/txgasp.shp

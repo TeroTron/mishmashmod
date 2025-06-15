@@ -428,9 +428,9 @@ harkonnenrepair_pad:
 		Description: actor-gaairc.description
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	Tooltip@NoRow:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	HitShape:
 		TargetableOffsets: 1024,0,0, 0,-1024,0, 0,1024,0, -1024,0,0
 		Type: Rectangle
@@ -1635,38 +1635,38 @@ d2kharkonnenflametrooper:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: Flamer
+		Weapon: d2kFlamer
 		Damage: 100
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: FlamerE
+		Weapon: d2kFlamerE
 		Damage: 280
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: Flamer
+		Weapon: d2kFlamer
 		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: FlamerE
+		Weapon: d2kFlamerE
 		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: Flamer
+		Weapon: d2kFlamer
 		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: FlamerE
+		Weapon: d2kFlamerE
 		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
@@ -2123,9 +2123,9 @@ ordosrepair_pad:
 		Description: actor-gaairc.description
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	Tooltip@NoRow:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	HitShape:
 		TargetableOffsets: 1024,0,0, 0,-1024,0, 0,1024,0, -1024,0,0
 		Type: Rectangle
@@ -3700,9 +3700,9 @@ atreidesrepair_pad:
 		Description: actor-gaairc.description
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	Tooltip@NoRow:
-		Name: actor-gaairc.name
+		Name: Repair Pad
 	HitShape:
 		TargetableOffsets: 1024,0,0, 0,-1024,0, 0,1024,0, -1024,0,0
 		Type: Rectangle

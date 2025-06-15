@@ -1189,6 +1189,7 @@ ghost:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
 	Inherits@SWIMSUIT: ^WithSwimSuit
+	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Allies
 		BuildAtProductionType: Soldier

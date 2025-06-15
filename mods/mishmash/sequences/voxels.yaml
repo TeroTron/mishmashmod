@@ -86,6 +86,9 @@ tsorcabomber:
 tsorcacarryall:
 	idle: trnsport
 
+tsorcacarryallhusk:
+	idle: trnsport
+
 naflak:
 	turret: local|flaktur
 

@@ -1734,7 +1734,7 @@ tsorca:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gdipad
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@H:
@@ -1934,7 +1934,7 @@ tsorcabomber:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gdipad
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@H:
@@ -2049,9 +2049,9 @@ tsorcacarryall:
 	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
 	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
-		Name: actor-hind.name
+		Name: Orca Carryall
 	Tooltip@NoRow:
-		Name: actor-hind.name
+		Name: Orca Carryall
 	Selectable:
 		Class: hind
 		Bounds: 1689, 2896, 0, -965
@@ -2139,6 +2139,7 @@ tsorcacarryall:
 
 tsorcacarryallhusk:
 	Inherits: ^HelicopterHusk
+	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-hind.name
 	Tooltip@NoRow:
@@ -2158,10 +2159,9 @@ tsorcacarryallhusk:
 	RevealOnDeath:
 		Radius: 10c0
 		Duration: 125
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
 	RenderSprites:
 		Image: tsorcacarryall
 	WithVoxelBody:
 		Image: tsorcacarryall
-		ForceToGround: true
-	BodyOrientation:
-		UseClassicPerspectiveFudge: false
