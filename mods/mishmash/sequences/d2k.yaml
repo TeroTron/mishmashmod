@@ -360,6 +360,27 @@ d2klight_inf:
 		Offset: -30,-24
 		Remap: 00000000
 
+d2klight_infatreides:
+	Inherits@infantrysequences: d2klight_inf
+	icon:
+		Filename: d2klightinfantryatreides.png
+		Start: 0
+		Offset: 0,0
+
+d2klight_infharkonnen:
+	Inherits@infantrysequences: d2klight_inf
+	icon:
+		Filename: d2klightinfantryharkonnen.png
+		Start: 0
+		Offset: 0,0
+
+d2klight_infordos:
+	Inherits@infantrysequences: d2klight_inf
+	icon:
+		Filename: d2kchemicaltrooperordos.png
+		Start: 0
+		Offset: 0,0
+
 light.harkonnen:
 	Defaults:
 		Scale: 1.25
@@ -703,6 +724,27 @@ d2ktrooper:
 		Offset: -30,-24
 		Remap: 00000000
 
+d2ktrooperatreides:
+	Inherits@infantrysequences: d2ktrooper
+	icon:
+		Filename: d2ktrooperatreides.png
+		Start: 0
+		Offset: 0,0
+
+d2ktrooperharkonnen:
+	Inherits@infantrysequences: d2ktrooper
+	icon:
+		Filename: d2ktrooperharkonnen.png
+		Start: 0
+		Offset: 0,0
+
+d2ktrooperordos:
+	Inherits@infantrysequences: d2ktrooper
+	icon:
+		Filename: d2ktrooperordos.png
+		Start: 0
+		Offset: 0,0
+
 d2kengineer:
 	Inherits@default: ^d2kinfantrydeath
 	Defaults:
@@ -773,6 +815,27 @@ d2kengineer:
 		Start: 4274
 		Offset: -30,-24
 		Remap: 00000000
+
+d2kengineeratreides:
+	Inherits@infantrysequences: d2kengineer
+	icon:
+		Filename: d2kengineeratreides.png
+		Start: 0
+		Offset: 0,0
+
+d2kengineerharkonnen:
+	Inherits@infantrysequences: d2kengineer
+	icon:
+		Filename: d2kengineerharkonnen.png
+		Start: 0
+		Offset: 0,0
+
+d2kengineerordos:
+	Inherits@infantrysequences: d2kengineer
+	icon:
+		Filename: d2kengineerordos.png
+		Start: 0
+		Offset: 0,0
 
 d2kgrenadier:
 	Inherits@default: ^d2kinfantrydeath
@@ -2496,9 +2559,8 @@ d2kflamethrower:
 		Length: 16
 		Facings: 8
 	icon:
-		Filename: flamethrowericon.shp
-		Offset: 0,-1
-		Remap: 00000000
+		Filename: d2kflamethrowericon.png
+		Offset: 0,0
 
 d2kflame_tower:
 	invisible:

@@ -1358,7 +1358,7 @@ d2kharkonnene1:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2klight_inf
+		Image: d2klight_infharkonnen
 		PlayerPalette: d2kpal2
 		
 d2kharkonnenengineer:
@@ -1448,7 +1448,7 @@ d2kharkonnenengineer:
 	WithInfantryBody:
 	CaptureManager:
 	RenderSprites:
-		Image: d2kengineer
+		Image: d2kengineerharkonnen
 		PlayerPalette: d2kpal2
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
@@ -1583,7 +1583,7 @@ d2kharkonnentrooper:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2ktrooper
+		Image: d2ktrooperharkonnen
 		PlayerPalette: d2kpal2
 		
 d2kharkonnenflametrooper:
@@ -1635,38 +1635,38 @@ d2kharkonnenflametrooper:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: TankFlamer
+		Weapon: Flamer
 		Damage: 100
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: TankFlamerE
+		Weapon: FlamerE
 		Damage: 280
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: TankFlamer
+		Weapon: Flamer
 		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: TankFlamerE
+		Weapon: FlamerE
 		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: TankFlamer
+		Weapon: Flamer
 		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: TankFlamerE
+		Weapon: FlamerE
 		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
@@ -2964,9 +2964,9 @@ d2kordose1:
 		Payload: 50
 		Voice: Move
 	Tooltip:
-		Name: Light Infantry
+		Name: Chemical Trooper
 	Tooltip@NoRow:
-		Name: Light Infantry
+		Name: Chemical Trooper
 	Selectable:
 		Bounds: 482, 1448, 0, -530
 	Health:
@@ -2987,35 +2987,39 @@ d2kordose1:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: M1Carbine
-		Damage: 15
+		Weapon: d2kchemicaltrooperprojectile
+		Damage: 100
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: M1CarbineE
-		Damage: 20
+		Weapon: d2kchemicaltrooperprojectileE
+		Damage: 280
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: M1Carbine
+		Weapon: d2kchemicaltrooperprojectile
+		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: M1CarbineE
+		Weapon: d2kchemicaltrooperprojectileE
+		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: UCM1Carbine
+		Weapon: d2kchemicaltrooperprojectile
+		Damage: 100
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: UCM1CarbineE
+		Weapon: d2kchemicaltrooperprojectileE
+		Damage: 280
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	WithInfantryBody:
@@ -3038,7 +3042,7 @@ d2kordose1:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2klight_inf
+		Image: d2klight_infordos
 		PlayerPalette: d2kpal2
 		
 d2kordosengineer:
@@ -3128,7 +3132,7 @@ d2kordosengineer:
 	WithInfantryBody:
 	CaptureManager:
 	RenderSprites:
-		Image: d2kengineer
+		Image: d2kengineerordos
 		PlayerPalette: d2kpal2
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
@@ -3263,7 +3267,7 @@ d2kordostrooper:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2ktrooper
+		Image: d2ktrooperordos
 		PlayerPalette: d2kpal2
 
 #######################################
@@ -4605,7 +4609,7 @@ d2katreidese1:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2klight_inf
+		Image: d2klight_infatreides
 		PlayerPalette: d2kpal2
 		
 d2katreidesengineer:
@@ -4695,7 +4699,7 @@ d2katreidesengineer:
 	WithInfantryBody:
 	CaptureManager:
 	RenderSprites:
-		Image: d2kengineer
+		Image: d2kengineeratreides
 		PlayerPalette: d2kpal2
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
@@ -4830,7 +4834,7 @@ d2katreidestrooper:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: d2ktrooper
+		Image: d2ktrooperatreides
 		PlayerPalette: d2kpal2
 		
 d2katreidesgrenadier:

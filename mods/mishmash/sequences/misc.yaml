@@ -1085,6 +1085,9 @@ txgasg:
 		Filename: conqmd|txgasg.shp
 		Length: *
 		ZOffset: 4096
+	trailer:
+		Filename: conqmd|txgasg.shp
+		Length: *
 
 txgasp:
 	Defaults:
