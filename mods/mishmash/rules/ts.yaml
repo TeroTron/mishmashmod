@@ -88,8 +88,6 @@ gdipowr:
 		RequiresCondition: !build-incomplete
 	FireWarheadsOnDeath@Reactor:
 		Weapon: TeslaReactorExplode
-	PlaceBuildingVariants:
-		Actors: napowb
 	IsometricSelectable:
 		Class: napowr
 		DecorationHeight: 45
@@ -357,8 +355,6 @@ gdidept:
 		Sequence: platform
 	-WithIdleOverlay@bib:
 	-WithResupplyAnimation:
-	PlaceBuildingVariants:
-		Actors: nadepb
 	IsometricSelectable:
 		Class: nadept
 		DecorationHeight: 90
@@ -418,8 +414,6 @@ gditech:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
-	PlaceBuildingVariants:
-		Actors: gatecb
 	IsometricSelectable:
 		Class: gditech
 		DecorationHeight: 50
@@ -524,8 +518,6 @@ gdipad:
 		Color: FF0000CC
 		BorderWidth: 0
 		Width: 2
-	PlaceBuildingVariants:
-		Actors: gaairb
 	IsometricSelectable:
 		Class: gaairc
 		DecorationHeight: 40
@@ -582,8 +574,6 @@ gdiupgradecenter:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
-	PlaceBuildingVariants:
-		Actors: gatecb
 	IsometricSelectable:
 		Class: gditech
 		DecorationHeight: 50

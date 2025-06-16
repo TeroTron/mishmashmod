@@ -975,7 +975,6 @@ snipe:
 		AddToArmyValue: true
 	Selectable:
 		Bounds: 482, 1448, 0, -530
-
 	Health:
 		HP: 12500
 	Garrisoner:

@@ -238,36 +238,42 @@ d2kharv:
 ^d2kinfantrydeath:
 	die4:
 		Filename: nukedie.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: nukedie.shp
 		Length: *
 		Tick: 50
 	die5:
 		Filename: yuridie.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: yuridie.shp
 		Length: *
 		Tick: 80
 	die6:
 		Filename: electro.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: electro.shp
 		Length: *
 		Tick: 80
 	die7:
 		Filename: virusd.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: virusd.shp
 		Length: *
 		Tick: 80
 	die8:
 		Filename: brutdie.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: brutdie.shp
 		Length: *
 		Tick: 80
 	die9:
 		Filename: gendeath.shp
+		Scale: 1.0
 		TilesetFilenames:
 			SNOW: gendeath.shp
 		Length: *
@@ -359,6 +365,13 @@ d2klight_inf:
 		Start: 4272
 		Offset: -30,-24
 		Remap: 00000000
+
+d2katreidessniper:
+	Inherits@infantrysequences: d2klight_inf
+	icon:
+		Filename: d2katreidessniper.png
+		Start: 0
+		Offset: 0,0
 
 d2klight_infatreides:
 	Inherits@infantrysequences: d2klight_inf
@@ -745,6 +758,13 @@ d2ktrooperordos:
 		Start: 0
 		Offset: 0,0
 
+d2kordosmortar:
+	Inherits@infantrysequences: d2ktrooper
+	icon:
+		Filename: d2kordosmortar.png
+		Start: 0
+		Offset: 0,0
+
 d2kengineer:
 	Inherits@default: ^d2kinfantrydeath
 	Defaults:
@@ -1108,7 +1128,7 @@ d2krockettank:
 		Filename: HarkRocketTankSpritesheet.png
 		Facings: 64
 	icon:
-		Filename: tsnpwricon.png
+		Filename: d2kharkmissiletankicon.png
 		Offset: 0, 0
 
 combat_tank_h:
@@ -1134,6 +1154,17 @@ combat_tank_h:
 		Filename: DATA.R8
 		Start: 4282
 		Offset: -30,-24
+
+assault_tank_h:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: HarkAssaultTank.png
+		Facings: 32
+	icon:
+		Filename: d2kharkassaulttankicon.png
+		Offset: 0,0
 
 medium_gun_turret:
 	invisible:
@@ -2596,6 +2627,7 @@ d2kflame_tower:
 		Offset: 0,-1
 
 fremen:
+	Inherits@default: ^d2kinfantrydeath
 	Defaults:
 		Remap: 54F94B
 		Scale: 1.3
@@ -2661,22 +2693,6 @@ fremen:
 		Frames: 871, 878, 885, 892, 899, 906, 913, 920
 		Length: 8
 		Tick: 80
-	die3:
-		Filename: DATA.R8
-		Frames: 872, 879, 886, 893, 900, 907, 914, 921
-		Length: 8
-		Tick: 80
-	die4:
-		Filename: DATA.R8
-		Frames: 873, 880, 887, 894, 901, 908, 915, 922
-		Length: 8
-		Tick: 80
-	die-crushed:
-		Filename: DATA.R8
-		Frames: 874, 881, 888, 895, 902, 909, 916, 923
-		Length: 8
-		Tick: 800
-		ZOffset: -511
 	icon:
 		Filename: DATA.R8
 		Start: 4293
@@ -2685,6 +2701,21 @@ fremen:
 
 ornithopter:
 	idle:
+		Filename: DATA.R8
+		Start: 1955
+		Facings: -32
+		Length: 3
+		Tick: 120
+		Transpose: true
+		Remap: 54F94B
+	icon:
+		Filename: DATA.R8
+		Start: 4292
+		Offset: -30,-24
+
+pornithopter:
+	idle:
+		Scale: 1.5
 		Filename: DATA.R8
 		Start: 1955
 		Facings: -32

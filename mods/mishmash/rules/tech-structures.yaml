@@ -136,7 +136,7 @@ caairp:
 	Health:
 		HP: 75000
 	Building:
-		Footprint: xxx === ===
+		Footprint: xxx xxx xx=
 		Dimensions: 3,3
 	ProvidesPrerequisite@Allies:
 		Prerequisite: techparadrops.allies
@@ -149,6 +149,22 @@ caairp:
 	ProvidesPrerequisite@PsiCorps:
 		Prerequisite: techparadrops.psicorps
 		Factions: yuri
+		ResetOnOwnerChange: true
+	ProvidesPrerequisite@PsiCorps:
+		Prerequisite: techparadrops.gdi
+		Factions: gdi
+		ResetOnOwnerChange: true
+	ProvidesPrerequisite@d2katreides:
+		Prerequisite: techparadrops.atreides
+		Factions: atreides
+		ResetOnOwnerChange: true
+	ProvidesPrerequisite@d2kharkonnen:
+		Prerequisite: techparadrops.harkonnen
+		Factions: harkonnen
+		ResetOnOwnerChange: true
+	ProvidesPrerequisite@d2kordos:
+		Prerequisite: techparadrops.ordos
+		Factions: ordos
 		ResetOnOwnerChange: true
 	ParatroopersPower@Allies:
 		RequiresCondition: enabled
@@ -250,6 +266,78 @@ caairp:
 		CameraActor: camera
 		Prerequisites:
 			1: techparadrops.psicorps
+		DisplayBeacon: True
+		BeaconPosters:
+			1: paraicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	ParatroopersPower@atreides:
+		RequiresCondition: enabled
+		PauseOnCondition: disabled || chronodisable
+		OrderName: AtreidesParatroopers
+		Icons:
+			1: paradrop
+		Cursor: paradrop
+		BlockedCursor: ability-blocked
+		ChargeInterval: 4500
+		Names:
+			1: actor-caairp.power-soviet-name
+		Descriptions:
+			1: actor-caairp.power-soviet-description
+		AllowMultiple: true
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1,d2katreidese1
+		QuantizedFacings: 8
+		UnitTypes:
+			1: pornithopter
+		SquadSizes:
+			1: 2
+		CameraActor: camera
+		Prerequisites:
+			1: techparadrops.atreides
+		DisplayBeacon: True
+		BeaconPosters:
+			1: paraicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	ParatroopersPower@gdi:
+		RequiresCondition: enabled
+		PauseOnCondition: disabled || chronodisable
+		OrderName: GDIParatroopers
+		Icons:
+			1: paradrop
+		Cursor: paradrop
+		BlockedCursor: ability-blocked
+		ChargeInterval: 4500
+		Names:
+			1: actor-caairp.power-allied-name
+		Descriptions:
+			1: actor-caairp.power-allied-description
+		AllowMultiple: true
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: tse1,tse1,tse1,tse1,tse1,tse1,tse1
+		QuantizedFacings: 8
+		UnitTypes:
+			1: alplane
+		SquadSizes:
+			1: 2
+		CameraActor: camera
+		Prerequisites:
+			1: techparadrops.gdi
 		DisplayBeacon: True
 		BeaconPosters:
 			1: paraicon

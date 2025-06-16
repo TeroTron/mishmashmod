@@ -974,6 +974,25 @@ alplane:
 	RenderVoxels:
 		Image: alplane
 
+#Sprite Paradrop Plane Template 
+
+pornithopter:
+	Inherits@origin: pdplane
+	Inherits@sprite: ^SpriteActor
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	-Contrail@1:
+	-Contrail@2:
+	WithShadow:
+	SpawnActorOnDeath:
+		Actor: ornithopterhusk
+	RenderSprites:
+		Image: pornithopter
+		PlayerPalette: d2kpal2
+	RenderVoxels:
+		Image: blanktemplate
+
 alplanehusk:
 	Inherits: pdplanehusk
 	RenderVoxels:

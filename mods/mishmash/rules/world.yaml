@@ -189,7 +189,7 @@
 	Faction@random:
 		Name: faction-random.name
 		InternalName: Random
-		RandomFactionMembers: allies, soviets, yuri
+		RandomFactionMembers: allies, soviets, yuri, gdi, atreides, harkonnen, ordos
 		Side: Randoms
 		Description: faction-random.description
 	Faction@unifiedallied:

@@ -40,7 +40,7 @@ harkonnencnst:
 harkonnenmcv:
 	Inherits: ^ConstructionVehicle
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 		IconPalette: chromedune
 	Transforms:
@@ -69,9 +69,9 @@ d2kpowrharkonnen:
 		LocalCenterOffset: 0,-512,0
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Tooltip@NoRow:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -210,13 +210,13 @@ harkonnenbarracks:
 		ExitCell: -1,2
 		RequiresCondition: multiqueue
 	Production:
-		Produces: Infantry.harkonnen
+		Produces: Infantry.Harkonnen
 	ProductionQueue:
-		Type: Infantry.harkonnen
+		Type: Infantry.Harkonnen
 		DisplayOrder: 14
 		Factions: harkonnen
 	ProductionBar:
-		ProductionType: Infantry.harkonnen
+		ProductionType: Infantry.Harkonnen
 	RallyPoint:
 		Path: 3,3
 	ProvidesPrerequisite@buildingname:
@@ -275,13 +275,13 @@ harkonnenlightweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.harkonnen
+		Produces: Vehicle.Harkonnen
 	ProductionQueue:
-		Type: Vehicle.harkonnen
+		Type: Vehicle.Harkonnen
 		DisplayOrder: 18
 		Factions: harkonnen
 	ProductionBar:
-		ProductionType: Vehicle.harkonnen
+		ProductionType: Vehicle.Harkonnen
 	Exit@1:
 		ExitCell: 1,1
 	-WithIdleOverlay@bib:
@@ -318,13 +318,13 @@ harkonnenheavyweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.harkonnen
+		Produces: Vehicle.Harkonnen
 	ProductionQueue:
-		Type: Vehicle.harkonnen
+		Type: Vehicle.Harkonnen
 		DisplayOrder: 18
 		Factions: harkonnen
 	ProductionBar:
-		ProductionType: Vehicle.harkonnen
+		ProductionType: Vehicle.Harkonnen
 	HitShape:
 		TargetableOffsets: -1155,-704,0, -1365,832,0
 		Type: Rectangle
@@ -456,7 +456,7 @@ harkonnenrepair_pad:
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionQueue:
-		Type: Aircraft.harkonnen
+		Type: Aircraft.Harkonnen
 		Group: Aircraft
 		DisplayOrder: 25
 		LowPowerModifier: 200
@@ -502,8 +502,6 @@ harkonnenrepair_pad:
 		Color: FF0000CC
 		BorderWidth: 0
 		Width: 2
-	PlaceBuildingVariants:
-		Actors: gaairb
 	IsometricSelectable:
 		Class: gaairc
 		DecorationHeight: 40
@@ -537,12 +535,12 @@ harkonnenhigh_tech_factory:
 	Health:
 		HP: 75000
 	Production:
-		Produces: Aircraft.harkonnen
+		Produces: Aircraft.Harkonnen
 	ProductionQueue:
-		Type: Aircraft.harkonnen
+		Type: Aircraft.Harkonnen
 		Factions: harkonnen
 	ProductionQueue@harkonnen:
-		Type: Aircraft.harkonnen
+		Type: Aircraft.Harkonnen
 		Group: Aircraft
 		DisplayOrder: 26
 		LowPowerModifier: 200
@@ -557,9 +555,9 @@ harkonnenhigh_tech_factory:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 	ProductionBar:
-		ProductionType: Aircraft.harkonnen
-	ProvidesPrerequisite@aircraft.harkonnen:
-		Prerequisite: aircraft.harkonnen
+		ProductionType: Aircraft.Harkonnen
+	ProvidesPrerequisite@Aircraft.Harkonnen:
+		Prerequisite: Aircraft.Harkonnen
 	Armor:
 		Type: Wood
 	Building:
@@ -569,8 +567,6 @@ harkonnenhigh_tech_factory:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
-	PlaceBuildingVariants:
-		Actors: gatecb
 	IsometricSelectable:
 		Class: harkonnentech
 		DecorationHeight: 50
@@ -849,7 +845,7 @@ d2kharkonnenrocketturret:
 d2kharkonnenharv:
 	Inherits: ^Miner
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
 		Prerequisites: ~harkonnenlightweap
@@ -904,7 +900,7 @@ d2kharkonnentrike:
 		Class: Trike
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenlightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ktrike.description
@@ -990,7 +986,7 @@ d2kharkonnenquad:
 		Class: Quad
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenlightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kquad.description
@@ -1078,14 +1074,14 @@ d2kharkonnencombattank:
 		Payload: 500
 		Voice: Move
 	Tooltip:
-		Name: Combat Tank
+		Name: Assault Tank
 	Tooltip@NoRow:
-		Name: Combat Tank
+		Name: Assault Tank
 	Selectable:
-		Class: combattank
+		Class: assaulttank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kcombattank.description
@@ -1096,11 +1092,11 @@ d2kharkonnencombattank:
 		AddToArmyValue: true
 	Mobile:
 		Speed: 75
-		TurnSpeed: 20
-		Locomotor: wheeled
+		TurnSpeed: 32
+		Locomotor: omnicrusher
 		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
 	Health:
-		HP: 30000
+		HP: 50000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -1138,9 +1134,7 @@ d2kharkonnencombattank:
 	AttackFrontal:
 		FacingTolerance: 0
 	WithMuzzleOverlay:
-	WithSpriteTurret:
 	WithFacingSpriteBody:
-	AttackTurreted:
 	Voiced:
 		VoiceSet: D2kVehicleVoice
 	ProducibleWithLevel@1:
@@ -1157,8 +1151,8 @@ d2kharkonnencombattank:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
-		Image: combat_tank_h
-		PlayerPalette: d2kpal2
+		Image: assault_tank_h
+		PlayerPalette: player_rgba
 
 d2kharkonnensiegetank:
 	Inherits: ^Vehicle
@@ -1182,7 +1176,7 @@ d2kharkonnensiegetank:
 		Class: siegetank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ksiegetank.description
@@ -1268,7 +1262,7 @@ d2kharkonnene1:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.harkonnen
+		Queue: Infantry.Shared, Infantry.Harkonnen
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks
 		BuildPaletteOrder: 10
@@ -1367,7 +1361,7 @@ d2kharkonnenengineer:
 	Inherits@MC: ^MindControllable
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
-		Queue: Infantry.Shared, Infantry.harkonnen
+		Queue: Infantry.Shared, Infantry.Harkonnen
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks
 		BuildPaletteOrder: 30
@@ -1461,7 +1455,7 @@ d2kharkonnentrooper:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.harkonnen
+		Queue: Infantry.Shared, Infantry.Harkonnen
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks
 		BuildPaletteOrder: 10
@@ -1594,7 +1588,7 @@ d2kharkonnenflametrooper:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.harkonnen
+		Queue: Infantry.Shared, Infantry.Harkonnen
 		BuildAtProductionType: Soldier
 		Prerequisites: ~harkonnenbarracks, harkonnenoutpost
 		BuildPaletteOrder: 10
@@ -1735,7 +1729,7 @@ ordoscnst:
 ordosmcv:
 	Inherits: ^ConstructionVehicle
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		Prerequisites: ~ordosrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 		IconPalette: chromedune
 	Transforms:
@@ -1764,9 +1758,9 @@ d2kpowrordos:
 		LocalCenterOffset: 0,-512,0
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Tooltip@NoRow:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1905,13 +1899,13 @@ ordosbarracks:
 		ExitCell: -1,2
 		RequiresCondition: multiqueue
 	Production:
-		Produces: Infantry.ordos
+		Produces: Infantry.Ordos
 	ProductionQueue:
-		Type: Infantry.ordos
+		Type: Infantry.Ordos
 		DisplayOrder: 14
 		Factions: ordos
 	ProductionBar:
-		ProductionType: Infantry.ordos
+		ProductionType: Infantry.Ordos
 	RallyPoint:
 		Path: 3,3
 	ProvidesPrerequisite@buildingname:
@@ -1970,13 +1964,13 @@ ordoslightweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.ordos
+		Produces: Vehicle.Ordos
 	ProductionQueue:
-		Type: Vehicle.ordos
+		Type: Vehicle.Ordos
 		DisplayOrder: 18
 		Factions: ordos
 	ProductionBar:
-		ProductionType: Vehicle.ordos
+		ProductionType: Vehicle.Ordos
 	Exit@1:
 		ExitCell: 1,1
 	-WithIdleOverlay@bib:
@@ -2013,13 +2007,13 @@ ordosheavyweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.ordos
+		Produces: Vehicle.Ordos
 	ProductionQueue:
-		Type: Vehicle.ordos
+		Type: Vehicle.Ordos
 		DisplayOrder: 18
 		Factions: ordos
 	ProductionBar:
-		ProductionType: Vehicle.ordos
+		ProductionType: Vehicle.Ordos
 	HitShape:
 		TargetableOffsets: -1155,-704,0, -1365,832,0
 		Type: Rectangle
@@ -2182,8 +2176,6 @@ ordosrepair_pad:
 		Color: FF0000CC
 		BorderWidth: 0
 		Width: 2
-	PlaceBuildingVariants:
-		Actors: gaairb
 	IsometricSelectable:
 		Class: gaairc
 		DecorationHeight: 40
@@ -2215,12 +2207,12 @@ ordoshigh_tech_factory:
 	Tooltip@NoRow:
 		Name: High Tech Factory
 	Production:
-		Produces: Aircraft.ordos
+		Produces: Aircraft.Ordos
 	ProductionQueue:
-		Type: Aircraft.ordos
+		Type: Aircraft.Ordos
 		Factions: ordos
 	ProductionQueue@ordos:
-		Type: Aircraft.ordos
+		Type: Aircraft.Ordos
 		Group: Aircraft
 		DisplayOrder: 26
 		LowPowerModifier: 200
@@ -2235,9 +2227,9 @@ ordoshigh_tech_factory:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 	ProductionBar:
-		ProductionType: Aircraft.ordos
-	ProvidesPrerequisite@aircraft.ordos:
-		Prerequisite: aircraft.ordos
+		ProductionType: Aircraft.Ordos
+	ProvidesPrerequisite@Aircraft.Ordos:
+		Prerequisite: Aircraft.Ordos
 	Health:
 		HP: 75000
 	Armor:
@@ -2249,8 +2241,6 @@ ordoshigh_tech_factory:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
-	PlaceBuildingVariants:
-		Actors: gatecb
 	IsometricSelectable:
 		Class: ordostech
 		DecorationHeight: 50
@@ -2529,7 +2519,7 @@ d2kordosrocketturret:
 d2kordosharv:
 	Inherits: ^Miner
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
 		Prerequisites: ~ordoslightweap
@@ -2584,7 +2574,7 @@ d2kordostrike:
 		Class: Trike
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		Prerequisites: ~ordoslightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ktrike.description
@@ -2670,7 +2660,7 @@ d2kordosquad:
 		Class: Quad
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		Prerequisites: ~ordoslightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kquad.description
@@ -2765,7 +2755,7 @@ d2kordoscombattank:
 		Class: combattank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		Prerequisites: ~ordosheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kcombattank.description
@@ -2862,7 +2852,7 @@ d2kordossiegetank:
 		Class: siegetank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.ordos
+		Queue: Vehicle.Shared, Vehicle.Ordos
 		Prerequisites: ~ordosheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ksiegetank.description
@@ -2948,7 +2938,7 @@ d2kordose1:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.ordos
+		Queue: Infantry.Shared, Infantry.Ordos
 		BuildAtProductionType: Soldier
 		Prerequisites: ~ordosbarracks
 		BuildPaletteOrder: 10
@@ -3051,7 +3041,7 @@ d2kordosengineer:
 	Inherits@MC: ^MindControllable
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
-		Queue: Infantry.Shared, Infantry.ordos
+		Queue: Infantry.Shared, Infantry.Ordos
 		BuildAtProductionType: Soldier
 		Prerequisites: ~ordosbarracks
 		BuildPaletteOrder: 30
@@ -3145,7 +3135,7 @@ d2kordostrooper:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.ordos
+		Queue: Infantry.Shared, Infantry.Ordos
 		BuildAtProductionType: Soldier
 		Prerequisites: ~ordosbarracks
 		BuildPaletteOrder: 10
@@ -3270,6 +3260,107 @@ d2kordostrooper:
 		Image: d2ktrooperordos
 		PlayerPalette: d2kpal2
 
+d2kordosmortar:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Ordos
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ordosbarracks
+		BuildPaletteOrder: 10
+		Description: actor-d2ktrooper.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Mortar
+	Tooltip@NoRow:
+		Name: Mortar
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: d2kmortar
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: d2kmortarE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: d2kmortar
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: d2kmortarE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: d2kmortar
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: d2kmortarE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2kordosmortar
+		PlayerPalette: d2kpal2
+
 #######################################
 # D2K atreides MCV
 #######################################
@@ -3312,7 +3403,7 @@ atreidescnst:
 atreidesmcv:
 	Inherits: ^ConstructionVehicle
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		Prerequisites: ~atreidesrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 		IconPalette: chromedune
 	Transforms:
@@ -3341,9 +3432,9 @@ d2kpowratreides:
 		LocalCenterOffset: 0,-512,0
 		IconPalette: chromedune
 	Tooltip:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Tooltip@NoRow:
-		Name: actor-napowr.name
+		Name: Wind Trap
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -3482,13 +3573,13 @@ atreidesbarracks:
 		ExitCell: -1,2
 		RequiresCondition: multiqueue
 	Production:
-		Produces: Infantry.atreides
+		Produces: Infantry.Atreides
 	ProductionQueue:
-		Type: Infantry.atreides
+		Type: Infantry.Atreides
 		DisplayOrder: 14
 		Factions: atreides
 	ProductionBar:
-		ProductionType: Infantry.atreides
+		ProductionType: Infantry.Atreides
 	RallyPoint:
 		Path: 3,3
 	ProvidesPrerequisite@buildingname:
@@ -3547,13 +3638,13 @@ atreideslightweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.atreides
+		Produces: Vehicle.Atreides
 	ProductionQueue:
-		Type: Vehicle.atreides
+		Type: Vehicle.Atreides
 		DisplayOrder: 18
 		Factions: atreides
 	ProductionBar:
-		ProductionType: Vehicle.atreides
+		ProductionType: Vehicle.Atreides
 	Exit@1:
 		ExitCell: 1,1
 	-WithIdleOverlay@bib:
@@ -3590,13 +3681,13 @@ atreidesheavyweap:
 		LocalCenterOffset: 0,-512,0
 	ProvidesPrerequisite@default:
 	Production:
-		Produces: Vehicle.atreides
+		Produces: Vehicle.Atreides
 	ProductionQueue:
-		Type: Vehicle.atreides
+		Type: Vehicle.Atreides
 		DisplayOrder: 18
 		Factions: atreides
 	ProductionBar:
-		ProductionType: Vehicle.atreides
+		ProductionType: Vehicle.Atreides
 	HitShape:
 		TargetableOffsets: -1155,-704,0, -1365,832,0
 		Type: Rectangle
@@ -3759,8 +3850,6 @@ atreidesrepair_pad:
 		Color: FF0000CC
 		BorderWidth: 0
 		Width: 2
-	PlaceBuildingVariants:
-		Actors: gaairb
 	IsometricSelectable:
 		Class: gaairc
 		DecorationHeight: 40
@@ -3791,12 +3880,12 @@ atreideshigh_tech_factory:
 	Armor:
 		Type: Wood
 	Production:
-		Produces: Aircraft.atreides
+		Produces: Aircraft.Atreides
 	ProductionQueue:
-		Type: Aircraft.atreides
+		Type: Aircraft.Atreides
 		Factions: atreides
 	ProductionQueue@atreides:
-		Type: Aircraft.atreides
+		Type: Aircraft.Atreides
 		Group: Aircraft
 		DisplayOrder: 26
 		LowPowerModifier: 200
@@ -3811,7 +3900,7 @@ atreideshigh_tech_factory:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 	ProductionBar:
-		ProductionType: Aircraft.atreides
+		ProductionType: Aircraft.Atreides
 	ProvidesPrerequisite@default:
 	Building:
 		Footprint: xxx xx= ===
@@ -3820,8 +3909,6 @@ atreideshigh_tech_factory:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
-	PlaceBuildingVariants:
-		Actors: gatecb
 	IsometricSelectable:
 		Class: atreidestech
 		DecorationHeight: 50
@@ -4100,7 +4187,7 @@ d2katreidesrocketturret:
 d2katreidesharv:
 	Inherits: ^Miner
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
 		Prerequisites: ~atreideslightweap
@@ -4155,7 +4242,7 @@ d2katreidestrike:
 		Class: Trike
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		Prerequisites: ~atreideslightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ktrike.description
@@ -4241,7 +4328,7 @@ d2katreidesquad:
 		Class: Quad
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		Prerequisites: ~atreideslightweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kquad.description
@@ -4336,7 +4423,7 @@ d2katreidescombattank:
 		Class: combattank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		Prerequisites: ~atreidesheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2kcombattank.description
@@ -4433,7 +4520,7 @@ d2katreidessiegetank:
 		Class: siegetank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.atreides
+		Queue: Vehicle.Shared, Vehicle.Atreides
 		Prerequisites: ~atreidesheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ksiegetank.description
@@ -4519,7 +4606,7 @@ d2katreidese1:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.atreides
+		Queue: Infantry.Shared, Infantry.Atreides
 		BuildAtProductionType: Soldier
 		Prerequisites: ~atreidesbarracks
 		BuildPaletteOrder: 10
@@ -4612,13 +4699,117 @@ d2katreidese1:
 		Image: d2klight_infatreides
 		PlayerPalette: d2kpal2
 		
+d2katreidessniper:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Atreides
+		BuildAtProductionType: Soldier
+		Prerequisites: ~atreidesbarracks
+		BuildPaletteOrder: 10
+		Description: actor-d2ke1.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 300
+		Voice: Move
+	Tooltip:
+		Name: Sniper
+	Tooltip@NoRow:
+		Name: Sniper
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: gray
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: awp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: AWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: awp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: AWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCawp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCAWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: D2kInfantryVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: d2katreidessniper
+		PlayerPalette: d2kpal2
+		
 d2katreidesengineer:
 	Inherits: ^Infantry
 	Inherits@CHAOS: ^Berserkable
 	Inherits@MC: ^MindControllable
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
-		Queue: Infantry.Shared, Infantry.atreides
+		Queue: Infantry.Shared, Infantry.Atreides
 		BuildAtProductionType: Soldier
 		Prerequisites: ~atreidesbarracks
 		BuildPaletteOrder: 30
@@ -4712,7 +4903,7 @@ d2katreidestrooper:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.atreides
+		Queue: Infantry.Shared, Infantry.Atreides
 		BuildAtProductionType: Soldier
 		Prerequisites: ~atreidesbarracks
 		BuildPaletteOrder: 10
@@ -4845,7 +5036,7 @@ d2katreidesgrenadier:
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.atreides
+		Queue: Infantry.Shared, Infantry.Atreides
 		BuildAtProductionType: Soldier
 		Prerequisites: ~atreidesbarracks, atreideshigh_tech_factory
 		BuildPaletteOrder: 10
@@ -4935,7 +5126,7 @@ d2katreidesfremen:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
 	Buildable:
-		Queue: Infantry.Shared, Infantry.atreides
+		Queue: Infantry.Shared, Infantry.Atreides
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~atreidesbarracks, atreidespalace
@@ -5069,7 +5260,7 @@ d2kharkonnendevastator:
 		Class: Devastator
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenheavyweap, harkonnenresearch_centre
 		BuildPaletteOrder: 88
 		Description: actor-d2kharkonnendevastator.description
@@ -5183,7 +5374,7 @@ ornithopter:
 	Tooltip@NoRow:
 		Name: Ornithopter
 	Buildable:
-		Queue: Aircraft.Shared, Aircraft.atreides
+		Queue: Aircraft.Shared, Aircraft.Atreides
 		BuildPaletteOrder: 40
 		Prerequisites: ~atreideshigh_tech_factory
 		Description: actor-ornithopter.description
@@ -5237,7 +5428,6 @@ ornithopter:
 	Voiced:
 		VoiceSet: D2kVehicleVoice
 	WithMuzzleOverlay:
-	RenderSprites:
 	WithFacingSpriteBody:
 	WithShadow:
 	ExternalCondition@PRODUCED:
@@ -5312,7 +5502,7 @@ d2kharkonnenrockettank:
 		Class: siegetank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenheavyweap
 		BuildPaletteOrder: 30
 		Description: actor-d2ksiegetank.description
