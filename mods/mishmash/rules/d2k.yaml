@@ -848,7 +848,7 @@ d2kharkonnenharv:
 		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
-		Prerequisites: ~harkonnenlightweap
+		Prerequisites: ~harkonnenheavyweap
 		IconPalette: chromedune
 	Tooltip:
 		Name: Ore Harvester
@@ -961,6 +961,98 @@ d2kharkonnentrike:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: d2ktrike
+		PlayerPalette: d2kpal2
+
+Harkbuzzsaw:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Buzzsaw
+	Tooltip@NoRow:
+		Name: Buzzsaw
+	Buildable:
+		Queue: Vehicle.harkonnen
+		Prerequisites: ~harkonnenlightweap
+		BuildPaletteOrder: 30
+		Description: Harkonnen scout vehicle
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: para
+		Damage: 25
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+	Armament@primary-elite:
+		Weapon: paraE
+		Damage: 50
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: harkbuzzsaw
 		PlayerPalette: d2kpal2
 
 d2kharkonnenquad:
@@ -2522,7 +2614,7 @@ d2kordosharv:
 		Queue: Vehicle.Shared, Vehicle.Ordos
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
-		Prerequisites: ~ordoslightweap
+		Prerequisites: ~ordosheavyweap
 		IconPalette: chromedune
 	Tooltip:
 		Name: Ore Harvester
@@ -4191,7 +4283,7 @@ d2katreidesharv:
 		Queue: Vehicle.Shared, Vehicle.Atreides
 		BuildPaletteOrder: 90
 		Description: actor-cmin.description
-		Prerequisites: ~atreideslightweap
+		Prerequisites: ~atreidesheavyweap
 		IconPalette: chromedune
 	Tooltip:
 		Name: Ore Harvester
