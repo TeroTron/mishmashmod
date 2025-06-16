@@ -1487,10 +1487,11 @@ D2kSaboteurVoice:
 ^TSDeath:
 	Voices:
 		Die: tsdedman1, tsdedman3, tsdedman4, tsdedman5, tsdedman6
-		Burned: tsdedman2
-		Zapped: electro1
-		Explode: expnew10
-		Poisoned: tsdedman3, tsdedman5
+		Zapped: igenzapa
+		PsyCrush: igenexpa
+		Melted: igenmela, igenmelb, igenmelc
+		Explosion: gexpshaa
+		Virus: gvirexpa, gvirexpb
 	DisableVariants: PsyCrush, Explosion, Virus
 
 TSInfantry:

@@ -1499,8 +1499,8 @@ GroundDummyAim:
 d2kchemicaltrooperprojectile:
 	Inherits: ^FireWeapon
 	ReloadDelay: 50
-	Range: 5c0
-	Burst: 1
+	Range: 3c0
+	Burst: 5
 	BurstDelays: 0
 	Report: flamtnk1.aud
 	SoundVolume: 0.2
@@ -1528,7 +1528,7 @@ d2kchemicaltrooperprojectile:
 
 d2kchemicaltrooperprojectileE:
 	Inherits: Flamer
-	Burst: 2
+	Burst: 10
 	SoundVolume: 0.1
 	Warhead@1Dam: SpreadDamage
 		Damage: 1400
