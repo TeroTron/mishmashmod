@@ -1065,6 +1065,31 @@ d2ktrike:
 		Start: 4277
 		Offset: -30,-24
 
+harkbuzzsaw:
+	Defaults:
+		Scale: 1.0
+	idle:
+		Filename: HarkBuzzsawSpritesheet.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	run:
+		Filename: HarkBuzzsawSpritesheet.png
+		Start: 32
+		Facings: 32
+		Length: 5
+		Tick: 90
+	muzzle:
+		Filename: DATA.R8
+		Start: 3996
+		Tick: 50
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: DATA.R8
+		Start: 4277
+		Offset: -30,-24
+
 d2kquad:
 	Defaults:
 		Scale: 1.3

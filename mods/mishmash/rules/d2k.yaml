@@ -987,17 +987,14 @@ Harkbuzzsaw:
 		Payload: 500
 		Voice: Move
 	Tooltip:
-		Name: Trike
+		Name: Buzzsaw
 	Tooltip@NoRow:
-		Name: Trike
-	Selectable:
-		Class: Trike
-		Bounds: 1206, 1930, 0, -289
+		Name: Buzzsaw
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.harkonnen
+		Queue: Vehicle.harkonnen
 		Prerequisites: ~harkonnenlightweap
 		BuildPaletteOrder: 30
-		Description: actor-d2ktrike.description
+		Description: Harkonnen scout vehicle
 		BuildDuration: 250
 		BuildDurationModifier: 100
 		IconPalette: chromedune
@@ -1051,10 +1048,15 @@ Harkbuzzsaw:
 		FacingTolerance: 0
 	HitShape:
 	WithFacingSpriteBody:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
-		Image: d2ktrike
+		Image: harkbuzzsaw
 		PlayerPalette: d2kpal2
 
 d2kharkonnenquad:
