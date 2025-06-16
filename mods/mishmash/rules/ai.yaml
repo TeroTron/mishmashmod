@@ -775,6 +775,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			garefn: 100
 			narefn: 100
 			yarefn: 100
@@ -910,6 +918,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			gapowr: 1
 			napowr: 1
 			nanrct: 1
@@ -1053,6 +1069,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			garefn: 100
 			narefn: 100
 			yarefn: 100
@@ -1213,6 +1237,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			gapowr: 1
 			napowr: 1
 			nanrct: 1
@@ -1375,6 +1407,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			garefn: 100
 			narefn: 100
 			yarefn: 100
@@ -1535,6 +1575,14 @@ Player:
 			atreidesoutpost: 20
 			harkonnenoutpost: 20
 			ordosoutpost: 20
+			gdivulcan: 20
+			gdirpg: 20
+			d2katreidesgunturret: 20
+			d2katreidesrocketturret: 20
+			d2kharkonnengunturret: 20
+			d2kharkonnenrocketturret: 20
+			d2kordosgunturret: 20
+			d2kordosrocketturret: 20
 			gdipad: 10
 			gapowr: 1
 			napowr: 1

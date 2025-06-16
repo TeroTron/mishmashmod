@@ -45,13 +45,41 @@
 		Start: 149
 		Length: 15
 		ShadowStart: 441
-	die6:
-		Start: 149
-		Length: 15
-		ShadowStart: 441
 	die4:
-		Filename: frag3.shp
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
 		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
 	die-crushed:
 		Start: 159
 		Length: 5
@@ -66,12 +94,6 @@
 	cheer:
 		Facings: 8
 		ShadowStart: 292
-	die7: electro
-		Length: *
-	die5: flameguy
-		Start: 44
-		Length: 104
-		Tick: 50
 
 ^TSBasicInfantryAttack:
 	shoot:

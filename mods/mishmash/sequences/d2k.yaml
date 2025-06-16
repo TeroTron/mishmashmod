@@ -350,16 +350,19 @@ d2klight_inf:
 		Transpose: true
 	die:
 		Filename: DATA.R8
-		Start: 134
-		Length: 15
+		Frames: 382, 389, 396, 403, 410, 417, 424, 431, 438, 443, 448, 453
+		Length: 12
+		Tick: 80
 	die1:
 		Filename: DATA.R8
-		Start: 134
-		Length: 15
+		Frames: 382, 389, 396, 403, 410, 417, 424, 431, 438, 443, 448, 453
+		Length: 12
+		Tick: 80
 	die2:
 		Filename: DATA.R8
-		Start: 149
-		Length: 15
+		Frames: 383, 390, 397, 404, 411, 418, 425, 432, 439, 444, 449, 454
+		Length: 12
+		Tick: 80
 	icon:
 		Filename: DATA.R8
 		Start: 4272

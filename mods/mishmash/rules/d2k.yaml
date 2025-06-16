@@ -3015,6 +3015,7 @@ d2kordose1:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	WithDeathAnimation@normal:
+		DeathSequencePalette: d2kpal2
 	Voiced:
 		VoiceSet: D2kInfantryVoice
 	ProducibleWithLevel@1:
