@@ -41,6 +41,7 @@ MammothTusk:
 	ReloadDelay: 80
 	Range: 8c0
 	Report: vapoat2a.wav, vapoar2b.wav, vapoat2c.wav
+	BurstDelays: 4
 	Burst: 2
 	Projectile: Missile
 		ContrailLength: 8
@@ -72,6 +73,7 @@ MammothTusk:
 MammothTuskE:
 	Inherits: MammothTusk
 	Burst: 4
+	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c128
 		Falloff: 100, 83, 67, 50, 0

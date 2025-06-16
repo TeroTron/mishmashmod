@@ -7,7 +7,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/engine/bin/OpenRA.dll",
 			"args": [
-				"Game.Mod=rv",
+				"Game.Mod=mishmash",
 				"Engine.EngineDir=${workspaceRoot}/engine",
 				"Engine.ModSearchPaths=${workspaceRoot}/mods, ${workspaceRoot}/engine/mods",
 				"Debug.DisplayDeveloperSettings=true",

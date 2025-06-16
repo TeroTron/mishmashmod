@@ -922,3 +922,66 @@ PoisonSting:
 PoisonStingE:
 	Inherits: PoisonSting
 	Burst: 4
+
+TSandD2kMinigun:
+	Inherits: ^MG
+	Range: 4c0
+	ReloadDelay: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 1500
+	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
+
+TSandD2kMinigunE:
+	Inherits: TSandD2kMinigun
+	ReloadDelay: 20
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+	Warhead@2Eff: CreateEffect
+		Explosions: piffpiffred
+
+jumpjetcannon:
+	Inherits: 20mm
+	Report: jumpjet1.aud
+
+jumpjetcannonE:
+	Inherits: jumpjetcannon
+	Burst: 2
+	Warhead@2Eff: CreateEffect
+		Explosions: piffpiffred
+
+jumpjetcannonAA:
+	Inherits: 20mm
+	Range: 5c0
+	Report: jumpjet1.aud
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+jumpjetcannonAAE:
+	Inherits: jumpjetcannonAA
+	Burst: 2
+	Warhead@2Eff: CreateEffect
+		Explosions: piffpiffred
+
+TSAssaultCannon:
+	Inherits: ^MG
+	Range: 5c0
+	ReloadDelay: 20
+	Report: tsgun4.aud
+	ValidTargets: Ground, Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Air
+		Damage: 4000
+		Versus:
+			Flak: 100
+
+TSAssaultCannonE:
+	Inherits: TSAssaultCannon
+	Range: 5c0
+	ReloadDelay: 15
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+	Warhead@2Eff: CreateEffect
+		Explosions: piffpiffred

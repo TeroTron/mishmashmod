@@ -48,6 +48,7 @@ LeaderTypes =
 	harkonnen = "myak.regicide",
 	atreides = "myak.regicide",
 	ordos = "myak.regicide",
+	nod = "pres.regicide",
 	gdi = "pres.regicide"
 }
 

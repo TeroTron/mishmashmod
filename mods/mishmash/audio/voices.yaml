@@ -1330,7 +1330,17 @@ SatelliteScanVoice:
 		Build: bspyon
 		Die: bspyof
 
-	
+
+####################################################################################################
+#		Universal Custom
+####################################################################################################
+
+UniversalConstructionYardVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: bconsela
+		Move: soundofsilence
+
 ####################################################################################################
 #		D2K
 ####################################################################################################
@@ -1633,7 +1643,6 @@ TSFiend:
 
 TSVehicle:
 	Voices:
-		: 25-i000
 		Select: 25-i000, 25-i002, 25-i004, 25-i006
 		Move: 25-i012, 25-i014, 25-i016, 25-i018, 25-i022
 		Harvest: 25-i012, 25-i014, 25-i016, 25-i018, 25-i022
@@ -1641,6 +1650,12 @@ TSVehicle:
 		Action: 25-i012, 25-i014, 25-i016, 25-i018, 25-i022
 		Attack: 25-i014, 25-i022, 25-i024, 25-i026
 		Unload: 25-i018
+
+TSMCVNOD:
+	Voices:
+		Select: nodmcvselect_01, nodmcvselect_02, nodmcvselect_03, nodmcvselect_04, nodmcvselect_05, nodmcvselect_06
+		Move: nodmcvmove_01, nodmcvmove_02, nodmcvmove_03, nodmcvmove_04, nodmcvmove_05, nodmcvmove_06
+		Action: nodmcvmove_01, nodmcvmove_02, nodmcvmove_03, nodmcvmove_04, nodmcvmove_05, nodmcvmove_06
 
 TSMech:
 	Voices:
@@ -1693,3 +1708,37 @@ TSReaper:
 		Die: spiddie1
 		Burned: 22-n104, 22-n106, 22-n108
 		Zapped: electro1
+
+TSNODLightInfantry:
+	Inherits: ^TSDeath
+	DefaultVariant: .wav
+	Voices:
+		Select: tsnodlightinfselect_01, tsnodlightinfselect_02, tsnodlightinfselect_03, tsnodlightinfselect_04, tsnodlightinfselect_05, tsnodlightinfselect_06, tsnodlightinfselect_07
+		Move: tsnodlightinfmove_01, tsnodlightinfmove_02, tsnodlightinfmove_03, tsnodlightinfmove_04, tsnodlightinfmove_05, tsnodlightinfmove_06, tsnodlightinfmove_07, tsnodlightinfmove_08, tsnodlightinfmove_10, tsnodlightinfmove_11
+		Action: tsnodlightinfselect_01, tsnodlightinfselect_02, tsnodlightinfselect_03, tsnodlightinfselect_04, tsnodlightinfselect_05, tsnodlightinfselect_06, tsnodlightinfselect_07
+		Attack:  tsnodlightinfattack_01, tsnodlightinfattack_02, tsnodlightinfattack_03, tsnodlightinfattack_04, tsnodlightinfattack_05, tsnodlightinfattack_06, tsnodlightinfattack_07
+
+TSNODRocket:
+	Inherits: ^TSDeath
+	DefaultVariant: .aud
+	Voices:
+		Select: nodrsselect_01, nodrsselect_02, nodrsselect_03, nodrsselect_04, nodrsselect_05, nodrsselect_06
+		Move: nodrsmove_01, nodrsmove_02, nodrsmove_03, nodrsmove_04, nodrsmove_05, nodrsmove_06, nodrsmove_07
+		Action: nodrsselect_01, nodrsselect_02, nodrsselect_03, nodrsselect_04, nodrsselect_05, nodrsselect_06
+		Attack:  nodrsattack_01, nodrsattack_02, nodrsattack_03, nodrsattack_04, nodrsattack_05, nodrsattack_06
+
+tsengineernod:
+	Inherits: ^TSDeath
+	DefaultVariant: .wav
+	Voices:
+		Select: nodeselect_01, nodeselect_02, nodeselect_03, nodeselect_04, nodeselect_05, nodeselect_06, nodeselect_07, nodeselect_08, nodeselect_09
+		Move: nodemove_01, nodemove_02, nodemove_03, nodemove_04, nodemove_05, nodemove_06, nodemove_07, nodemove_08
+		Action: nodecapture_01, nodecapture_02, nodecapture_03, nodecapture_04, nodecapture_05, nodecapture_06, nodecapture_07
+
+tsticktank:
+	DefaultVariant: .wav
+	Voices:
+		Select: ttnkselect_01, ttnkselect_02, ttnkselect_03, ttnkselect_04, ttnkselect_05
+		Move: ttnkmove_01, ttnkmove_02, ttnkmove_03, ttnkmove_04, ttnkmove_05, ttnkmove_06
+		Action: ttnkselect_01, ttnkselect_02, ttnkselect_03, ttnkselect_04, ttnkselect_05
+		Attack:  ttnkattack_01, ttnkattack_02, ttnkattack_03, ttnkattack_04, ttnkattack_05, ttnkattack_06

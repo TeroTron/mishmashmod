@@ -4404,9 +4404,6 @@ Actors:
 	AirstrikeTarget: waypoint
 		Owner: Neutral
 		Location: 87,28
-	AirstrikeProxy: powerproxy.toxin_bombing
-		Owner: PsiCorps
-		Location: 87,28
 	TreeWP1: waypoint
 		Owner: Neutral
 		Location: 97,42

@@ -43,14 +43,14 @@ tsgtcnst:
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:
-		VoiceSet: SovietConstructionYardVoice
+		VoiceSet: UniversalConstructionYardVoice
 	RenderSprites:
 		Image: tsgtcnst
 		PlayerPalette: tibsun
 
 gdimcv:
 	Inherits: ^ConstructionVehicle
-	Inherits: ^TSRenderVoxel
+	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildPaletteOrder: 97
@@ -144,6 +144,10 @@ gdibarracks:
 		Queue: Building.Shared, Building.GDI
 		Description: actor-gdibarracks.description
 		Prerequisites: ~tsgtcnst, power, ~techlevel.1
+	Tooltip:
+		Name: GDI Barracks
+	Tooltip@NoRow:
+		Name: GDI Barracks
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -381,6 +385,7 @@ gdiradr:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+		LocalCenterOffset: 0,-256,0
 	WithIdleOverlay@DISH:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: lowpower || disabled
@@ -403,7 +408,7 @@ gditech:
 		Prerequisite: gditech
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: ai-control
-		Prerequisite: ai.gatech
+		Prerequisite: ai.gditech
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -554,6 +559,7 @@ gdiupgradecenter:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 2,3
+		BuildLimit: 1
 	WithIdleOverlay@DISH:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: lowpower || disabled
@@ -740,7 +746,7 @@ gdirpg:
 
 tsharv:
 	Inherits: ^Miner
-	Inherits: ^TSRenderVoxel
+	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildPaletteOrder: 90
@@ -819,12 +825,12 @@ tssmech:
 		FacingTolerance: 0
 	AutoTarget:
 	Armament@primary:
-		Weapon: para
-		Damage: 25
+		Weapon: TSAssaultCannon
+		Damage: 90
 		RequiresCondition: !rank-elite
 	Armament@primary-elite:
-		Weapon: paraE
-		Damage: 50
+		Weapon: TSAssaultCannonE
+		Damage: 180
 		RequiresCondition: rank-elite
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -1112,7 +1118,7 @@ tshmec:
 		TurnSpeed: 16
 	Armament@primary1:
 		Name: railgun
-		Weapon: Comet
+		Weapon: TSRailGun
 		Damage: 100
 		Recoil: 87
 		RecoilRecovery: 12
@@ -1121,7 +1127,7 @@ tshmec:
 		RequiresCondition: !rank-elite
 	Armament@primary2:
 		Name: railgun
-		Weapon: Comet
+		Weapon: TSRailGun
 		Damage: 100
 		Recoil: 87
 		RecoilRecovery: 12
@@ -1130,7 +1136,7 @@ tshmec:
 		RequiresCondition: !rank-elite
 	Armament@elite1:
 		Name: railgun
-		Weapon: SuperComet
+		Weapon: TSRailGunE
 		Damage: 200
 		Recoil: 87
 		RecoilRecovery: 12
@@ -1139,7 +1145,7 @@ tshmec:
 		RequiresCondition: rank-elite
 	Armament@elite2:
 		Name: railgun
-		Weapon: SuperComet
+		Weapon: TSRailGunE
 		Damage: 200
 		Recoil: 87
 		RecoilRecovery: 12
@@ -1215,7 +1221,6 @@ tse1:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildAtProductionType: Soldier
@@ -1255,35 +1260,35 @@ tse1:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		Damage: 15
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		Damage: 20
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: UCM1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: UCM1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	WithInfantryBody:
@@ -1315,7 +1320,6 @@ tse2:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildAtProductionType: Soldier
@@ -1413,7 +1417,6 @@ tsengineer:
 	Inherits@CHAOS: ^Berserkable
 	Inherits@MC: ^MindControllable
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildAtProductionType: Soldier
@@ -1499,12 +1502,81 @@ tsengineer:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
 
+tsmedic:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Infantry.Shared, Infantry.GDI
+		BuildAtProductionType: Soldier
+		Prerequisites: ~gdibarracks
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: Medic
+	Tooltip@NoRow:
+		Name: Medic
+	Selectable:
+		Priority: 4
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: foot
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		CustomPipType: red
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: red
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	Armament:
+		Weapon: Heal
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: TSEngineer
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	CaptureManager:
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry
+	RenderSprites:
+		Image: tsmedic
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
 tsjumpjet:
 	Inherits: ^JumpjetInfantry
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CHAOS: ^BerserkableRocketeer
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	HiddenUnderFog:
 		Type: CenterPosition
 	Buildable:
@@ -1536,24 +1608,24 @@ tsjumpjet:
 	Armor:
 		Type: Light
 	Armament@primary:
-		Weapon: 20mm
+		Weapon: jumpjetcannon
 		Damage: 25
 		ReloadingCondition: reload-ground
 		PauseOnCondition: chronodisable || reload-air
 		RequiresCondition: !rank-elite
 	Armament@primary-aa:
-		Weapon: 20mmAA
+		Weapon: jumpjetcannonAA
 		ReloadingCondition: reload-air
 		PauseOnCondition: chronodisable || reload-ground
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: 20mmE
+		Weapon: jumpjetcannonE
 		Damage: 50
 		ReloadingCondition: reload-ground
 		PauseOnCondition: chronodisable || reload-air
 		RequiresCondition: rank-elite
 	Armament@elite-aa:
-		Weapon: 20mmAAE
+		Weapon: jumpjetcannonAAE
 		ReloadingCondition: reload-air
 		PauseOnCondition: chronodisable || reload-ground
 		RequiresCondition: rank-elite
@@ -2155,3 +2227,1593 @@ tsorcacarryallhusk:
 		Image: tsorcacarryall
 	WithVoxelBody:
 		Image: tsorcacarryall
+#######################################
+# TS Nod MCV
+#######################################
+
+tsnodcnst:
+	Inherits: ^ConstructionYard
+	Buildable:
+		BuildPaletteOrder: 20
+	ProvidesPrerequisite@building.nod:
+		Prerequisite: Building.nod
+		Factions: gdi
+	Production:
+		Produces: Building.nod, Support.nod
+	ProductionQueue@Building:
+		Type: Building.nod
+		DisplayOrder: 2
+		Factions: nod
+	ProductionQueue@Support:
+		Type: Support.nod
+		DisplayOrder: 6
+		Factions: nod
+	ProductionBar@Building:
+		ProductionType: Building.nod
+	ProductionBar@Support:
+		ProductionType: Support.nod
+	Transforms:
+		IntoActor: nodmcv
+	GrantConditionOnFaction@Nod:
+		Condition: nod
+		Factions: nod
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithIdleOverlay@SIDE:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-side
+	WithIdleOverlay@FRONT:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-front
+	WithBuildingPlacedOverlay:
+		RequiresCondition: !build-incomplete
+	IsometricSelectable:
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: UniversalConstructionYardVoice
+	RenderSprites:
+		Image: tsgtcnst
+		PlayerPalette: tibsun
+
+nodmcv:
+	Inherits: ^ConstructionVehicle
+	Inherits@voxel: ^TSRenderVoxel
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		BuildPaletteOrder: 97
+		Prerequisites: ~tsgtcnst, gditech, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+	Transforms:
+		IntoActor: tsnodcnst
+	Voiced:
+		VoiceSet: TSMCVNOD
+	RenderVoxels:
+		Image: tsmcvblack
+
+nodpowr:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Description: actor-napowr.description
+		Prerequisites: ~tsnodcnst, ~techlevel.1
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: actor-napowr.name
+	Tooltip@NoRow:
+		Name: actor-napowr.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	FireWarheadsOnDeath@Reactor:
+		Weapon: TeslaReactorExplode
+	IsometricSelectable:
+		Class: napowr
+		DecorationHeight: 45
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tsntpowr
+		PlayerPalette: tibsun
+
+nodrefinery:
+	Inherits: ^Refinery
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Prerequisites: ~tsnodcnst, power, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+	Building:
+		Footprint: xxX+ xx++ xxX+
+		Dimensions: 4,3
+		LocalCenterOffset: 0,-800,0
+	FreeActor:
+		Actor: tsharvnod
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -1024,-384,4096
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: 128,-1408,4096
+	DockHost:
+		Type: Unload
+		DockAngle: 640
+		DockOffset: 700,1500,0
+	-WithDockedOverlay:
+	WithIdleOverlay@REDLIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-redlights
+	WithDockingOverlay@UNLOAD:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib2
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -1024,-512,3456
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: -64,-1280,3456
+	IsometricSelectable:
+		Class: narefn
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tsprocnod
+		PlayerPalette: tibsun
+
+tsharvnod:
+	Inherits: ^Miner
+	Inherits@voxel: ^TSRenderVoxel
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		BuildPaletteOrder: 90
+		Description: actor-cmin.description
+		Prerequisites: ~tsnodweap
+	Tooltip:
+		Name: Ore Harvester
+	Tooltip@NoRow:
+		Name: Ore Harvester
+	Harvester:
+		BaleUnloadDelay: 2
+	StoresResources:
+		Capacity: 20
+	DockClientManager:
+		Voice: Deliver
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: TSVehicle
+	RenderVoxels:
+		Image: dtruck
+		Scale: 1
+	RenderSprites:
+		Image: dtruck
+
+nodbarracks:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Description: actor-gdibarracks.description
+		Prerequisites: ~tsnodcnst, power, ~techlevel.1
+	Tooltip:
+		Name: Nod Barracks
+	Tooltip@NoRow:
+		Name: Nod Barracks
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Exit@1Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.nod
+	ProductionQueue:
+		Type: Infantry.nod
+		DisplayOrder: 14
+		Factions: nod
+	ProductionBar:
+		ProductionType: Infantry.nod
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	WithIdleOverlay@LIGHT:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-light
+	RallyPoint:
+		Path: 3,3
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: nodbarracks
+	IsometricSelectable:
+		DecorationHeight: 30
+	RenderSprites:
+		Image: tsnthand
+		PlayerPalette: tibsun
+
+tsnodweap:
+	Inherits: ^WarFactory
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Description: actor-naweap.description
+		Prerequisites: ~tsnodcnst, nodrefinery, nodbarracks, power, ~techlevel.1
+	ProvidesPrerequisite@default:
+	Production:
+		Produces: Vehicle.nod
+	ProductionQueue:
+		Type: Vehicle.nod
+		DisplayOrder: 18
+		Factions: nod
+	ProductionBar:
+		ProductionType: Vehicle.nod
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	WithIdleOverlay@ROOF:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib2
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tsnodweap
+		PlayerPalette: tibsun
+
+nodradr:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Prerequisites: ~tsnodcnst, nodrefinery, ~techlevel.1
+		Description: actor-naradr.description
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Nod Radar
+	Tooltip@NoRow:
+		Name: Nod Radar
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@DISH:
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: lowpower || disabled
+		Sequence: idle-dish
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tsntradr
+		PlayerPalette: tibsun
+
+nodapowr:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Description: actor-napowr.description
+		Prerequisites: ~tsnodcnst, tsnodweap, ~techlevel.1
+		LocalCenterOffset: 0,-512,0
+		BuildPaletteOrder: 61
+	Tooltip:
+		Name: actor-napowr.name
+	Tooltip@NoRow:
+		Name: actor-napowr.name
+	Valued:
+		Cost: 700
+	Building:
+		Footprint: xxxx xxxx
+		Dimensions: 2,4
+		LocalCenterOffset: 0,-1024,0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	FireWarheadsOnDeath@Reactor:
+		Weapon: TeslaReactorExplode
+	IsometricSelectable:
+		Class: napowr
+		DecorationHeight: 45
+	Power:
+		Amount: 300
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tsntapwr
+		PlayerPalette: tibsun
+
+nodpad:
+	Inherits: ^Radar
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Prerequisites: ~tsnodcnst, nodradr, ~techlevel.1
+		Description: actor-gaairc.description
+	Tooltip:
+		Name: actor-gaairc.name
+	Tooltip@NoRow:
+		Name: actor-gaairc.name
+	Valued:
+		Cost: 700
+	ProvidesPrerequisite@default:
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@PLATFORM:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || infiltrated
+	Reservable:
+	ExitsDebugOverlay:
+	Exit@1:
+		Facing: 896
+		SpawnOffset: 0,0,0
+		ExitCell: 0,0
+	GrantExternalConditionToOwner:
+		Condition: airdock
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Aircraft.Shared
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Aircraft.nod
+		PauseOnCondition: powerdown || infiltrated || emp || chronodisable
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Aircraft.nod
+		Group: Aircraft
+		DisplayOrder: 25
+		LowPowerModifier: 200
+		Factions: nod
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Aircraft.Shared
+	RallyPoint:
+		Path: 1,2
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 0,0
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -362,-1086,0, -384,512,0, 384,768,0
+		GatherCell: 1,0, 1,1, 2,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	IsometricSelectable:
+		Class: gaairc
+		DecorationHeight: 40
+	Voiced:
+		VoiceSet: AirfieldVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+	RenderSprites:
+		Image: tsnthpad
+		PlayerPalette: tibsun
+
+nodtech:
+	Inherits: ^BattleLab
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Prerequisites: ~tsnodcnst, tsnodweap, nodradr, ~techlevel.1
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.nodtech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	IsometricSelectable:
+		Class: nodtech
+		DecorationHeight: 50
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tsnttech
+		PlayerPalette: tibsun
+
+nodtempleofnod:
+	Inherits: ^BaseBuilding
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.nod
+		Prerequisites: ~tsnodcnst, nodtech, ~techlevel.1
+		BuildLimit: 1
+	ProvidesPrerequisite@default:
+		Prerequisite: templeofnod
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.templeofnod
+	Tooltip:
+		Name: Temple of Nod
+	Tooltip@NoRow:
+		Name: Temple of Nod
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	IsometricSelectable:
+		Class: templeofnod
+		DecorationHeight: 50
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tsnttmpl
+		PlayerPalette: tibsun
+
+nodvulcan:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@voxel: ^TSRenderVoxel
+	Buildable:
+		Queue: Support.Shared, Support.nod
+		Prerequisites: ~tsnodcnst, nodbarracks, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Building:
+		LocalCenterOffset: 0,-256,0
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Laser Turret
+	Tooltip@NoRow:
+		Name: Laser Turret
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament:
+		Weapon: TurretLaserFire
+		LocalOffset: 498,0,317
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithVoxelTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: nodvulcan
+		DecorationHeight: 30
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: tsntlasr
+		PlayerPalette: tibsun
+	RenderVoxels:
+		Image: tsnalasr
+
+nodsam:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.nod
+		Prerequisites: ~tsnodcnst, nodbarracks, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-nalasr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Building:
+		LocalCenterOffset: 0,-256,0
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: SAM Site
+	Tooltip@NoRow:
+		Name: SAM Site
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	Armament@portable-aa:
+		Weapon: TSMissileLauncherAA
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite
+	Armament@elite-portable-aa:
+		Weapon: TSMissileLauncherAAE
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gdivulcan
+		DecorationHeight: 30
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	RenderSprites:
+		Image: tsntsam
+		PlayerPalette: tibsun
+
+nodobelisk:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.nod
+		BuildPaletteOrder: 60
+		Prerequisites: ~tsnodcnst, nodpad, ~techlevel.3
+		Description: actor-atesla.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Obelisk of Light
+	Tooltip@NoRow:
+		Name: Obelisk of Light
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 60000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	Armament:
+		Weapon: ObeliskLaserFire
+		LocalOffset: 0,0,3072
+	Turreted:
+		TurnSpeed: 1000
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	DetectCloaked:
+		Range: 7c0
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	Power:
+		Amount: -75
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	AutoTarget:
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+		PauseOnCondition: disabled || chronodisable
+	WithSpriteBody:
+		PauseOnCondition: disabled || chronodisable
+	WithRangeCircle:
+		Range: 8c0
+		Type: prismcannon
+	IsometricSelectable:
+		Class: nodobelisk
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: PrismTowerVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MaxRange
+		Damage: 500
+		ReloadDelay: 50
+	RenderSprites:
+		Image: tsntobel
+		PlayerPalette: tibsun
+
+tse1nod:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.nod
+		BuildAtProductionType: Soldier
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: Light Infantry
+	Tooltip@NoRow:
+		Name: Light Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSandD2kMinigun
+		Damage: 15
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSandD2kMinigunE
+		Damage: 20
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSandD2kMinigun
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSandD2kMinigunE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSandD2kMinigun
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSandD2kMinigunE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: TSNODLightInfantry
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tse1.nod
+		
+tse3nod:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.nod
+		BuildAtProductionType: Soldier
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 10
+		Description: actor-tsrocketinfantry.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Rocket Infantry
+	Tooltip@NoRow:
+		Name: Rocket Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@eliteAA:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: TSNODRocket
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tse3
+		
+tsengineernod:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Infantry.Shared, Infantry.nod
+		BuildAtProductionType: Soldier
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: actor-engineer.name
+	Tooltip@NoRow:
+		Name: actor-engineer.name
+	Selectable:
+		Priority: 4
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: foot
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	InstantlyRepairs:
+		Types: building
+		RepairSound: urepair.wav
+	InstantlyRepairs@CIV:
+		Types: civilian
+		RepairSound: urepair.wav
+		ValidRelationships: Ally, Neutral
+	RepairsBridges:
+		RepairNotification: BridgeRepaired
+	Captures@INSTANT:
+		CaptureTypes: building, tech, husk
+		RequiresCondition: instantcapture
+	Captures@TIMED:
+		CaptureDelay: 75
+		CaptureTypes: building, husk
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	Captures@TECH:
+		CaptureTypes: tech
+		CaptureDelay: 250
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	Armament:
+		Weapon: DefuseKit
+		Cursor: remove-bomb
+		OutsideRangeCursor: remove-bomb
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: tsengineernod
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	CaptureManager:
+	RenderSprites:
+		Image: altengi
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+tsticktank:
+	Inherits: ^MainBattleTank
+	Inherits@voxel: ^TSRenderVoxel
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Tooltip:
+		Name: Tick Tank
+	Tooltip@NoRow:
+		Name: Tick Tank
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Description: actor-mtnk.description
+		Prerequisites: ~nodbarracks, ~techlevel.1
+		BuildDuration: 300
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 120
+	Health:
+		HP: 30000
+	Armament@primary:
+		Weapon: 105mm
+		Damage: 65
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 543,0,362
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: 105mmE
+		Damage: 130
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 543,0,362
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+	GrantCondition@PREVIEWWORKAROUND:
+		Condition: real-actor
+	AttackTurreted:
+		Armaments: primary, elite
+	GrantConditionOnDeploy:
+		PauseOnCondition: disabled
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		UndeployOnMove: true
+		UndeployOnPickup: true
+		Facing: 640
+		DeploySounds: place2.aud
+		UndeploySounds: place2.aud
+		Voice: Move
+	WithVoxelBody:
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		RequiresCondition: !undeployed && real-actor
+	WithVoxelTurret@undeployed:
+		RequiresCondition: undeployed
+	WithVoxelBarrel@undeployed:
+		LocalOffset: 181,0,362
+		RequiresCondition: undeployed
+	WithVoxelTurret@deployed:
+		RequiresCondition: deployed
+		LocalCenterOffset: 0,-1024,0
+	WithVoxelBarrel@deployed:
+		LocalCenterOffset: 90,0,180
+		RequiresCondition: deployed
+	WithMakeAnimation:
+		Sequence: make
+	Selectable:
+		Class: ticktank
+		Bounds: 1544, 2509, 0, -289
+	Armor@deployed:
+		Type: Concrete
+		RequiresCondition: deployed
+	Voiced:
+		VoiceSet: tsticktank
+	RenderSprites:
+		Image: tsttnksprite
+	RenderVoxels:
+		Image: tsttnkvoxel
+	ActorStatValues:
+
+tsattackbuggy:
+	Inherits: ^Vehicle
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@voxel: ^TSRenderVoxel
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Attack Buggy
+	Tooltip@NoRow:
+		Name: Attack Buggy
+	Selectable:
+		Class: attackbuggy
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 91
+		Description: GDI Anti Infantry Mech.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 80
+		Speed: 142
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 22000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSAssaultCannon
+		Damage: 90
+		RequiresCondition: !rank-elite
+	Armament@primary-elite:
+		Weapon: TSAssaultCannonE
+		Damage: 180
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: tsticktank
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tsbggy
+	RenderVoxels:
+		Image: tsbggy
+
+tsbike:
+	Inherits: ^Vehicle
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@voxel: ^TSRenderVoxel
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Attack Cycle
+	Tooltip@NoRow:
+		Name: Attack Cycle
+	Selectable:
+		Class: attackcycle
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 91
+		Description: GDI Anti Infantry Mech.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 80
+		Speed: 142
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 22000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: tsticktank
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tsbike
+	RenderVoxels:
+		Image: tsbike
+
+tsnodartillery:
+	Inherits: ^Vehicle
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1000
+		Voice: Move
+	Tooltip:
+		Name: Artillery
+	Tooltip@NoRow:
+		Name: Artillery
+	Selectable:
+		Class: tsnodartillery
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Prerequisites: ~tsnodweap
+		BuildPaletteOrder: 30
+		Description: actor-d2ksiegetank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 43
+		TurnSpeed: 12
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: d2ksiegemm
+		Damage: 100
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: d2ksiegemmE
+		Damage: 150
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,-32
+	AttackFrontal:
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: tsticktank
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tsart2
+	RenderVoxels:
+		Image: tsart2
+
+tssubapcnod:
+	Inherits: ^Vehicle
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@voxel: ^TSRenderVoxel
+	Inherits@sub: ^SubterraneanVoxelVehicle
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Subterranean APC
+	Tooltip@NoRow:
+		Name: Subterranean APC
+	Selectable:
+		Class: subapc
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 91
+		Description: GDI Anti Infantry Mech.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	Targetable@UNDERGROUND:
+		TargetTypes: Underground
+		RequiresCondition: submerged
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		SubterraneanTransitionImage: dig
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionSound: subdril1.aud
+	Mobile:
+		Locomotor: subterranean
+		Speed: 71
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 22000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: tsticktank
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tsbike
+	RenderVoxels:
+		Image: tsbike

@@ -181,6 +181,33 @@
 			Gems: 100
 			Beach: 100
 			Water: 100
+	SubterraneanLocomotor@SUBTERRANEAN:
+		Name: subterranean
+		Crushes: wall, crate, infantry
+		CrushDamageTypes: NonTemporal, Crush
+		TerrainSpeeds:
+			Clear: 80
+				PathingCost: 150
+			Sand: 100
+				PathingCost: 150
+			Rough: 100
+				PathingCost: 150
+			Dune: 80
+				PathingCost: 150
+			Rail: 50
+				PathingCost: 150
+			Road: 100
+				PathingCost: 150
+			Bridge: 100
+				PathingCost: 150
+			DirtRoad: 100
+				PathingCost: 150
+			Ore: 90
+				PathingCost: 150
+			Gems: 90
+				PathingCost: 150
+		SubterraneanTransitionTerrainTypes:
+		SubterraneanTransitionCost: 0
 	ShroudRenderer:
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
 		UseExtendedIndex: true
@@ -189,7 +216,7 @@
 	Faction@random:
 		Name: faction-random.name
 		InternalName: Random
-		RandomFactionMembers: allies, soviets, yuri, gdi, atreides, harkonnen, ordos
+		RandomFactionMembers: allies, soviets, yuri, gdi, atreides, harkonnen, ordos, nod
 		Side: Randoms
 		Description: faction-random.description
 	Faction@unifiedallied:
@@ -215,6 +242,12 @@
 		InternalName: gdi
 		Side: Tiberian Sun
 		Description: faction-gdi.description
+		Selectable: true
+	Faction@nod:
+		Name: NOD
+		InternalName: nod
+		Side: Tiberian Sun
+		Description: faction-nod.description
 		Selectable: true
 	Faction@atreides:
 		Name: Atreides
@@ -321,6 +354,7 @@ World:
 	WarheadDebugOverlay:
 	ExitsDebugOverlayManager:
 	CustomTerrainDebugOverlay:
+	SubterraneanActorLayer:
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 4
@@ -335,6 +369,12 @@ World:
 		ClassName: options-starting-units.mcv-only
 		Factions: gdi
 		BaseActor: gdimcv
+		BaseActorFacing: 640
+	StartingUnits@nod:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: nod
+		BaseActor: nodmcv
 		BaseActorFacing: 640
 	StartingUnits@allied:
 		Class: none
@@ -447,6 +487,7 @@ World:
 			atreides: d2k.colorpicker
 			ordos: d2k.colorpicker
 			gdi: gdi.colorpicker
+			nod: nod.colorpicker
 			soviets: smcv.colorpicker
 			yuri: pcv.colorpicker
 	OrderEffects:

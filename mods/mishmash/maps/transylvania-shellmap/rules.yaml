@@ -212,28 +212,6 @@ fv.dog:
 	Cargo:
 		InitialUnits: dog
 
-powerproxy.toxin_bombing:
-	AlwaysVisible:
-	AirstrikePower@Mission:
-		OrderName: ShellmapToxinBombing
-		Prerequisites:
-			1: techlevel.1
-		Icons:
-			1: parabomb3
-		ChargeInterval: 6000
-		StartFullyCharged: true
-		Names:
-			1: Toxin Bombing
-		Descriptions:
-			1: 3 Bomber Planes drop toxin\nbombs on your target.
-		UnitTypes:
-			1: txbmb
-		SquadSizes:
-			1: 3
-		SquadOffset: -2048, 2048, 0
-		QuantizedFacings: 8
-		DisplayBeacon: False
-
 txbmb:
 	Armament:
 		Weapon: SpyCameraWeapon

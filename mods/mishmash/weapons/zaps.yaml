@@ -1513,3 +1513,112 @@ MaterialBack:
 		AffectsParent: true
 		ValidTargets: Air
 		AirThreshold: 9c0
+
+^Laser:
+	Projectile: LaserZap
+		Width: 72
+		Duration: 15
+		ZOffset: 2047
+		Color: FF000080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 180
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FF000040
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 25000
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+ObeliskLaserFire:
+	Inherits: ^Laser
+	ReloadDelay: 120
+	Range: 10c512
+	Report: obelray1.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 50000
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 200
+			Rocket: 100
+		DamageTypes: ElectroDeath, TriggerProne, SuppressTerrorDrone, NonTemporal
+	Warhead@2Shr: FireShrapnel
+		Weapon: PrismFragment
+		Amount: 3
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+	Warhead@2Eff: CreateEffect
+		Explosions: prism_explosion
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+TurretLaserFire:
+	Inherits: ^Laser
+	ReloadDelay: 35
+	Range: 6c0
+	Report: lastur1.aud
+	Projectile: LaserZap
+		Width: 36
+		Duration: 8
+		SecondaryBeamWidth: 144
+		SecondaryBeamColor: FF000030
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+		Versus:
+			None: 120
+			Flak: 110
+			Plate: 100
+		DamageTypes: ElectroDeath, TriggerProne, SuppressTerrorDrone, NonTemporal
+
+TSRailGun:
+	Inherits@1: ^BreakPointDefenseDrones
+	ValidTargets: Ground, Water
+	ReloadDelay: 60
+	Range: 8c0
+	Report: railuse5.aud
+	Projectile: Railgun
+		BeamColor: 00FFFFC8
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Damage: 20000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ElectroDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: prism_explosion
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+TSRailGunE:
+	Inherits: Comet
+	Warhead@1Dam: SpreadDamage
+		Damage: 40000
+	Warhead@2Shr: FireShrapnel
+		Weapon: SuperCometFragment

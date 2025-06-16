@@ -32,7 +32,7 @@ harkonnencnst:
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:
-		VoiceSet: SovietConstructionYardVoice
+		VoiceSet: UniversalConstructionYardVoice
 	RenderSprites:
 		Image: conyard.harkonnen
 		PlayerPalette: d2kpal2
@@ -1301,35 +1301,35 @@ d2kharkonnene1:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		Damage: 15
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		Damage: 20
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: UCM1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: UCM1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	WithInfantryBody:
@@ -1721,7 +1721,7 @@ ordoscnst:
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:
-		VoiceSet: SovietConstructionYardVoice
+		VoiceSet: UniversalConstructionYardVoice
 	RenderSprites:
 		Image: conyard.ordos
 		PlayerPalette: d2kpal2
@@ -3396,7 +3396,7 @@ atreidescnst:
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:
-		VoiceSet: SovietConstructionYardVoice
+		VoiceSet: UniversalConstructionYardVoice
 	RenderSprites:
 		Image: conyard.atreides
 		PlayerPalette: d2kpal2
@@ -4646,35 +4646,35 @@ d2katreidese1:
 		Voice: Attack
 		FacingTolerance: 2
 	Armament@primary:
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		Damage: 15
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		Damage: 20
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@opentopped:
 		Name: opentopped
-		Weapon: M1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-opentopped:
 		Name: opentopped
-		Weapon: M1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Armament@garrisoned:
 		Name: garrisoned
-		Weapon: UCM1Carbine
+		Weapon: TSandD2kMinigun
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite-garrisoned:
 		Name: garrisoned
-		Weapon: UCM1CarbineE
+		Weapon: TSandD2kMinigunE
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	WithInfantryBody:

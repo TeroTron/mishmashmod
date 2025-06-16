@@ -48,8 +48,6 @@ cmin:
 
 mtnk:
 	Inherits: ^MainBattleTank
-	Inherits@ADVGUNS: ^AffectedByAdvancedGunSystems
-	Inherits@COMPOSITE: ^AffectedByCompositeArmor
 	Valued:
 		Cost: 700
 	DeliversCash:
@@ -89,27 +87,8 @@ mtnk:
 	AttackTurreted:
 		Armaments: primary, elite
 	WithVoxelBody:
-		RequiresCondition: !composite_armor
-	WithVoxelBody@COMPOSITE_ARMOR:
-		Sequence: idle-armor
-		RequiresCondition: composite_armor
 	WithVoxelTurret:
-		RequiresCondition: !composite_armor
-	WithVoxelTurret@COMPOSITE_ARMOR:
-		Sequence: turret-armor
-		RequiresCondition: composite_armor
 	WithVoxelBarrel:
-		RequiresCondition: !rank-elite && !advanced_guns
-	WithVoxelBarrel@ELITE:
-		Armament: elite
-		RequiresCondition: rank-elite && !advanced_guns
-	WithVoxelBarrel@ADVANCED_GUNS:
-		Sequence: barrel-advanced
-		RequiresCondition: !rank-elite && advanced_guns
-	WithVoxelBarrel@ELITE_ADVANCED_GUNS:
-		Sequence: barrel-advanced
-		Armament: elite
-		RequiresCondition: rank-elite && advanced_guns
 	Selectable:
 		Bounds: 1544, 2509, 0, -289
 	Voiced:
@@ -122,7 +101,6 @@ mtnk:
 	#	Volume: 0.4
 	#	RequiresCondition: moving
 	ActorStatValues:
-		Upgrades: upgrade.advanced_gun_systems, upgrade.composite_armor
 
 tnkd:
 	Inherits: ^Vehicle

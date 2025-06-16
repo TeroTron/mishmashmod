@@ -74,7 +74,7 @@ Terrain:
 		TargetTypes: Ground
 		Color: 44443C
 	TerrainType@Subterranean:
-		Type: Subterranean
+		Type: 
 		Color: 745537
 	TerrainType@Jumpjet:
 		Type: Jumpjet

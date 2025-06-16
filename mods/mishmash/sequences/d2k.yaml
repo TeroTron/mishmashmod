@@ -1163,7 +1163,7 @@ assault_tank_h:
 	Defaults:
 		Scale: 0.5
 	idle:
-		Filename: HarkAssaultTank.png
+		Filename: HarkHeavyTest.png
 		Facings: 32
 	icon:
 		Filename: d2kharkassaulttankicon.png

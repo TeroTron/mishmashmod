@@ -141,8 +141,8 @@ faction-gdi =
      Aggresive Playstyle
 
 faction-nod =
-    .name = NOD
-    .description = Brotherhood of NOD
+    .name = Nod
+    .description = Brotherhood of Nod
      
     Nod favors speed, stealth, sabotage, and asymmetric warfare.
       

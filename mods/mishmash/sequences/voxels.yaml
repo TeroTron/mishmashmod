@@ -623,6 +623,10 @@ tsmcv:
 	idle:
 	water: tsmcv
 
+tsmcvblack:
+	idle:
+	water: tsmcvblack
+
 tsharv:
 	idle:
 	unload: tshorv
@@ -642,3 +646,28 @@ tshmec:
 tshvr:
 	idle:
 	turret: tshvrtur
+
+tsnalasr:
+	idle: blanktemplate
+	turret: tslaser
+
+tsttnkvoxel:
+	idle: tsttnk
+	turret: tsttnktur
+	barrel: tsttnkbarl
+
+tsbggy:
+	idle:
+
+tsbike:
+	idle:
+
+dtruck:
+	idle: dtruck
+	water: dtruck
+	unload: dtruck
+
+tsart2:
+	idle:
+	turret: tsart2tur
+	barrel: tsart2barl

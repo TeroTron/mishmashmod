@@ -476,6 +476,22 @@ gdi.colorpicker:
 		Image: tsmcv
 		Palette: colorpicker
 
+nod.colorpicker:
+	Inherits: gdimcv
+	Mobile:
+		InitialFacing: 640
+	-Buildable:
+	-MapEditorData:
+	WithVoxelBody:
+		ShowShadow: false
+	-WithVoxelBody@Water:
+	RenderSprites:
+		Image: tsmcv
+		Palette: colorpicker
+	RenderVoxels:
+		Image: tsmcvblack
+		Palette: colorpicker
+
 SROCK01:
 	Inherits: ^Rock
 

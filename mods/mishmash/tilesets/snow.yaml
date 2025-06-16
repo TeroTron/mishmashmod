@@ -73,6 +73,9 @@ Terrain:
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 600060
 		TargetTypes: Ground
+	TerrainType@Subterranean:
+		Type: Subterranean
+		Color: C7C9FA
 
 Templates:
 	Template@0:

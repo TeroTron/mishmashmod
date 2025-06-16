@@ -5,6 +5,7 @@ Speech:
 		soviets: csof
 		yuri: cyur
 		gdi: gdi
+		nod: nod
 	Notifications:
 		AllianceBroken: 044
 		AllianceFormed: 043

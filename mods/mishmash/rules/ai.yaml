@@ -3117,14 +3117,14 @@ Player:
 			ggi: 4000
 	CaptureManagerBotASModule@generic:
 		RequiresCondition: enable-generic-ai
-		CapturingActorTypes: engineer, mengineer
+		CapturingActorTypes: engineer, mengineer, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosengineer
 		PriorityCaptureChance: 100
 		PriorityCapturableActorTypes: caoild, caairp, capowr, caoutp, caoutb, cahosp, cahosb, cashosp, camach, caslab, capsyb, capsyb.koth, camisl, camisb, cacomm, caarmr, carpad, carpab
-		CapturableActorTypes: gacnst, nacnst, yacnst, gaweap, naweap, yaweap, gaweab, naweab, yaweab, gaweac, naweac, yaweac, gawead, nawead, yawead, gatech, gatecb, natech, yatech, yatecb
+		CapturableActorTypes: atreidescnst, harkonnencnst, ordoscnst, tsgtcnst, gacnst, nacnst, yacnst, gaweap, naweap, yaweap, gaweab, naweab, yaweab, gaweac, naweac, yaweac, gawead, nawead, yawead, gatech, gatecb, natech, yatech, yatecb
 		MinimumCaptureDelay: 125
 	LoadGarrisonerBotModule:
 		RequiresCondition: enable-generic-ai
-		GarrisonerUnit: e1, ggi, gren, snipe, e2, shk, flakt, init, virus, rctt, mtrp, ssnipe
+		GarrisonerUnit: d2katreidestrooper, d2kordostrooper, d2kharkonnentrooper, tse2, tse1, d2kharkonnene1, d2katreidese1, d2kordose1, e1, ggi, gren, snipe, e2, shk, flakt, init, virus, rctt, mtrp, ssnipe
 	LoadCargoBotModule@Infantry:
 		RequiresCondition: enable-generic-ai
 		TransportTypesAndLoadRequirement:
@@ -3133,7 +3133,7 @@ Player:
 			shad: IdleUnit
 			fv: All
 			bfrt: All
-		PassengerTypes: e1, ggi, gren, snipe, e2, shk, flakt, init, virus, rctt, mtrp, ssnipe, tany, boris
+		PassengerTypes: d2katreidestrooper, d2kordostrooper, d2kharkonnentrooper, tse2, tse1, d2kharkonnene1, d2katreidese1, d2kordose1, e1, ggi, gren, snipe, e2, shk, flakt, init, virus, rctt, mtrp, ssnipe, tany, boris
 		ValidTransportOwner: AlliedBot
 	LoadCargoBotModule@TankBunker:
 		RequiresCondition: enable-generic-ai
