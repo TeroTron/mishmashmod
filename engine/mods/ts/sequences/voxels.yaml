@@ -32,6 +32,11 @@ sapc:
 bike:
 	idle:
 
+ttnk:
+	idle:
+	turret: ttnktur
+	barrel: ttnkbarl
+
 mmch:
 	barrel: mmchbarl
 

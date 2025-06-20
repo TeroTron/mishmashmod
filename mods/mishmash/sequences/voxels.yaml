@@ -668,6 +668,24 @@ dtruck:
 	unload: dtruck
 
 tsart2:
-	idle:
+	idle: tsart2
 	turret: tsart2tur
 	barrel: tsart2barl
+
+tssapc:
+	idle:
+
+tsstnk:
+	idle:
+	
+tsscrin:
+	idle: tsscrin
+	idle-a2a: tsscrin
+	idle-predator: tsscrin
+	idle-a2a-predator: tsscrin
+
+tsapache:
+	idle: tsapache
+	idle-a2a: tsapache
+	idle-predator: tsapache
+	idle-a2a-predator: tsapache

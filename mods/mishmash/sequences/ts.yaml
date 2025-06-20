@@ -1702,3 +1702,86 @@ tsart2:
 		Filename: tsgtarty.shp
 		ShadowStart: 3
 		Offset: 0, -12, 12
+
+tssapc:
+	idle:
+		Filename: invisibleitem.shp
+	icon:
+		Filename: tssubapcicon.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+
+tsstnk:
+	idle:
+		Filename: invisibleitem.shp
+	icon:
+		Filename: tsstnkicon.png
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+
+tscyborg:
+	Inherits: ^TSBasicInfantry
+	Defaults:
+		Tick: 80
+		Offset: 0, 0, 16
+		Filename: tscyborg.shp
+	stand:
+		Facings: 8
+		ShadowStart: 370
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 426
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 441
+	crippled-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	crippled-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 456
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 534
+	crippled-attack:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 582
+	icon:
+		Filename: tscyborgicon.shp
+		AddExtension: False
+
+tsapache:
+	idle:
+		Filename: invisibleitem.shp
+	icon:
+		Filename: tsharpyicon.shp
+	rotor:
+		Filename: lrotor.shp
+		Length: 4
+	slow-rotor:
+		Filename: lrotor.shp
+		Start: 4
+		Length: 8
+
+tsscrin:
+	idle: 
+		Filename: invisibleitem.shp
+	icon:
+		Filename: tsbansheeicon.shp

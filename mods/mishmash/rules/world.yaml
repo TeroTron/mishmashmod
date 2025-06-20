@@ -14,6 +14,34 @@
 	TerrainLighting:
 	TerrainRenderer:
 	DebugVisualizations:
+	SubterraneanLocomotor@SUBTERRANEAN:
+		Name: subterranean
+		Crushes: wall, crate, infantry
+		CrushDamageTypes: NonTemporal, Crush
+		TerrainSpeeds:
+			Clear: 80
+				PathingCost: 150
+			Sand: 100
+				PathingCost: 150
+			Rough: 100
+				PathingCost: 150
+			Dune: 80
+				PathingCost: 150
+			Rail: 50
+				PathingCost: 150
+			Road: 100
+				PathingCost: 150
+			Bridge: 100
+				PathingCost: 150
+			DirtRoad: 100
+				PathingCost: 150
+			Ore: 90
+				PathingCost: 150
+			Gems: 90
+				PathingCost: 150
+		SubterraneanTransitionTerrainTypes:
+		SubterraneanTransitionCost: 5
+		SubterraneanTransitionOnRamps: True
 	Locomotor@FOOT:
 		Name: foot
 		Crushes: crate, mine
@@ -181,33 +209,6 @@
 			Gems: 100
 			Beach: 100
 			Water: 100
-	SubterraneanLocomotor@SUBTERRANEAN:
-		Name: subterranean
-		Crushes: wall, crate, infantry
-		CrushDamageTypes: NonTemporal, Crush
-		TerrainSpeeds:
-			Clear: 80
-				PathingCost: 150
-			Sand: 100
-				PathingCost: 150
-			Rough: 100
-				PathingCost: 150
-			Dune: 80
-				PathingCost: 150
-			Rail: 50
-				PathingCost: 150
-			Road: 100
-				PathingCost: 150
-			Bridge: 100
-				PathingCost: 150
-			DirtRoad: 100
-				PathingCost: 150
-			Ore: 90
-				PathingCost: 150
-			Gems: 90
-				PathingCost: 150
-		SubterraneanTransitionTerrainTypes:
-		SubterraneanTransitionCost: 0
 	ShroudRenderer:
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
 		UseExtendedIndex: true

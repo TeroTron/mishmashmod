@@ -3354,6 +3354,324 @@ tsengineernod:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
 
+tscyborg:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAINGUNS: ^AffectedByChainguns
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.nod
+		BuildAtProductionType: Soldier
+		Prerequisites: ~nodbarracks
+		BuildPaletteOrder: 50
+		Description: actor-tscyborg.description
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 650
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Cyborg
+	Tooltip@NoRow:
+		Name: Cyborg
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 48
+		PauseOnCondition: disabled
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@ag-0:
+		Weapon: AGGattTrop
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGattTrop2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGattTrop3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGattTropLine
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGattTropLine2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGattTropLine3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGattTrop
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGattTrop2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGattTrop3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGattTropLine
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGattTropLine2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGattTropLine3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@opentopped-ag-0:
+		Name: opentopped
+		Weapon: AGGattTrop
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@opentopped-ag-1:
+		Name: opentopped
+		Weapon: AGGattTrop2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@opentopped-ag-2:
+		Name: opentopped
+		Weapon: AGGattTrop3
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@opentopped-ag-line-0:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@opentopped-ag-line-1:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine2
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@opentopped-ag-line-2:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine3
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@opentopped-aa-0:
+		Name: opentopped
+		Weapon: AAGattTrop
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@opentopped-aa-1:
+		Name: opentopped
+		Weapon: AAGattTrop2
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@opentopped-aa-2:
+		Name: opentopped
+		Weapon: AAGattTrop3
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@opentopped-aa-line-0:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@opentopped-aa-line-1:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@opentopped-aa-line-2:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine3
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@garrisoned-ag-0:
+		Name: garrisoned
+		Weapon: UCAGGattTrop
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@garrisoned-ag-1:
+		Name: garrisoned
+		Weapon: UCAGGattTrop2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@garrisoned-ag-2:
+		Name: garrisoned
+		Weapon: UCAGGattTrop3
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@garrisoned-ag-line-0:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@garrisoned-ag-line-1:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine2
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@garrisoned-ag-line-2:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine3
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@garrisoned-aa-0:
+		Name: garrisoned
+		Weapon: UCAAGattTrop
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@garrisoned-aa-1:
+		Name: garrisoned
+		Weapon: UCAAGattTrop2
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@garrisoned-aa-2:
+		Name: garrisoned
+		Weapon: UCAAGattTrop3
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@garrisoned-aa-line-0:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@garrisoned-aa-line-1:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@garrisoned-aa-line-2:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine3
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		ArmamentNames: primary, opentopped, garrisoned
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		ArmamentNames: primary, opentopped, garrisoned
+		RequiredShotsPerInstance: 3, 6
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute && !webdisable
+	Voiced:
+		VoiceSet: TSCyborg
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	ProducibleWithLevel@1:
+		Prerequisites: vetgtrporbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vetgtrporbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vetgtrp, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vetgtrp, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	-TakeCover:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		Damage: 10
+	RenderSprites:
+		Image: tscyborg
+
 tsticktank:
 	Inherits: ^MainBattleTank
 	Inherits@voxel: ^TSRenderVoxel
@@ -3437,6 +3755,7 @@ tsticktank:
 	RenderVoxels:
 		Image: tsttnkvoxel
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 tsattackbuggy:
 	Inherits: ^Vehicle
@@ -3612,6 +3931,7 @@ tsnodartillery:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 1000
 	DeliversCash:
@@ -3677,9 +3997,6 @@ tsnodartillery:
 		Offset: 0,0,-32
 	AttackFrontal:
 		FacingTolerance: 0
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: tsticktank
 	ProducibleWithLevel@1:
@@ -3755,18 +4072,10 @@ tssubapcnod:
 			yellow: pip-yellow
 			blue: pip-blue
 			red: pip-red
-	Targetable@UNDERGROUND:
-		TargetTypes: Underground
-		RequiresCondition: submerged
-	GrantConditionOnSubterraneanLayer:
-		Condition: submerged
-		SubterraneanTransitionImage: dig
-		SubterraneanTransitionSequence: idle
-		SubterraneanTransitionSound: subdril1.aud
 	Mobile:
 		Locomotor: subterranean
 		Speed: 71
-		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+		# RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
 	Health:
 		HP: 22000
 	Armor:
@@ -3812,6 +4121,487 @@ tssubapcnod:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
-		Image: tsbike
+		Image: tssapc
 	RenderVoxels:
-		Image: tsbike
+		Image: tssapc
+
+tsstealthtank:
+	Inherits: ^Vehicle
+	Inherits@voxel: ^TSRenderVoxel
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Tooltip:
+		Name: Stealth Tank
+	Tooltip@NoRow:
+		Name: Stealth Tank
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.nod
+		Description: actor-mtnk.description
+		Prerequisites: ~nodbarracks, ~techlevel.1
+		BuildDuration: 300
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 108
+	Health:
+		HP: 25000
+	Armor:
+		Type: Medium
+	Armament@primary:
+		Weapon: APTusk
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 543,0,362
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+		Damage: 150
+	Armament@elite:
+		Name: elite
+		Weapon: APTuskE
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 543,0,362
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+		Damage: 300
+	Cloak:
+		RequiresCondition: !chronodisable
+		InitialDelay: 25
+		CloakDelay: 50
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		UncloakOn: Attack
+		EffectImage: explosion
+		EffectPalette: effect75alpha
+		CloakEffectSequence: smokebomb
+		EffectOffset: 0, 0, 1000
+	WithVoxelBody:
+	AttackFrontal:
+		FacingTolerance: 0
+	Selectable:
+		Class: tsstealthtank
+		Bounds: 1544, 2509, 0, -289
+	Voiced:
+		VoiceSet: tsticktank
+	RenderSprites:
+		Image: tsstnk
+	RenderVoxels:
+		Image: tsstnk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+
+tsharpy:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@CHAOS: ^BerserkableAircraftArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1200
+		Voice: Move
+	Tooltip:
+		Name: Harpy
+	Tooltip@NoRow:
+		Name: Harpy
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.nod
+		Prerequisites: ~nodpad
+		BuildPaletteOrder: 9
+		Description: actor-orca.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Aircraft:
+		AltitudeVelocity: 240
+		TurnSpeed: 20
+		Speed: 225
+		TakeoffSounds: vintupa.wav
+		LandingSounds: vintdna.wav
+		SoundVolume: 0.3
+		Roll: 56
+		RollSpeed: 14
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Selectable:
+		Bounds: 724, 1158
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12c0
+	RevealsShroud@Ground:
+		Range: 12c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 12c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Armament:
+		Weapon: Maverick
+		Damage: 100
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@Elite:
+		Weapon: MaverickE
+		Damage: 150
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	Armament@AA:
+		Weapon: MaverickAA
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@EliteAA:
+		Weapon: MaverickAAE
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 20
+		TargetFrozenActors: True
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	AmmoPool:
+		Ammo: 3
+		ReloadDelay: 75
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: HarrierVoice
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
+	Rearmable:
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp, nodpad
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+	GrantConditionOnMovement@V:
+		Condition: vmove
+		ValidMovementTypes: Vertical
+	GrantConditionOnMovement@H:
+		Condition: hmove
+		ValidMovementTypes: Horizontal
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: tsharpyhusk
+		RequiresCondition: airborne && (!vmove || hmove)
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	ProvidesPrerequisite@actorname:
+	GrantExternalConditionToOwner:
+		Condition: padaircraft
+	HitShape:
+	ProducibleWithLevel@1:
+		Prerequisites: baacdm, !vetair
+	WithProductionIconOverlay@1:
+		Prerequisites: baacdm, !vetair
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: !baacdm, vetair
+		InitialLevels: 2
+	WithProductionIconOverlay@2:
+		Prerequisites: !baacdm, vetair
+		Types: chevron-elite
+	ProducibleWithLevel@3:
+		Prerequisites: baacdm, vetair
+		InitialLevels: 3
+	WithProductionIconOverlay@3:
+		Prerequisites: baacdm, vetair
+		Types: chevron-heroic
+	# AmbientSound@Ambient:
+	#	SoundFiles: vintlo2a.wav, vintlo2b.wav, vintlo2c.wav
+	#	Volume: 0.20
+	#	RequiresCondition: airborne
+	ProductionCostMultiplier@AI:
+		Prerequisites: prerequisite.aiplayer
+		Multiplier: 40
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.a2a_missiles, upgrade.predator_missiles
+	ActorStatOverride@a2amissiles:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		RequiresCondition: a2amissiles
+	WithIdleOverlay@ROTORAIR:
+		Offset: 42,0,300
+		Sequence: rotor
+		RequiresCondition: airborne
+		PauseOnCondition: disabled
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 42,0,300
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		PauseOnCondition: disabled
+	RenderSprites:
+		Image: tsapache
+	RenderVoxels:
+		Image: tsapache
+
+tsharpyhusk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: actor-orca.name
+	Tooltip@NoRow:
+		Name: actor-orca.name
+	FallsToEarth:
+		Explosion: PlaneExplode
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 225
+		AltitudeVelocity: 240
+	RevealsShroud:
+		Range: 12c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 12c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 12c0
+		Duration: 125
+	WithVoxelBody:
+		RequiresCondition: !a2amissiles && !predator_missiles
+	WithVoxelBody@A2A:
+		Sequence: idle-a2a
+		RequiresCondition: a2amissiles && !predator_missiles
+	WithVoxelBody@PREDATOR:
+		Sequence: idle-predator
+		RequiresCondition: !a2amissiles && predator_missiles
+	WithVoxelBody@A2A_PREDATOR:
+		Sequence: idle-a2a-predator
+		RequiresCondition: a2amissiles && predator_missiles
+	RenderSprites:
+		Image: tsapache
+	RenderVoxels:
+		Image: tsapache
+
+tsbanshee:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@CHAOS: ^BerserkableAircraftArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1200
+		Voice: Move
+	Tooltip:
+		Name: actor-orca.name
+	Tooltip@NoRow:
+		Name: actor-orca.name
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.nod
+		Prerequisites: ~nodpad
+		BuildPaletteOrder: 9
+		Description: actor-orca.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Aircraft:
+		AltitudeVelocity: 240
+		TurnSpeed: 20
+		IdleTurnSpeed: 10
+		IdleSpeed: 112
+		Speed: 225
+		TakeoffSounds: vintupa.wav
+		LandingSounds: vintdna.wav
+		SoundVolume: 0.3
+		Roll: 56
+		RollSpeed: 14
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Selectable:
+		Bounds: 724, 1158
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12c0
+	RevealsShroud@Ground:
+		Range: 12c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 12c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Armament:
+		Weapon: EMPulseBEagle
+		Damage: 150
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@Elite:
+		Weapon: EMPulseBEagleE
+		Damage: 200
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 20
+		TargetFrozenActors: True
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	AmmoPool:
+		Ammo: 3
+		ReloadDelay: 75
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: HarrierVoice
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
+	Rearmable:
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp, nodpad
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+	GrantConditionOnMovement@V:
+		Condition: vmove
+		ValidMovementTypes: Vertical
+	GrantConditionOnMovement@H:
+		Condition: hmove
+		ValidMovementTypes: Horizontal
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: tsbansheehusk
+		RequiresCondition: airborne && (!vmove || hmove)
+	SpawnActorOnDeath@VTOL:
+		Actor: tsbansheehusk
+		RequiresCondition: airborne && vmove && !hmove
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	ProvidesPrerequisite@actorname:
+	GrantExternalConditionToOwner:
+		Condition: padaircraft
+	HitShape:
+	ProducibleWithLevel@1:
+		Prerequisites: baacdm, !vetair
+	WithProductionIconOverlay@1:
+		Prerequisites: baacdm, !vetair
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: !baacdm, vetair
+		InitialLevels: 2
+	WithProductionIconOverlay@2:
+		Prerequisites: !baacdm, vetair
+		Types: chevron-elite
+	ProducibleWithLevel@3:
+		Prerequisites: baacdm, vetair
+		InitialLevels: 3
+	WithProductionIconOverlay@3:
+		Prerequisites: baacdm, vetair
+		Types: chevron-heroic
+	# AmbientSound@Ambient:
+	#	SoundFiles: vintlo2a.wav, vintlo2b.wav, vintlo2c.wav
+	#	Volume: 0.20
+	#	RequiresCondition: airborne
+	Contrail@1:
+		Offset: -100,-500,100
+		StartColor: 88888880
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColorUsePlayerColor: true
+		StartWidth: 32
+	Contrail@2:
+		Offset: -100,500,100
+		StartColor: 88888880
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColorUsePlayerColor: true
+		StartWidth: 32
+	Contrail@FlameTrail:
+		Offset: -500,0,50
+		StartColor: FFEA0080
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 96
+		EndWidth: 76
+		TrailLength: 7
+	ProductionCostMultiplier@AI:
+		Prerequisites: prerequisite.aiplayer
+		Multiplier: 40
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.a2a_missiles, upgrade.predator_missiles
+	ActorStatOverride@a2amissiles:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		RequiresCondition: a2amissiles
+	RenderSprites:
+		Image: tsscrin
+	RenderVoxels:
+		Image: tsscrin
+
+tsbansheehusk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: actor-orca.name
+	Tooltip@NoRow:
+		Name: actor-orca.name
+	FallsToEarth:
+		Explosion: PlaneExplode
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 225
+		AltitudeVelocity: 240
+	RevealsShroud:
+		Range: 12c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 12c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 12c0
+		Duration: 125
+	WithVoxelBody:
+		RequiresCondition: !a2amissiles && !predator_missiles
+	WithVoxelBody@A2A:
+		Sequence: idle-a2a
+		RequiresCondition: a2amissiles && !predator_missiles
+	WithVoxelBody@PREDATOR:
+		Sequence: idle-predator
+		RequiresCondition: !a2amissiles && predator_missiles
+	WithVoxelBody@A2A_PREDATOR:
+		Sequence: idle-a2a-predator
+		RequiresCondition: a2amissiles && predator_missiles
+	RenderSprites:
+		Image: tsscrin
+	RenderVoxels:
+		Image: tsscrin

@@ -691,22 +691,27 @@ Player:
 					CheckRadius: 7c0
 	BaseBuilderBotModule@easy:
 		RequiresCondition: enable-easy-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 60
 		MaximumExcessPower: 160
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 3
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst
-		RefineryTypes: garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst
+		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -756,6 +761,11 @@ Player:
 			gagap: 1
 			yasgen: 1
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -776,6 +786,9 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodvulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -840,20 +853,25 @@ Player:
 			yasgen: 1
 	BaseBuilderBotModule@easy-megawealth:
 		RequiresCondition: enable-easy-ai && megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 60
 		MaximumExcessPower: 160
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 3
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -899,6 +917,11 @@ Player:
 			gagap: 1
 			yasgen: 1
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -919,6 +942,9 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodvulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -979,23 +1005,28 @@ Player:
 			yasgen: 1
 	BaseBuilderBotModule@cheater:
 		RequiresCondition: enable-cheater-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 70
 		MaximumExcessPower: 770
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
-		DefenseTypes: gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -1050,6 +1081,11 @@ Player:
 			yagntc: 2
 			yappet: 2
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -1070,6 +1106,9 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodvulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -1153,21 +1192,26 @@ Player:
 			yaeast02-tr: 2
 	BaseBuilderBotModule@cheater-megawealth:
 		RequiresCondition: enable-cheater-ai && megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 70
 		MaximumExcessPower: 770
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		DefenseTypes: gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -1218,6 +1262,11 @@ Player:
 			yagntc: 2
 			yappet: 2
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -1238,6 +1287,9 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodvulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -1317,23 +1369,28 @@ Player:
 			yaeast02-tr: 2
 	BaseBuilderBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 100
 		MaximumExcessPower: 800
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
-		DefenseTypes: gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -1388,6 +1445,11 @@ Player:
 			yagntc: 2
 			yappet: 2
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -1408,6 +1470,8 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -1491,21 +1555,26 @@ Player:
 			yaeast02-tr: 16
 	BaseBuilderBotModule@vengeful-megawealth:
 		RequiresCondition: enable-vengeful-ai && megawealth
-		BuildingQueues: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
 		MinimumExcessPower: 100
 		MaximumExcessPower: 800
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		PowerTypes: d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
-		DefenseTypes: gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		VehiclesFactoryTypes: gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
+		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
-		ProductionTypes: atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
+		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
 		BuildingLimits:
+			nodrefinery: 2
+			nodbarracks: 2
+			nodpad: 2
+			nodtech: 1
+			nodtempleofnod: 1
 			gdirefinery: 2
 			atreidesrefinery: 2
 			harkonnenrefinery: 2
@@ -1556,6 +1625,11 @@ Player:
 			yagntc: 2
 			yappet: 2
 		BuildingFractions:
+			nodrefinery: 100
+			nodbarracks: 40
+			nodpad: 10
+			nodtech: 20
+			nodtempleofnod: 20
 			d2kpowratreides: 1
 			d2kpowrharkonnen: 1
 			d2kpowrordos: 1
@@ -1576,6 +1650,9 @@ Player:
 			harkonnenoutpost: 20
 			ordosoutpost: 20
 			gdivulcan: 20
+			nodvulcan: 20
+			nodsam: 20
+			nodobelisk: 5
 			gdirpg: 20
 			d2katreidesgunturret: 20
 			d2katreidesrocketturret: 20
@@ -1688,11 +1765,11 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		AirUnitsTypes: beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
-		ProtectionTypes: cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
+		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
 		GuerrillaTypes: robo, mtnk, fv, sref, mgtk, dron, htk, tric, ltnk, ytnk, caos, yhtnk, kite, havoc, disk, txdx, magnedisk
@@ -1707,38 +1784,46 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		AirUnitsTypes: beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
-		ProtectionTypes: cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
+		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
 		GuerrillaTypes: robo, mtnk, fv, sref, mgtk, dron, htk, tric, ltnk, ytnk, caos, yhtnk, kite, havoc, disk, txdx, magnedisk
 	McvManagerBotModule@generic:
 		RequiresCondition: enable-generic-ai && !enable-vengeful-ai
-		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap
+		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, tsnodweap
 		MinimumConstructionYardCount: 2
 		MaxBaseRadius: 30
 	McvManagerBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai
-		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv
-		ConstructionYardTypes: gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap
+		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
+		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, tsnodweap
 		MinimumConstructionYardCount: 4
 		MaxBaseRadius: 30
 	UnitBuilderBotModule@easy:
 		RequiresCondition: enable-easy-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -1750,7 +1835,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
@@ -1951,14 +2036,22 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@easy-megawealth:
 		RequiresCondition: enable-easy-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -1970,7 +2063,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
@@ -2164,14 +2257,22 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@cheater:
 		RequiresCondition: enable-cheater-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -2183,7 +2284,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
@@ -2403,14 +2504,22 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@cheater-megawealth:
 		RequiresCondition: enable-cheater-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -2422,7 +2531,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
@@ -2636,14 +2745,22 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -2655,7 +2772,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
@@ -2879,14 +2996,22 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@vengeful-megawealth:
 		RequiresCondition: enable-vengeful-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
 		UnitsToBuild:
+			tsticktank: 100
+			tsattackbuggy: 5
+			tsbike: 5
+			tsnodartillery: 10
+			tsstealthtank: 10
+			tsharpy: 2
+			tsbanshee: 2
 			d2katreidese1: 1
 			d2kharkonnene1: 1
+			tse1nod: 1
+			tse3nod: 20
+			tscyborg: 10
+			tsengineernod: 2
 			d2kordose1: 1
-			d2katreidetrooper: 20
-			d2kharkonnentrooper: 20
-			d2kordostrooper: 20
 			d2kharkonnenflametrooper: 20
 			d2kordosmortar: 20
 			d2katreidesgrenadier: 20
@@ -2898,7 +3023,7 @@ Player:
 			tsmmch: 100
 			tshmec: 20
 			tse1: 1
-			tse2: 1
+			tse2: 20
 			tsengineer: 2
 			tsjumpjet: 4
 			tsorca: 2
