@@ -1043,8 +1043,6 @@ tshvrmlrs:
 	WithProductionIconOverlay@2:
 		Prerequisites: warfactory.infiltrated, baacdm
 		Types: chevron-elite
-	DeathSounds:
-		DeathTypes: NonTemporal
 	HitShape:
 	# GrantConditionOnMovement@MoveStart:
 	#	Condition: moving
