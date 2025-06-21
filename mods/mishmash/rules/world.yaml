@@ -287,6 +287,7 @@
 
 World:
 	Inherits: ^BaseWorld
+	SubterraneanActorLayer:
 	ChatCommands:
 	DevCommands:
 	DebugVisualizationCommands:
@@ -355,7 +356,6 @@ World:
 	WarheadDebugOverlay:
 	ExitsDebugOverlayManager:
 	CustomTerrainDebugOverlay:
-	SubterraneanActorLayer:
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 4

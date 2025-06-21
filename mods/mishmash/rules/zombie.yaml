@@ -1,66 +1,63 @@
 
 #######################################
-# TS GDI MCV
+# Zombie MCV
 #######################################
 
-tsgtcnst:
+zombieconst:
 	Inherits: ^ConstructionYard
 	Buildable:
 		BuildPaletteOrder: 20
-	ProvidesPrerequisite@building.soviets:
-		Prerequisite: Building.GDI
-		Factions: gdi
+	ProvidesPrerequisite@building.Zombie:
+		Prerequisite: building.Zombie
 	Production:
-		Produces: Building.GDI, Support.GDI
+		Produces: Building.Zombie, Support.Zombie
 	ProductionQueue@Building:
-		Type: Building.GDI
+		Type: Building.Zombie
 		DisplayOrder: 2
-		Factions: gdi
+		Factions: Zombie
 	ProductionQueue@Support:
-		Type: Support.GDI
+		Type: Support.Zombie
 		DisplayOrder: 6
-		Factions: gdi
+		Factions: Zombie
 	ProductionBar@Building:
-		ProductionType: Building.GDI
+		ProductionType: Building.Zombie
 	ProductionBar@Support:
-		ProductionType: Support.GDI
+		ProductionType: Support.Zombie
+		Color: 8A8A8A
 	Transforms:
-		IntoActor: gdimcv
-	GrantConditionOnFaction@GDI:
-		Condition: gdi
-		Factions: gdi
-	WithIdleOverlay@TOP:
-		RequiresCondition: !build-incomplete
+		IntoActor: zombiemcv
+	WithIdleOverlay@top:
 		Sequence: idle-top
-	WithIdleOverlay@SIDE:
+		PauseOnCondition: chronodisable
 		RequiresCondition: !build-incomplete
-		Sequence: idle-side
-	WithIdleOverlay@FRONT:
+	WithIdleOverlay@normal:
+		Sequence: idle-normal
+		PauseOnCondition: chronodisable
 		RequiresCondition: !build-incomplete
-		Sequence: idle-front
-	WithBuildingPlacedOverlay:
+	WithBuildingPlacedAnimation:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@HNS:
+		Sequence: idle-hns
+		PauseOnCondition: chronodisable
 		RequiresCondition: !build-incomplete
 	IsometricSelectable:
 		DecorationHeight: 90
 	Voiced:
-		VoiceSet: UniversalConstructionYardVoice
+		VoiceSet: SovietConstructionYardVoice
 	RenderSprites:
-		Image: tsgtcnst
-		PlayerPalette: tibsun
+		Image: nacnst
 
-gdimcv:
+zombiemcv:
 	Inherits: ^ConstructionVehicle
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.GDI
-		BuildPaletteOrder: 97
-		Prerequisites: ~tsgtcnst, gditech, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+		Queue: Vehicle.Shared, Vehicle.Zombie
+		Prerequisites: ~vehicle.soviets, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 	Transforms:
-		IntoActor: tsgtcnst
+		IntoActor: nacnst
 	Voiced:
-		VoiceSet: TSVehicle
-	RenderVoxels:
-		Image: tsmcv
+		VoiceSet: SovietConstructionVehicleVoice
+	RenderVoxels
+		Image: smcv
 
 #######################################
 # TS GDI Buildings
