@@ -107,6 +107,38 @@ zombiebarracks:
 		TilesetFilenames:
 		Offset: 0, 0
 
+zombie1:
+	Inherits: ^ArmedInfantry
+	Defaults:
+		Filename: ZOMBIE3.shp
+    Scale: 0.8
+	run:
+		Start: 88
+		Length: 24
+		Tick: 120
+	die1:
+		Start: 440
+		Length: 16
+	die2:
+		Start: 456
+		Length: 16
+	shoot:
+		Start: 280
+		Length: 12
+		Tick: 40
+	smash:
+		Start: 280
+		Length: 12
+		Facings: 8
+		Tick: 40
+	paradrop:
+		Start: 0
+	cheer:
+		Start: 503
+		Length: 7
+	icon:
+		Filename: zombie1.png
+
 zombie3:
 	Inherits: ^ArmedInfantry
 	Defaults:
@@ -137,7 +169,7 @@ zombie3:
 		Start: 503
 		Length: 7
 	icon:
-		Filename: cameomd|bruticon.shp
+		Filename: zombie2.png
 
 bigzombie:
 	Inherits: ^ArmedInfantry
@@ -168,4 +200,4 @@ bigzombie:
 		Start: 0
 		Length: 1
 	icon:
-		Filename: cameomd|bruticon.shp
+		Filename: zombie3.png

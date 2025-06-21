@@ -1742,3 +1742,13 @@ tsticktank:
 		Move: ttnkmove_01, ttnkmove_02, ttnkmove_03, ttnkmove_04, ttnkmove_05, ttnkmove_06
 		Action: ttnkselect_01, ttnkselect_02, ttnkselect_03, ttnkselect_04, ttnkselect_05
 		Attack:  ttnkattack_01, ttnkattack_02, ttnkattack_03, ttnkattack_04, ttnkattack_05, ttnkattack_06
+
+ZombieVoice:
+	Inherits: ^InfantryDeath
+	DefaultVariant: .wav
+	Voices:
+		Select: zombi_hello_01, zombi_hello_02
+		Move: zombi_hello_01, zombi_hello_02
+		Attack: zombi_hello_01, zombi_hello_02
+		Feedback: zombi_hurt_01, zombi_hurt_02
+		Die: zombi_death_1, zombi_death_2

@@ -350,3 +350,61 @@ SlimeAttackE:
 	ReloadDelay: 30
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
+
+ZombiePunch:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Range: 1c496
+	ValidTargets: Infantry, TerrorDrone, Structure, Barrel, Mine, Bridge, Wall, Fence, Tree
+	Report: zombi_attack_1.wav, zombi_attack_2.wav, zombi_attack_3.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 12500
+		ValidTargets: Infantry, TerrorDrone, Structure, Barrel, Mine, Bridge, Wall, Fence, Tree
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 80
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 25
+			Steel: 30
+			Concrete: 15
+			Drone: 200
+			Rocket: 100
+		DamageTypes: BruteDeath, SuppressTerrorDrone, NonTemporal
+
+ZombiePunchE:
+	Inherits: Punch
+	Burst: 2
+	BurstDelays: 10
+
+ZombieSmash:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Range: 1c496
+	ValidTargets: Vehicle
+	Report: zombi_attack_1.wav, zombi_attack_2.wav, zombi_attack_3.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		ValidTargets: Vehicle
+		Versus:
+			None: 0
+			Flak: 0
+			Plate: 0
+			Light: 100
+			Medium: 100
+			Heavy: 75
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 0
+			Rocket: 0
+		DamageTypes: BruteDeath, SuppressTerrorDrone, NonTemporal
+
+ZombieSmashE:
+	Inherits: Smash
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000

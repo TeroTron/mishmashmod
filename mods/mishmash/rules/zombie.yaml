@@ -49,7 +49,7 @@ zombiemcv:
 	Transforms:
 		IntoActor: zombieconst
 	Voiced:
-		VoiceSet: SovietConstructionVehicleVoice
+		VoiceSet: ZombieVoice
 	RenderVoxels
 		Image: ambu
 	RenderSprites:
@@ -258,9 +258,9 @@ zombie1:
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: actor-brute.name
+		Name: Zombie
 	Tooltip@NoRow:
-		Name: actor-brute.name
+		Name: Zombie
 	DeliversCash:
 		Payload: 150
 		Voice: Move
@@ -298,33 +298,33 @@ zombie1:
 		ScanRadius: 5
 		InitialStance: AttackAnything
 	Armament@primary:
-		Weapon: Punch
+		Weapon: ZombiePunch
 		# FireDelay: 5
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: PunchE
+		Weapon: ZombiePunchE
 		# FireDelay: 5
 		RequiresCondition: rank-elite
 	Armament@second:
 		Name: secondary
-		Weapon: Smash
+		Weapon: ZombieSmash
 		Damage: 100
 		FireDelay: 4
 		RequiresCondition: !rank-elite
 	Armament@second-elite:
 		Name: secondary
-		Weapon: SmashE
+		Weapon: ZombieSmashE
 		Damage: 150
 		FireDelay: 4
 		RequiresCondition: rank-elite
 	Targetable:
-		TargetTypes: Ground, Infantry, DetonateAttack, Disguise, DogImmune
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
 	Voiced:
-		VoiceSet: BruteVoice
+		VoiceSet: ZombieVoice
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		AttackSequences:
-			secondary: smash
+			secondary: ZombieSmash
 		RequiresCondition: !parachute && !webdisable
 	ProducibleWithLevel@1:
 		Prerequisites: barracks.infiltratedorbaacdm
@@ -345,7 +345,7 @@ zombie1:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
-		Image: zombie3
+		Image: zombie1
 
 zombie2:
 	Inherits: ^Infantry
@@ -368,9 +368,9 @@ zombie2:
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: actor-brute.name
+		Name: Spitter Zombie
 	Tooltip@NoRow:
-		Name: actor-brute.name
+		Name: Spitter Zombie
 	DeliversCash:
 		Payload: 150
 		Voice: Move
@@ -420,13 +420,13 @@ zombie2:
 		FireDelay: 4
 		RequiresCondition: rank-elite
 	Targetable:
-		TargetTypes: Ground, Infantry, DetonateAttack, Disguise, DogImmune
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
 	Voiced:
-		VoiceSet: BruteVoice
+		VoiceSet: ZombieVoice
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		AttackSequences:
-			secondary: smash
+			secondary: ZombieSmash
 		RequiresCondition: !parachute && !webdisable
 	ProducibleWithLevel@1:
 		Prerequisites: barracks.infiltratedorbaacdm
@@ -510,33 +510,33 @@ zombie3:
 		ScanRadius: 5
 		InitialStance: AttackAnything
 	Armament@primary:
-		Weapon: Punch
+		Weapon: ZombiePunch
 		# FireDelay: 5
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: PunchE
+		Weapon: ZombiePunchE
 		# FireDelay: 5
 		RequiresCondition: rank-elite
 	Armament@second:
 		Name: secondary
-		Weapon: Smash
+		Weapon: ZombieSmash
 		Damage: 100
 		FireDelay: 4
 		RequiresCondition: !rank-elite
 	Armament@second-elite:
 		Name: secondary
-		Weapon: SmashE
+		Weapon: ZombieSmashE
 		Damage: 150
 		FireDelay: 4
 		RequiresCondition: rank-elite
 	Targetable:
 		TargetTypes: Ground, Infantry, DetonateAttack, Disguise, DogImmune
 	Voiced:
-		VoiceSet: BruteVoice
+		VoiceSet: ZombieVoice
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		AttackSequences:
-			secondary: smash
+			secondary: ZombieSmash
 		RequiresCondition: !parachute && !webdisable
 	ProducibleWithLevel@1:
 		Prerequisites: barracks.infiltratedorbaacdm
