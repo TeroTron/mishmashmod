@@ -74,6 +74,7 @@ Ranks =
 	ordos = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
 	harkonnen = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
 	nod = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
+	zombie = { "Lieutenant", "Captain", "Major", "Colonel", "General" },
 	serbia = { "Leytenant", "Kapitan", "Mayor", "Polkovnik", "General" }
 }
 RankXPs = { 0, 300, 1300, 2500, 5000 }

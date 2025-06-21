@@ -268,6 +268,12 @@
 		Description: faction-ordos.description
 		Side: Dune
 		Selectable: true
+	Faction@zombie:
+		Name: Zombie
+		InternalName: zombie
+		Description: faction-zombie.description
+		Side: Original Factions
+		Selectable: true
 	ResourceRenderer:
 		ResourceTypes:
 			Ore:
@@ -413,6 +419,12 @@ World:
 		Factions: yuri
 		BaseActor: pcv
 		BaseActorFacing: 640
+	StartingUnits@zombie:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: zombie
+		BaseActor: zombiemcv
+		BaseActorFacing: 640
 	CrateSpawner:
 		DeliveryAircraft: pdplane.crate
 		Minimum: 1
@@ -491,6 +503,7 @@ World:
 			nod: nod.colorpicker
 			soviets: smcv.colorpicker
 			yuri: pcv.colorpicker
+			zombie: pcv.colorpicker
 	OrderEffects:
 		TerrainFlashImage: moveflsh
 		TerrainFlashSequence: idle

@@ -1,0 +1,171 @@
+zombieconst:
+	Defaults:
+		Filename: cthosp.shp
+		TilesetFilenames:
+			SNOW: cahosp.shp
+			URBAN: cuhosp.shp
+			NEWURBAN: cnhosp.shp
+			DESERT: cdhosp.shp
+			LUNAR: clhosp.shp
+			DUNE: cdhosp.shp
+		Offset: -30, -75
+	idle:
+		Start: 1
+		ShadowStart: 5
+	damaged-idle:
+		Start: 1
+		ShadowStart: 5
+	idle-overlay:
+		Filename: cthosp_a.shp
+		TilesetFilenames:
+			SNOW: cahosp_a.shp
+			URBAN: cuhosp_a.shp
+			NEWURBAN: cnhosp_a.shp
+			DESERT: cdhosp_a.shp
+			LUNAR: clhosp_a.shp
+			DUNE: cdhosp_a.shp
+		Start: 2
+		Length: 2
+		Tick: 400
+	damaged-idle-overlay:
+		Filename: cthosp_a.shp
+		TilesetFilenames:
+			SNOW: cahosp_a.shp
+			URBAN: cuhosp_a.shp
+			NEWURBAN: cnhosp_a.shp
+			DESERT: cdhosp_a.shp
+			LUNAR: clhosp_a.shp
+			DUNE: cdhosp_a.shp
+		Start: 2
+		Length: 2
+		Tick: 400
+	idle-waves:
+		Filename: bits/structures/water/cghosp_w.shp
+		TilesetFilenames:
+		Tick: 200
+		ZOffset: -1c0
+	flag:
+		Filename: cthosp_f.shp
+		TilesetFilenames:
+			SNOW: cahosp_f.shp
+			URBAN: cuhosp_f.shp
+			NEWURBAN: cnhosp_f.shp
+			DESERT: cdhosp_f.shp
+			LUNAR: clhosp_f.shp
+			DUNE: cdhosp_f.shp
+		Length: 16
+		Offset: -9, -23
+	icon:
+		Filename: bits/cameos/hospicon.shp
+		TilesetFilenames:
+		Offset: 0, 0
+
+zombiepowr:
+	Defaults:
+		Filename: ctwash05.shp
+		TilesetFilenames:
+			SNOW: cawash05.shp
+			URBAN: cuwash05.shp
+			NEWURBAN: cnwash05.shp
+			DESERT: cdwash05.shp
+			LUNAR: clwash05.shp
+			DUNE: cdwash05.shp
+		Offset: -30,-45
+	idle:
+		Start: 1
+		ShadowStart: 5
+	icon:
+		Filename: bits/cameos/hospicon.shp
+		TilesetFilenames:
+		Offset: 0, 0
+
+zombiebarracks:
+	Inherits: ^CivBuilding
+	Inherits@GARRISON: ^GarrisonableBuilding
+	Defaults:
+		Filename: ctnewy20.shp
+		TilesetFilenames:
+			SNOW: canewy20.shp
+			URBAN: cunewy20.shp
+			NEWURBAN: cnnewy20.shp
+			DESERT: cdnewy20.shp
+			LUNAR: clnewy20.shp
+			DUNE: cdnewy20.shp
+		Offset: 30,-60
+	idle:
+		Start: 1
+		ShadowStart: 5
+	garrisoned-flag:
+		Filename: carflg_a.shp
+		TilesetFilenames:
+		Offset: -52,-6
+		Length: 9
+		# ShadowStart: 9
+		Tick: 80
+	icon:
+		Filename: bits/cameos/hospicon.shp
+		TilesetFilenames:
+		Offset: 0, 0
+
+zombie3:
+	Inherits: ^ArmedInfantry
+	Defaults:
+		Filename: ZOMBIE3.shp
+    Scale: 0.8
+	run:
+		Start: 88
+		Length: 24
+		Tick: 120
+	die1:
+		Start: 440
+		Length: 16
+	die2:
+		Start: 456
+		Length: 16
+	shoot:
+		Start: 280
+		Length: 12
+		Tick: 40
+	smash:
+		Start: 280
+		Length: 12
+		Facings: 8
+		Tick: 40
+	paradrop:
+		Start: 0
+	cheer:
+		Start: 503
+		Length: 7
+	icon:
+		Filename: cameomd|bruticon.shp
+
+bigzombie:
+	Inherits: ^ArmedInfantry
+	Defaults:
+		Filename: bigzombie.shp
+	run:
+		Start: 8
+		Length: 14
+		Tick: 120
+	die1:
+		Start: 440
+		Length: 16
+	die2:
+		Start: 456
+		Length: 16
+	shoot:
+		Start: 120
+		Length: 15
+		Tick: 40
+	smash:
+		Start: 120
+		Length: 15
+		Facings: 8
+		Tick: 40
+	paradrop:
+		Start: 0
+	cheer:
+		Start: 0
+		Length: 1
+	icon:
+		Filename: cameomd|bruticon.shp

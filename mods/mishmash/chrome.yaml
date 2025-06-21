@@ -7184,6 +7184,7 @@ flags:
 		atreides: 90, 189, 45, 21
 		harkonnen: 90, 168, 45, 21
 		ordos: 90, 210, 45, 20
+		zombie: 90, 231, 45, 20
 		allies: 0, 0, 45, 21
 		soviets: 0, 21, 45, 21
 		yuri: 90, 21, 45, 21
@@ -7708,3 +7709,747 @@ panel-transparent:
 	Image: tdchrome.png
 	PanelRegion: 128, 0, 2, 2, 60, 60, 2, 2
 	PanelSides: Edges
+
+# -----------------------------------------------------------------------------------
+# zombie
+# -----------------------------------------------------------------------------------
+
+sidebar-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		background-top: 0, 512, 234, 295
+		background-iconrow: 0, 807, 234, 50
+		background-bottom: 0, 857, 234, 46
+		background-supportoverlay: 250, 532, 64, 48
+		background-commandbar: 587, 790, 431, 31
+
+# These coordinates point to an empty area of the chrome-zombie.png file to make the background of these buttons empty
+sidebar-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+sidebar-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 955, 512, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+scrollup-buttons-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 907, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 934, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 961, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 988, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 1015, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 1042, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 1069, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrollup-buttons-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 117, 1069, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+
+scrolldown-buttons-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 907, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 934, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 961, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 988, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 1015, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 1042, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 1069, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+scrolldown-buttons-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 40, 1069, 0, 0, 77, 27, 0, 0
+	PanelSides: Center
+
+stats-buttons-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 559, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 531, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 503, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 531, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 531, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 503, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 475, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+stats-buttons-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 475, 790, 0, 0, 28, 31, 0, 0
+	PanelSides: Center
+
+radar-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		insignia: 340, 847, 202, 157
+
+repair-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 527, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 561, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 595, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 629, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 663, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 697, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 731, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+repair-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 580, 731, 0, 0, 44, 34, 0, 0
+	PanelSides: Center
+
+power-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 527, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 561, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 595, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 629, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 663, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 697, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 731, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+power-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 624, 731, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+
+beacon-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 527, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 561, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 595, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 629, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 663, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 697, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 731, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+beacon-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 665, 731, 0, 0, 41, 34, 0, 0
+	PanelSides: Center
+
+sell-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 527, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 561, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 595, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 629, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 663, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 697, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 731, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+sell-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 706, 731, 0, 0, 43, 34, 0, 0
+	PanelSides: Center
+
+buildings-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+buildings-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 340, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+support-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+support-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 370, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+infantry-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+infantry-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 400, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+vehicles-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+vehicles-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 430, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+aircrafts-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+aircrafts-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 460, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+ships-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 532, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 564, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 596, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 628, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 660, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 692, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+ships-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 490, 724, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+power-icons-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		power-normal: 326, 812, 19, 19
+		power-critical: 307, 812, 19, 19
+
+cash-icons-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		cash-normal: 326, 793, 19, 19
+		cash-critical: 307, 793, 19, 19
+
+cpower-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 847, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 870, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 893, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 916, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 939, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 962, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 985, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+cpower-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 550, 985, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+
+debug-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 847, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 870, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 893, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 916, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 939, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 962, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 985, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+debug-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 619, 985, 0, 0, 62, 23, 0, 0
+	PanelSides: Center
+
+options-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 847, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 870, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 893, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 916, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 939, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 962, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 985, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+options-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 681, 985, 0, 0, 69, 23, 0, 0
+	PanelSides: Center
+
+# bad coordinates - find where to add this button
+stats-button-zombie:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 0, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 545, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 578, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-highlighted:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 611, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-highlighted-hover:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 644, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-highlighted-pressed:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 677, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-highlighted-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 710, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+stats-button-zombie-disabled:
+	Image: chrome-zombie.png
+	PanelRegion: 985, 710, 0, 0, 30, 32, 0, 0
+	PanelSides: Center
+
+# These coordinates point to an empty area of the chrome-zombie.png file to make the glyph of these buttons not appear
+production-icons-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		building: 5250, 622, 19, 19
+		building-disabled: 5269, 622, 19, 19
+		building-alert: 5288, 622, 19, 19
+		support: 5250, 641, 19, 19
+		support-disabled: 5269, 641, 19, 19
+		support-alert: 5288, 641, 19, 19
+		infantry: 5250, 660, 19, 19
+		infantry-disabled: 5269, 660, 19, 19
+		infantry-alert: 5288, 660, 19, 19
+		vehicle: 5250, 679, 19, 19
+		vehicle-disabled: 5269, 679, 19, 19
+		vehicle-alert: 5288, 679, 19, 19
+		aircraft: 5250, 698, 19, 19
+		aircraft-disabled: 5269, 698, 19, 19
+		aircraft-alert: 5288, 698, 19, 19
+		ship: 5250, 717, 19, 19
+		ship-disabled: 5269, 717, 19, 19
+		ship-alert: 5288, 717, 19, 19
+		upgrade: 5288, 717, 19, 19
+		upgrade-disabled: 5288, 717, 19, 19
+		upgrade-alert: 5288, 717, 19, 19
+		power: 5250, 717, 19, 19
+		power-disabled: 5269, 717, 19, 19
+		power-alert: 5288, 717, 19, 19
+
+command-icons-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		attack-move: 783, 847, 33, 26
+		attack-move-disabled: 783, 873, 33, 26
+		attack-move-hover: 783, 925, 33, 26
+		force-move: 816, 847, 26, 26
+		force-move-disabled: 816, 873, 26, 26
+		force-move-hover: 816, 925, 26, 26
+		force-attack: 842, 847, 26, 26
+		force-attack-disabled: 842, 873, 26, 26
+		force-attack-hover: 842, 925, 26, 26
+		guard: 868, 847, 29, 26
+		guard-disabled: 868, 873, 29, 26
+		guard-hover: 868, 925, 29, 26
+		deploy: 897, 847, 27, 26
+		deploy-disabled: 897, 873, 27, 26
+		deploy-hover: 897, 925, 27, 26
+		scatter: 924, 847, 29, 26
+		scatter-disabled: 924, 873, 29, 26
+		scatter-hover: 924, 925, 29, 26
+		stop: 953, 847, 22, 26
+		stop-disabled: 953, 873, 22, 26
+		stop-hover: 953, 925, 22, 26
+		queue-orders: 975, 847, 35, 26
+		queue-orders-disabled: 975, 873, 35, 26
+		queue-orders-hover: 975, 925, 35, 26
+
+command-icons-zombie-highlighted:
+	Inherits: command-icons-zombie
+	Regions:
+		attack-move: 783, 899, 33, 26
+		attack-move-hover: 783, 951, 33, 26
+		force-move: 816, 899, 26, 26
+		force-move-hover: 816, 951, 26, 26
+		force-attack: 842, 899, 26, 26
+		force-attack-hover: 842, 951, 26, 26
+		guard: 868, 899, 29, 26
+		guard-hover: 868, 951, 29, 26
+		deploy: 897, 899, 27, 26
+		deploy-hover: 897, 951, 27, 26
+		scatter: 924, 899, 29, 26
+		scatter-hover: 924, 951, 29, 26
+		stop: 953, 899, 22, 26
+		stop-hover: 953, 951, 22, 26
+		queue-active: 975, 899, 35, 26
+		queue-active-hover: 975, 951, 35, 26
+
+stance-icons-zombie:
+	Image: chrome-zombie.png
+	Regions:
+		attack-anything: 769, 527, 25, 21
+		attack-anything-disabled: 769, 548, 25, 21
+		attack-anything-hover: 769, 590, 25, 21
+		return-fire: 794, 527, 20, 21
+		return-fire-disabled: 794, 548, 20, 21
+		return-fire-hover: 794, 590, 20, 21
+		defend: 816, 527, 22, 21
+		defend-disabled: 816, 548, 22, 21
+		defend-hover: 816, 590, 22, 21
+		hold-fire: 836, 527, 25, 21
+		hold-fire-disabled: 836, 548, 25, 21
+		hold-fire-hover: 836, 590, 25, 21
+
+stance-icons-zombie-highlighted:
+	Inherits: stance-icons-zombie
+	Regions:
+		attack-anything: 769, 569, 25, 21
+		attack-anything-hover: 769, 611, 25, 21
+		return-fire: 794, 569, 20, 21
+		return-fire-hover: 794, 611, 20, 21
+		defend: 816, 569, 22, 21
+		defend-hover: 816, 611, 22, 21
+		hold-fire: 836, 569, 25, 21
+		hold-fire-hover: 836, 611, 25, 21
+
+dialog-zombie:
+	Image: dialog-soviet.png
+	Regions:
+		background: 0, 0, 480, 480
+		border-r: 489, 0, 9, 192
+		border-l: 480, 0, 9, 192
+		border-b: 0, 489, 191, 9
+		border-t: 0, 480, 191, 9
+		corner-tl: 191, 480, 9, 9
+		corner-tr: 200, 480, 9, 9
+		corner-bl: 191, 489, 9, 9
+		corner-br: 200, 489, 9, 9

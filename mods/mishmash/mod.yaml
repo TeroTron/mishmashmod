@@ -152,6 +152,7 @@ Rules:
 	mishmash|rules/ai-only-units.yaml
 	mishmash|rules/ts.yaml
 	mishmash|rules/d2k.yaml
+	mishmash|rules/zombie.yaml
 
 Sequences:
 	mishmash|sequences/misc.yaml
@@ -179,6 +180,7 @@ Sequences:
 	mishmash|sequences/upgrades.yaml
 	mishmash|sequences/ts.yaml
 	mishmash|sequences/d2k.yaml
+	mishmash|sequences/zombie.yaml
 
 ModelSequences:
 	mishmash|sequences/voxels.yaml

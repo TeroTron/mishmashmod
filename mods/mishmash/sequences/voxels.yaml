@@ -357,6 +357,7 @@ mrj:
 #YR Voxels
 ambu:
 	idle: localmd|ambu
+	water: localmd|ambu
 
 bcab:
 	idle: localmd|bcab

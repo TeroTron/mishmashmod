@@ -691,18 +691,18 @@ Player:
 					CheckRadius: 7c0
 	BaseBuilderBotModule@easy:
 		RequiresCondition: enable-easy-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 60
 		MaximumExcessPower: 160
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 3
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst
-		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
 		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
@@ -763,6 +763,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -853,16 +855,16 @@ Player:
 			yasgen: 1
 	BaseBuilderBotModule@easy-megawealth:
 		RequiresCondition: enable-easy-ai && megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 60
 		MaximumExcessPower: 160
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 3
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
 		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
@@ -919,6 +921,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -1005,19 +1009,19 @@ Player:
 			yasgen: 1
 	BaseBuilderBotModule@cheater:
 		RequiresCondition: enable-cheater-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 70
 		MaximumExcessPower: 770
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
 		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
@@ -1083,6 +1087,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -1192,17 +1198,17 @@ Player:
 			yaeast02-tr: 2
 	BaseBuilderBotModule@cheater-megawealth:
 		RequiresCondition: enable-cheater-ai && megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 70
 		MaximumExcessPower: 770
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
 		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
@@ -1264,6 +1270,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -1369,19 +1377,19 @@ Player:
 			yaeast02-tr: 2
 	BaseBuilderBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai && !megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 100
 		MaximumExcessPower: 800
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
 		ProductionTypes: tsnodweap, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, naheli, yadisk, baairf, baairb, gayard, nayard, yayard
@@ -1447,6 +1455,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -1555,16 +1565,16 @@ Player:
 			yaeast02-tr: 16
 	BaseBuilderBotModule@vengeful-megawealth:
 		RequiresCondition: enable-vengeful-ai && megawealth
-		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos
-		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos
+		BuildingQueues: Building.Shared, Building.nod, Building.Allies, Building.Soviets, Building.Yuri, Building.GDI, Building.atreides, Building.harkonnen, Building.ordos, Building.zombie
+		DefenseQueues: Support.Shared, Support.Allies, Support.Soviets, Support.Yuri, Support.GDI, Support.nod, Support.atreides, Support.harkonnen, Support.ordos, Support.zombie
 		MinimumExcessPower: 100
 		MaximumExcessPower: 800
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		PowerTypes: nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
-		BarracksTypes: nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
+		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
 		VehiclesFactoryTypes: tsnodweap, gdiweap, atreideslightweap, harkonnenlightweap, ordoslightweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead
 		NavalProductionTypes: gayard, nayard, yayard
@@ -1627,6 +1637,8 @@ Player:
 		BuildingFractions:
 			nodrefinery: 100
 			nodbarracks: 40
+			zombiepowr: 1
+			zombiebarracks: 40
 			nodpad: 10
 			nodtech: 20
 			nodtempleofnod: 20
@@ -1765,9 +1777,9 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: zombiemcv,tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
 		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
@@ -1784,9 +1796,9 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: zombiemcv, tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
 		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
@@ -1794,23 +1806,26 @@ Player:
 		GuerrillaTypes: robo, mtnk, fv, sref, mgtk, dron, htk, tric, ltnk, ytnk, caos, yhtnk, kite, havoc, disk, txdx, magnedisk
 	McvManagerBotModule@generic:
 		RequiresCondition: enable-generic-ai && !enable-vengeful-ai
-		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		McvTypes: zombiemcv, amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, tsnodweap
 		MinimumConstructionYardCount: 2
 		MaxBaseRadius: 30
 	McvManagerBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai
-		McvTypes: amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
-		ConstructionYardTypes: tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
+		McvTypes: zombiemcv, amcv, smcv, pcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, gdimcv, atreidesmcv, harkonnenmcv, ordosmcv, nodmcv
+		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		McvFactoryTypes: gaweap, naweap, yaweap, gdiweap, atreidesheavyweap, harkonnenheavyweap, ordosheavyweap, tsnodweap
 		MinimumConstructionYardCount: 4
 		MaxBaseRadius: 30
 	UnitBuilderBotModule@easy:
 		RequiresCondition: enable-easy-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10
@@ -2036,9 +2051,12 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@easy-megawealth:
 		RequiresCondition: enable-easy-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10
@@ -2257,9 +2275,12 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@cheater:
 		RequiresCondition: enable-cheater-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10
@@ -2504,9 +2525,12 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@cheater-megawealth:
 		RequiresCondition: enable-cheater-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10
@@ -2745,9 +2769,12 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@vengeful:
 		RequiresCondition: enable-vengeful-ai && !megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10
@@ -2996,9 +3023,12 @@ Player:
 			ggi: 4000
 	UnitBuilderBotModule@vengeful-megawealth:
 		RequiresCondition: enable-vengeful-ai && megawealth
-		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared
+		UnitQueues: Infantry.Shared, Infantry.Allies, Infantry.Soviets, Infantry.Yuri, Infantry.GDI, Infantry.nod, Infantry.Atreides, Infantry.Harkonnen, Infantry.Ordos, Vehicle.Shared, Vehicle.Allies, Vehicle.Soviets, Vehicle.GDI, Vehicle.nod, Vehicle.Harkonnen, Vehicle.Atreides, Vehicle.Ordos, Aircraft.Shared, Aircraft.Allies, Aircraft.Soviets, Aircraft.Yuri, Aircraft.GDI, Aircraft.nod, Aircraft.Atreides, Aircraft.Harkonnen, Aircraft.Ordos, Ship.Shared, Ship.Allies, Ship.Soviets, Ship.Yuri, Ship.GDI, Ship.Atreides, Ship.Harkonnen, Ship.Ordos, Upgrade.Shared, Infantry.zombie
 		UnitsToBuild:
 			tsticktank: 100
+			zombie1: 100
+			zombie2: 100
+			zombie3: 100
 			tsattackbuggy: 5
 			tsbike: 5
 			tsnodartillery: 10

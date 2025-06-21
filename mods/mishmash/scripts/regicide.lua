@@ -49,6 +49,7 @@ LeaderTypes =
 	atreides = "myak.regicide",
 	ordos = "myak.regicide",
 	nod = "pres.regicide",
+	zombie = "brute",
 	gdi = "pres.regicide"
 }
 

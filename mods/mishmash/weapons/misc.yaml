@@ -1574,3 +1574,44 @@ d2kFlamerE:
 		Damage: 1400
 	Warhead@1Gar: OpenToppedDamage
 		Damage: 1400
+
+zombiespit:
+	Inherits: ^FireWeapon
+	ReloadDelay: 50
+	Range: 3c0
+	Burst: 10
+	BurstDelays: 0
+	Report: flamtnk1.aud
+	SoundVolume: 0.2
+	ValidTargets: Ground, Air, Water
+	Projectile: BulletAS
+		Speed: 250
+		Image: d2ktxgasg
+		TrailImage: d2ktxgasg
+		TrailSequences: trailer
+		TrailInterval: 1
+		LaunchAngle: 62
+		Inaccuracy: 0c512
+		Scale: 0.2
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 1000
+		DamageTypes: VirusDeath, NonTemporal
+		ValidTargets: Ground, Air, Water
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: GarrisonedStructure
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 341
+		Damage: 1000
+		Amount: 3
+		DamageTypes: VirusDeath, NonTemporal
+	-Warhead@3Eff: CreateEffect
+
+zombiespitE:
+	Inherits: Flamer
+	Burst: 20
+	SoundVolume: 0.1
+	Warhead@1Dam: SpreadDamage
+		Damage: 1400
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 1400
