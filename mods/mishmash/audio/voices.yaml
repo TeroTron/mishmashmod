@@ -1691,14 +1691,6 @@ TSCivilianFemale: #can be used for female mutant as well
 		Burned: dedgirl3
 		Poisoned: dedgirl1, dedgirl2, dedgirl3, dedgirl4
 
-TSScrin:
-	Voices:
-		Select: 32-i000
-		Move: 32-i002, 32-i004
-		Action: 32-i002, 32-i004
-		Attack: 32-i006
-		Die: 32-i008
-
 TSReaper:
 	Voices:
 		Select: 60-n100, 60-n102, 60-n104
@@ -1752,3 +1744,19 @@ ZombieVoice:
 		Attack: zombi_hello_01, zombi_hello_02
 		Feedback: zombi_hurt_01, zombi_hurt_02
 		Die: zombi_death_1, zombi_death_2
+
+tsharpy:
+	DefaultVariant: .wav
+	Voices:
+		Select: harpyselect_01, harpyselect_02, harpyselect_03, harpyselect_04, harpyselect_05, harpyselect_06
+		Move: harpymove_01, harpymove_02, harpymove_03, harpymove_04, harpymove_05, harpymove_06, harpymove_07, harpymove_08, harpymove_09
+		Action: harpyselect_01, harpyselect_02, harpyselect_03, harpyselect_04, harpyselect_05, harpyselect_06
+		Attack:  harpyattack_01, harpyattack_02, harpyattack_03, harpyattack_04, harpyattack_05, harpyattack_06
+
+tsscrin:
+	DefaultVariant: .wav
+	Voices:
+		Select: tsscrinselect_01, tsscrinselect_02, tsscrinselect_03, tsscrinselect_04, tsscrinselect_05
+		Move: tsscrinmove_01, tsscrinmove_02, tsscrinmove_03, tsscrinmove_04, tsscrinmove_05, tsscrinmove_06
+		Action: tsscrinselect_01, tsscrinselect_02, tsscrinselect_03, tsscrinselect_04, tsscrinselect_05
+		Attack:  tsscrinattack_01, tsscrinattack_02, tsscrinattack_03, tsscrinattack_04, tsscrinattack_05, tsscrinattack_06

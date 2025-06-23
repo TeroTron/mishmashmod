@@ -1785,3 +1785,10 @@ tsscrin:
 		Filename: invisibleitem.shp
 	icon:
 		Filename: tsbansheeicon.shp
+
+drplasma2:
+	Defaults:
+		Filename: drplasma2.shp
+	idle:
+		Facings: 16
+		ZOffset: 1023		

@@ -1794,7 +1794,7 @@ tsorca:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb, gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@H:
@@ -1994,7 +1994,7 @@ tsorcabomber:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb, gdipad, caairp
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@H:
@@ -4203,7 +4203,6 @@ tsstealthtank:
 tsharpy:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@CHAOS: ^BerserkableAircraftArmed
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
@@ -4271,6 +4270,24 @@ tsharpy:
 		Weapon: MaverickAAE
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
+	Armament@primarymg:
+		Weapon: BlackHawkCannon
+		Damage: 35
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@primarymg-aa:
+		Weapon: BlackHawkCannonAA
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@elitemg:
+		Weapon: BlackHawkCannonE
+		Damage: 50
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	Armament@elitemg-aa:
+		Weapon: BlackHawkCannonAAE
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 20
@@ -4289,7 +4306,7 @@ tsharpy:
 		RequiresSelection: true
 	WithVoxelBody:
 	Voiced:
-		VoiceSet: HarrierVoice
+		VoiceSet: tsharpy
 	Repairable:
 		Voice: Move
 		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
@@ -4298,7 +4315,7 @@ tsharpy:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp, nodpad
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb, nodpad, caairp, nodpad
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@V:
@@ -4405,7 +4422,6 @@ tsharpyhusk:
 tsbanshee:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@CHAOS: ^BerserkableAircraftArmed
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
@@ -4424,7 +4440,7 @@ tsbanshee:
 		Name: actor-orca.name
 	Buildable:
 		Queue: Aircraft.Shared, Aircraft.nod
-		Prerequisites: ~nodpad
+		Prerequisites: ~nodpad, !prerequisite.enoughair
 		BuildPaletteOrder: 9
 		Description: actor-orca.description
 		BuildDuration: 500
@@ -4458,12 +4474,12 @@ tsbanshee:
 	#	Types: SatelliteScan
 	#	Type: GroundPosition
 	Armament:
-		Weapon: EMPulseBEagle
+		Weapon: TSProton
 		Damage: 150
 		PauseOnCondition: !ammo
 		RequiresCondition: !rank-elite
 	Armament@Elite:
-		Weapon: EMPulseBEagleE
+		Weapon: TSProtonE
 		Damage: 200
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
@@ -4473,7 +4489,7 @@ tsbanshee:
 		TargetFrozenActors: True
 		PauseOnCondition: emp || magnefreeze || chronodisable
 	AmmoPool:
-		Ammo: 3
+		Ammo: 5
 		ReloadDelay: 75
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
@@ -4485,7 +4501,7 @@ tsbanshee:
 		RequiresSelection: true
 	WithVoxelBody:
 	Voiced:
-		VoiceSet: HarrierVoice
+		VoiceSet: tsscrin
 	Repairable:
 		Voice: Move
 		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
@@ -4494,7 +4510,7 @@ tsbanshee:
 		CloseEnough: 3c0
 		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, naheli, yadisk
 	Rearmable:
-		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb. gdipad, caairp, nodpad
+		RearmActors: gaairc, gaairb, gaapad, gadock, baairf, baairb, badock, badocb, nodpad, caairp, nodpad
 	Targetable@MC:
 		RequiresCondition: !controlled && !permamc && !airborne
 	GrantConditionOnMovement@V:
