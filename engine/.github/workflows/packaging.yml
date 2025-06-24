@@ -65,15 +65,21 @@ jobs:
 
   macos:
     name: macOS Disk Image
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Clone Repository
         uses: actions/checkout@v4
 
-      - name: Install .NET 8.0
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '6.0.x'
+
+      - name: Install Mono
+        run: brew install mono
+
+      - name: Set Mono Build Environment
+        run: echo "FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5" >> $GITHUB_ENV
 
       - name: Prepare Environment
         run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
@@ -86,15 +92,9 @@ jobs:
           MACOS_DEVELOPER_USERNAME: ${{ secrets.MACOS_DEVELOPER_USERNAME }}
           MACOS_DEVELOPER_PASSWORD: ${{ secrets.MACOS_DEVELOPER_PASSWORD }}
         run: |
+          make engine
           mkdir -p build/macos
           ./packaging/macos/buildpackage.sh "${GIT_TAG}" "${PWD}/build/macos"
-
-      - name: Upload Package
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
-        run: |
-          gh release upload ${{ github.ref_name }} build/macos/*
 
   windows:
     name: Windows Installers
