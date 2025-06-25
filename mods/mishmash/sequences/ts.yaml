@@ -382,6 +382,7 @@ tsengineer:
 		Filename: tsenggicon.png
 
 tsmedic:
+	Inherits: ^TSBasicInfantry
 	Defaults:
 		Filename: tsmedic.shp
 		Tick: 80
