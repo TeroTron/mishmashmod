@@ -1153,8 +1153,8 @@ d2krockettank:
 	Defaults:
 		Scale: 0.9
 	idle:
-		Filename: HarkRocketTankSpritesheet.png
-		Facings: 64
+		Filename: HarkRocketTankSpritesheet-32.png
+		Facings: 32
 	icon:
 		Filename: d2kharkmissiletankicon.png
 		Offset: 0, 0
@@ -1188,7 +1188,7 @@ assault_tank_h:
 	Defaults:
 		Scale: 0.5
 	idle:
-		Filename: HarkHeavyTest.png
+		Filename: HarkAssaultTankSpritesheet-32.png
 		Facings: 32
 	icon:
 		Filename: d2kharkassaulttankicon.png
