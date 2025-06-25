@@ -2279,8 +2279,8 @@ nodmcv:
 	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		BuildPaletteOrder: 97
-		Prerequisites: ~tsgtcnst, gditech, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+		BuildPaletteOrder: 8
+		Prerequisites: ~tsgtcnst, nodtech, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 	Transforms:
 		IntoActor: tsnodcnst
 	Voiced:
@@ -2363,9 +2363,9 @@ tsharvnod:
 	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		BuildPaletteOrder: 90
+		BuildPaletteOrder: 1
 		Description: actor-cmin.description
-		Prerequisites: ~tsnodweap
+		Prerequisites: ~tsnodweap, nodrefinery
 	Tooltip:
 		Name: Ore Harvester
 	Tooltip@NoRow:
@@ -2379,12 +2379,12 @@ tsharvnod:
 	Guard:
 		Voice: Move
 	Voiced:
-		VoiceSet: TSVehicle
+		VoiceSet: nodharv
 	RenderVoxels:
-		Image: dtruck
+		Image: tsnodharv
 		Scale: 1
 	RenderSprites:
-		Image: dtruck
+		Image: tsnodharv
 
 nodbarracks:
 	Inherits: ^Barracks
@@ -3687,9 +3687,10 @@ tsticktank:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
 		Description: actor-mtnk.description
-		Prerequisites: ~nodbarracks, ~techlevel.1
+		Prerequisites: ~tsnodweap, ~techlevel.1
 		BuildDuration: 300
 		BuildDurationModifier: 100
+		BuildPaletteOrder: 4
 	Mobile:
 		Speed: 120
 	Health:
@@ -3787,8 +3788,8 @@ tsattackbuggy:
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		Prerequisites: ~nodbarracks
-		BuildPaletteOrder: 91
+		Prerequisites: ~tsnodweap
+		BuildPaletteOrder: 2
 		Description: GDI Anti Infantry Mech.
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -3826,7 +3827,7 @@ tsattackbuggy:
 		Damage: 180
 		RequiresCondition: rank-elite
 	Voiced:
-		VoiceSet: tsticktank
+		VoiceSet: tsbuggy
 	ProducibleWithLevel@1:
 		Prerequisites: warfactory.infiltratedorbaacdm
 	WithProductionIconOverlay@1:
@@ -3868,8 +3869,8 @@ tsbike:
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		Prerequisites: ~nodbarracks
-		BuildPaletteOrder: 91
+		Prerequisites: ~tsnodweap
+		BuildPaletteOrder: 3
 		Description: GDI Anti Infantry Mech.
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -3911,7 +3912,7 @@ tsbike:
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: rank-elite
 	Voiced:
-		VoiceSet: tsticktank
+		VoiceSet: tsbike
 	ProducibleWithLevel@1:
 		Prerequisites: warfactory.infiltratedorbaacdm
 	WithProductionIconOverlay@1:
@@ -3953,8 +3954,8 @@ tsnodartillery:
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		Prerequisites: ~tsnodweap
-		BuildPaletteOrder: 30
+		Prerequisites: ~tsnodweap, nodradr
+		BuildPaletteOrder: 6
 		Description: actor-d2ksiegetank.description
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -4048,8 +4049,8 @@ tssubapcnod:
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
-		Prerequisites: ~nodbarracks
-		BuildPaletteOrder: 91
+		Prerequisites: ~tsnodweap, nodtech
+		BuildPaletteOrder: 7
 		Description: GDI Anti Infantry Mech.
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -4147,9 +4148,10 @@ tsstealthtank:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
 		Description: actor-mtnk.description
-		Prerequisites: ~nodbarracks, ~techlevel.1
+		Prerequisites: ~tsnodweap, nodtech, ~techlevel.1
 		BuildDuration: 300
 		BuildDurationModifier: 100
+		BuildPaletteOrder: 9
 	Mobile:
 		Speed: 108
 	Health:

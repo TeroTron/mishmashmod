@@ -1742,8 +1742,7 @@ ZombieVoice:
 		Select: zombi_hello_01, zombi_hello_02
 		Move: zombi_hello_01, zombi_hello_02
 		Attack: zombi_hello_01, zombi_hello_02
-		Feedback: zombi_hurt_01, zombi_hurt_02
-		Die: zombi_death_1, zombi_death_2
+		Die: zombi_death_1, zombi_death_2, zombi_hurt_01, zombi_hurt_02, zombi_hurt_heavy_1, zombi_hurt_heavy_2
 
 tsharpy:
 	DefaultVariant: .wav
@@ -1760,3 +1759,28 @@ tsscrin:
 		Move: tsscrinmove_01, tsscrinmove_02, tsscrinmove_03, tsscrinmove_04, tsscrinmove_05, tsscrinmove_06
 		Action: tsscrinselect_01, tsscrinselect_02, tsscrinselect_03, tsscrinselect_04, tsscrinselect_05
 		Attack:  tsscrinattack_01, tsscrinattack_02, tsscrinattack_03, tsscrinattack_04, tsscrinattack_05, tsscrinattack_06
+
+tsbuggy:
+	DefaultVariant: .wav
+	Voices:
+		Select: lightnodvehicleselect_01, lightnodvehicleselect_02, lightnodvehicleselect_03, lightnodvehicleselect_04, lightnodvehicleselect_05, lightnodvehicleselect_06
+		Move: lightnodvehiclemove_01, lightnodvehiclemove_02, lightnodvehiclemove_03, lightnodvehiclemove_04, lightnodvehiclemove_05, lightnodvehiclemove_06, lightnodvehiclemove_07
+		Action: lightnodvehicleselect_01, lightnodvehicleselect_02, lightnodvehicleselect_03, lightnodvehicleselect_04, lightnodvehicleselect_05, lightnodvehicleselect_06
+		Attack:  lightnodvehicleattack_01, lightnodvehicleattack_02, lightnodvehicleattack_03, lightnodvehicleattack_04, lightnodvehicleattack_05, lightnodvehicleattack_06
+
+tsbike:
+	DefaultVariant: .wav
+	Voices:
+		Select: tsbikeselect_01, tsbikeselect_02, tsbikeselect_03, tsbikeselect_04, tsbikeselect_05, tsbikeselect_06, tsbikeselect_07
+		Move: tsbikemove_01, tsbikemove_02, tsbikemove_03, tsbikemove_04, tsbikemove_05, tsbikemove_06
+		Action: tsbikeselect_01, tsbikeselect_02, tsbikeselect_03, tsbikeselect_04, tsbikeselect_05, tsbikeselect_06, tsbikeselect_07
+		Attack:  tsbikeattack_01, tsbikeattack_02, tsbikeattack_03, tsbikeattack_04, tsbikeattack_05, tsbikeattack_06
+		
+nodharv:
+	DefaultVariant: .wav
+	Voices:
+		Select: nodharvselect_01, nodharvselect_02, nodharvselect_03, nodharvselect_04, nodharvselect_05, nodharvselect_06
+		Move: nodharvmove_01, nodharvmove_02, nodharvmove_03, nodharvmove_04, nodharvmove_05, nodharvmove_06
+		Action: nodharvspecial_01, nodharvspecial_02, nodharvspecial_03, nodharvspecial_04, nodharvspecial_05
+		Harvest: nodharvspecial_01, nodharvspecial_02, nodharvspecial_03, nodharvspecial_04, nodharvspecial_05
+		Deliver: nodharvspecial_01, nodharvspecial_02, nodharvspecial_03, nodharvspecial_04, nodharvspecial_05

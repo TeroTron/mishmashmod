@@ -701,9 +701,7 @@ actor-gapill =
     
     Abilities:
     - Can detect Steath units
-    
-    Upgradeable with:
-    - Grand Cannon Protocols (France)
+    - Armament changes depending on garrison
 
 actor-nasam =
    .name = Patriot Missile System

@@ -18,7 +18,7 @@ dest:
 	Inherits@RADIATON: ^DamagedByRadiation10Percent
 	Inherits@SQUID: ^SquidGrabbable
 	Buildable:
-		Queue: Ship.Civilian # Ship.Shared, Ship.Allies
+		Queue: Ship.Civilian, Ship.Shared, Ship.Allies
 		Prerequisites: gaairc, ~techlevel.3
 		BuildPaletteOrder: 80
 		Description: actor-dest.description

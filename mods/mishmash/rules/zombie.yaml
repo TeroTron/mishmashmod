@@ -14,6 +14,10 @@ zombieconst:
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx xxxx xxxx
 		Dimensions: 6, 4
+	Tooltip:
+		Name: Ground Zero
+	Tooltip@NoRow:
+		Name: Ground Zero
 	ProductionQueue@Building:
 		Type: Building.zombie
 		DisplayOrder: 2
@@ -53,7 +57,7 @@ zombiemcv:
 	RenderVoxels
 		Image: ambu
 	RenderSprites:
-		Image: pcv
+		Image: zombiemcv
 
 #######################################
 # Zombie Buildings
@@ -73,9 +77,9 @@ zombiepowr:
 		Amount: 500
 		PauseOnCondition: disabled || chronodisable
 	Tooltip:
-		Name: actor-napowr.name
+		Name: Infested Housing
 	Tooltip@NoRow:
-		Name: actor-napowr.name
+		Name: Infested Housing
 	StoresPlayerResources:
 		Capacity: 1000000
 	Building:
@@ -101,24 +105,12 @@ zombiebarracks:
 		Description: actor-gdibarracks.description
 		Prerequisites: ~zombieconst
 	Tooltip:
-		Name: Zombie Barracks
+		Name: Infested Holding
 	Tooltip@NoRow:
-		Name: Zombie Barracks
+		Name: Infested Holding
 	Building:
 		Dimensions: 3,5
 		Footprint: xxx xxx xxx xxx xxx
-	Exit@1Shared:
-		SpawnOffset: -512,768,0
-		ExitCell: 1,2
-		Priority: 2
-		ProductionTypes: Infantry.Shared, Soldier
-		RequiresCondition: !multiqueue
-	Exit@2Shared:
-		SpawnOffset: -512,768,0
-		ExitCell: 0,2
-		Priority: 2
-		ProductionTypes: Infantry.Shared, Soldier
-		RequiresCondition: !multiqueue
 	Exit@fallback1Shared:
 		SpawnOffset: 0,724,0
 		ExitCell: 2,2
@@ -169,11 +161,6 @@ zombiebarracks:
 		ExitCell: -1,2
 		ProductionTypes: Infantry.Shared, Soldier
 		RequiresCondition: !multiqueue
-	Exit@1:
-		SpawnOffset: -512,768,0
-		ExitCell: 1,2
-		Priority: 2
-		RequiresCondition: multiqueue
 	Exit@2:
 		SpawnOffset: -512,768,0
 		ExitCell: 0,2
@@ -241,10 +228,8 @@ zombie1:
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CHAOS: ^BerserkableArmed
-	Inherits@DNABOOST: ^AffectedByDNABoosters
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.zombie
 		BuildAtProductionType: Soldier
@@ -349,12 +334,10 @@ zombie1:
 
 zombie2:
 	Inherits: ^Infantry
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CHAOS: ^BerserkableArmed
-	Inherits@DNABOOST: ^AffectedByDNABoosters
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.zombie
 		BuildAtProductionType: Soldier
@@ -453,10 +436,8 @@ zombie3:
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CHAOS: ^BerserkableArmed
-	Inherits@DNABOOST: ^AffectedByDNABoosters
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.zombie
 		BuildAtProductionType: Soldier

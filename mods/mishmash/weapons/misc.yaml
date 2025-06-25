@@ -1608,7 +1608,7 @@ zombiespit:
 	-Warhead@3Eff: CreateEffect
 
 zombiespitE:
-	Inherits: Flamer
+	Inherits: zombiespit
 	Burst: 20
 	SoundVolume: 0.1
 	Warhead@1Dam: SpreadDamage

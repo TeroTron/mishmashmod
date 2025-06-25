@@ -724,6 +724,34 @@ gapill:
 	IsometricSelectable:
 		Class: gapill
 		DecorationHeight: 15
+	Cargo:
+		Types: Garrisoner
+		MaxWeight: 1
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		EjectOnDeathDamage: 0
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
+	AttackOpenTopped:
+		Armaments: garrisoned, garrisoned-secondary
+		PortOffsets: 768,0,1024, 448,-682,1024, -448,-682,1024, -768,0,1024, -448,682,1024, 448,682,1024
+		PauseOnCondition: build-incomplete || chronodisable
+	WithCargoPipsDecoration:
+		EmptySequence: pip-garrison-empty
+		FullSequence: pip-garrison-green
+		Margin: 4, 3
+		PipStride: 4, 2
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-garrison-gray
+			yellow: pip-garrison-yellow
+			blue: pip-garrison-blue
+			red: pip-garrison-red
 	Voiced:
 		VoiceSet: PillBoxVoice
 		Volume: 0.8

@@ -56,9 +56,15 @@ zombieconst:
 		Length: 16
 		Offset: -9, -23
 	icon:
-		Filename: bits/cameos/hospicon.shp
+		Filename: zombiemcv.png
 		TilesetFilenames:
 		Offset: 0, 0
+
+zombiemcv:
+	idle:
+		Filename: invisibleitem.shp
+	icon:
+		Filename: zombiemcv.png
 
 zombiepowr:
 	Defaults:
@@ -75,7 +81,7 @@ zombiepowr:
 		Start: 1
 		ShadowStart: 5
 	icon:
-		Filename: bits/cameos/hospicon.shp
+		Filename: zombiehousing.png
 		TilesetFilenames:
 		Offset: 0, 0
 
@@ -103,101 +109,341 @@ zombiebarracks:
 		# ShadowStart: 9
 		Tick: 80
 	icon:
-		Filename: bits/cameos/hospicon.shp
-		TilesetFilenames:
+		Filename: infestedholding.png
+		TilesetFilenames: # To be sure that Defaults: won't override this with building art.
+			TEMPERATE: infestedholding.png
+			SNOW: infestedholding.png
+			URBAN: infestedholding.png
+			NEWURBAN: infestedholding.png
+			DESERT: infestedholding.png
+			LUNAR: infestedholding.png
+			DUNE: infestedholding.png
+			SIMPLETERRAIN: infestedholding.png
 		Offset: 0, 0
 
 zombie1:
-	Inherits: ^ArmedInfantry
 	Defaults:
-		Filename: ZOMBIE3.shp
-    Scale: 0.8
-	run:
-		Start: 88
-		Length: 24
-		Tick: 120
-	die1:
-		Start: 440
-		Length: 16
-	die2:
-		Start: 456
-		Length: 16
-	shoot:
-		Start: 280
-		Length: 12
-		Tick: 40
-	smash:
-		Start: 280
-		Length: 12
+		Filename: lightzombiestand.png
+		Scale: 1.2
+	stand:
 		Facings: 8
-		Tick: 40
+		Lenght: 1
+		Filename: lightzombiestand.png
+	idle1:
+		Facings: 1
+		Lenght: 10
+		Filename: lightzombieidle1.png
+	idle2:
+		Facings: 1
+		Lenght: 10
+		Filename: lightzombieidle1.png
+	run:
+		Filename: lightzombiewalk.png
+		Length: 11
+		Tick: 100
+		Facings: 8
+	die1:
+		Filename: lightzombiedeath.png
+		Length: 12
+		Facings: 1
+	die2:
+		Filename: lightzombiedeath.png
+		Length: 12
+		Facings: 1
+	shoot:
+		Filename: lightzombieattack.png
+		Length: 11
+		Facings: 8
+		Tick: 100
+	smash:
+		Filename: lightzombieattack.png
+		Length: 11
+		Facings: 8
+		Tick: 100
 	paradrop:
-		Start: 0
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
 	cheer:
-		Start: 503
-		Length: 7
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	liedown:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	standup:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-stand:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-run:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
 	icon:
 		Filename: zombie1.png
 
 zombie3:
-	Inherits: ^ArmedInfantry
 	Defaults:
-		Filename: ZOMBIE3.shp
-    Scale: 0.8
-	run:
-		Start: 88
-		Length: 24
-		Tick: 120
-	die1:
-		Start: 440
-		Length: 16
-	die2:
-		Start: 456
-		Length: 16
-	shoot:
-		Start: 280
-		Length: 12
-		Tick: 40
-	smash:
-		Start: 280
-		Length: 12
+		Filename: lightzombiestand.png
+		Scale: 1.2
+	stand:
 		Facings: 8
-		Tick: 40
+		Lenght: 1
+		Filename: lightzombiestand.png
+	idle1:
+		Facings: 1
+		Lenght: 10
+		Filename: lightzombieidle1.png
+	idle2:
+		Facings: 1
+		Lenght: 10
+		Filename: lightzombieidle1.png
+	run:
+		Filename: lightzombiewalk.png
+		Length: 11
+		Tick: 100
+		Facings: 8
+	die1:
+		Filename: lightzombiedeath.png
+		Length: 12
+		Facings: 1
+	die2:
+		Filename: lightzombiedeath.png
+		Length: 12
+		Facings: 1
+	shoot:
+		Filename: lightzombieattack.png
+		Length: 11
+		Facings: 8
+		Tick: 100
+	smash:
+		Filename: lightzombieattack.png
+		Length: 11
+		Facings: 8
+		Tick: 100
 	paradrop:
-		Start: 0
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
 	cheer:
-		Start: 503
-		Length: 7
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	liedown:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	standup:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-stand:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-run:
+		Filename: lightzombiestand.png
+		Facings: 1
+		Lenght: 1
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
 	icon:
 		Filename: zombie2.png
 
 bigzombie:
-	Inherits: ^ArmedInfantry
 	Defaults:
-		Filename: bigzombie.shp
-	run:
-		Start: 8
-		Length: 14
-		Tick: 120
-	die1:
-		Start: 440
-		Length: 16
-	die2:
-		Start: 456
-		Length: 16
-	shoot:
-		Start: 120
-		Length: 15
-		Tick: 40
-	smash:
-		Start: 120
-		Length: 15
+		Filename: heavyzombiestand.png
+		Scale: 1.2
+	stand:
 		Facings: 8
-		Tick: 40
+		Lenght: 1
+		Filename: heavyzombiestand.png
+	idle1:
+		Facings: 1
+		Lenght: 17
+		Filename: heavyzombieidle1.png
+	idle2:
+		Facings: 1
+		Lenght: 17
+		Filename: heavyzombieidle1.png
+	run:
+		Filename: heavyzombiewalk.png
+		Length: 10
+		Tick: 100
+		Facings: 8
+	die1:
+		Filename: heavyzombiedeath.png
+		Length: 14
+		Facings: 1
+	die2:
+		Filename: heavyzombiedeath.png
+		Length: 14
+		Facings: 1
+	shoot:
+		Filename: heavyzombieattack.png
+		Length: 10
+		Facings: 8
+		Tick: 100
+	smash:
+		Filename: heavyzombieattack.png
+		Length: 10
+		Facings: 8
+		Tick: 100
 	paradrop:
-		Start: 0
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
 	cheer:
-		Start: 0
-		Length: 1
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
+	liedown:
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
+	standup:
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-stand:
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
+	prone-run:
+		Filename: heavyzombiestand.png
+		Facings: 1
+		Lenght: 1
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
 	icon:
 		Filename: zombie3.png

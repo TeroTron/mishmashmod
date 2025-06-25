@@ -663,7 +663,7 @@ tsbggy:
 tsbike:
 	idle:
 
-dtruck:
+tsnodharv:
 	idle: dtruck
 	water: dtruck
 	unload: dtruck

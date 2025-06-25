@@ -1670,7 +1670,7 @@ tsbike:
 		Filename: gunfire2.shp
 		Length: 5
 
-dtruck:
+tsnodharv:
 	Defaults:
 		Scale: 1.5
 	idle:

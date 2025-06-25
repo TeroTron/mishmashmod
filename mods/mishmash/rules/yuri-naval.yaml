@@ -471,7 +471,7 @@ floater:
 		RequiresCondition: !surfaced && in_water
 	Buildable:
 		Queue: Ship.Shared, Ship.Yuri
-		Prerequisites: ~ship.yuri, yadome, ~techlevel.3
+		Prerequisites: ~unbuildable
 		Description: actor-floater.description
 		BuildDuration: 375
 	Valued:
