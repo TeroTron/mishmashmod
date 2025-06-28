@@ -408,9 +408,6 @@ zombie2:
 		VoiceSet: ZombieVoice
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
-		AttackSequences:
-			secondary: ZombieSmash
-		RequiresCondition: !parachute && !webdisable
 	ProducibleWithLevel@1:
 		Prerequisites: barracks.infiltratedorbaacdm
 	WithProductionIconOverlay@1:

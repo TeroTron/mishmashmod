@@ -1141,10 +1141,10 @@ d2ksiegemm:
 		Versus:
 			None: 100
 			Flak: 100
-			Plate: 80
-			Light: 70
+			Plate: 100
+			Light: 50
 			Medium: 50
-			Heavy: 50
+			Heavy: 40
 			Wood: 50
 			Steel: 40
 			Concrete: 30
@@ -1211,6 +1211,75 @@ d2kmortarE:
 			Plate: 100
 	Warhead@2Eff: CreateEffect
 		Explosions: elite_explosion
+		ImpactSounds: gexpapoa.wav
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwala.wav
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+inkvinecatapult:
+	Inherits: ^LargeBullet
+	ReloadDelay: 100
+	Range: 10c0
+	Report: vrhiatta.wav, vrhiattb.wav, vrhiattc.wav, vrhiattd.wav
+	Projectile: BulletAS
+		ContrailLength: 8
+		Speed: 192
+		RangeLimit: 12c512
+		TrailImage: d2ktxgasg
+		TrailSequences: trailer
+		TrailInterval: 1
+		LaunchAngle: 192
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+		Spread: 0c512
+		Falloff: 100, 83, 67, 50, 0
+		ValidTargets: Building, Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 50
+			Medium: 50
+			Heavy: 40
+			Wood: 50
+			Steel: 40
+			Concrete: 30
+			Drone: 100
+			Rocket: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+		ImpactSounds: gexpapoa.wav
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+	Warhead@5Radiation: CreateTintedCells
+		Spread: 2c0
+		Falloff: 100, 100
+		Level: 500
+		MaxLevel: 500
+
+inkvinecatapultE:
+	Inherits: inkvinecatapult
+	Burst: 2
+	BurstDelays: 5
+	Projectile: BulletAS
+	Range: 10c0
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
 		ImpactSounds: gexpapoa.wav
 	Warhead@3EffWater: CreateEffect
 		Explosions: large_watersplash

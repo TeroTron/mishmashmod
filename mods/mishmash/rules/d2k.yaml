@@ -455,21 +455,6 @@ harkonnenrepair_pad:
 		Condition: airdock
 	GrantExternalConditionToProduced:
 		Condition: produced
-	ProductionQueue:
-		Type: Aircraft.Harkonnen
-		Group: Aircraft
-		DisplayOrder: 25
-		LowPowerModifier: 200
-		Factions: harkonnen
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
 	RallyPoint:
 		Path: 1,2
 		Palette: mouse
@@ -502,6 +487,7 @@ harkonnenrepair_pad:
 		Color: FF0000CC
 		BorderWidth: 0
 		Width: 2
+	-WithResupplyAnimation:
 	IsometricSelectable:
 		Class: gaairc
 		DecorationHeight: 40
@@ -510,10 +496,13 @@ harkonnenrepair_pad:
 		Volume: 0.8
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 1,0, 1,1
 	ActorStatValues:
 		Stats: Armor, Sight, Power
 	RenderSprites:
-		Image: repair_pad.harkonnen
+		Image: repair_pad.Harkonnen
 		PlayerPalette: d2kpal2
 
 harkonnenhigh_tech_factory:
@@ -521,25 +510,22 @@ harkonnenhigh_tech_factory:
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Building.Shared, Building.harkonnen
-		Prerequisites: ~harkonnencnst, harkonnenoutpost, ~techlevel.1
+		Prerequisites: ~harkonnencnst, harkonnenoutpost
 		IconPalette: chromedune
-	ProvidesPrerequisite@default:
-		Prerequisite: harkonnentech
-	ProvidesPrerequisite@AIbuildinglimit:
-		RequiresCondition: ai-control
-		Prerequisite: ai.harkonnentech
 	Tooltip:
 		Name: High Tech Factory
 	Tooltip@NoRow:
 		Name: High Tech Factory
 	Health:
 		HP: 75000
+	Armor:
+		Type: Wood
 	Production:
 		Produces: Aircraft.Harkonnen
 	ProductionQueue:
 		Type: Aircraft.Harkonnen
 		Factions: harkonnen
-	ProductionQueue@harkonnen:
+	ProductionQueue@Harkonnen:
 		Type: Aircraft.Harkonnen
 		Group: Aircraft
 		DisplayOrder: 26
@@ -556,10 +542,8 @@ harkonnenhigh_tech_factory:
 		CancelledAudio: Cancelled
 	ProductionBar:
 		ProductionType: Aircraft.Harkonnen
-	ProvidesPrerequisite@Aircraft.Harkonnen:
-		Prerequisite: Aircraft.Harkonnen
-	Armor:
-		Type: Wood
+	ProvidesPrerequisite:
+		Prerequisite: harkonnenhigh_tech_factory
 	Building:
 		Footprint: xxx xx= ===
 		Dimensions: 3,3
@@ -568,13 +552,13 @@ harkonnenhigh_tech_factory:
 	Targetable@Water:
 		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
 	IsometricSelectable:
-		Class: harkonnentech
+		Class: Harkonnentech
 		DecorationHeight: 50
 	Voiced:
 		VoiceSet: TechCenterVoice
 		Volume: 0.8
 	RenderSprites:
-		Image: hightech.harkonnen
+		Image: hightech.Harkonnen
 		PlayerPalette: d2kpal2
 
 harkonnenresearch_centre:
@@ -873,7 +857,7 @@ d2kharkonnenharv:
 	RenderVoxels:
 		Image: blanktemplate
 		
-d2kharkonnentrike:
+d2kharkbuzzsaw:
 	Inherits: ^Vehicle
 	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@BUNKER: ^TankBunkerable
@@ -893,101 +877,11 @@ d2kharkonnentrike:
 		Payload: 500
 		Voice: Move
 	Tooltip:
-		Name: Trike
+		Name: Buzzsaw
 	Tooltip@NoRow:
-		Name: Trike
-	Selectable:
-		Class: Trike
-		Bounds: 1206, 1930, 0, -289
+		Name: Buzzsaw
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Harkonnen
-		Prerequisites: ~harkonnenlightweap
-		BuildPaletteOrder: 30
-		Description: actor-d2ktrike.description
-		BuildDuration: 250
-		BuildDurationModifier: 100
-		IconPalette: chromedune
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		TurnSpeed: 40
-		Speed: 128
-		Locomotor: wheeled
-		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
-	Health:
-		HP: 30000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 10c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Types: SatelliteScan
-	#	Range: 10c0
-	RevealOnDeath:
-		Radius: 10c0
-	DetectCloaked:
-		Range: 5c0
-	RenderDetectionCircle:
-	AttackFrontal:
-		FacingTolerance: 0
-	AutoTarget:
-	Armament@primary:
-		Weapon: para
-		Damage: 25
-		RequiresCondition: !rank-elite
-		MuzzleSequence: muzzle
-	Armament@primary-elite:
-		Weapon: paraE
-		Damage: 50
-		RequiresCondition: rank-elite
-		MuzzleSequence: muzzle
-	Voiced:
-		VoiceSet: D2kVehicleVoice
-	ProducibleWithLevel@1:
-		Prerequisites: warfactory.infiltratedorbaacdm
-	WithProductionIconOverlay@1:
-		Prerequisites: warfactory.infiltratedorbaacdm
-		Types: chevron-veteran
-	ProducibleWithLevel@2:
-		Prerequisites: warfactory.infiltrated, baacdm
-	WithProductionIconOverlay@2:
-		Prerequisites: warfactory.infiltrated, baacdm
-		Types: chevron-elite
-	AttackFrontal:
-		FacingTolerance: 0
-	HitShape:
-	WithFacingSpriteBody:
-	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
-	RenderSprites:
-		Image: d2ktrike
-		PlayerPalette: d2kpal2
-
-Harkbuzzsaw:
-	Inherits: ^Vehicle
-	Inherits@BUILDVOICE: ^WithProductionVoicelines
-	Inherits@BUNKER: ^TankBunkerable
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@CHAOS: ^BerserkableVoxelArmed
-	Inherits@MC: ^MindControllableDisabledWithIC
-	Inherits@RADIATON: ^DamagedByRadiation50Percent
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	IssueOrderToBot@AI:
-		RequiresCondition: loaded
-		OrderName: Unload
-		OrderChance: 100
-		OrderInterval: 45
-	Valued:
-		Cost: 500
-	DeliversCash:
-		Payload: 500
-		Voice: Move
-	Tooltip:
-		Name: Buzzsaw
-	Tooltip@NoRow:
-		Name: Buzzsaw
-	Buildable:
-		Queue: Vehicle.harkonnen
 		Prerequisites: ~harkonnenlightweap
 		BuildPaletteOrder: 30
 		Description: Harkonnen scout vehicle
@@ -1053,102 +947,6 @@ Harkbuzzsaw:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: harkbuzzsaw
-		PlayerPalette: d2kpal2
-
-d2kharkonnenquad:
-	Inherits: ^Vehicle
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@BUILDVOICE: ^WithProductionVoicelines
-	Inherits@BUNKER: ^TankBunkerable
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@CHAOS: ^BerserkableVoxelArmed
-	Inherits@MC: ^MindControllableDisabledWithIC
-	Inherits@RADIATON: ^DamagedByRadiation50Percent
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Valued:
-		Cost: 500
-	DeliversCash:
-		Payload: 500
-		Voice: Move
-	Tooltip:
-		Name: Quad
-	Tooltip@NoRow:
-		Name: Quad
-	Selectable:
-		Class: Quad
-		Bounds: 1206, 1930, 0, -289
-	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Harkonnen
-		Prerequisites: ~harkonnenlightweap
-		BuildPaletteOrder: 30
-		Description: actor-d2kquad.description
-		BuildDuration: 250
-		BuildDurationModifier: 100
-		IconPalette: chromedune
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		TurnSpeed: 80
-		Speed: 99
-		Locomotor: wheeled
-		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
-	Health:
-		HP: 30000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 10c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Types: SatelliteScan
-	#	Range: 10c0
-	RevealOnDeath:
-		Radius: 10c0
-	DetectCloaked:
-		Range: 5c0
-	RenderDetectionCircle:
-	AttackFrontal:
-		FacingTolerance: 0
-	AutoTarget:
-	Armament@primary:
-		Weapon: TSMissileLauncher
-		Damage: 40
-		RequiresCondition: !rank-elite
-		LocalOffset: 128,64,64, 128,-64,64
-	Armament@primary-elite:
-		Weapon: TSMissileLauncherE
-		Damage: 80
-		RequiresCondition: rank-elite
-		LocalOffset: 128,64,64, 128,-64,64
-	Armament@primaryAA:
-		Weapon: TSMissileLauncherAA
-		Damage: 40
-		RequiresCondition: !rank-elite
-		LocalOffset: 128,64,64, 128,-64,64
-	Armament@primaryAA-elite:
-		Weapon: TSMissileLauncherAAE
-		Damage: 80
-		RequiresCondition: rank-elite
-		LocalOffset: 128,64,64, 128,-64,64
-	Voiced:
-		VoiceSet: D2kVehicleVoice
-	ProducibleWithLevel@1:
-		Prerequisites: warfactory.infiltratedorbaacdm
-	WithProductionIconOverlay@1:
-		Prerequisites: warfactory.infiltratedorbaacdm
-		Types: chevron-veteran
-	ProducibleWithLevel@2:
-		Prerequisites: warfactory.infiltrated, baacdm
-	WithProductionIconOverlay@2:
-		Prerequisites: warfactory.infiltrated, baacdm
-		Types: chevron-elite
-	AttackFrontal:
-		FacingTolerance: 0
-	WithFacingSpriteBody:
-	HitShape:
-	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
-	RenderSprites:
-		Image: d2kquad
 		PlayerPalette: d2kpal2
 
 d2kharkonnencombattank:
@@ -1246,7 +1044,7 @@ d2kharkonnencombattank:
 		Image: assault_tank_h
 		PlayerPalette: player_rgba
 
-d2kharkonnensiegetank:
+d2kharkonnenflametank:
 	Inherits: ^Vehicle
 	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@BUNKER: ^TankBunkerable
@@ -1261,29 +1059,29 @@ d2kharkonnensiegetank:
 		Payload: 500
 		Voice: Move
 	Tooltip:
-		Name: Siege Tank
+		Name: Flame Tank
 	Tooltip@NoRow:
-		Name: Siege Tank
+		Name: Flame Tank
 	Selectable:
-		Class: siegetank
+		Class: d2kharkflametank
 		Bounds: 1206, 1930, 0, -289
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Harkonnen
 		Prerequisites: ~harkonnenheavyweap
 		BuildPaletteOrder: 30
-		Description: actor-d2ksiegetank.description
+		Description: actor-d2kcombattank.description
 		BuildDuration: 250
 		BuildDurationModifier: 100
 		IconPalette: chromedune
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
-		Speed: 43
-		TurnSpeed: 12
-		Locomotor: wheeled
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: omnicrusher
 		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
 	Health:
-		HP: 30000
+		HP: 50000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -1300,16 +1098,16 @@ d2kharkonnensiegetank:
 		FacingTolerance: 0
 	AutoTarget:
 	Armament@primary:
-		Weapon: d2ksiegemm
-		Damage: 100
+		Weapon: Flamer
+		Damage: 90
 		Recoil: 87
 		RecoilRecovery: 12
 		LocalOffset: 896,0,640
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: d2ksiegemmE
-		Damage: 150
+		Weapon: FlamerE
+		Damage: 180
 		Recoil: 87
 		RecoilRecovery: 12
 		LocalOffset: 896,0,640
@@ -1321,7 +1119,6 @@ d2kharkonnensiegetank:
 	AttackFrontal:
 		FacingTolerance: 0
 	WithMuzzleOverlay:
-	WithSpriteTurret:
 	WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: D2kVehicleVoice
@@ -1339,8 +1136,99 @@ d2kharkonnensiegetank:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
-		Image: d2ksiege_tank
-		PlayerPalette: d2kpal2
+		Image: flame_tank_h
+		PlayerPalette: player_rgba
+
+d2kinkvinecatapult:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Inkvine Catapult
+	Tooltip@NoRow:
+		Name: Inkvine Catapult
+	Selectable:
+		Class: d2kharkflametank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Harkonnen
+		Prerequisites: ~harkonnenheavyweap
+		BuildPaletteOrder: 30
+		Description: actor-d2kcombattank.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: inkvinecatapult
+		Damage: 90
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: inkvinecatapultE
+		Damage: 180
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: inkvine_catapult_d2k_h
+		PlayerPalette: player_rgba
 
 #######################################
 # D2K Infantry
@@ -2274,8 +2162,12 @@ ordosrepair_pad:
 	Voiced:
 		VoiceSet: AirfieldVoice
 		Volume: 0.8
+	-WithResupplyAnimation:
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 1,0, 1,1
 	ActorStatValues:
 		Stats: Armor, Sight, Power
 	RenderSprites:
@@ -3949,8 +3841,12 @@ atreidesrepair_pad:
 	Voiced:
 		VoiceSet: AirfieldVoice
 		Volume: 0.8
+	-WithResupplyAnimation:
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinery only when it has a combat producing line.
+	SpawnNeighboringActors:
+		ActorTypes: gadock
+		Locations: 1,0, 1,1
 	ActorStatValues:
 		Stats: Armor, Sight, Power
 	RenderSprites:
@@ -5363,8 +5259,8 @@ d2kharkonnendevastator:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
-		Speed: 75
-		TurnSpeed: 32
+		Speed: 42
+		TurnSpeed: 12
 		Locomotor: omnicrusher
 	Health:
 		HP: 150000
@@ -5426,6 +5322,11 @@ d2kharkonnendevastator:
 	AttackFrontal:
 		FacingTolerance: 0
 	WithFacingSpriteBody:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
 	WithMuzzleOverlay:
 		IgnoreOffset: true
 	Voiced:
@@ -5445,10 +5346,10 @@ d2kharkonnendevastator:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: devastator
-		PlayerPalette: d2kpal2
+		PlayerPalette: player_rgba
 
 ornithopter:
-	Inherits: ^Helicopter
+	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CHAOS: ^BerserkableAircraftArmed
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -5477,14 +5378,17 @@ ornithopter:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Aircraft:
-		CanForceLand: true
-		LandableTerrainTypes: Clear, Sand, Rough, Road, DirtRoad, Ore, Gems
-		Crushes: crate
-		CrushDamageTypes: NonTemporal
-		Speed: 224
-		TurnSpeed: 40
-		AltitudeVelocity: 200
-		CruisingCondition: cruising
+		AltitudeVelocity: 240
+		TurnSpeed: 20
+		IdleTurnSpeed: 10
+		IdleSpeed: 112
+		Speed: 225
+		TakeoffSounds: vintupa.wav
+		LandingSounds: vintdna.wav
+		SoundVolume: 0.3
+		Roll: 56
+		RollSpeed: 14
+		PauseOnCondition: emp || magnefreeze || chronodisable
 	Selectable:
 		Bounds: 1882, 2075, 0, -724
 	Health:
@@ -5499,22 +5403,53 @@ ornithopter:
 	#	Range: 10c0
 	#	Types: SatelliteScan
 	#	Type: GroundPosition
-	Armament@standard:
-		Weapon: TSHMLRS
+	Armament:
+		Weapon: Maverick
 		Damage: 100
+		PauseOnCondition: !ammo
 		RequiresCondition: !rank-elite
-	Armament@elite:
-		Weapon: TSHMLRSE
+	Armament@Elite:
+		Weapon: MaverickE
 		Damage: 150
+		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
 	Armament@AA:
-		Weapon: TSHMLRSAA
-		Damage: 100
+		Weapon: MaverickAA
+		PauseOnCondition: !ammo
 		RequiresCondition: !rank-elite
-	Armament@AAE:
-		Weapon: TSHMLRSAAE
-		Damage: 150
+	Armament@EliteAA:
+		Weapon: MaverickAAE
+		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
+	Armament@primarymg:
+		Weapon: BlackHawkCannon
+		Damage: 35
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@primarymg-aa:
+		Weapon: BlackHawkCannonAA
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@elitemg:
+		Weapon: BlackHawkCannonE
+		Damage: 50
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	Armament@elitemg-aa:
+		Weapon: BlackHawkCannonAAE
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	AmmoPool:
+		Ammo: 3
+		ReloadDelay: 75
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
 	AttackAircraft:
 		FacingTolerance: 0
 		Voice: Attack
@@ -5538,8 +5473,12 @@ ornithopter:
 	SpawnActorOnDeath:
 		DeathType: NonTemporal
 		Actor: ornithopterhusk
+	Rearmable:
+		RearmActors: caairp, atreidesrepair_pad
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderVoxels:
+		Image: blanktemplate
 	RenderSprites:
 		Image: ornithopter
 		PlayerPalette: d2kpal2
@@ -5572,6 +5511,170 @@ ornithopterhusk:
 	RenderSprites:
 		Image: ornithopter
 		PlayerPalette: d2kpal2
+
+d2kgunship_h:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableAircraftArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	BodyOrientation:
+		QuantizedFacings: 1
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1750
+		PlayerExperience: 88
+		Voice: Move
+	Tooltip:
+		Name: Gunship
+	Tooltip@NoRow:
+		Name: Gunship
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.Harkonnen
+		BuildPaletteOrder: 40
+		Prerequisites: ~harkonnenhigh_tech_factory
+		Description: actor-d2kgunship.description
+		BuildDuration: 875
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Aircraft:
+		AltitudeVelocity: 240
+		TurnSpeed: 20
+		IdleTurnSpeed: 10
+		IdleSpeed: 112
+		Speed: 225
+		TakeoffSounds: vintupa.wav
+		LandingSounds: vintdna.wav
+		SoundVolume: 0.3
+		Roll: 56
+		RollSpeed: 14
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Selectable:
+		Bounds: 1882, 2075, 0, -724
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Armament:
+		Weapon: Maverick
+		Damage: 100
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@Elite:
+		Weapon: MaverickE
+		Damage: 150
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	Armament@AA:
+		Weapon: MaverickAA
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@EliteAA:
+		Weapon: MaverickAAE
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	Armament@primarymg:
+		Weapon: BlackHawkCannon
+		Damage: 35
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@primarymg-aa:
+		Weapon: BlackHawkCannonAA
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@elitemg:
+		Weapon: BlackHawkCannonE
+		Damage: 50
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	Armament@elitemg-aa:
+		Weapon: BlackHawkCannonAAE
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	AmmoPool:
+		Ammo: 3
+		ReloadDelay: 75
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	AttackAircraft:
+		FacingTolerance: 0
+		Voice: Attack
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	WithMuzzleOverlay:
+	WithFacingSpriteBody:
+	WithShadow:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	HitShape:
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: d2kgunship_h_husk
+	Rearmable:
+		RearmActors: caairp, harkonnenrepair_pad
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderVoxels:
+		Image: blanktemplate
+	RenderSprites:
+		Image: d2kgunshiphark
+		PlayerPalette: player_rgba
+
+d2kgunship_h_husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: actor-disk.name
+	Tooltip@NoRow:
+		Name: actor-disk.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 180
+	FallsToEarth:
+		Explosion: PlaneExplode
+	RevealsShroud:
+		Range: 10c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 10c0
+		Duration: 125
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+	RenderSprites:
+		Image: d2kgunshiphark
+		PlayerPalette: player_rgba
 
 d2kharkonnenrockettank:
 	Inherits: ^Vehicle
@@ -5668,3 +5771,280 @@ d2kharkonnenrockettank:
 	RenderSprites:
 		Image: d2krockettank
 		PlayerPalette: player_rgba
+
+d2kharkcarryall:
+	Inherits: ^Helicopter
+	Inherits@CHAOS: ^BerserkableAircraft
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	Inherits@Voxel: ^TSRenderVoxel
+	Tooltip:
+		Name: Advanced Carryall
+	Tooltip@NoRow:
+		Name: Advanced Carryall
+	Selectable:
+		Class: hind
+		Bounds: 1689, 2896, 0, -965
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Voiced:
+		VoiceSet: TSHeli
+		Volume: 2
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.Harkonnen
+		BuildPaletteOrder: 20
+		Prerequisites: ~harkonnenhigh_tech_factory
+		Description: actor-hind.description
+		IconPalette: ts-chrome
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		PlayerExperience: 40
+		Voice: Move
+	Guard:
+		Voice: Move
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Aircraft:
+		LandableTerrainTypes: Clear, Sand, Rough, Road, DirtRoad, Ore, Gems
+		Crushes: crate
+		CrushDamageTypes: NonTemporal
+		TurnSpeed: 40
+		Speed: 195
+		AltitudeVelocity: 200
+		CruisingCondition: cruising
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+		ForceToGround: true
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+		BobDistance: -45
+	Carryall:
+		LocalOffset: 0,0,-512
+		Voice: Move
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: d2kharkcarryallhusk
+		RequiresCondition: airborne
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	# AmbientSound@Move:
+	#	SoundFiles: vblhlo2a.wav, vblhlo2b.wav, vblhlo2c.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	# SoundAnnouncement@end:
+	#	SoundFiles: vblhlo3.wav
+	#	Volume: 0.5
+	#	RequiresCondition: !moving
+	# GrantConditionOnMovement:
+	#	Condition: moving
+	WithShadow:
+	WithFacingSpriteBody:
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+	RenderSprites:
+		Image: d2kharkcarryall
+		PlayerPalette: player_rgba
+	-WithVoxelBody:
+
+d2kharkcarryallhusk:
+	Inherits: ^HelicopterHusk
+	Inherits@Voxel: ^TSRenderVoxel
+	Tooltip:
+		Name: actor-hind.name
+	Tooltip@NoRow:
+		Name: actor-hind.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 195
+	FallsToEarth:
+		Explosion: PlaneExplode
+	RevealsShroud:
+		Range: 10c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	WithFacingSpriteBody:
+	WithShadow:
+	RevealOnDeath:
+		Radius: 10c0
+		Duration: 125
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+	RenderSprites:
+		Image: d2kharkcarryall
+		PlayerPalette: player_rgba
+	-WithVoxelBody:
+
+d2kairdefenseplatform_h:
+	Inherits: ^Helicopter
+	Inherits@CHAOS: ^BerserkableAircraft
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	Inherits@sprite: ^SpriteActor
+	Tooltip:
+		Name: Air Defense Platform
+	Tooltip@NoRow:
+		Name: Air Defense Platform
+	Selectable:
+		Class: hind
+		Bounds: 1689, 2896, 0, -965
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Voiced:
+		VoiceSet: TSHeli
+		Volume: 2
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.Harkonnen
+		BuildPaletteOrder: 20
+		Prerequisites: ~harkonnenhigh_tech_factory
+		Description: actor-hind.description
+		IconPalette: ts-chrome
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Armament@primarymg:
+		Weapon: BlackHawkCannon
+		Damage: 35
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@primarymg-aa:
+		Weapon: BlackHawkCannonAA
+		LocalOffset: 928,0,128
+		RequiresCondition: !rank-elite
+	Armament@elitemg:
+		Weapon: BlackHawkCannonE
+		Damage: 50
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	Armament@elitemg-aa:
+		Weapon: BlackHawkCannonAAE
+		LocalOffset: 928,0,128
+		RequiresCondition: rank-elite
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		PlayerExperience: 40
+		Voice: Move
+	Guard:
+		Voice: Move
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	Aircraft:
+		LandableTerrainTypes: Clear, Sand, Rough, Road, DirtRoad, Ore, Gems
+		Crushes: crate
+		CrushDamageTypes: NonTemporal
+		TurnSpeed: 40
+		Speed: 195
+		AltitudeVelocity: 200
+		CruisingCondition: cruising
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+		ForceToGround: true
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+		BobDistance: -45
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: d2kairdefenseplatform_h_husk
+		RequiresCondition: airborne
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	# AmbientSound@Move:
+	#	SoundFiles: vblhlo2a.wav, vblhlo2b.wav, vblhlo2c.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	# SoundAnnouncement@end:
+	#	SoundFiles: vblhlo3.wav
+	#	Volume: 0.5
+	#	RequiresCondition: !moving
+	# GrantConditionOnMovement:
+	#	Condition: moving
+	WithShadow:
+	WithFacingSpriteBody:
+	HitShape:
+	AttackTurreted:
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		Offset: 0,0,0
+		RealignDelay: 40
+	WithSpriteTurret:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+	RenderSprites:
+		Image: d2kadp
+		PlayerPalette: player_rgba
+
+d2kairdefenseplatform_h_husk:
+	Inherits: ^HelicopterHusk
+	Inherits@Voxel: ^TSRenderVoxel
+	Tooltip:
+		Name: actor-hind.name
+	Tooltip@NoRow:
+		Name: actor-hind.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 195
+	FallsToEarth:
+		Explosion: PlaneExplode
+	RevealsShroud:
+		Range: 10c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 10c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	WithShadow:
+	WithFacingSpriteBody:
+	RevealOnDeath:
+		Radius: 10c0
+		Duration: 125
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+	RenderSprites:
+		Image: d2kadp
+		PlayerPalette: player_rgba
+	-WithVoxelBody:

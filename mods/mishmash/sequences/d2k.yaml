@@ -1194,6 +1194,32 @@ assault_tank_h:
 		Filename: d2kharkassaulttankicon.png
 		Offset: 0,0
 
+flame_tank_h:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: HarkFlameTankSpritesheet-32.png
+		Facings: 32
+	icon:
+		Filename: d2kharkassaulttankicon.png
+		Offset: 0,0
+
+inkvine_catapult_d2k_h:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: HarkInkvineSpritesheet-256.png
+		Facings: 32
+	shoot:
+		Filename: HarkInkvineSpritesheet-256.png
+		Length: 7
+		Facings: 32
+	icon:
+		Filename: d2kharkassaulttankicon.png
+		Offset: 0,0
+
 medium_gun_turret:
 	invisible:
 		Filename: DATA.R8
@@ -1298,31 +1324,74 @@ large_gun_turret:
 		Offset: -30,-24
 
 devastator:
+	Defaults:
+		Scale: 1.0
 	idle:
-		Filename: DATA.R8
-		Start: 2083
-		Facings: -32
+		Filename: HarkDevestatorSpritesheet-256.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	run:
+		Filename: HarkDevestatorSpritesheet-256.png
+		Start: 32
+		Facings: 32
+		Length: 7
+		Tick: 140
 	muzzle:
 		Filename: DATA.R8
-		Start: 4060
-		Tick: 80
+		Start: 3996
+		Tick: 50
 		Facings: -32
-		BlendMode: Additive
-	active:
-		Filename: DATA.R8
-		Start: 3839
-		Length: 14
-		Tick: 130
-		BlendMode: Additive
-	active-2:
-		Filename: DATA.R8
-		Start: 4152
-		Length: 12
-		Tick: 110
 		BlendMode: Additive
 	icon:
 		Filename: DATA.R8
-		Start: 4289
+		Start: 4277
+		Offset: -30,-24
+
+d2kgunshiphark:
+	Defaults:
+		Scale: 1.0
+	idle:
+		Filename: HarkGunshipSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	muzzle:
+		Filename: DATA.R8
+		Start: 3996
+		Tick: 50
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: DATA.R8
+		Start: 4292
+		Offset: -30,-24
+
+d2kharkcarryall:
+	Defaults:
+		Scale: 0.8
+	idle:
+		Filename: HarkAdvCarryallSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: DATA.R8
+		Start: 4292
+		Offset: -30,-24
+
+d2kadp:
+	Defaults:
+		Scale: 0.8
+	idle:
+		Filename: HarkADPSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: CorrectADP-32).png
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: DATA.R8
+		Start: 4292
 		Offset: -30,-24
 
 conyard.atreides:

@@ -2225,6 +2225,7 @@ tsorcacarryallhusk:
 		Image: tsorcacarryall
 	WithVoxelBody:
 		Image: tsorcacarryall
+
 #######################################
 # TS Nod MCV
 #######################################
@@ -4373,11 +4374,13 @@ tsharpy:
 		Sequence: rotor
 		RequiresCondition: airborne
 		PauseOnCondition: disabled
+		Palette: ts-chrome
 	WithIdleOverlay@ROTORGROUND:
 		Offset: 42,0,300
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
 		PauseOnCondition: disabled
+		Palette: ts-chrome
 	RenderSprites:
 		Image: tsapache
 	RenderVoxels:

@@ -638,6 +638,11 @@ blanktemplate:
 	unload: blanktemplate
 	water: blanktemplate
 
+d2kharkcarryall:
+	idle:
+	unload: blanktemplate
+	water: blanktemplate
+	
 tsmmch:
 	barrel: tsmmchbarl
 
