@@ -3363,7 +3363,6 @@ tscyborg:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllable
 	Inherits@PARACHUTE: ^Parachutable
-	Inherits@VOICES: ^WithFeedbackVoicelines
 	Buildable:
 		Queue: Infantry.Shared, Infantry.nod
 		BuildAtProductionType: Soldier

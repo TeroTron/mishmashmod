@@ -1384,6 +1384,7 @@ d2kadp:
 	idle:
 		Filename: HarkADPSpritesheet-32.png
 		Start: 0
+		ZOffset: 2c0
 		Facings: 32
 	turret:
 		Filename: CorrectADP-32).png
