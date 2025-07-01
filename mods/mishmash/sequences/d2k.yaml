@@ -1240,20 +1240,20 @@ repairtank_d2k_a:
 		Filename: d2krepairvehiclecameo.png
 		Offset: 0,0
 
-apc_d2k_a:
-	Defaults:
-		Scale: 0.7
-	idle:
-		Filename: AtrApcSpritesheet-32.png
-		Start: 0
-		Facings: 32
-	turret:
-		Filename: AtrApcTurretSpritesheet-32.png
-		Start: 0
-		Facings: 32
-	icon:
-		Filename: d2katreidesapccameo.png
-		Offset: 0,0
+# apc_d2k_a:
+# 	Defaults:
+# 		Scale: 0.7
+# 	idle:
+# 		Filename: AtrApcSpritesheet-32.png
+# 		Start: 0
+# 		Facings: 32
+# 	turret:
+# 		Filename: AtrApcTurretSpritesheet-32.png
+# 		Start: 0
+# 		Facings: 32
+# 	icon:
+# 		Filename: d2katreidesapccameo.png
+# 		Offset: 0,0
 
 
 assault_tank_h:
