@@ -1090,7 +1090,7 @@ d2ktrike:
 
 harkbuzzsaw:
 	Defaults:
-		Scale: 1.0
+		Scale: 0.7
 	idle:
 		Filename: HarkBuzzsawSpritesheet.png
 		Start: 0
@@ -1109,9 +1109,7 @@ harkbuzzsaw:
 		Facings: -32
 		BlendMode: Additive
 	icon:
-		Filename: DATA.R8
-		Start: 4277
-		Offset: -30,-24
+		Filename: d2kharkonnenbuzzsawcameo.png
 
 d2kquad:
 	Defaults:
@@ -1151,7 +1149,7 @@ d2ksiege_tank:
 
 d2krockettank:
 	Defaults:
-		Scale: 0.9
+		Scale: 0.6
 	idle:
 		Filename: HarkRocketTankSpritesheet-32.png
 		Facings: 32
@@ -1202,11 +1200,10 @@ flame_tank_h:
 		Filename: HarkFlameTankSpritesheet-32.png
 		Facings: 32
 	icon:
-		Filename: d2kharkassaulttankicon.png
+		Filename: d2kharkonnenflametankcameo.png
 		Offset: 0,0
 
 inkvine_catapult_d2k_h:
-	Inherits@MUZZLE: ^WithCannonMuzzle
 	Defaults:
 		Scale: 0.5
 	idle:
@@ -1217,7 +1214,7 @@ inkvine_catapult_d2k_h:
 		Length: 7
 		Facings: 32
 	icon:
-		Filename: d2kharkassaulttankicon.png
+		Filename: d2kharkonneninkvinecameo.png
 		Offset: 0,0
 
 medium_gun_turret:
@@ -1339,14 +1336,24 @@ devastator:
 		Tick: 140
 	muzzle:
 		Filename: DATA.R8
-		Start: 3996
-		Tick: 50
+		Start: 4060
+		Tick: 80
 		Facings: -32
 		BlendMode: Additive
-	icon:
+	active:
 		Filename: DATA.R8
-		Start: 4277
-		Offset: -30,-24
+		Start: 3839
+		Length: 14
+		Tick: 130
+		BlendMode: Additive
+	active-2:
+		Filename: DATA.R8
+		Start: 4152
+		Length: 12
+		Tick: 110
+		BlendMode: Additive
+	icon:
+		Filename: d2kharkonnendevestatorcameo.png
 
 d2kgunshiphark:
 	Defaults:
@@ -1362,9 +1369,8 @@ d2kgunshiphark:
 		Facings: -32
 		BlendMode: Additive
 	icon:
-		Filename: DATA.R8
-		Start: 4292
-		Offset: -30,-24
+		Filename: d2kharkonnengunshipcameo.png
+
 
 d2kharkcarryall:
 	Defaults:
@@ -1374,9 +1380,7 @@ d2kharkcarryall:
 		Start: 0
 		Facings: 32
 	icon:
-		Filename: DATA.R8
-		Start: 4292
-		Offset: -30,-24
+		Filename: d2kharkonnenadvcarryallcameo.png
 
 d2kadp:
 	Defaults:
@@ -1387,13 +1391,11 @@ d2kadp:
 		ZOffset: 2c0
 		Facings: 32
 	turret:
-		Filename: CorrectADP-32).png
+		Filename: HarkADPTurretSpritesheet-32.png
 		Start: 0
 		Facings: 32
 	icon:
-		Filename: DATA.R8
-		Start: 4292
-		Offset: -30,-24
+		Filename: d2kharkonnenadpcameo.png
 
 conyard.atreides:
 	idle:

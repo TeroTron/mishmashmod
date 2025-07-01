@@ -947,7 +947,7 @@ d2kharkbuzzsaw:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: harkbuzzsaw
-		PlayerPalette: d2kpal2
+		PlayerPalette: player_rgba
 
 d2kharkonnencombattank:
 	Inherits: ^Vehicle
@@ -1229,6 +1229,8 @@ d2kinkvinecatapult:
 	RenderSprites:
 		Image: inkvine_catapult_d2k_h
 		PlayerPalette: player_rgba
+
+
 
 #######################################
 # D2K Infantry
