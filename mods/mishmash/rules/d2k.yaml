@@ -1211,6 +1211,7 @@ d2kinkvinecatapult:
 	AttackFrontal:
 		FacingTolerance: 0
 	WithFacingSpriteBody:
+		DefaultAttackSequence: shoot
 	Voiced:
 		VoiceSet: D2kVehicleVoice
 	ProducibleWithLevel@1:
@@ -2622,6 +2623,96 @@ d2kordostrike:
 	RenderSprites:
 		Image: d2ktrike
 		PlayerPalette: d2kpal2
+
+d2k_sandbike_a:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Sand Bike
+	Tooltip@NoRow:
+		Name: Sand Bike
+	Selectable:
+		Class: Trike
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Atreides
+		Prerequisites: ~atreideslightweap
+		BuildPaletteOrder: 30
+		Description: Atreides sand bike.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: para
+		Damage: 25
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+	Armament@primary-elite:
+		Weapon: paraE
+		Damage: 50
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: sandbike_d2k_a
+		PlayerPalette: player_rgba
 
 d2kordosquad:
 	Inherits: ^Vehicle
@@ -4543,7 +4634,7 @@ d2katreidesmongoose:
 		FacingTolerance: 0
 	AutoTarget:
 	Armament@primary:
-		Weapon: 120mm
+		Weapon: MissileLauncher
 		Damage: 90
 		Recoil: 87
 		RecoilRecovery: 12
@@ -4551,7 +4642,7 @@ d2katreidesmongoose:
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
-		Weapon: 120mmE
+		Weapon: MissileLauncher
 		Damage: 180
 		Recoil: 87
 		RecoilRecovery: 12
@@ -4587,6 +4678,186 @@ d2katreidesmongoose:
 	RenderSprites:
 		Image: mongoose_d2k_a
 		PlayerPalette: player_rgba
+
+d2katreidesrepairtank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Repair Tank
+	Tooltip@NoRow:
+		Name: Repair Tank
+	Selectable:
+		Class: Tank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Atreides
+		Prerequisites: ~atreidesheavyweap
+		BuildPaletteOrder: 30
+		Description: Atreides repair vehicle.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: RepairBullet
+		Damage: -50
+		LocalOffset: 164,0,864
+		Cursor: goldwrench
+		OutsideRangeCursor: goldwrench
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	Armament@elite:
+		Weapon: RepairBullet
+		Damage: -100
+		LocalOffset: 164,0,864
+		Cursor: goldwrench
+		OutsideRangeCursor: goldwrench
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: repairtank_d2k_a
+		PlayerPalette: player_rgba
+
+d2katreidesapc:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Apc
+	Tooltip@NoRow:
+		Name: Apc
+	Selectable:
+		Class: Tank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Atreides
+		Prerequisites: ~atreidesheavyweap
+		BuildPaletteOrder: 30
+		Description: Atreides transport vehicle.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 50000
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: 120mmx
+		Damage: 40
+		LocalOffset: 640,0,32
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: 120mmx
+		Damage: 80
+		LocalOffset: 640,0,32
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 6
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: apc_d2k_a
+		PlayerPalette: player_rgba
+
 
 
 d2katreidessiegetank:

@@ -1181,9 +1181,26 @@ combat_tank_h:
 		Start: 4282
 		Offset: -30,-24
 
-mongoose_d2k_a:
+sandbike_d2k_a:
 	Defaults:
 		Scale: 0.7
+	idle:
+		Filename: AtrSandBikeSpritesheet-32.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	muzzle:
+		Filename: DATA.R8
+		Start: 3996
+		Tick: 50
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: d2ksandbikecameo.png
+
+mongoose_d2k_a:
+	Defaults:
+		Scale: 0.10
 	idle:
 		Filename: AtrMongooseSpritesheet-256.png
 		Start: 0
@@ -1207,6 +1224,37 @@ mongoose_d2k_a:
 		BlendMode: Additive
 	icon:
 		Filename: d2kmongoosecameo.png
+
+repairtank_d2k_a:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: AtrRepairTankSpritesheet-256.png
+		Facings: 32
+	shoot:
+		Filename: AtrRepairTankSpritesheet-256.png
+		Start: 32
+		Length: 7
+		Facings: 32
+	icon:
+		Filename: d2krepairvehiclecameo.png
+		Offset: 0,0
+
+apc_d2k_a:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: AtrApcSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: AtrApcTurretSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: d2katreidesapccameo.png
+		Offset: 0,0
+
 
 assault_tank_h:
 	Inherits@MUZZLE: ^WithCannonMuzzle
@@ -1238,6 +1286,7 @@ inkvine_catapult_d2k_h:
 		Facings: 32
 	shoot:
 		Filename: HarkInkvineSpritesheet-256.png
+		Start: 32
 		Length: 7
 		Facings: 32
 	icon:
