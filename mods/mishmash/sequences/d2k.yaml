@@ -1181,6 +1181,33 @@ combat_tank_h:
 		Start: 4282
 		Offset: -30,-24
 
+mongoose_d2k_a:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	run:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 32
+		Facings: 32
+		Length: 7
+		Tick: 140
+	turret:
+		Filename: AtrMongooseMissileSpritesheet-32.png
+		Facings: 32
+		Remap: 54F94B
+	muzzle:
+		Filename: DATA.R8
+		Start: 4028
+		Tick: 60
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: d2kmongoosecameo.png
+
 assault_tank_h:
 	Inherits@MUZZLE: ^WithCannonMuzzle
 	Defaults:
