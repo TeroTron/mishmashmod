@@ -1200,7 +1200,7 @@ sandbike_d2k_a:
 
 mongoose_d2k_a:
 	Defaults:
-		Scale: 0.10
+		Scale: 0.9
 	idle:
 		Filename: AtrMongooseSpritesheet-256.png
 		Start: 0
@@ -1211,7 +1211,7 @@ mongoose_d2k_a:
 		Start: 32
 		Facings: 32
 		Length: 7
-		Tick: 140
+		Tick: 70
 	turret:
 		Filename: AtrMongooseMissileSpritesheet-32.png
 		Facings: 32
@@ -1227,7 +1227,7 @@ mongoose_d2k_a:
 
 repairtank_d2k_a:
 	Defaults:
-		Scale: 0.7
+		Scale: 0.9
 	idle:
 		Filename: AtrRepairTankSpritesheet-256.png
 		Facings: 32
@@ -1240,21 +1240,30 @@ repairtank_d2k_a:
 		Filename: d2krepairvehiclecameo.png
 		Offset: 0,0
 
-# apc_d2k_a:
-# 	Defaults:
-# 		Scale: 0.7
-# 	idle:
-# 		Filename: AtrApcSpritesheet-32.png
-# 		Start: 0
-# 		Facings: 32
-# 	turret:
-# 		Filename: AtrApcTurretSpritesheet-32.png
-# 		Start: 0
-# 		Facings: 32
-# 	icon:
-# 		Filename: d2katreidesapccameo.png
-# 		Offset: 0,0
+apc_d2k_a:
+	Defaults:
+		Scale: 0.8
+	idle:
+		Filename: AtrApcSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: AtrApcTurretSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: d2katreidesapccameo.png
+		Offset: 0,0
 
+airdrone_d2k_a:
+	Defaults:
+		Scale: 1.0 
+	idle:
+		Filename: AtrAirDroneSpritesheet-32.png 
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: d2katrediesairdronecameo.png
 
 assault_tank_h:
 	Inherits@MUZZLE: ^WithCannonMuzzle

@@ -4638,7 +4638,7 @@ d2katreidesmongoose:
 		Damage: 90
 		Recoil: 87
 		RecoilRecovery: 12
-		LocalOffset: 896,0,640
+		LocalOffset: 0,0,640
 		MuzzleSequence: muzzle
 		RequiresCondition: !rank-elite
 	Armament@elite:
@@ -4646,7 +4646,7 @@ d2katreidesmongoose:
 		Damage: 180
 		Recoil: 87
 		RecoilRecovery: 12
-		LocalOffset: 896,0,640
+		LocalOffset: 0,0,640
 		MuzzleSequence: muzzle
 		RequiresCondition: rank-elite
 	Turreted:
@@ -4765,100 +4765,210 @@ d2katreidesrepairtank:
 		Image: repairtank_d2k_a
 		PlayerPalette: player_rgba
 
-# d2katreidesapc:
-# 	Inherits: ^Vehicle
-# 	Inherits@BUILDVOICE: ^WithProductionVoicelines
-# 	Inherits@BUNKER: ^TankBunkerable
-# 	Inherits@EXPERIENCE: ^GainsExperience
-# 	Inherits@CHAOS: ^BerserkableVoxelArmed
-# 	Inherits@MC: ^MindControllableDisabledWithIC
-# 	Inherits@RADIATON: ^DamagedByRadiation50Percent
-# 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-# 	Valued:
-# 		Cost: 500
-# 	DeliversCash:
-# 		Payload: 500
-# 		Voice: Move
-# 	Tooltip:
-# 		Name: Apc
-# 	Tooltip@NoRow:
-# 		Name: Apc
-# 	Selectable:
-# 		Class: Tank
-# 		Bounds: 1206, 1930, 0, -289
-# 	Buildable:
-# 		Queue: Vehicle.Shared, Vehicle.Atreides
-# 		Prerequisites: ~atreidesheavyweap
-# 		BuildPaletteOrder: 30
-# 		Description: Atreides transport vehicle.
-# 		BuildDuration: 250
-# 		BuildDurationModifier: 100
-# 		IconPalette: chromedune
-# 	UpdatesPlayerStatistics:
-# 		AddToArmyValue: true
-# 	Mobile:
-# 		Speed: 75
-# 		TurnSpeed: 32
-# 		Locomotor: omnicrusher
-# 		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
-# 	Health:
-# 		HP: 50000
-# 	Armor:
-# 		Type: Medium
-# 	RevealsShroud:
-# 		Range: 10c0
-# 	RevealOnDeath:
-# 		Radius: 10c0
-# 	DetectCloaked:
-# 		Range: 5c0
-# 	RenderDetectionCircle:
-# 	AttackFrontal:
-# 		FacingTolerance: 0
-# 	AutoTarget:
-# 	Armament@primary:
-# 		Weapon: 120mmx
-# 		Damage: 40
-# 		LocalOffset: 640,0,32
-# 		MuzzleSequence: muzzle
-# 		RequiresCondition: !rank-elite
-# 	Armament@elite:
-# 		Weapon: 120mmx
-# 		Damage: 80
-# 		LocalOffset: 640,0,32
-# 		MuzzleSequence: muzzle
-# 		RequiresCondition: !rank-elite
-# 	Cargo:
-# 		Types: Infantry, Garrisoner, SmallVehicle
-# 		MaxWeight: 6
-# 		AfterLoadDelay: 0
-# 		BeforeUnloadDelay: 0
-# 		AfterUnloadDelay: 0
-# 		UnloadVoice: Move
-# 		LoadingCondition: notmobile
-# 	WithCargoSounds:
-# 		EnterSounds: genter1a.wav
-# 		ExitSounds: gexit1a.wav
-# 	WithFacingSpriteBody:
-# 	Voiced:
-# 		VoiceSet: D2kVehicleVoice
-# 	ProducibleWithLevel@1:
-# 		Prerequisites: warfactory.infiltratedorbaacdm
-# 	WithProductionIconOverlay@1:
-# 		Prerequisites: warfactory.infiltratedorbaacdm
-# 		Types: chevron-veteran
-# 	ProducibleWithLevel@2:
-# 		Prerequisites: warfactory.infiltrated, baacdm
-# 	WithProductionIconOverlay@2:
-# 		Prerequisites: warfactory.infiltrated, baacdm
-# 		Types: chevron-elite
-# 	HitShape:
-# 	ActorStatValues:
-# 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
-# 	RenderSprites:
-# 		Image: apc_d2k_a
-# 		PlayerPalette: player_rgba
+d2katreidesapc:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Apc
+	Tooltip@NoRow:
+		Name: Apc
+	Selectable:
+		Class: Tank
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Atreides
+		Prerequisites: ~atreidesheavyweap
+		BuildPaletteOrder: 30
+		Description: Atreides transport vehicle.
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 50000
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: 120mmx
+		Damage: 40
+		LocalOffset: 0,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: 120mmx
+		Damage: 80
+		LocalOffset: 0,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 6
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	WithFacingSpriteBody:
+	Turreted:
+		TurnSpeed: 12
+		Offset: -256,-120,-256
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: apc_d2k_a
+		PlayerPalette: player_rgba
 
-
+d2katreidesairdrone:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableAircraftArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	BodyOrientation:
+		QuantizedFacings: 1
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.Atreides
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 50
+		Prerequisites: ~atreideshigh_tech_factory
+		Description: Light air defense drone
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Air Drone
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 2000
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	Armament:
+		Weapon: MissileLauncher
+		Damage: 40
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 0,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: MissileLauncher
+		Damage: 80
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 0,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Aircraft:
+		AltitudeVelocity: 240
+		TurnSpeed: 20
+		IdleTurnSpeed: 10
+		IdleSpeed: 112
+		Speed: 225
+		TakeoffSounds: vintupa.wav
+		LandingSounds: vintdna.wav
+		SoundVolume: 0.3
+		Roll: 56
+		RollSpeed: 14
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Selectable:
+		Bounds: 1882, 2075, 0, -724
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	AttackAircraft:
+		FacingTolerance: 0
+		Voice: Attack
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	WithFacingSpriteBody:
+	WithShadow:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	HitShape:
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: ornithopterhusk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderVoxels:
+		Image: blanktemplate
+	RenderSprites:
+		Image: airdrone_d2k_a
+		PlayerPalette: player_rgba
 
 d2katreidessiegetank:
 	Inherits: ^Vehicle
