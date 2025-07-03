@@ -5181,6 +5181,100 @@ d2katreidesnewornithopter:
 		Image: ornithopter_new_d2k_a
 		PlayerPalette: player_rgba
 
+d2katrediescarryall:
+	Inherits: ^Helicopter
+	Inherits@CHAOS: ^BerserkableAircraft
+	Inherits@MC: ^MindControllable
+	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
+	Inherits@Voxel: ^TSRenderVoxel
+	Tooltip:
+		Name: Atreides Advanced Carryall
+	Tooltip@NoRow:
+		Name: Atreides Advanced Carryall
+	Selectable:
+		Class: hind
+		Bounds: 1689, 2896, 0, -965
+	Health:
+		HP: 28000
+	Armor:
+		Type: Light
+	Voiced:
+		VoiceSet: TSHeli
+		Volume: 2
+	Buildable:
+		Queue: Aircraft.Shared, Aircraft.Atreides
+		BuildPaletteOrder: 20
+		Prerequisites: ~atreideshigh_tech_factory
+		Description: actor-hind.description
+		IconPalette: ts-chrome
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		PlayerExperience: 40
+		Voice: Move
+	Guard:
+		Voice: Move
+	RevealsShroud:
+		Range: 10c0
+	RevealsShroud@Ground:
+		Range: 10c0
+	Aircraft:
+		LandableTerrainTypes: Clear, Sand, Rough, Road, DirtRoad, Ore, Gems
+		Crushes: crate
+		CrushDamageTypes: NonTemporal
+		TurnSpeed: 40
+		Speed: 250
+		AltitudeVelocity: 200
+		CruisingCondition: cruising
+		PauseOnCondition: emp || magnefreeze || chronodisable
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !airborne
+		ForceToGround: true
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+		BobDistance: -45
+	Carryall:
+		LocalOffset: 0,0,-512
+		Voice: Move
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 6
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: d2kharkcarryallhusk
+		RequiresCondition: airborne
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	WithShadow:
+	WithFacingSpriteBody:
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+	RenderSprites:
+		Image: atredies_carryall_a
+		PlayerPalette: player_rgba
+	-WithVoxelBody:
+
 
 d2katreidessiegetank:
 	Inherits: ^Vehicle
@@ -6474,9 +6568,9 @@ d2kharkcarryall:
 	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
 	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
-		Name: Advanced Carryall
+		Name: Harkonnen Advanced Carryall
 	Tooltip@NoRow:
-		Name: Advanced Carryall
+		Name: Harkonnen Advanced Carryall
 	Selectable:
 		Class: hind
 		Bounds: 1689, 2896, 0, -965
