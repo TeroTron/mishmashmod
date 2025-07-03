@@ -1205,17 +1205,15 @@ mongoose_d2k_a:
 		Filename: AtrMongooseSpritesheet-256.png
 		Start: 0
 		Facings: 32
-		Remap: 54F94B
 	run:
 		Filename: AtrMongooseSpritesheet-256.png
 		Start: 32
 		Facings: 32
 		Length: 7
-		Tick: 70
+		Tick: 100
 	turret:
 		Filename: AtrMongooseMissileSpritesheet-32.png
 		Facings: 32
-		Remap: 54F94B
 	muzzle:
 		Filename: DATA.R8
 		Start: 4028
@@ -1251,9 +1249,27 @@ apc_d2k_a:
 		Filename: AtrApcTurretSpritesheet-32.png
 		Start: 0
 		Facings: 32
+		Offset: 1000,1000,1000
+		Scale: 2.0
 	icon:
 		Filename: d2katreidesapccameo.png
 		Offset: 0,0
+
+sonic_tank_d2k_a:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: AtrSonicTank-256.png
+		Facings: 32
+	shoot:
+		Filename: AtrSonicTank-256.png
+		Start: 32
+		Length: 7
+		Facings: 32
+	icon:
+		Filename: d2ksonictankcameo.png
+		Offset: 0,0
+
 
 airdrone_d2k_a:
 	Defaults:
@@ -1264,6 +1280,28 @@ airdrone_d2k_a:
 		Facings: 32
 	icon:
 		Filename: d2katrediesairdronecameo.png
+
+ornithopter_new_d2k_a:
+	idle:
+		Filename: AtrOrnithopterSpritesheet-256.png
+		Start: 32
+		Facings: 32
+		Length: 7
+		Tick: 120
+	icon:
+		Filename: d2katrediesornithoptercameo.png
+		Offset: 0,0
+
+atredies_carryall_a:
+	Defaults:
+		Scale: 0.8
+	idle:
+		Filename: AtrAdvCarryallSpritesheet-32.png
+		Start: 0
+		Facings: 32
+	icon:
+		Filename: d2katrediesadvcarryallcameo.png
+
 
 assault_tank_h:
 	Inherits@MUZZLE: ^WithCannonMuzzle
