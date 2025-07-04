@@ -1181,9 +1181,6 @@ d2kinkvinecatapult:
 		Type: Light
 	RevealsShroud:
 		Range: 10c0
-	# RevealsShroudToIntelligenceOwner:
-	#	Types: SatelliteScan
-	#	Range: 10c0
 	RevealOnDeath:
 		Radius: 10c0
 	DetectCloaked:
@@ -1209,7 +1206,6 @@ d2kinkvinecatapult:
 		MuzzleSequence: muzzle
 		RequiresCondition: rank-elite
 	WithFacingSpriteBody:
-		DefaultAttackSequence: shoot
 	Voiced:
 		VoiceSet: D2kVehicleVoice
 	ProducibleWithLevel@1:
@@ -1228,6 +1224,152 @@ d2kinkvinecatapult:
 	RenderSprites:
 		Image: inkvine_catapult_d2k_h
 		PlayerPalette: player_rgba
+
+^CloakedVehicle:
+	Cloak:
+		DetectionTypes: GroundCloak
+		CloakedCondition: cloaked
+		InitialDelay: 125
+		CloakDelay: 75
+		PauseOnCondition: cloak-force-disabled || base-reveal || disabled
+		IsPlayerPalette: true
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	GrantCondition:
+		Condition: stealthed
+
+^Burrow:
+	Inherits@cloak: ^CloakedVehicle
+	Mobile:
+		RequireForceMoveCondition: !undeployed
+		ImmovableCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	AttackFrontal:
+		FacingTolerance: 0
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithInfantryBody:
+		RequiresCondition: undeployed
+	WithMakeAnimation:
+		BodyNames: deployed
+		Sequence: deploy
+		Name: deployed
+		RequiresCondition: undeployed
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	RejectsMoveToAttack:
+		RequiresCondition: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		CanDeployOnRamps: true
+		SmartDeploy: true
+		UndeployOnMove: true
+		PauseOnCondition: disabled
+		RequiresCondition: !parachute
+	Cloak:
+		InitialDelay: 50
+		CloakDelay: 50
+		RequiresCondition: deployed
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled || base-reveal
+
+d2kordosdustscout:
+	Inherits: ^Vehicle
+	Inherits: ^Burrow
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Dust Scout
+	Tooltip@NoRow:
+		Name: Dust Scout
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Ordos
+		Prerequisites: ~ordoslightweap
+		BuildPaletteOrder: 30
+		Description: Ordos scout vehicle
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: chromedune
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: para
+		Damage: 25
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+	Armament@primary-elite:
+		Weapon: paraE
+		Damage: 50
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: dust_scout_d2k_o
+		PlayerPalette: player_rgba
+
 
 
 

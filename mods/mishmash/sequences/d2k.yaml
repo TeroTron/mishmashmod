@@ -1327,18 +1327,47 @@ flame_tank_h:
 
 inkvine_catapult_d2k_h:
 	Defaults:
+		Filename: HarkInkvineSpritesheet-256.png
 		Scale: 0.5
 	idle:
-		Filename: HarkInkvineSpritesheet-256.png
+		Start: 0
 		Facings: 32
 	shoot:
-		Filename: HarkInkvineSpritesheet-256.png
 		Start: 32
 		Length: 7
 		Facings: 32
 	icon:
 		Filename: d2kharkonneninkvinecameo.png
 		Offset: 0,0
+
+dust_scout_d2k_o:
+	Defaults:
+		Filename: OrdosDustScoutSpritesheet-263.png
+		Scale: 0.7
+	idle:
+		Start: 0
+		Facings: 32
+	run:
+		Start: 32
+		Facings: 32
+		Length: 5
+		Tick: 90
+	muzzle:
+		Filename: DATA.R8
+		Start: 3996
+		Tick: 50
+		Facings: -32
+		BlendMode: Additive
+	deploy:
+		Start: 256
+		Facings: 1
+		Tick: 100
+	deployed:
+		Start: 256
+		Facings: 1
+		Tick: 100
+	icon:
+		Filename: d2kdustscoutcameo.png
 
 medium_gun_turret:
 	invisible:
