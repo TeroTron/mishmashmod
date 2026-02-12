@@ -637,3 +637,9 @@ send:
 		Filename: bits/cameos/sendicon.png
 	muzzle:
 		Filename: send.shp
+
+#ra1
+
+ra1alliedmcv:
+	icon:
+		Filename: cameo|mcvicon.shp

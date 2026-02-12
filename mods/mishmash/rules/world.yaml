@@ -228,6 +228,18 @@
 		Side: Red Alert 2
 		Description: faction-yuri.description
 		Selectable: true
+	Faction@ra1allied:
+		Name: RA1 Allied
+		InternalName: ra1allied
+		Description: faction-ra1allied.description
+		Side: Red Alert 1
+		Selectable: true
+	Faction@ra1soviet:
+		Name: RA1 Soviet
+		InternalName: ra1soviet
+		Description: faction-ra1soviet.description
+		Side: Red Alert 1
+		Selectable: true
 	Faction@gdi:
 		Name: GDI
 		InternalName: gdi
@@ -425,6 +437,18 @@ World:
 		ClassName: options-starting-units.mcv-only
 		Factions: tkm
 		BaseActor: tkmmcv
+		BaseActorFacing: 640
+	StartingUnits@ra1allied:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: ra1allied
+		BaseActor: ra1alliedmcv
+		BaseActorFacing: 640
+	StartingUnits@ra1soviet:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: ra1soviet
+		BaseActor: ra1sovietmcv
 		BaseActorFacing: 640
 	CrateSpawner:
 		DeliveryAircraft: pdplane.crate

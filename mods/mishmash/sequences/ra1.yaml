@@ -1,0 +1,216 @@
+ra1alliedconst:
+	Defaults:
+		Offset: 0, -60
+		Scale: 1.0
+	idle:
+		Filename: ra1sngcony.shp
+		ShadowStart: 3
+	idle-waves:
+		Filename: bits/structures/water/ggcnst_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ra1sngconymk.shp
+		Length: 50
+		ShadowStart: 50
+	damaged-idle:
+		Filename: ra1sngcony.shp
+		ShadowStart: 3
+	idle-flags:
+		Filename: ra1sngcony_b.shp
+		Length: 18
+		ShadowStart: 18
+		Tick: 150
+	idle-crane:
+		Filename: ra1sngcony_a.shp
+		Length: 1
+		ShadowStart: 51
+		Tick: 150
+	damaged-idle-fans:
+		Filename: ra1sngcony_b.shp
+		Length: 18
+		ShadowStart: 18
+		Tick: 150
+	crane-overlay:
+		Filename: ra1sngcony_a.shp
+		Length: 63
+		ShadowStart: 63
+		Tick: 150
+	damaged-crane-overlay:
+		Filename: ra1sngcony_a.shp
+		Length: 63
+		ShadowStart: 63
+		Tick: 150
+	icon:
+		Filename: bits/cameos/acnsicon.shp
+		Offset: 0,0
+
+ra1alliedpowr:
+	Defaults:
+		Offset: 0, -30
+	idle:
+		Filename: ra1aggpwr.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggpowr.shp
+		Start: 1
+		ShadowStart: 4
+	idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ra1aggpwrmk.shp
+		Length: 40
+		ShadowStart: 40
+	idle-flag:
+		Filename: ra1aggpwr_a.shp
+		Length: 18
+		ShadowStart: 18
+		Tick: 150
+	icon:
+		Filename: cameo|powricon.shp
+		Offset: 0,0
+
+ra1alliedbarracks:
+	Defaults:
+		Offset: 0, -30
+	idle:
+		Filename: ra1aggbarr.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ra1aggbarr.shp
+		Start: 1
+		ShadowStart: 4
+	idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ra1barracksmake.shp
+		Length: 40
+		ShadowStart: 40
+	idle-flag:
+		Filename: ra1aggbarr_a.shp
+		Length: 18
+		ShadowStart: 18
+		Tick: 150
+	icon:
+		Filename: cameo|brrkicon.shp
+		Offset: 0,0
+
+ra1alliedrefinery:
+	Defaults:
+		Offset: -30, -40
+	idle:
+		Filename: ra1ggref.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ra1ggref.shp
+		Start: 1
+		ShadowStart: 4
+	idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ra1ggrefmk.shp
+		Length: 40
+		ShadowStart: 40
+	idle-flag:
+		Filename: ra1ggref_a.shp
+		Length: 18
+		ShadowStart: 18
+		Tick: 150
+	bib:
+		Filename: ra1ggrefbb.shp
+		ShadowStart: 3
+	icon:
+		Filename: cameo|reficon.shp
+		Offset: 0,0
+
+#######################################
+# Red Alert 1 Infantry
+#######################################
+
+ra1ae1:
+	Inherits@BasicDie: ^BasicDie
+	Defaults:
+		Filename: ra1ae1.shp
+		Scale: 1.0
+	paradrop:
+		Filename: ra1ae1.shp
+		Start: 5
+		Facings: 1
+	stand:
+		Facings: 8
+		ShadowStart: 986
+	idle:
+		Facings: 8
+		ShadowStart: 986
+	idle1:
+		Start: 169
+		Length: 9
+		Facings: 1
+		Tick: 80
+		ShadowStart: 1155
+	idle2:
+		Start: 382
+		Length: 27
+		Facings: 1
+		Tick: 80
+		ShadowStart: 1368
+	run:
+		Start: 8
+		Length: 8
+		Facings: 8
+		Tick: 80
+		ShadowStart: 994
+	shoot:
+		Start: 410
+		Length: 32
+		Facings: 8
+		Tick: 200
+		ShadowStart: 1396
+	die:
+		Start: 210
+		Length: 25
+		ShadowStart: 1196
+	die1:
+		Start: 278
+		Length: 36
+		ShadowStart: 1264
+	die2:
+		Start: 278
+		Length: 36
+		ShadowStart: 1264
+	die3:
+		Start: 210
+		Length: 25
+		ShadowStart: 1196
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
+	icon:
+		Filename: cameo|giicon.shp
+		AddExtension: False
