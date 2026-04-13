@@ -111,7 +111,7 @@ ra1alliedbarracks:
 
 ra1alliedrefinery:
 	Defaults:
-		Offset: -30, -40
+		Offset: -30, -45
 	idle:
 		Filename: ra1ggref.shp
 		ShadowStart: 3
@@ -213,4 +213,23 @@ ra1ae1:
 		Offset: 0,0
 	icon:
 		Filename: cameo|giicon.shp
+		AddExtension: False
+
+ra1aharv:
+	Defaults:
+		Scale: 1.0
+	idle:
+		Filename: invisibleitem.shp
+	dock:
+		Filename: invisibleitem.shp
+	dock-loop:
+		Filename: invisibleitem.shp
+	warpout:
+		Filename: invisibleitem.shp
+	harvest:
+		Filename: conquer|oregath.shp
+		Length: 15
+		Facings: 8
+	icon:
+		Filename: tsharvestericon.shp
 		AddExtension: False

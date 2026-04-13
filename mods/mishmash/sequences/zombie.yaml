@@ -447,3 +447,204 @@ bigzombie:
 		Tick: 80
 	icon:
 		Filename: zombie3.png
+
+zombieboomer:
+	Defaults:
+		Filename: ZombieBoomer.png
+		Scale: 0.6
+	stand:
+		Facings: 8
+		Lenght: 1
+	idle1:
+		Facings: 1
+		Lenght: 17
+	idle2:
+		Facings: 1
+		Lenght: 17
+	run:
+		Length: 7
+		Start: 8
+		Tick: 100
+		Facings: 8
+	die1:
+		Length: 14
+		Facings: 1
+	die2:
+		Length: 14
+		Facings: 1
+	paradrop:
+		Facings: 1
+		Lenght: 1
+	cheer:
+		Facings: 1
+		Lenght: 1
+	liedown:
+		Facings: 1
+		Lenght: 1
+	standup:
+		Facings: 1
+		Lenght: 1
+	prone-stand:
+		Facings: 1
+		Lenght: 1
+	prone-run:
+		Facings: 1
+		Lenght: 1
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	icon:
+		Filename: zombieboomericon.png
+
+flyingzombie:
+	Defaults:
+		Filename: FlyingZombie.png
+		Scale: 0.7
+		Tick: 80
+	idle:
+		Start: 8
+		Facings: 8
+		Length: 7
+	idle-air:
+		Start: 8
+		Facings: 8
+		Length: 7
+	stand:
+		Start: 8
+		Facings: 8
+		Length: 7
+	run:
+		Start: 8
+		Facings: 8
+		Length: 7
+	idle1:
+		Start: 8
+		Facings: 8
+		Length: 7
+	idle2:
+		Start: 8
+		Facings: 8
+		Length: 7
+	idle-air:
+		Start: 8
+		Facings: 8
+		Length: 7
+	prone-run:
+		Start: 8
+		Facings: 8
+		Length: 7
+	prone-stand:
+		Start: 8
+		Facings: 8
+		Length: 7
+	flying:
+		Start: 8
+		Facings: 8
+		Length: 7
+	die1:
+		Start: 8
+		Facings: 8
+		Length: 7
+	attack:
+		Start: 8
+		Facings: 8
+		Length: 7
+	flying-attack:
+		Start: 8
+		Facings: 8
+		Length: 7
+	prone-attack:
+		Start: 8
+		Facings: 8
+		Length: 7
+	standup:
+		Start: 8
+		Facings: 8
+		Length: 7
+	cheer:
+		Start: 8
+		Facings: 8
+		Length: 7
+	die4:
+		Filename: nukedie.shp
+		Length: *
+		Facings: 1
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	shadow:
+		Filename: infshdw.shp
+		Start: 1
+		Length: 1
+		Facings: 1
+	# Fly through air squish on ground
+	icon:
+		Filename: flyingzombieicon.png

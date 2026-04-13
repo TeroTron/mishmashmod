@@ -500,10 +500,10 @@ ra1alliedharv:
 		VoiceSet: ChronoMinerVoice
 	RenderVoxels:
 		Image: ra1aore
-		Scale: 8
+		Scale: 6
 		LightAmbientColor: 0.6, 0.6, 0.6
 		LightDiffuseColor: 0.4, 0.4, 0.4
 		LightPitch: 142
 		LightYaw: 682
 	RenderSprites:
-		Image: tsnodharv
+		Image: ra1aharv

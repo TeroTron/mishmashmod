@@ -536,3 +536,209 @@ zombie3:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderSprites:
 		Image: bigzombie
+
+
+boomerzombie:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry.Shared, Infantry.zombie
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 90
+		Description: actor-terror.description
+		Prerequisites: ~zombiebarracks
+		BuildDuration: 100
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 200
+	DeliversCash:
+		Payload: 100
+		Voice: Move
+	Tooltip:
+		Name: actor-terror.name
+	Tooltip@NoRow:
+		Name: actor-terror.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 7500
+	Garrisoner:
+		Voice: Move
+		CustomPipType: gray
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: gray
+	Mobile:
+		Speed: 90
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armor:
+		Type: Flak
+	FireWarheadsOnDeath:
+		DeathTypes: NonTemporal
+		Weapon: TerrorBomb
+		EmptyWeapon: TerrorBomb
+		RequiresCondition: !targetedexp
+	FireWarheadsOnDeath@Targeted:
+		DeathTypes: NonTemporal
+		Weapon: TargetedTerrorBomb
+		EmptyWeapon: TargetedTerrorBomb
+		RequiresCondition: targetedexp
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 512
+	Armament@PRIMARY:
+		Weapon: DemoTruckTargeting
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	GrantConditionOnAttack:
+		Condition: triggered
+	GrantConditionOnDeploy:
+		Voice: Attack
+		CanDeployOnRamps: True
+		DeployedCondition: triggered
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	KillsSelf@triggered:
+		DamageTypes: NonTemporal
+		RequiresCondition: triggered
+	WithInfantryBody:
+	Voiced:
+		VoiceSet: ZombieVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: HoldFire
+		InitialStanceAI: AttackAnything
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, Spread
+		Damage: 450
+		Spread: 2c0
+	RenderSprites:
+		Image: zombieboomer
+		PlayerPalette: player_rgba
+
+flyingzombie:
+	Inherits: ^JumpjetInfantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableRocketeer
+	Inherits@EXPERIENCE: ^GainsExperience
+	HiddenUnderFog:
+		Type: CenterPosition
+	Buildable:
+		Queue: Infantry.Shared, Infantry.zombie
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 60
+		Prerequisites: ~zombiebarracks
+		Description: actor-jumpjet.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Jumpjet Trooper
+	Tooltip@NoRow:
+		Name: Jumpjet Trooper
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	RevealsShroud:
+		Range: 8c0
+	RevealsShroud@Ground:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	Armor:
+		Type: Light
+	Armament@second:
+		Name: secondary
+		Weapon: zombiespit
+		Damage: 100
+		FireDelay: 4
+		RequiresCondition: !rank-elite
+	Armament@second-elite:
+		Name: secondary
+		Weapon: zombiespitE
+		Damage: 150
+		FireDelay: 4
+		RequiresCondition: rank-elite
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 2
+		AttackType: Hover
+	WithInfantryBody:
+		RequiresCondition: !airborne
+	WithInfantryBody@Air:
+		StandSequences: idle
+		MoveSequence: idle-air
+		DefaultAttackSequence: flying-attack
+		IdleSequences: idle-air
+		RequiresCondition: airborne
+	Voiced:
+		VoiceSet: ZombieVoice
+	# AmbientSound:
+	#	SoundFiles: iroclo2a.wav, iroclo2b.wav, iroclo2c.wav
+	#	Volume: 0.25
+	#	RequiresCondition: moving
+	# GrantConditionOnMovement:
+	#	Condition: moving
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	SpawnActorOnDeath:
+		Actor: flyingzombie.husk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+	RenderSprites:
+		Image: flyingzombie
+		PlayerPalette: player_rgba
+
+flyingzombie.husk:
+	Inherits: ^HelicopterHusk
+	Inherits@1: ^SpriteActor
+	WithFacingSpriteBody:
+	-RenderVoxels:
+	-WithVoxelBody:
+	Tooltip:
+		Name: actor-jumpjet.name
+	Tooltip@NoRow:
+		Name: actor-jumpjet.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 180
+	FallsToEarth:
+		Explosion: InfantryExplode
+	RevealsShroud:
+		Range: 8c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 8c0
+		Duration: 125
+	WithSpriteBody@shadow:
+		Name: shadow
+		Sequence: shadow
+		ForceToGround: true
+	RenderSprites:
+		Image: flyingzombie
+		PlayerPalette: player_rgba
