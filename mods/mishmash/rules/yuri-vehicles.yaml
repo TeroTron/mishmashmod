@@ -3,7 +3,7 @@ pcv:
 	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
 	Inherits@GRINDER: ^AffectedByGrinderTreads
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans, Ship.Shared, Ship.Yuri
+		Queue: Vehicle.Shared, Vehicle.Yuri
 		Description: actor-pcv.description
 		Prerequisites: ~vehicleorship.yuri, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
 	Hovers:
@@ -30,10 +30,10 @@ smin:
 	Inherits@RADIATON: ^DamagedByRadiation10Percent
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Psi
+		Queue: Vehicle.Shared, Vehicle.Yuri
 		BuildPaletteOrder: 90
 		Description: actor-smin.description
-		Prerequisites: ~vehicle.psicorps, yadome, ~!global-megawealth, ~techlevel.3
+		Prerequisites: ~vehicle.yuri, yadome, ~!global-megawealth, ~techlevel.3
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Valued:
@@ -141,7 +141,7 @@ gmin:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Yuri
 		Description: actor-gmin.description
-		Prerequisites: ~vehicle.yuri, refinery, ~!global-megawealth, ~techlevel.1
+		Prerequisites: ~vehicle.unused, refinery, ~!global-megawealth, ~techlevel.1
 	Tooltip:
 		Name: actor-gmin.name
 	Tooltip@NoRow:

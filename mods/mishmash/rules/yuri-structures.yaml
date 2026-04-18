@@ -363,7 +363,7 @@ yarefn:
 	Inherits@DISK: ^DiskStealable
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Building.Unused # Building.Yuri
+		Queue: Building.Shared, Building.Yuri
 		BuildPaletteOrder: 30
 		Prerequisites: power
 		Description: actor-yarefn.description
@@ -577,8 +577,8 @@ yarefn:
 yarfn2:
 	Inherits: ^Refinery
 	Buildable:
-		Queue: Building.Shared, Building.Yuri
-		Prerequisites: ~building.yuri, power, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+		Queue: Building.Shared, Building.unused
+		Prerequisites: ~building.unused, power, ~!global-megawealth, ~techlevel.1, ~AIantiRush
 	ProvidesPrerequisite@psirefn:
 		Prerequisite: psirefn
 	FreeActor:
@@ -1653,12 +1653,12 @@ yagntc:
 		Name: actor-yagntc.name
 	Tooltip@NoRow:
 		Name: actor-yagntc.name
-	GrantExternalConditionPower@LAZARUSSHIELD:
+	DetonateWeaponPower@Mutate:
 		Icons:
 			1: invis
 		Prerequisites:
 			1: yagntc
-		OrderName: Invisibility
+		OrderName: GeneticMutator
 		# Cursor: iron-curtain
 		BlockedCursor: ability-blocked
 		ChargeInterval: 6000
@@ -1666,6 +1666,8 @@ yagntc:
 			1: actor-yagntc.power-name
 		Descriptions:
 			1: actor-yagntc.power-description
+		Weapons:
+			1: Mutate
 		AllowMultiple: true
 		Durations:
 			1: -1

@@ -3784,14 +3784,13 @@ actor-yasgen =
       Requires power to operate.
 
 actor-yagntc =
-   .name = Lazarus Shield Generator
-   .description = Makes vehicles invisible.
+   .name = Genetic Mutator
+   .description = Transforms Infantries to Brutes.
     Kills infantry.
     
       Requires power to operate.
-   .power-name = Invisibility
-   .power-description = Makes a group of units invisibile
-    unless they are firing.
+   .power-name = Genetic Mutator
+   .power-description = Transforms Infantries to Brutes.
     
     Kills infantry.
 

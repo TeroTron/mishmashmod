@@ -562,20 +562,26 @@ Player:
 					TargetMetric: None
 					CheckRadius: 8c0
 			geneticmutator:
-				OrderName: TransylvaniaGeneticMutator
-				MinimumAttractiveness: 5
+				OrderName: GeneticMutator
+				MinimumAttractiveness: 250
+				Types: Ground
+				IgnoreVisibility: true
 				Consideration@1:
 					Against: Enemy
-					Types: Infantry
+					Types: Structure
 					Attractiveness: 1
-					TargetMetric: None
-					CheckRadius: 8c0
+					TargetMetric: Value
+					CheckRadius: 7c0
 				Consideration@2:
 					Against: Enemy
-					Types: Water
-					Attractiveness: -5
-					TargetMetric: None
-					CheckRadius: 8c0
+					Types: Ground, Water
+					Attractiveness: 10
+					TargetMetric: Health
+					CheckRadius: 6c768
+				Consideration@3:
+					Against: Ally
+					Types: Ground, Water
+					Attractiveness: -20
 			ioncannon:
 				OrderName: LunarIonCannon
 				MinimumAttractiveness: 3000
@@ -699,7 +705,7 @@ Player:
 		ExcessPowerIncreaseThreshold: 3
 		MaxBaseRadius: 25
 		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst
-		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
 		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
 		BarracksTypes: zombiebarracks, nodbarracks, atreidesbarracks, harkonenbarracks, ordosbarracks, gdibarracks, gapile, gapilb, nahand, yabrck, yabrcb, babarr, babarb
@@ -1017,7 +1023,7 @@ Player:
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
 		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
 		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
@@ -1385,7 +1391,7 @@ Player:
 		ExcessPowerIncreaseThreshold: 25
 		MaxBaseRadius: 25
 		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
-		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfn2, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
+		RefineryTypes: zombiepowr, nodrefinery, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarefn, yarfnb, yarfnc, yarfnd, gdirefinery, atreidesrefinery, harkonnenrefinery, ordosrefinery
 		SiloTypes: gasilo, nasilo, yasilo
 		DefenseTypes: nodvulcan, nodsam, nodobelisk, gdivulcan, gdirpg, d2katreidesgunturret, d2katreidesrocketturret, d2kharkonnengunturret, d2kharkonnenrocketturret, d2kordosgunturret, d2kordosrocketturret, gapill, nalasr, yaggun, nasam, naflak, gagun, natbnk, atesla, bamort, tesla, yapsyt, gtgcan, yaeast02, gamgun, nalasr-tr, tesla-tr, naflak-tr, bamort-tr, gapill-tr, nasam-tr, atesla-tr, gagun-tr, gamgun-tr, yaggun-tr, yapsyt-tr, yaeast02-tr
 		PowerTypes: zombiepowr, nodpowr, d2kpowrharkonnen, d2kpowratreides, d2kpowrordos, gdipowr, gapowr, napowr, napowb, nanrct, nanrcb, yapowr
@@ -1759,7 +1765,7 @@ Player:
 		Prerequisites: hack.no_bases
 	####HarvesterBotModule@generic: Drop it due to performance
 	##	RequiresCondition: enable-generic-ai && !megawealth
-	##	HarvesterTypes: cmin, harv, gmin
+	##	HarvesterTypes: cmin, harv, smin
 	PowerDownBotModule@generic:
 		RequiresCondition: enable-generic-ai
 	BuildingRepairBotModule@generic:
@@ -1777,11 +1783,11 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: zombiemcv,tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: zombiemcv,tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, smin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
 		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
-		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
+		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, smin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
 		GuerrillaTypes: robo, mtnk, fv, sref, mgtk, dron, htk, tric, ltnk, ytnk, caos, yhtnk, kite, havoc, disk, txdx, magnedisk
@@ -1796,11 +1802,11 @@ Player:
 		IdleScanRadius: 10
 		AttackScanRadius: 11
 		ProtectionScanRadius: 20
-		ExcludeFromSquadsTypes: zombiemcv, tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, gmin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
+		ExcludeFromSquadsTypes: zombiemcv, tsharvnod, nodmcv, tsengineer, d2kharkonnenengineer, d2katreidesengineer, d2kordosgineer, d2kharkonnenharv, d2katreidesharvcmin, d2kordosharv, tsharv, harv, smin, slav, bpln, dog, amcv, smcv, pcv, gadock, mine, engineer, mengineer, pres.regicide, rmnv.regicide, yuripr.regicide, myak.regicide, spy, ivan, terror, cleg, civan, ccomand, shad, hind-ivans, hind-terrors, hind-dtruck
 		NavalUnitsTypes: dest, adest, aegis, dlph, carrier, sub, hyd, sqd, dred, yhvr, piranha, gatsub, bsub, floater, hydf
 		ConstructionYardTypes: zombieconst, tsnodcnst, gacnst, nacnst, yacnst, tsgtcnst, atreidescnst, harkonnencnst, ordoscnst, gacnst, nacnst, yacnst
 		AirUnitsTypes: tsharpy, tsbanshee, beag, shad, hind, txdx, fortress, havoc, kite, zep, txdx, disk, magnedisk, bpln.buildable, badgr, ornithopter, tsorca, tsorcabomber
-		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, gmin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfn2, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
+		ProtectionTypes: nodobelisk, nodsam, nodvulcan, tsharvnod, cmin, harv, smin, yarefn, slav, smin, amcv, smcv, pcv, gacnst, nacnst, yacnst, gapowr, napowr, napowb, yapowr, gapile, gapilb, nahand, yabrck, yabrcb, babarr, garefn, garefb, garefc, garefd, narefn, narefb, narefc, narefd, yarfnb, yarfnc, yarfnd, gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gadept, nadept, nadepb, yadept, yadepb, yagrnd, garobo, gaairc, gaairb, gaapad, naradr, naheli, yadome, yadisk, basops, baairf, gatech, gatecb, natech, yatech, yatecb, gaspysat, nanrct, nanrcb, yapsis, gaorep, baacdm, naindp, naclon, yaclon, gagatea, gagateb, nagatea, nagateb, yagatea, yagateb, gapill, gapill-tr, nalasr, nalasr-tr, yaggun, yaggun-tr, gagun, gagun-tr, gamgun, gamgun-tr, atesla, atesla-tr, bamort, bamort-tr, tesla, tesla-tr, yapsyt, yapsyt-tr, nasam, nasam-tr, naflak, naflak-tr, natbnk, gagap, napsis, naprop, baprop, yasgen, gacsph, gacspb, nairon, yagntc, gaweat, namisl, yappet
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
 		GuerrillaTypes: robo, mtnk, fv, sref, mgtk, dron, htk, tric, ltnk, ytnk, caos, yhtnk, kite, havoc, disk, txdx, magnedisk
@@ -1895,7 +1901,7 @@ Player:
 			yurix: 2
 			cmin: 100
 			harv: 100
-			gmin: 100
+			smin: 100
 			slav: 40
 			mtnk: 100
 			hytk: 100
@@ -2029,7 +2035,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			engineer: 1
 			medi: 2
 			mech: 2
@@ -2257,7 +2263,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			engineer: 1
 			medi: 2
 			mech: 2
@@ -2353,7 +2359,7 @@ Player:
 			yurix: 2
 			cmin: 100
 			harv: 100
-			gmin: 100
+			smin: 100
 			slav: 40
 			mtnk: 100
 			hytk: 100
@@ -2499,7 +2505,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			engineer: 1
 			medi: 2
 			mech: 2
@@ -2746,7 +2752,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			dog: 4
 			engineer: 1
 			medi: 2
@@ -2851,7 +2857,7 @@ Player:
 			yurix: 2
 			cmin: 100
 			harv: 100
-			gmin: 100
+			smin: 100
 			slav: 40
 			mtnk: 100
 			hytk: 100
@@ -3001,7 +3007,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			dog: 4
 			engineer: 1
 			medi: 2
@@ -3249,7 +3255,7 @@ Player:
 			tsengineer: 1
 			cmin: 6
 			harv: 6
-			gmin: 6
+			smin: 6
 			dog: 4
 			engineer: 1
 			medi: 2
