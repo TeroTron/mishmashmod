@@ -185,7 +185,7 @@ ra1ae1:
 		Start: 410
 		Length: 32
 		Facings: 8
-		Tick: 200
+		Tick: 50
 		ShadowStart: 1396
 	die:
 		Start: 210
@@ -214,6 +214,72 @@ ra1ae1:
 	icon:
 		Filename: cameo|giicon.shp
 		AddExtension: False
+
+ra1ae3:
+	Inherits@BasicDie: ^BasicDie
+	Defaults:
+		Filename: ra1ae3.shp
+		Scale: 1.0
+	paradrop:
+		Filename: ra1ae3.shp
+		Start: 5
+		Facings: 1
+	stand:
+		Facings: 8
+		ShadowStart: 1844
+	idle:
+		Facings: 8
+		ShadowStart: 1844
+	idle1:
+		Start: 439
+		Length: 39
+		Facings: 1
+		Tick: 80
+		ShadowStart: 2283
+	idle2:
+		Start: 478
+		Length: 38
+		Facings: 1
+		Tick: 80
+		ShadowStart: 2322
+	run:
+		Start: 8
+		Length: 8
+		Facings: 8
+		Tick: 80
+		ShadowStart: 1852
+	shoot:
+		Start: 516
+		Length: 82
+		Facings: 8
+		Tick: 10
+		ShadowStart: 2360
+	die:
+		Start: 210
+		Length: 149
+		ShadowStart: 2054
+	die1:
+		Start: 210
+		Length: 149
+		ShadowStart: 2054
+	die2:
+		Start: 210
+		Length: 149
+		ShadowStart: 2054
+	die3:
+		Start: 210
+		Length: 149
+		ShadowStart: 2054
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
+	icon:
+		Filename: cameomd|gdgiicon.shp
 
 ra1aharv:
 	Defaults:

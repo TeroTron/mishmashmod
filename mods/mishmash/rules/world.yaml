@@ -229,13 +229,13 @@
 		Description: faction-yuri.description
 		Selectable: true
 	Faction@ra1allied:
-		Name: RA1 Allied
+		Name: Allied
 		InternalName: ra1allied
 		Description: faction-ra1allied.description
 		Side: Red Alert 1
 		Selectable: true
 	Faction@ra1soviet:
-		Name: RA1 Soviet
+		Name: Soviets
 		InternalName: ra1soviet
 		Description: faction-ra1soviet.description
 		Side: Red Alert 1

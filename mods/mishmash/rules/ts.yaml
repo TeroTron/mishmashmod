@@ -4156,6 +4156,7 @@ tssubapcnod:
 	Mobile:
 		Locomotor: subterranean
 		Speed: 71
+		TerrainOrientationAdjustmentMargin: 256
 		# RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
 	Health:
 		HP: 22000

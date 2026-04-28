@@ -702,11 +702,7 @@ ra1alliedmcv:
 	idle:
 	water:
 
-ra1aharv:
-	idle:
-	water:
-
-ra1aore:
-	idle:
-	water:
-	unload: ra1aoresu
+ra1alliedharv:
+	idle: harvb
+	water: harvb
+	unload: harvb

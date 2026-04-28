@@ -5,7 +5,7 @@
 tkmcommandcenter:
 	Defaults:
 		Filename: sgcnst.shp
-		Offset: 0,-34,0
+		Offset: 0,-55,0
 	idle:
 		Filename: sgcnst.shp
 		Length: 1
@@ -346,7 +346,7 @@ tkmbunkerquadturret:
 tkmbunkertankturret:
 	Defaults:
 		Filename: tkmbunker.png
-		Scale: 0.5
+		Scale: 0.3
 	idle:
 		Start: 20
 		Length: 1

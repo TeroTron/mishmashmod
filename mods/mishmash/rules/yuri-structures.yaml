@@ -547,7 +547,7 @@ yarefn:
 	Voiced:
 		VoiceSet: SlaveMinerVoice
 	StoresPlayerResources:
-		Capacity: 1000
+		Capacity: 1000000
 	FireWarheadsOnDeath:
 		RequiresCondition: !spawn-ore
 	FireWarheadsOnDeath@Ore:

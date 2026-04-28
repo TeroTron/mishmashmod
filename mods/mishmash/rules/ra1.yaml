@@ -465,7 +465,7 @@ ra1ae1:
 		RequiresCondition: parachute
 	WithDeathAnimation@normal:
 	Voiced:
-		VoiceSet: ConscriptVoice
+		VoiceSet: GIVoice
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	RenderSprites:
@@ -473,6 +473,137 @@ ra1ae1:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
+ra1ae3:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.ra1allied
+		BuildAtProductionType: Soldier
+		Prerequisites: ~ra1alliedbarracks
+		BuildPaletteOrder: 10
+		Description: actor-tsrocketinfantry.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Rocket Infantry
+	Tooltip@NoRow:
+		Name: Rocket Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@eliteAA:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: GGIVoice
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: ra1ae3
+		
 #######################################
 # RA1 Allied Vehicles
 #######################################
@@ -499,8 +630,8 @@ ra1alliedharv:
 	Voiced:
 		VoiceSet: ChronoMinerVoice
 	RenderVoxels:
-		Image: ra1aore
-		Scale: 6
+		Image: ra1alliedharv
+		Scale: 1.1
 		LightAmbientColor: 0.6, 0.6, 0.6
 		LightDiffuseColor: 0.4, 0.4, 0.4
 		LightPitch: 142
