@@ -1344,7 +1344,10 @@ dust_scout_d2k_o:
 	Defaults:
 		Filename: OrdosDustScoutSpritesheet-263.png
 		Scale: 0.7
-	idle:
+	dot:
+		Filename: dot.shp
+		ZOffset: -9999
+	stand:
 		Start: 0
 		Facings: 32
 	run:
@@ -1352,18 +1355,20 @@ dust_scout_d2k_o:
 		Facings: 32
 		Length: 5
 		Tick: 90
-	muzzle:
+	shoot-muzzle:
 		Filename: DATA.R8
 		Start: 3996
 		Tick: 50
 		Facings: -32
 		BlendMode: Additive
 	deploy:
-		Start: 256
+		Start: 249
+		Length: *
 		Facings: 1
-		Tick: 100
+		Tick: 50
 	deployed:
-		Start: 256
+		Start: 261
+		Length: 1
 		Facings: 1
 		Tick: 100
 	icon:
@@ -1522,7 +1527,6 @@ d2kgunshiphark:
 		BlendMode: Additive
 	icon:
 		Filename: d2kharkonnengunshipcameo.png
-
 
 d2kharkcarryall:
 	Defaults:

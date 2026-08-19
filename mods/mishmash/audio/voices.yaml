@@ -1389,6 +1389,7 @@ D2kVehicleVoice:
 		Move: _VCONF1,_VCONF2,_VCONF3
 		Guard: I_GUARD
 		Die: vbledia, vbledib, vbledic, vbledid, vbledie
+		Deploy: igiate, igisef
 
 D2kInfantryVoice:
 	Inherits: ^InfantryDeath

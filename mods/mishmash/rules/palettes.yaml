@@ -762,3 +762,30 @@
 		ReferenceHue: 0.833
 		ReferenceSaturation: 1
 		ReferenceValue: 0.8
+	PaletteFromFile@ra1aggpwr:
+		Name: ra1aggpwr
+		Filename: ra1aggpwr.pal
+		ShadowIndex: 1
+		AllowModifiers: false
+	PlayerColorPalette@ra1aggpwr:
+		BasePalette: ra1aggpwr
+		BaseName: ra1aggpwr
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	PaletteFromFile@ra1aggbarr:
+		Name: ra1aggbarr
+		Filename: ra1aggbarr.pal
+		ShadowIndex: 1
+		AllowModifiers: false
+	PlayerColorPalette@ra1aggbarr:
+		BasePalette: ra1aggbarr
+		BaseName: ra1aggbarr
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	PaletteFromFile@ra1ggref:
+		Name: ra1ggref
+		Filename: ra1ggref.pal
+		ShadowIndex: 1
+		AllowModifiers: false
+	PlayerColorPalette@ra1ggref:
+		BasePalette: ra1ggref
+		BaseName: ra1ggref
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31

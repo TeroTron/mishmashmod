@@ -50,7 +50,6 @@ tsgtcnst:
 
 gdimcv:
 	Inherits: ^ConstructionVehicle
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildPaletteOrder: 97
@@ -61,6 +60,11 @@ gdimcv:
 		VoiceSet: TSVehicle
 	RenderVoxels:
 		Image: tsmcv
+		Scale: 15.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 #######################################
 # TS GDI Buildings
@@ -76,7 +80,7 @@ gdipowr:
 		LocalCenterOffset: 0,-512,0
 	Tooltip:
 		Name: actor-napowr.name
-	Tooltip@NoRow:
+	Tooltip@NoRow: 
 		Name: actor-napowr.name
 	Building:
 		Footprint: xx xx
@@ -746,7 +750,6 @@ gdirpg:
 
 tsharv:
 	Inherits: ^Miner
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildPaletteOrder: 90
@@ -768,6 +771,13 @@ tsharv:
 		VoiceSet: TSVehicle
 	RenderSprites:
 		Image: tsharv
+	RenderVoxels:
+		Image: tsharv
+		Scale: 15
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 #######################################
 # TS GDI Vehicles
@@ -837,6 +847,8 @@ tssmech:
 	WithAttackOverlay@muzzle:
 		Sequence: shoot-muzzle
 		IsDecoration: true
+	WithMakeAnimation:
+		Sequence: deploy
 	Voiced:
 		VoiceSet: TSVehicle
 	ProducibleWithLevel@1:
@@ -875,7 +887,7 @@ tsmmch:
 		BuildDurationModifier: 100
 		BuildPaletteOrder: 92
 	Mobile:
-		Speed: 105
+		Speed: 70
 	Health:
 		HP: 40000
 	Armament@primary:
@@ -917,7 +929,6 @@ tsmmch:
 
 tshvrmlrs:
 	Inherits: ^Vehicle
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SQUID: ^SquidGrabbable
@@ -1055,6 +1066,11 @@ tshvrmlrs:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderVoxels:
 		Image: tshvr
+		Scale: 15.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	RenderSprites:
 		Image: tshvr
 
@@ -1067,7 +1083,6 @@ tshmec:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@NOGUNNER: ^GunnerKillable
 	Inherits@RADIATON: ^DamagedByRadiation10Percent
-	Inherits@Voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 2750
 	DeliversCash:
@@ -1178,6 +1193,10 @@ tshmec:
 		Bounds: 1544, 2509, 0, -289
 	RenderVoxels:
 		Scale: 15
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	FireWarheadsOnDeath:
 		Weapon: ApocExplode
 		EmptyWeapon: ApocExplode
@@ -1201,7 +1220,6 @@ tshmec:
 	#	SoundFiles: vapostaa.wav, vapostab.wav, vapostac.wav
 	#	Volume: 0.5
 	#	RequiresCondition: moving
-	-WithVoxelBody:
 	WithVoxelWalkerBody:
 		TickRate: 1
 	ActorStatValues:
@@ -1696,7 +1714,6 @@ tsjumpjet.husk:
 
 tsorca:
 	Inherits: ^Plane
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CHAOS: ^BerserkableAircraftArmed
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1862,12 +1879,16 @@ tsorca:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderVoxels:
 		Image: tsorca
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	RenderSprites:
 		Image: tsorca
 
 tsorcahusk:
 	Inherits: ^PlaneHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-orca.name
 	Tooltip@NoRow:
@@ -1901,10 +1922,14 @@ tsorcahusk:
 		RequiresCondition: a2amissiles && predator_missiles
 	RenderVoxels:
 		Image: tsorca
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsorcabomber:
 	Inherits: ^Plane
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CHAOS: ^BerserkableAircraftArmed
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2062,12 +2087,16 @@ tsorcabomber:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 	RenderVoxels:
 		Image: tsorcabomber
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	RenderSprites:
 		Image: tsorcabomber
 
 tsorcabomberhusk:
 	Inherits: ^PlaneHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-orca.name
 	Tooltip@NoRow:
@@ -2101,13 +2130,17 @@ tsorcabomberhusk:
 		RequiresCondition: a2amissiles && predator_missiles
 	RenderVoxels:
 		Image: tsorcabomber
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsorcacarryall:
 	Inherits: ^Helicopter
 	Inherits@CHAOS: ^BerserkableAircraft
 	Inherits@MC: ^MindControllable
 	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: Orca Carryall
 	Tooltip@NoRow:
@@ -2169,6 +2202,12 @@ tsorcacarryall:
 	WithVoxelBody:
 		Image: tsorcacarryall
 		ForceToGround: true
+	RenderVoxels:
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 		BobDistance: -45
@@ -2199,7 +2238,6 @@ tsorcacarryall:
 
 tsorcacarryallhusk:
 	Inherits: ^HelicopterHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-hind.name
 	Tooltip@NoRow:
@@ -2225,6 +2263,12 @@ tsorcacarryallhusk:
 		Image: tsorcacarryall
 	WithVoxelBody:
 		Image: tsorcacarryall
+	RenderVoxels:
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 #######################################
 # TS Nod MCV
@@ -2277,7 +2321,6 @@ tsnodcnst:
 
 nodmcv:
 	Inherits: ^ConstructionVehicle
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
 		BuildPaletteOrder: 8
@@ -2288,6 +2331,11 @@ nodmcv:
 		VoiceSet: TSMCVNOD
 	RenderVoxels:
 		Image: tsmcvblack
+		Scale: 15.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 nodpowr:
 	Inherits: ^PowerPlant
@@ -2328,7 +2376,7 @@ nodrefinery:
 	Building:
 		Footprint: xxX+ xx++ xxX+
 		Dimensions: 4,3
-		LocalCenterOffset: 0,-800,0
+		LocalCenterOffset: 250,-400,0
 	FreeActor:
 		Actor: tsharvnod
 	SmokeParticleEmitter@refinerysmoke1:
@@ -2361,7 +2409,6 @@ nodrefinery:
 
 tsharvnod:
 	Inherits: ^Miner
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.nod
 		BuildPaletteOrder: 1
@@ -2383,7 +2430,11 @@ tsharvnod:
 		VoiceSet: nodharv
 	RenderVoxels:
 		Image: tsnodharv
-		Scale: 1
+		Scale: 1.5
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	RenderSprites:
 		Image: tsnodharv
 
@@ -2822,7 +2873,6 @@ nodvulcan:
 	Inherits: ^SupportBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@MC: ^MindControllableBuilding
-	Inherits@voxel: ^TSRenderVoxel
 	Buildable:
 		Queue: Support.Shared, Support.nod
 		Prerequisites: ~tsnodcnst, nodbarracks, ~techlevel.1
@@ -2884,6 +2934,11 @@ nodvulcan:
 		PlayerPalette: tibsun
 	RenderVoxels:
 		Image: tsnalasr
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 nodsam:
 	Inherits: ^SupportBuilding
@@ -3674,7 +3729,6 @@ tscyborg:
 
 tsticktank:
 	Inherits: ^MainBattleTank
-	Inherits@voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 700
 	DeliversCash:
@@ -3762,6 +3816,11 @@ tsticktank:
 		Image: tsttnksprite
 	RenderVoxels:
 		Image: tsttnkvoxel
+		Scale: 15.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
@@ -3773,7 +3832,6 @@ tsattackbuggy:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -3843,8 +3901,14 @@ tsattackbuggy:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: tsbggy
+	WithVoxelBody:
 	RenderVoxels:
 		Image: tsbggy
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsbike:
 	Inherits: ^Vehicle
@@ -3854,7 +3918,6 @@ tsbike:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -3928,8 +3991,14 @@ tsbike:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: tsbike
+	WithVoxelBody:
 	RenderVoxels:
 		Image: tsbike
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsnodartillery:
 	Inherits: ^Vehicle
@@ -3939,7 +4008,6 @@ tsnodartillery:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@voxel: ^TSRenderVoxel
 	Valued:
 		Cost: 1000
 	DeliversCash:
@@ -4022,18 +4090,23 @@ tsnodartillery:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	RenderSprites:
 		Image: tsart2
+	WithVoxelBody:
 	RenderVoxels:
 		Image: tsart2
+		Scale: 14.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tssubapcnod:
-	Inherits: ^Vehicle
+	Inherits@Vehicle: ^Vehicle
 	Inherits@BUNKER: ^TankBunkerable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@CHAOS: ^BerserkableVoxelArmed
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@voxel: ^TSRenderVoxel
 	Inherits@sub: ^SubterraneanVoxelVehicle
 	Valued:
 		Cost: 500
@@ -4083,6 +4156,7 @@ tssubapcnod:
 	Mobile:
 		Locomotor: subterranean
 		Speed: 71
+		TerrainOrientationAdjustmentMargin: 256
 		# RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
 	Health:
 		HP: 22000
@@ -4103,12 +4177,14 @@ tssubapcnod:
 	AutoTarget:
 	Armament@primary:
 		Weapon: TSMissileLauncher
+		MuzzleSequence: muzzle
 		Damage: 40
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
 		RequiresCondition: !rank-elite
 	Armament@elite:
 		Weapon: TSMissileLauncherE
+		MuzzleSequence: muzzle
 		Damage: 80
 		LocalOffset: 256,0,768
 		PauseOnCondition: chronodisable || webdisable || dogstun
@@ -4132,10 +4208,20 @@ tssubapcnod:
 		Image: tssapc
 	RenderVoxels:
 		Image: tssapc
+		Scale: 15.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsstealthtank:
 	Inherits: ^Vehicle
-	Inherits@voxel: ^TSRenderVoxel
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 1000
 	DeliversCash:
@@ -4199,6 +4285,11 @@ tsstealthtank:
 		Image: tsstnk
 	RenderVoxels:
 		Image: tsstnk
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
@@ -4384,6 +4475,11 @@ tsharpy:
 		Image: tsapache
 	RenderVoxels:
 		Image: tsapache
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsharpyhusk:
 	Inherits: ^PlaneHusk
@@ -4422,6 +4518,11 @@ tsharpyhusk:
 		Image: tsapache
 	RenderVoxels:
 		Image: tsapache
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsbanshee:
 	Inherits: ^Plane
@@ -4594,6 +4695,11 @@ tsbanshee:
 		Image: tsscrin
 	RenderVoxels:
 		Image: tsscrin
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682
 
 tsbansheehusk:
 	Inherits: ^PlaneHusk
@@ -4632,3 +4738,8 @@ tsbansheehusk:
 		Image: tsscrin
 	RenderVoxels:
 		Image: tsscrin
+		Scale: 12.0
+		LightAmbientColor: 0.6, 0.6, 0.6
+		LightDiffuseColor: 0.4, 0.4, 0.4
+		LightPitch: 142
+		LightYaw: 682

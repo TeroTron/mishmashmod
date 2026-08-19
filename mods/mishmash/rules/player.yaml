@@ -193,6 +193,21 @@ Player:
 		QueuedAudio: Building
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgTKM:
+		Type: Upgrade.tkm
+		Group: Upgrade
+		DisplayOrder: 11
+		LowPowerModifier: 200
+		AlwaysShowForFactions: tkm
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ClassicProductionQueue@UpgBakuPact:
 		Type: Upgrade.Baku
 		Group: Upgrade
@@ -231,7 +246,7 @@ Player:
 		Produces: Upgrade.Shared, Upgrade.Unused
 		RequiresCondition: upgrades_enabled && !multiqueue
 	Production@Upgrade:
-		Produces: Upgrade.Allies, Upgrade.Soviets, Upgrade.Yuri, Upgrade.Baku, Upgrade.Unused
+		Produces: Upgrade.TKM
 		RequiresCondition: upgrades_enabled && multiqueue
 	ProvidesPrerequisite@upgrade.allies:
 		Prerequisite: upgrade.allies
@@ -296,6 +311,9 @@ Player:
 	GrantConditionOnPrerequisite@upgrades_enabled:
 		Condition: upgrades_enabled
 		Prerequisites: global-upgrades
+	ProvidesPrerequisite@upgrade.tkm:
+		Prerequisite: upgrade.tkm
+		Factions: tkm
 	GrantConditionOnPrerequisite@multiqueue:
 		Condition: multiqueue
 		Prerequisites: global-multiqueue

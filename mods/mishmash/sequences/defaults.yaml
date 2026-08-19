@@ -87,6 +87,51 @@
 		Facings: 8
 		Tick: 100
 
+^BasicDie:
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+
 ^Infantry:
 	Inherits@1: ^BasicInfantry
 	Inherits@2: ^ProneInfantry
@@ -400,3 +445,34 @@
 	muzzle-2:
 		Filename: conquer|vtmuzzle.shp
 		Length: *
+
+dig:
+	Defaults:
+		Filename: dig_t.shp
+		BasePalette: effect
+	idle:
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0
+	smallidle:
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0
+		Scale: 0.5
+	smallidleoffset:
+		Length: *
+		ZOffset: 511
+		Offset: 0, -12
+		Scale: 0.5
+	mine-dig:
+		Length: *
+		ZOffset: -512
+		Offset: 0, 1.8, -1.8
+		Scale: 0.8
+		Tick: 30
+	ticktnk-dig:
+		Length: *
+		ZOffset: -512
+		Offset: -3, 3, -3
+		Scale: 0.6
+		Tick: 25

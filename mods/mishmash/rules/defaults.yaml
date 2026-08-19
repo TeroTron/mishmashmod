@@ -3214,6 +3214,53 @@
 	RangedGpsDot:
 		Sequence: Vehicle
 
+^SubterraneanVehicle:
+	Inherits: ^Vehicle
+	RevealsShroud:
+		Range: 8c0
+		Type: GroundPosition
+	RevealOnDeath:
+		Duration: 50
+		Radius: 4c0
+	Mobile:
+		TurnSpeed: 24
+		Speed: 90
+		Locomotor: subterranean
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel && !submerged
+	Cloak@subterranean:
+		RequiresCondition: submerged
+		InitialDelay: 25
+		CloakDelay: 25
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Demolish, Damage
+	RejectsOrders@subterranean:
+		RequiresCondition: submerged
+		Except: Stop
+	Mobile:
+		PauseOnCondition: empdisable || resurfaced || carrylock
+	Carryable:
+		RequiresCondition: !inside-tunnel && !submerged
+	Targetable:
+		RequiresCondition: !inside-tunnel && !submerged
+	Targetable@NoAutoTarget:
+		TargetTypes: NoAutoTarget
+		RequiresCondition: submerged
+	#AnnounceOnSeen@subterranean:
+		#PingRadar: true
+		#Notification: SubterraneanUnitDetected
+		#TextNotification: notification-subterranean
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		ResurfaceCondition: resurfaced
+		ResurfaceConditionDuration: 75
+		SubterraneanTransitionImage: dig
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionPalette: terrain
+		SubterraneanTransitionSound: subdril1.aud
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && !submerged
+
 ^CivVehicle:
 	Inherits: ^Vehicle
 	Inherits@CHAOS: ^BerserkableVoxel
@@ -4118,15 +4165,6 @@
 	Building:
 		BuildSounds: tsplace2.aud
 
-^TSRenderVoxel:
-	Inherits: ^RenderVoxel
-	RenderVoxels:
-		Scale: 11.7
-		LightAmbientColor: 0.6, 0.6, 0.6
-		LightDiffuseColor: 0.4, 0.4, 0.4
-		LightPitch: 142
-		LightYaw: 682
-
 ^SubterraneanVoxelVehicle:
 	RevealsShroud:
 		RequiresCondition: !submerged
@@ -4140,7 +4178,7 @@
 	GrantConditionOnSubterraneanLayer:
 		Condition: submerged
 		SubterraneanTransitionPalette: tseffect
-		SubterraneanTransitionImage: tsdig
+		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionSound: subdril1.aud
 	WithDecoration@UNDERGROUND:
@@ -4154,6 +4192,8 @@
 	AnnounceOnSeen@subterranean:
 		PingRadar: true
 		Notification: SubterraneanUnitDetected
+	GrantConditionOnTunnelLayer:
+		Condition: inside-tunnel
 	GrantCondition@untargetable:
 		Condition: untargetable
 		RequiresCondition: chronobeamed || invulnerability || submerged

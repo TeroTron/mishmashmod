@@ -1,0 +1,2209 @@
+#######################################
+# TKM MCV
+#######################################
+
+tkmcnst:
+	Inherits: ^ConstructionYard
+	Buildable:
+		BuildPaletteOrder: 89
+		IconPalette: chromedune
+	Building:
+	ProvidesPrerequisite@building.tkm:
+		Prerequisite: Building.tkm
+		Factions: tkm
+	Production:
+		Produces: Building.tkm, Support.tkm
+	ProductionQueue@Building:
+		Type: Building.tkm
+		DisplayOrder: 2
+		Factions: tkm
+	ProductionQueue@Support:
+		Type: Support.tkm
+		DisplayOrder: 6
+		Factions: tkm
+	ProductionBar@Building:
+		ProductionType: Building.tkm
+	ProductionBar@Support:
+		ProductionType: Support.tkm
+	ProvidesPrerequisite@upgrade.tkm:
+		Prerequisite: upgrade.tkm
+		RequiresCondition: !powerdown
+	ProvidesPrerequisite@upgrade.tkm:
+		Prerequisite: upgrade.tkm
+		Factions: tkm
+	Transforms:
+		IntoActor: tkmmcv
+	GrantConditionOnFaction@tkm:
+		Condition: tkm
+		Factions: tkm
+	IsometricSelectable:
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: UniversalConstructionYardVoice
+	RenderSprites:
+		Image: tkmcommandcenter
+
+tkmmcv:
+	Inherits: ^ConstructionVehicle
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		Prerequisites: ~tkmrepair_pad, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+	Transforms:
+		IntoActor: tkmcnst
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: tkmmcv
+	WithFacingSpriteBody:
+	-WithVoxelBody@Water:
+	-RenderVoxels:
+	-WithVoxelBody:
+
+#######################################
+# TKM Buildings
+#######################################
+	
+powrtkm:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Description: actor-napowr.description
+		Prerequisites: ~tkmcnst, ~techlevel.1, ~tkmbase
+		LocalCenterOffset: 0,-512,0
+		IconPalette: chromedune
+	Tooltip:
+		Name: Wind Trap
+	Tooltip@NoRow:
+		Name: Wind Trap
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	IsometricSelectable:
+		Class: napowr
+		DecorationHeight: 45
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tkmpowerplant
+
+tkmbarracks:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Description: actor-nahand.description
+		Prerequisites: ~tkmcnst, powrtkm, ~techlevel.1, ~tkmbase
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Exit@1Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.tkm
+	ProductionQueue:
+		Type: Infantry.tkm
+		DisplayOrder: 14
+		Factions: tkm
+	ProductionBar:
+		ProductionType: Infantry.tkm
+	RallyPoint:
+		Path: 3,3
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: tkmbarracks
+	IsometricSelectable:
+		DecorationHeight: 30
+	RenderSprites:
+		Image: tkmbarracks
+
+tkmrefinery:
+	Inherits: ^Refinery
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Prerequisites: ~tkmcnst, powrtkm, ~!global-megawealth, ~techlevel.1, ~AIantiRush, ~tkmbase
+		IconPalette: chromedune
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	FreeActor:
+		Actor: tkmharv
+	DockHost:
+		Type: Unload
+		DockAngle: 640
+		DockOffset: 1248,2248,0
+	-WithDockedOverlay:
+	IsometricSelectable:
+		Class: narefn
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tkmrefinery
+		PlayerPalette: player_rgba
+
+tkmfactory:
+	Inherits: ^WarFactory
+	Inherits@shape: ^3x4Shape
+	Buildable:
+		Queue: Building.tkm
+		Description: actor-naweap.description
+		Prerequisites: ~tkmcnst, tkmrefinery, ~tkmbase
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3,4
+		LocalCenterOffset: 250,-600,0
+	Exit@1:
+		SpawnOffset: -200,800,0
+		ExitCell: 3,2
+		ExitDelay: 3
+	ProvidesPrerequisite@vehicle.tkm:
+		Prerequisite: vehicle.tkm
+		Factions: tkm
+	Production:
+		Produces: Vehicle.tkm
+	ProductionQueue:
+		Type: Vehicle.tkm
+		DisplayOrder: 18
+		Factions: tkm
+	ProductionBar:
+		ProductionType: Vehicle.tkm
+	WithExitOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+		Sequence: build-door
+	IsometricSelectable:
+		Class: naweap
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tkmfactory
+	-WithIdleOverlay@bib:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+
+tkmradarvan:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^1x1Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Prerequisites: ~tkmcnst, tkmrefinery, ~tkmbase
+		Description: actor-naradr.description
+		IconPalette: chromedune
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Intel Van
+	Tooltip@NoRow:
+		Name: Intel Van
+	ProvidesPrerequisite:
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+		LocalCenterOffset: 0,-512,0
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 30
+	RenderSprites:
+		Image: tkmradar
+		Scale: 1.5
+
+tkmairpad:
+	Inherits: ^Helipad
+	Inherits@shape: ^3x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Prerequisites: ~tkmcnst, ~tkmbase, tkmradarvan
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.tkmtech
+	Tooltip:
+		Name: Airpad
+	Tooltip@NoRow:
+		Name: Airpad
+	Production:
+		Produces: Aircraft.tkm
+	ProductionQueue:
+		Type: Aircraft.tkm
+		Factions: tkm
+	ProductionQueue@tkm:
+		Type: Aircraft.tkm
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		Factions: tkm
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.tkm
+	ProvidesPrerequisite:
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateAllied
+	IsometricSelectable:
+		Class: tkmtech
+		DecorationHeight: 50
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: tkmairpad
+		PlayerPalette: player_rgba
+
+tkmtechcenter:
+	Inherits: ^BattleLab
+	Inherits@shape: ^3x4Shape
+	Inherits@AI: ^AIControl
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		Prerequisites: ~tkmcnst, ~tkmbase, tkmairpad
+		Description: actor-naradr.description
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.naradr
+	Tooltip:
+		Name: Research Centre
+	Tooltip@NoRow:
+		Name: Research Centre
+	ProvidesPrerequisite:
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 90
+	RenderSprites:
+		Image: tkmtechcenter
+
+#######################################
+# TKM Defenses
+#######################################
+
+tkmbunker:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.tkm
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmcnst, tkmbarracks, ~techlevel.1
+		Description: actor-gapill.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-gapill.name
+	Tooltip@NoRow:
+		Name: actor-gapill.name
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gapill
+		DecorationHeight: 15
+	Cargo:
+		Types: Garrisoner
+		MaxWeight: 4
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		EjectOnDeathDamage: 0
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
+	WithCargoPipsDecoration:
+		EmptySequence: pip-garrison-empty
+		FullSequence: pip-garrison-green
+		Margin: 4, 3
+		PipStride: 4, 2
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-garrison-gray
+			yellow: pip-garrison-yellow
+			blue: pip-garrison-blue
+			red: pip-garrison-red
+	AttackOpenTopped:
+		Armaments: garrisoned, garrisoned-secondary
+		PortOffsets: 768,0,1024, 448,-682,1024, -448,-682,1024, -768,0,1024, -448,682,1024, 448,682,1024
+		PauseOnCondition: build-incomplete || chronodisable
+	Voiced:
+		VoiceSet: PillBoxVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Cargo
+	RenderSprites:
+		Image: tkmbunker
+		PlayerPalette: player_rgba
+	
+tkmtankbunker:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.tkm
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmcnst, tkmbarracks, ~techlevel.1
+		Description: actor-gapill.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-gapill.name
+	Tooltip@NoRow:
+		Name: actor-gapill.name
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	Armament:
+		Weapon: 105mm
+		LocalOffset: 416,0,416
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gapill
+		DecorationHeight: 15
+	WithCargoSounds:
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
+	AttackOpenTopped:
+		Armaments: garrisoned, garrisoned-secondary
+		PortOffsets: 768,0,1024, 448,-682,1024, -448,-682,1024, -768,0,1024, -448,682,1024, 448,682,1024
+		PauseOnCondition: build-incomplete || chronodisable
+	Voiced:
+		VoiceSet: PillBoxVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,0,200
+	WithSpriteTurret:
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tkmbunkertankturret
+	
+tkmquadbunker:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.tkm
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmcnst, tkmbarracks, ~techlevel.1
+		Description: actor-gapill.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-gapill.name
+	Tooltip@NoRow:
+		Name: actor-gapill.name
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Health:
+		HP: 40000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	WithMuzzleOverlay:
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || chronodisable
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithRangeCircle:
+		Range: 6c0
+		Type: pillbox
+	AutoTarget:
+	RequiresBuildableArea:
+		Adjacent: 4
+	IsometricSelectable:
+		Class: gapill
+		DecorationHeight: 15
+	WithCargoSounds:
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
+	Armament@ag-0:
+		Weapon: AGGattCann
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGattCann2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGattCann3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGattCannLine
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGattCannLine2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGattCannLine3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGattCann
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGattCann2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGattCann3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGattCannLine
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGattCannLine2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGattCannLine3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+	Voiced:
+		VoiceSet: PillBoxVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+		Damage: 65
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,0,200
+	WithSpriteTurret:
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tkmbunkerquadturret
+	
+#######################################
+# TKM Infantry
+#######################################
+
+tkmrifleman:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks, ~upberezka
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: actor-e2.name
+	Tooltip@NoRow:
+		Name: actor-e2.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 65
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: BoltRifle
+		Damage: 45
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: BoltRifleE
+		Damage: 90
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: BoltRifle
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: BoltRifleE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: BoltRifle
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: BoltRifleE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute && !webdisable
+	WithSpriteBody@Parachute:
+		RequiresCondition: parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: ConscriptVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tkmrifleman
+
+tkmtrooper:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks, ~upnato
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: actor-e2.name
+	Tooltip@NoRow:
+		Name: actor-e2.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: M1Carbine
+		Damage: 45
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: M1CarbineE
+		Damage: 90
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: M1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: M1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: M1Carbine
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: M1CarbineE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute && !webdisable
+	WithSpriteBody@Parachute:
+		RequiresCondition: parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: ConscriptVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tkmtrooper
+
+tkmspetsnaz:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks, ~uptitan
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: actor-e2.name
+	Tooltip@NoRow:
+		Name: actor-e2.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 50
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: para
+		Damage: 45
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: paraE
+		Damage: 90
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: para
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: paraE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: para
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: paraE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute && !webdisable
+	WithSpriteBody@Parachute:
+		RequiresCondition: parachute
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: ConscriptVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tkmspetsnaz
+		PlayerPalette: player_rgba
+
+tkmrocketeer:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks
+		BuildPaletteOrder: 10
+		Description: actor-tsrocketinfantry.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: Rocket Infantry
+	Tooltip@NoRow:
+		Name: Rocket Infantry
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncher
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: TSMissileLauncherE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@primaryAA:
+		Weapon: TSMissileLauncherAA
+		Damage: 40
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@eliteAA:
+		Weapon: TSMissileLauncherAAE
+		Damage: 80
+		LocalOffset: 256,0,768
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentoppedAA:
+		Name: opentopped
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAA
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisonedAA:
+		Name: garrisoned
+		Weapon: TSMissileLauncherAAE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: TSNODRocket
+	ProducibleWithLevel@1:
+		Prerequisites: vete2flaktorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vete2flaktorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vete2flakt, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vete2flakt, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tkmrocketeer
+		
+tkmjug:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks
+		BuildPaletteOrder: 10
+		Description: actor-e2.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 100
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Tooltip:
+		Name: actor-e2.name
+	Tooltip@NoRow:
+		Name: actor-e2.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 50
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@ag-0:
+		Weapon: AGGattTrop
+		LocalOffset: 544,100,768
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGattTrop2
+		LocalOffset: 544,100,768
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGattTrop3
+		LocalOffset: 544,100,768
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGattTropLine
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGattTropLine2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGattTropLine3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGattTrop
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGattTrop2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGattTrop3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGattTropLine
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGattTropLine2
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGattTropLine3
+		LocalOffset: 544,100,768
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@opentopped-ag-0:
+		Name: opentopped
+		Weapon: AGGattTrop
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@opentopped-ag-1:
+		Name: opentopped
+		Weapon: AGGattTrop2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@opentopped-ag-2:
+		Name: opentopped
+		Weapon: AGGattTrop3
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@opentopped-ag-line-0:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@opentopped-ag-line-1:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine2
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@opentopped-ag-line-2:
+		Name: opentopped-secondary
+		Weapon: AGGattTropLine3
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@opentopped-aa-0:
+		Name: opentopped
+		Weapon: AAGattTrop
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@opentopped-aa-1:
+		Name: opentopped
+		Weapon: AAGattTrop2
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@opentopped-aa-2:
+		Name: opentopped
+		Weapon: AAGattTrop3
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@opentopped-aa-line-0:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@opentopped-aa-line-1:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@opentopped-aa-line-2:
+		Name: opentopped-secondary
+		Weapon: AAGattTropLine3
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@garrisoned-ag-0:
+		Name: garrisoned
+		Weapon: UCAGGattTrop
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !gatling
+	Armament@garrisoned-ag-1:
+		Name: garrisoned
+		Weapon: UCAGGattTrop2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling == 1
+	Armament@garrisoned-ag-2:
+		Name: garrisoned
+		Weapon: UCAGGattTrop3
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: gatling >= 2
+	Armament@garrisoned-ag-line-0:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@garrisoned-ag-line-1:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine2
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@garrisoned-ag-line-2:
+		Name: garrisoned-secondary
+		Weapon: UCAGGattTropLine3
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@garrisoned-aa-0:
+		Name: garrisoned
+		Weapon: UCAAGattTrop
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !gatling
+	Armament@garrisoned-aa-1:
+		Name: garrisoned
+		Weapon: UCAAGattTrop2
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling == 1
+	Armament@garrisoned-aa-2:
+		Name: garrisoned
+		Weapon: UCAAGattTrop3
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@garrisoned-aa-line-0:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@garrisoned-aa-line-1:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@garrisoned-aa-line-2:
+		Name: garrisoned-secondary
+		Weapon: AAGattTropLine3
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		ArmamentNames: primary, opentopped, garrisoned
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		ArmamentNames: primary, opentopped, garrisoned
+		RequiredShotsPerInstance: 3, 6
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	WithDeathAnimation@normal:
+	Voiced:
+		VoiceSet: ConscriptVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+	RenderSprites:
+		Image: tkmjug
+
+tkmengineer:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		Prerequisites: ~tkmbarracks
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		IconPalette: ts-chrome
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: actor-engineer.name
+	Tooltip@NoRow:
+		Name: actor-engineer.name
+	Selectable:
+		Priority: 4
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: foot
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	InstantlyRepairs:
+		Types: building
+		RepairSound: urepair.wav
+	InstantlyRepairs@CIV:
+		Types: civilian
+		RepairSound: urepair.wav
+		ValidRelationships: Ally, Neutral
+	RepairsBridges:
+		RepairNotification: BridgeRepaired
+	Captures@INSTANT:
+		CaptureTypes: building, tech, husk
+		RequiresCondition: instantcapture
+	Captures@TIMED:
+		CaptureDelay: 75
+		CaptureTypes: building, husk
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	Captures@TECH:
+		CaptureTypes: tech
+		CaptureDelay: 250
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	Armament:
+		Weapon: DefuseKit
+		Cursor: remove-bomb
+		OutsideRangeCursor: remove-bomb
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: tsengineernod
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	CaptureManager:
+	RenderSprites:
+		Image: tkmengineer
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+tkmvon:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CAMOUFLAGE: ^AffectedByCamouflage
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.tkm
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 80
+		Prerequisites: ~tkmbarracks
+		Description: actor-virus.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+		BuildLimit: 1
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-virus.name
+	Tooltip@NoRow:
+		Name: actor-virus.name
+	DeliversCash:
+		Payload: 300
+		Voice: Move
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		TargetFrozenActors: true
+	Armament@primary:
+		Weapon: VonRifle
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: VonRifleE
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: VonRifle
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: VonRifleE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: VonRifle
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: VonRifleE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: SniperVoice
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 200
+	RenderSprites:
+		Image: tkmvon
+
+#######################################
+# TKM Vehicles
+#######################################
+	
+tkmharv:
+	Inherits: ^Miner
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		BuildPaletteOrder: 90
+		Description: actor-cmin.description
+		Prerequisites: ~tkmrefinery
+	Tooltip:
+		Name: Ore Harvester
+	Tooltip@NoRow:
+		Name: Ore Harvester
+	Harvester:
+		BaleUnloadDelay: 2
+		EmptyCondition: harvester-empty
+	StoresResources:
+		Capacity: 20
+	DockClientManager:
+		Voice: Deliver
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	RenderSprites:
+		Image: tkmharv
+		PlayerPalette: player_rgba
+	WithFacingSpriteBody:
+	-WithHarvestOverlay:
+	RenderVoxels:
+		Image: blanktemplate
+		
+tkmas42:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Jackal
+	Tooltip@NoRow:
+		Name: Jackal
+	Selectable:
+		Class: Jackal
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		Prerequisites: ~tkmfactory
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Armament@primary:
+		Weapon: TSMissileLauncher
+		Damage: 40
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TSMissileLauncherE
+		Damage: 80
+		LocalOffset: 500,0,400
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tkmas42
+		PlayerPalette: player_rgba
+
+tkmtechnicaltank:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Technical Tank
+	Tooltip@NoRow:
+		Name: Technical Tank
+	Selectable:
+		Class: Technical
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		Prerequisites: ~tkmfactory
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+		TerrainOrientationAdjustmentMargin: -1
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Turreted:
+		TurnSpeed: 40
+		Offset: -160,0,1000
+	Armament@primary:
+		Weapon: 120mm
+		Damage: 90
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: 120mmE
+		Damage: 180
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 896,0,640
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	AttackTurreted:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: technicaltank
+		PlayerPalette: player_rgba
+
+tkmquadtruck:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Quad Cannon
+	Tooltip@NoRow:
+		Name: Quad Cannon
+	Selectable:
+		Class: Quad Cannon
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		Prerequisites: ~tkmfactory
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+		TerrainOrientationAdjustmentMargin: -1
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Turreted:
+		TurnSpeed: 40
+		Offset: -160,0,600
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	AttackTurreted:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tkmtechnicaltruck
+		PlayerPalette: player_rgba
+
+tkmzaza:
+	Inherits: ^Vehicle
+	Inherits@BUILDVOICE: ^WithProductionVoicelines
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: Zaza
+	Tooltip@NoRow:
+		Name: Zaza
+	Selectable:
+		Class: Zaza
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.tkm
+		Prerequisites: ~tkmfactory
+		BuildPaletteOrder: 30
+		Description: actor-d2ktrike.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 40
+		Speed: 128
+		Locomotor: wheeled
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+		TerrainOrientationAdjustmentMargin: -1
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	AttackFrontal:
+		FacingTolerance: 0
+	AutoTarget:
+	Turreted:
+		TurnSpeed: 40
+		Offset: -160,0,1000
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	HitShape:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	AttackTurreted:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	RenderSprites:
+		Image: tkmzaza
+		PlayerPalette: player_rgba

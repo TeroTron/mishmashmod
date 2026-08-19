@@ -258,3 +258,18 @@
 		Image: debris
 		Sequences: small1
 	Warhead@Validation: TargetDamage
+
+Mutate:
+	ValidTargets: Ground, Air, Trees
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 4c0
+		Damage: 300
+		ValidTargets: Infantry
+		InvalidTargets: Vehicle, Structure, Wall, Husk, TerrorDrone, Hero, MCImmune
+		AffectsParent: True
+		DamageTypes: MutationDeath
+	Warhead@2eff: CreateEffect
+		Explosions: controlwave
+		ExplosionPalette: effect
+		ImpactSounds: sgenon.wav
+		ImpactActors: false

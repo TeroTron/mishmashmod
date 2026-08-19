@@ -1665,6 +1665,8 @@ altengi:
 
 tsttnksprite:
 	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Scale: 1.5
 	idle:
 		Filename: tsgttick.shp
 		Offset: 0, -20, 0

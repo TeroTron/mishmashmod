@@ -1106,7 +1106,7 @@ yagntc:
 	Defaults:
 		Offset: 0, -45
 	idle-waves:
-		Filename: bits/structures/water/yggntc_w.shp
+		Filename: yggntcmk.shp
 		Tick: 200
 		ZOffset: -1c0
 	make:
@@ -1210,7 +1210,7 @@ yagntc:
 		Filename: dot.shp
 		ZOffset: -9999
 	icon:
-		Filename: bits/cameos/gtncicon.shp
+		Filename: gtncicon.shp
 		Offset: 0,0
 
 yappet:

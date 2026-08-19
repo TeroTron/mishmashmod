@@ -1959,7 +1959,7 @@ icon:
 	domination:
 		Filename: cameomd|pdomicon.shp
 	invis:
-		Filename: bits/cameos/invsicon.shp
+		Filename: muteicon.shp
 	bounty:
 		Filename: bits/cameos/bntyicon.shp
 	xxicon:

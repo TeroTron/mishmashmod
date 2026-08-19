@@ -695,3 +695,14 @@ tsapache:
 	idle-a2a: tsapache
 	idle-predator: tsapache
 	idle-a2a-predator: tsapache
+
+#ra1
+
+ra1alliedmcv:
+	idle:
+	water:
+
+ra1alliedharv:
+	idle: harvb
+	water: harvb
+	unload: harvb

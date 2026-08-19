@@ -121,14 +121,24 @@ faction-soviet =
      Aggresive Playstyle
 
 faction-yuri =
-    .name = Yuri
-    .description = Yuri
+    .name = Yuri's Army
+    .description = Yuri's Army
      
      Highly tactical, sneaky, and unit-efficient, excelling at controlling the battlefield.
       
      Mind Control Domination
      Unconventional Warfare
      Defensive Playstyle
+
+faction-zombie =
+    .name = Zombies
+    .description = Zombies
+     
+     Mass Infantry Assaults backed by strong units.
+      
+     Infinite Resource
+     Attritional Warfare
+     Aggressive Playstyle
 
 faction-gdi =
     .name = GDI
@@ -3774,14 +3784,13 @@ actor-yasgen =
       Requires power to operate.
 
 actor-yagntc =
-   .name = Lazarus Shield Generator
-   .description = Makes vehicles invisible.
+   .name = Genetic Mutator
+   .description = Transforms Infantries to Brutes.
     Kills infantry.
     
       Requires power to operate.
-   .power-name = Invisibility
-   .power-description = Makes a group of units invisibile
-    unless they are firing.
+   .power-name = Genetic Mutator
+   .power-description = Transforms Infantries to Brutes.
     
     Kills infantry.
 

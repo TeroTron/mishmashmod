@@ -760,3 +760,67 @@ upgrade.aerial_propaganda:
 		Cost: 2000
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.aerial_propaganda
+
+### TKM ###
+upgrade.berezka:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Berezka Arsenal Upgrade
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		BuildPaletteOrder: 10
+		BuildDuration: 0
+		Prerequisites: ~tkmcnst, ~!upgrade.berezka, ~!upgrade.titan, ~!upgrade.nato
+		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
+	Valued:
+		Cost: 0
+	ProvidesPrerequisite@tkmbase:
+		Prerequisite: tkmbase
+	ProvidesPrerequisite@upberezka:
+		Prerequisite: upberezka
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.gi_fortifications
+	RenderSprites:
+		Image: berezkaupgradeicon
+
+upgrade.titan:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Titan Arsenal Upgrade
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		BuildPaletteOrder: 10
+		BuildDuration: 0
+		Prerequisites: ~tkmcnst, ~!upgrade.berezka, ~!upgrade.titan, ~!upgrade.nato
+		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
+	Valued:
+		Cost: 0
+	ProvidesPrerequisite@tkmbase:
+		Prerequisite: tkmbase
+	ProvidesPrerequisite@upnato:
+		Prerequisite: upnato
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.gi_fortifications
+	RenderSprites:
+		Image: titanplatingupgradeicon
+
+upgrade.nato:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: NATO Arsenal Upgrade
+	Buildable:
+		Queue: Building.Shared, Building.tkm
+		BuildPaletteOrder: 10
+		BuildDuration: 0
+		Prerequisites: ~tkmcnst, ~!upgrade.berezka, ~!upgrade.titan, ~!upgrade.nato
+		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
+	Valued:
+		Cost: 0
+	ProvidesPrerequisite@tkmbase:
+		Prerequisite: tkmbase
+	ProvidesPrerequisite@upnato:
+		Prerequisite: upnato
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.gi_fortifications
+	RenderSprites:
+		Image: natoupgradeicon

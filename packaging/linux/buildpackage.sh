@@ -35,7 +35,7 @@ if [ -f "${TEMPLATE_ROOT}/user.config" ]; then
 	. "${TEMPLATE_ROOT}/user.config"
 fi
 
-require_variables "MOD_ID" "ENGINE_DIRECTORY" "PACKAGING_DISPLAY_NAME" "PACKAGING_INSTALLER_NAME" "PACKAGING_COPY_CNC_DLL" "PACKAGING_COPY_D2K_DLL" "PACKAGING_COPY_AS_DLL" \
+require_variables "MOD_ID" "ENGINE_DIRECTORY" "PACKAGING_DISPLAY_NAME" "PACKAGING_INSTALLER_NAME" "PACKAGING_COPY_CNC_DLL" "PACKAGING_COPY_D2K_DLL" \
 	"PACKAGING_FAQ_URL" "PACKAGING_OVERWRITE_MOD_VERSION"
 
 TAG="$1"
@@ -65,7 +65,7 @@ if [ ! -d "${OUTPUTDIR}" ]; then
 fi
 
 echo "Building core files"
-install_assemblies "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}" "${APPDIR}/usr/lib/openra" "linux-x64" "net6" "True" "${PACKAGING_COPY_CNC_DLL}" "${PACKAGING_COPY_D2K_DLL}" "${PACKAGING_COPY_AS_DLL}"
+install_assemblies "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}" "${APPDIR}/usr/lib/openra" "linux-x64" "net6" "True" "${PACKAGING_COPY_CNC_DLL}" "${PACKAGING_COPY_D2K_DLL}"
 install_data "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}" "${APPDIR}/usr/lib/openra"
 
 for f in ${PACKAGING_COPY_ENGINE_FILES}; do
@@ -89,9 +89,9 @@ fi
 # Add native libraries
 echo "Downloading appimagetool"
 if command -v curl >/dev/null 2>&1; then
-	curl -s -L -O https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage || exit 3
+	curl -s -L -O https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage || exit 3
 else
-	wget -cq https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage || exit 3
+	wget -cq https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage || exit 3
 fi
 
 echo "Building AppImage"

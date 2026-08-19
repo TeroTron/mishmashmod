@@ -985,3 +985,89 @@ TSAssaultCannonE:
 		Damage: 8000
 	Warhead@2Eff: CreateEffect
 		Explosions: piffpiffred
+
+BoltRifle:
+	Inherits: 20mm
+	ReloadDelay: 70
+	Range: 6000
+	Report: nax_rifle1.wav, nax_rifle2.wav, nax_rifle3.wav, nax_rifle4.wav, nax_rifle5.wav
+	Projectile: BulletAS
+		Speed: 0c800
+		Inaccuracy: 0c512
+		Palette: effect
+		Blockable: true
+		ContrailDelay: 0
+		ContrailStartColor: FFDD00
+		ContrailEndColor: EEEE00
+		ContrailLength: 3
+		ContrailStartWidth: 26
+	Warhead@Line: TargetDamage
+		ValidTargets: Ground, Water, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 4500
+
+BoltRifleE:
+	Inherits: 20mm
+	ReloadDelay: 30
+	Range: 8000
+	Report: nax_rifle1.wav, nax_rifle2.wav, nax_rifle3.wav, nax_rifle4.wav, nax_rifle5.wav
+	Projectile: BulletAS
+		Speed: 0c800
+		Inaccuracy: 0c512
+		Palette: effect
+		Blockable: true
+		ContrailDelay: 0
+		ContrailStartColor: FFDD00
+		ContrailEndColor: EEEE00
+		ContrailLength: 3
+		ContrailStartWidth: 26
+	Warhead@Line: TargetDamage
+		ValidTargets: Ground, Water, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 9000
+		ValidTargets: Ground, Water, Air
+
+VonRifle:
+	Inherits: 20mm
+	ReloadDelay: 70
+	Range: 15000
+	Report: nax_rifle1.wav, nax_rifle2.wav, nax_rifle3.wav, nax_rifle4.wav, nax_rifle5.wav
+	Projectile: BulletAS
+		Speed: 1c800
+		Inaccuracy: 0c512
+		Palette: effect
+		Blockable: true
+		ContrailDelay: 0
+		ContrailStartColor: FFDD00
+		ContrailEndColor: EEEE00
+		ContrailLength: 3
+		ContrailStartWidth: 26
+	Warhead@Line: TargetDamage
+		ValidTargets: Ground, Water, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 20000
+
+VonRifleE:
+	Inherits: 20mm
+	ReloadDelay: 30
+	Range: 15000
+	Report: nax_rifle1.wav, nax_rifle2.wav, nax_rifle3.wav, nax_rifle4.wav, nax_rifle5.wav
+	Projectile: BulletAS
+		Speed: 1c800
+		Inaccuracy: 0c512
+		Palette: effect
+		Blockable: true
+		ContrailDelay: 0
+		ContrailStartColor: FFDD00
+		ContrailEndColor: EEEE00
+		ContrailLength: 3
+		ContrailStartWidth: 26
+	Warhead@Line: TargetDamage
+		ValidTargets: Ground, Water, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 20000
+		ValidTargets: Ground, Water, Air

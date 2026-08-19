@@ -51,9 +51,9 @@ harkonnenmcv:
 		Image: d2kmcv
 		PlayerPalette: d2kpal2
 	WithFacingSpriteBody:
+	-WithVoxelBody@Water:
 	-RenderVoxels:
 	-WithVoxelBody:
-	-WithVoxelBody@Water:
 
 #######################################
 # D2K harkonnen Buildings
@@ -1282,7 +1282,6 @@ d2kinkvinecatapult:
 
 d2kordosdustscout:
 	Inherits: ^Vehicle
-	Inherits: ^Burrow
 	Inherits@BUILDVOICE: ^WithProductionVoicelines
 	Inherits@BUNKER: ^TankBunkerable
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1290,11 +1289,6 @@ d2kordosdustscout:
 	Inherits@MC: ^MindControllableDisabledWithIC
 	Inherits@RADIATON: ^DamagedByRadiation50Percent
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	IssueOrderToBot@AI:
-		RequiresCondition: loaded
-		OrderName: Unload
-		OrderChance: 100
-		OrderInterval: 45
 	Valued:
 		Cost: 500
 	DeliversCash:
@@ -1319,6 +1313,18 @@ d2kordosdustscout:
 		Speed: 128
 		Locomotor: wheeled
 		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		CanDeployOnRamps: True
+		SmartDeploy: True
+		Facing: 1
+		Voice: Deploy
+		UndeployOnMove: true
+		DeploySounds: igidepa.wav
+		UndeploySounds: igidepb.wav
+		PauseOnCondition: chronodisable
+		RequiresCondition: !parachute && !webdisable && !dogstun
 	Health:
 		HP: 30000
 	Armor:
@@ -1333,16 +1339,30 @@ d2kordosdustscout:
 	AttackFrontal:
 		FacingTolerance: 0
 	AutoTarget:
+	WithMakeAnimation:
+		Sequence: deploy
+		BodyNames: dot
 	Armament@primary:
 		Weapon: para
 		Damage: 25
-		RequiresCondition: !rank-elite
+		RequiresCondition: !rank-elite && undeployed
 		MuzzleSequence: muzzle
 	Armament@primary-elite:
 		Weapon: paraE
 		Damage: 50
-		RequiresCondition: rank-elite
+		RequiresCondition: rank-elite && undeployed
 		MuzzleSequence: muzzle
+	Cloak:
+		RequiresCondition: !chronodisable
+		InitialDelay: 15
+		CloakDelay: 15
+		IsPlayerPalette: true
+		UncloakOn: Damage, Move
+		EffectImage: explosion
+		EffectPalette: effect75alpha
+		CloakEffectSequence: smokebomb
+		EffectOffset: 0, 0, 1000
+		PauseOnCondition: cloak-force-disabled || undeployed
 	Voiced:
 		VoiceSet: D2kVehicleVoice
 	ProducibleWithLevel@1:
@@ -1355,23 +1375,27 @@ d2kordosdustscout:
 	WithProductionIconOverlay@2:
 		Prerequisites: warfactory.infiltrated, baacdm
 		Types: chevron-elite
-	AttackFrontal:
-		FacingTolerance: 0
 	HitShape:
-	WithFacingSpriteBody:
-		MoveSequence: run
-		ValidMovementTypes: Horizontal, Turn
-	WithMoveAnimation:
-		MoveSequence: run
-		ValidMovementTypes: Horizontal, Turn
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+	WithInfantryBody:
+		RequiresCondition: undeployed
+	WithInfantryBody@Deployed:
+		StandSequences: deployed
+		RequiresCondition: deployed
+	WithSpriteBody:
+		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed && !advirrad
+	WithAttackOverlay@muzzle:
+		Sequence: shoot-muzzle
+		IsDecoration: true
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
 	RenderSprites:
 		Image: dust_scout_d2k_o
 		PlayerPalette: player_rgba
-
-
-
+	-RenderVoxels:
 
 #######################################
 # D2K Infantry
@@ -1863,9 +1887,9 @@ ordosmcv:
 		Image: d2kmcv
 		PlayerPalette: d2kpal2
 	WithFacingSpriteBody:
+	-WithVoxelBody@Water:
 	-RenderVoxels:
 	-WithVoxelBody:
-	-WithVoxelBody@Water:
 
 #######################################
 # D2K ordos Buildings
@@ -3632,9 +3656,9 @@ atreidesmcv:
 		Image: d2kmcv
 		PlayerPalette: d2kpal2
 	WithFacingSpriteBody:
+	-WithVoxelBody@Water:
 	-RenderVoxels:
 	-WithVoxelBody:
-	-WithVoxelBody@Water:
 
 #######################################
 # D2K atreides Buildings
@@ -5328,7 +5352,6 @@ d2katrediescarryall:
 	Inherits@CHAOS: ^BerserkableAircraft
 	Inherits@MC: ^MindControllable
 	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: Atreides Advanced Carryall
 	Tooltip@NoRow:
@@ -5415,7 +5438,6 @@ d2katrediescarryall:
 	RenderSprites:
 		Image: atredies_carryall_a
 		PlayerPalette: player_rgba
-	-WithVoxelBody:
 
 
 d2katreidessiegetank:
@@ -6435,7 +6457,6 @@ ornithopterhusk:
 	RevealOnDeath:
 		Radius: 10c0
 		Duration: 125
-	-WithVoxelBody:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		UseClassicPerspectiveFudge: false
@@ -6599,7 +6620,6 @@ d2kgunship_h_husk:
 	RevealOnDeath:
 		Radius: 10c0
 		Duration: 125
-	-WithVoxelBody:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		UseClassicPerspectiveFudge: false
@@ -6708,7 +6728,6 @@ d2kharkcarryall:
 	Inherits@CHAOS: ^BerserkableAircraft
 	Inherits@MC: ^MindControllable
 	Inherits@RADIATON: ^DamagedByRadiation50PercentAircraft
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: Harkonnen Advanced Carryall
 	Tooltip@NoRow:
@@ -6809,11 +6828,9 @@ d2kharkcarryall:
 	RenderSprites:
 		Image: d2kharkcarryall
 		PlayerPalette: player_rgba
-	-WithVoxelBody:
 
 d2kharkcarryallhusk:
 	Inherits: ^HelicopterHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-hind.name
 	Tooltip@NoRow:
@@ -6840,7 +6857,6 @@ d2kharkcarryallhusk:
 	RenderSprites:
 		Image: d2kharkcarryall
 		PlayerPalette: player_rgba
-	-WithVoxelBody:
 
 d2kairdefenseplatform_h:
 	Inherits: ^Helicopter
@@ -6978,7 +6994,6 @@ d2kairdefenseplatform_h:
 
 d2kairdefenseplatform_h_husk:
 	Inherits: ^HelicopterHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
 		Name: actor-hind.name
 	Tooltip@NoRow:
@@ -7005,4 +7020,3 @@ d2kairdefenseplatform_h_husk:
 	RenderSprites:
 		Image: d2kadp
 		PlayerPalette: player_rgba
-	-WithVoxelBody:

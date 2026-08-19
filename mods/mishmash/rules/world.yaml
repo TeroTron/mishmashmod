@@ -14,34 +14,6 @@
 	TerrainLighting:
 	TerrainRenderer:
 	DebugVisualizations:
-	SubterraneanLocomotor@SUBTERRANEAN:
-		Name: subterranean
-		Crushes: wall, crate, infantry
-		CrushDamageTypes: NonTemporal, Crush
-		TerrainSpeeds:
-			Clear: 80
-				PathingCost: 150
-			Sand: 100
-				PathingCost: 150
-			Rough: 100
-				PathingCost: 150
-			Dune: 80
-				PathingCost: 150
-			Rail: 50
-				PathingCost: 150
-			Road: 100
-				PathingCost: 150
-			Bridge: 100
-				PathingCost: 150
-			DirtRoad: 100
-				PathingCost: 150
-			Ore: 90
-				PathingCost: 150
-			Gems: 90
-				PathingCost: 150
-		SubterraneanTransitionTerrainTypes:
-		SubterraneanTransitionCost: 5
-		SubterraneanTransitionOnRamps: True
 	Locomotor@FOOT:
 		Name: foot
 		Crushes: crate, mine
@@ -58,6 +30,24 @@
 			DirtRoad: 100
 			Ore: 90
 			Gems: 90
+	SubterraneanLocomotor@SUBTERRANEAN:
+		Name: subterranean
+		Crushes: wall, crate, infantry
+		CrushDamageTypes: NonTemporal, Crush
+		TerrainSpeeds:
+			Clear: 100
+			Sand: 100
+			Rough: 100
+			Dune: 80
+			Rail: 90
+			Road: 100
+			DirtRoad: 100
+			Ore: 90
+			Gems: 90
+			Subterranean: 150
+		SubterraneanTransitionTerrainTypes: Clear, Sand, Rough, Dune, Rail, Road, DirtRoad, Ore, Gems
+		SubterraneanTransitionCost: 0
+		SubterraneanTransitionOnRamps: True
 	Locomotor@SWIMSUIT:
 		Name: swimsuit
 		Crushes: crate, nmine, mine
@@ -233,10 +223,22 @@
 		Description: faction-soviet.description
 		Selectable: true
 	Faction@unifiedyuri:
-		Name: Yuri
+		Name: Yuri's Army
 		InternalName: yuri
 		Side: Red Alert 2
 		Description: faction-yuri.description
+		Selectable: true
+	Faction@ra1allied:
+		Name: Allied
+		InternalName: ra1allied
+		Description: faction-ra1allied.description
+		Side: Red Alert 1
+		Selectable: true
+	Faction@ra1soviet:
+		Name: Soviets
+		InternalName: ra1soviet
+		Description: faction-ra1soviet.description
+		Side: Red Alert 1
 		Selectable: true
 	Faction@gdi:
 		Name: GDI
@@ -268,8 +270,14 @@
 		Description: faction-ordos.description
 		Side: Dune
 		Selectable: true
+	Faction@tkm:
+		Name: TKM
+		InternalName: tkm
+		Description: faction-tkm.description
+		Side: Original Factions
+		Selectable: true
 	Faction@zombie:
-		Name: Zombie
+		Name: Zombies
 		InternalName: zombie
 		Description: faction-zombie.description
 		Side: Original Factions
@@ -293,7 +301,6 @@
 
 World:
 	Inherits: ^BaseWorld
-	SubterraneanActorLayer:
 	ChatCommands:
 	DevCommands:
 	DebugVisualizationCommands:
@@ -425,6 +432,24 @@ World:
 		Factions: zombie
 		BaseActor: zombiemcv
 		BaseActorFacing: 640
+	StartingUnits@tkm:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: tkm
+		BaseActor: tkmmcv
+		BaseActorFacing: 640
+	StartingUnits@ra1allied:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: ra1allied
+		BaseActor: ra1alliedmcv
+		BaseActorFacing: 640
+	StartingUnits@ra1soviet:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: ra1soviet
+		BaseActor: ra1sovietmcv
+		BaseActorFacing: 640
 	CrateSpawner:
 		DeliveryAircraft: pdplane.crate
 		Minimum: 1
@@ -508,6 +533,7 @@ World:
 		TerrainFlashImage: moveflsh
 		TerrainFlashSequence: idle
 		TerrainFlashPalette: moveflash
+	SubterraneanActorLayer:
 
 EditorWorld:
 	Inherits: ^BaseWorld
