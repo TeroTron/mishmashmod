@@ -772,6 +772,11 @@ tssmech:
 		Start: 96
 		Facings: -8
 		ShadowStart: 232
+	make:
+		Filename: tssmech.shp
+		Start: 96
+		Facings: -8
+		ShadowStart: 232
 	run:
 		Filename: tssmech.shp
 		Facings: -8
